@@ -1,10 +1,13 @@
+html{
+  background-color: #ffe6a7 ;
+}
 
 .mat-form-field + .mat-form-field {
     margin-left: 8px;
   }
   
   button {
-    background-color: #ffb703;
+    background-color: #ffe6a7;
     padding: 10px;
     width: 100%;
     border-radius: 8px;
@@ -13,26 +16,26 @@
   }
 
   a {
-      background-color: #ffb703;
+      background-color: #ffe6a7;
       text-decoration: none;
-      color: #005f73;
+      color: #6f1d1b;
   }
   .mat-panel-title .mat-expansion-panel{
-    background-color: #005f73;
+    background-color: #bb9457;
     color: #fff;
   }
   .mat-expansion-panel{
     width: 90%;
     margin-left: 5%;
-    background-color: #005f73
+    background-color: #bb9457
   }
   .menu__lateral{
     text-align: center;
     margin-left: 1%;
     width: 20%;
     height: 100%;
-    background-color:#023047;
-    color: #e0fbfc;
+    background-color:#432818;
+    color: #ffe6a7;
     margin-top: 1%;
   }
 
@@ -47,3 +50,9 @@
       margin-left: 2%;
       margin-top: 2%;
   }
+
+ #teste_fonte{
+  font-family: 'Mochiy Pop One', sans-serif;
+  color: #ffe6a7;
+
+ }
