@@ -51,3 +51,5 @@ ALTER TABLE Item_Pedido add constraint fk_itemP_pedido FOREIGN KEY (codigo_pedid
 ALTER TABLE Item_Pedido add constraint fk_itemP_produto FOREIGN KEY (codigo_produto) REFERENCES produto(codigo);
 ALTER TABLE Pedido add constraint fk_pedido_cliente FOREIGN KEY (codigo_cliente) REFERENCES cliente(codigo);
 
+INSERT INTO produto (descricao_Produto, unidade_Medida , valor_Unitario , status) VALUES(),
+();
