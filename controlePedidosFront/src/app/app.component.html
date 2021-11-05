@@ -1,14 +1,41 @@
 <!-- tela inicial -->
-<a routerLink="cliente-cadastrar">Cadastrar Cliente</a>
-<br>
-<a routerLink="cliente-listar">Listar Clientes</a>
-<br>
-<a routerLink="fazer-pedido">Fazer Pedido</a>
-<br>
-<a routerLink="produtos-listar">Produtos Listar</a>
-<br>
-<a routerLink="produto-cadastrar">Produtos Cadastrar </a>
-<br>
-<a routerLink="pedidos-listar">Pedidos Listar</a>
 
-<router-outlet></router-outlet>
+<div class="container">
+
+  <div class="menu__lateral">
+    <h1> Nome da Empresa 🍬</h1>
+    <br>
+    <mat-accordion>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Cliente 
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button><a routerLink="cliente-cadastrar">Cadastrar Cliente 🧏‍♂️🧏‍♀️</a></button>
+        <button><a routerLink="fazer-pedido">Fazer Pedido 🛒🍫</a></button>
+      </mat-expansion-panel>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Empresa
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button><a routerLink="cliente-listar">Listar Clientes 🧏‍♂️🧏‍♀️</a></button>
+        <button><a routerLink="produtos-listar">Listar Produtos 🍬🍫</a></button>
+        <button><a routerLink="pedidos-listar">Listar Pedidos 🛒</a></button>
+        <button><a routerLink="produto-cadastrar">Cadastrar Produtos 📑🍫</a></button>
+      </mat-expansion-panel>
+    </mat-accordion>
+   
+  </div>
+  <div class="componentes">
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>
+
+
+
+
+
