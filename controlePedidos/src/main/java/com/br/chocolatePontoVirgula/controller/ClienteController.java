@@ -25,7 +25,5 @@ public class ClienteController {
 	    Page<Cliente> result = clienteRepository.findAll(pageRequest);
 	    return ResponseEntity.ok(result);
 	}
-	
-	
 
 }
