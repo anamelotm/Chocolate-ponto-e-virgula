@@ -4,11 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSelectModule} from '@angular/material/select';
-
 
 import { ClienteCadastrarComponent } from './Cliente/cliente-cadastrar/cliente-cadastrar.component';
 import { ClienteListarComponent } from './Empresa/cliente-listar/cliente-listar.component';
@@ -30,13 +25,8 @@ import { FazerPedidoComponent } from './Cliente/fazer-pedido/fazer-pedido.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
-    MatExpansionModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatSelectModule
-
-  ],
+    BrowserAnimationsModule
+    ],
 
   providers: [],
   bootstrap: [AppComponent]
