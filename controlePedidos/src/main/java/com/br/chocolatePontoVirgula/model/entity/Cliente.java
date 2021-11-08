@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Cliente {
 	
 	@Id
-	private Long codigo;
+	private int codigo;
 	private String tipo;
 	private String documento;
 	private String nome;
@@ -16,7 +16,7 @@ public class Cliente {
 		
 	}
 
-	public Cliente(Long codigo, String tipo, String documento, String nome) {
+	public Cliente(int codigo, String tipo, String documento, String nome) {
 		super();
 		this.codigo = codigo;
 		this.tipo = tipo;
@@ -24,11 +24,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public Long getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 

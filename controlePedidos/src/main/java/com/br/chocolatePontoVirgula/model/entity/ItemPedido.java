@@ -6,7 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class ItemPedido {
 	@Id
-	private Long codigo;
+	private int codigo;
 	private int quantidade;
 	private Double valorTotal;
 	private int codigoPedido;
@@ -16,7 +16,7 @@ public class ItemPedido {
 		
 	}
 
-	public ItemPedido(Long codigo, int quantidade, Double valorTotal, int codigoPedido, int codigoProduto) {
+	public ItemPedido(int codigo, int quantidade, Double valorTotal, int codigoPedido, int codigoProduto) {
 		super();
 		this.codigo = codigo;
 		this.quantidade = quantidade;
@@ -25,11 +25,11 @@ public class ItemPedido {
 		this.codigoProduto = codigoProduto;
 	}
 
-	public Long getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
