@@ -1,7 +1,12 @@
 package com.br.chocolatePontoVirgula.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
 	
+	@Id
 	private Long codigo;
 	private String tipo;
 	private String documento;
