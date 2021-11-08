@@ -1,13 +1,13 @@
-package com.br.controlePedidos;
+package com.br.chocolatePontoVirgula;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ControlePedidosApplication {
+public class ChocolatePontoVirgulaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ControlePedidosApplication.class, args);
+		SpringApplication.run(ChocolatePontoVirgulaApplication.class, args);
 	}
 
 }
