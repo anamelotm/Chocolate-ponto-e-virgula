@@ -92,6 +92,11 @@ insert into cliente (Tipo, Documento, Nome) values ('Jurídica', '13.109.836/000
 
 ALTER TABLE cliente modify column Documento varchar(20) not null;
 
+
+-- insercao de pedidos
+
+insert into pedido (data_Pedido, Codigo_cliente, endereco_Entrega, Situacao, valor_Total, quantidade_Total, percentual_Desconto) values ('2021-11-08', 1, ), (), ();
+
 -- insercao de pedido
 
 insert into pedido (data_pedido, Codigo_cliente, endereco_Entrega, Situacao, valor_Total, quantidade_Total, percentual_Desconto) 
