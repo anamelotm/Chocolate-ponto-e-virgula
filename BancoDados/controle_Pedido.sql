@@ -67,7 +67,9 @@ alter table produto add column Peso double (3,2);
 alter table produto add column data_Fabricação date not null;
 alter table produto add column data_Validade date not null;
 
--- correcao
+ALTER TABLE produto modify column Peso double(4,2);
+
+-- correcao da tabela produto
 
 ALTER TABLE produto CHANGE data_Fabricação data_Fabricacao date not null;
 
@@ -99,5 +101,15 @@ values ('2021-11-08', 2, 'Avenida João F. Abreu, 180, Setor Central, Abreulând
 insert into pedido (data_pedido, Codigo_cliente, endereco_Entrega, Situacao, valor_Total, quantidade_Total, percentual_Desconto) 
 values ('2021-11-08', 3, 'Travessa Nossa Senhora da Aparecida, 599, Getúlio Vargas, Barra Mansa/RJ, 27325-530', true, 479.00, 10, 5);
 
+-- insercao de item pedido
 
+insert into item_pedido (Quantidade, Valor_Total, Codigo_Pedido, Codigo_Produto) values (10, 33.25, 1, 1);
+insert into item_pedido (Quantidade, Valor_Total, Codigo_Pedido, Codigo_Produto) values (2, 44.88, 2, 2);
+insert into item_pedido (Quantidade, Valor_Total, Codigo_Pedido, Codigo_Produto) values (10, 455.05, 4, 3);
 
+-- alteração em item_pedido
+ALTER TABLE item_pedido modify column valor_total double(5,2) not null;
+
+select * from item_pedido ip ;
+select * from pedido;
+desc item_pedido ;
