@@ -8,5 +8,7 @@ class PedidoTest {
 
     @Test
     void aplicarDesconto() {
+        System.out.println("Teste");
+
     }
 }
