@@ -1,6 +1,5 @@
 package com.br.chocolatePontoVirgula.model.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -64,6 +63,22 @@ public class Produto {
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        if (status != false){
+            System.out.println("Ativo");
+        }
+        else{
+            System.out.println("Inativo");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "codigo=" + codigo +
+                ", descricao='" + descricao + '\'' +
+                ", unidadeMedida='" + unidadeMedida + '\'' +
+                ", valorUnitario=" + valorUnitario +
+                ", status=" + status +
+                '}';
     }
 }
