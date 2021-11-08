@@ -13,11 +13,11 @@ public class Produto {
     private double valorUnitario;
     private boolean status;
 
-    public Produto(){
+    public Produto() {
 
     }
 
-    public Produto(int codigo, String descricao, String unidadeMedida, double valorUnitario, boolean status){
+    public Produto(int codigo, String descricao, String unidadeMedida, double valorUnitario, boolean status) {
         super();
         this.codigo = codigo;
         this.descricao = descricao;
@@ -58,17 +58,16 @@ public class Produto {
         this.valorUnitario = valorUnitario;
     }
 
-    public boolean isStatus() {
-        return status;
+    public String Status() {
+        if (status) {
+            return "Ativo";
+        } else {
+            return "Inativo";
+        }
     }
 
     public void setStatus(boolean status) {
-        if (status != false){
-            System.out.println("Ativo");
-        }
-        else{
-            System.out.println("Inativo");
-        }
+        this.status = status;
     }
 
     @Override
