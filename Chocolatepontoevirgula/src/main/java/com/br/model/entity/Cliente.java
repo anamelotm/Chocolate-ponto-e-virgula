@@ -13,11 +13,12 @@ public class Cliente {
 		
 	}
 
-	public Cliente(Long codigo, String tipo, String documento) {
+	public Cliente(Long codigo, String tipo, String documento, String nome) {
 		super();
 		this.codigo = codigo;
 		this.tipo = tipo;
 		this.documento = documento;
+		this.nome = nome;
 	}
 
 	public Long getCodigo() {
