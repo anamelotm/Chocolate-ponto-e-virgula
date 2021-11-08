@@ -1,0 +1,24 @@
+.form-select{
+  background-color: #ffe6a7;
+}
+
+.input-group-text {
+  background-color: #ffe6a7;
+}
+
+.form-control:disabled, .form-control[readonly]{
+  background-color: #ffe6a79c;
+  opacity: 1;
+}
+
+.btn-primary{
+  background-color: #432818;
+  border-color: #432818;
+  color: #ffe6a7;
+}
+
+#input-documento{
+  width: 60%;
+}
+
+

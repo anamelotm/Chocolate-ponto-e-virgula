@@ -1,1 +1,22 @@
-<h1>FUNCIONA</h1>
+<form action="submit">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="input-codigo-cliente">Código Cliente</span>
+    <input id="codigoCliente" class="form-control" type="text" placeholder="1234" aria-label="Codigo cliente" disabled>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Nome completo</span>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default">
+  </div>
+  <div class="input-group mb-3">
+    <select class="form-select" aria-label="Tipo documento">
+      <option selected>Tipo</option>
+      <option value="CPF">CPF</option>
+      <option value="CNPJ">CNPJ</option>
+    </select>
+    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Documento" id="input-documento">
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
+  </div>
+</form>

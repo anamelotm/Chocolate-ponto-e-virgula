@@ -3,25 +3,23 @@
 <div class="barra_lateral">
 
   <div class="menu__lateral">
-    
-    <img src="assets/img/chocolate-quente.png" height=150px width="150px">
-    <h2 id="teste_fonte"> < Chocolate <br/>Ponto e Vírgula /></h2>
-    <br>
-   
+    <nav class="nav flex-column">
+      <img src="assets/img/chocolate-quente.png" height=150px width="150px">
+      <h2 id="teste_fonte">
+        < Chocolate <br />Ponto e Vírgula />
+      </h2>
+      <br>
+
+      <div class="componentes">
+        <button><a routerLink="cliente-cadastrar">Cadastrar Cliente 🧏‍♂️🧏‍♀️</a></button>
+        <button><a routerLink="fazer-pedido">Fazer Pedido 🛒🍫</a></button>
+        <button><a routerLink="cliente-listar">Listar Clientes 🧏‍♂️🧏‍♀️</a></button>
+        <button><a routerLink="produtos-listar">Listar Produtos 🍬🍫</a></button>
+        <button><a routerLink="pedidos-listar">Listar Pedidos 🛒</a></button>
+        <button><a routerLink="produto-cadastrar">Cadastrar Produtos 📑🍫</a></button>
+
+      </div>
+    </nav>
   </div>
-  <div class="componentes">
-    <button><a routerLink="cliente-cadastrar">Cadastrar Cliente 🧏‍♂️🧏‍♀️</a></button>
-    <button><a routerLink="fazer-pedido">Fazer Pedido 🛒🍫</a></button>
-    <button><a routerLink="cliente-listar">Listar Clientes 🧏‍♂️🧏‍♀️</a></button>
-    <button><a routerLink="produtos-listar">Listar Produtos 🍬🍫</a></button>
-    <button><a routerLink="pedidos-listar">Listar Pedidos 🛒</a></button>
-    <button><a routerLink="produto-cadastrar">Cadastrar Produtos 📑🍫</a></button>
-    <router-outlet></router-outlet>
-  </div>
-  
+  <router-outlet></router-outlet>
 </div>
-
-
-
-
-
