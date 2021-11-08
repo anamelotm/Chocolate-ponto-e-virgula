@@ -1,4 +1,4 @@
-package com.br.chocolatePontoVirgula.model.controller;
+package com.br.chocolatePontoVirgula.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
