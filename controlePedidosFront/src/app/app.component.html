@@ -1,23 +1,60 @@
 <!-- tela inicial -->
+<div class="container" style="margin-left: 0%; margin-right: 0%; width: 100%; height: 100%;">
+  <div class="row">
+    <div class="col-12">
 
-<div class="barra_lateral">
-  <div class="menu__lateral">
-    <nav class="nav flex-column">
-      <img src="assets/img/chocolate-quente.png" height=150px width="150px">
-      <h2 id="teste_fonte">
-        < Chocolate <br />Ponto e Vírgula />
-      </h2>
-      <br>
+      <div class="row">
+        <div class="col-3" style="background-color: #432818; height: 650px;">
+          <ul class="nav flex-column">
+            <li class="text-center">
+              <img src="assets/img/chocolate-quente.png" height=150px width="150px"></li>
+            <li>
+              <h2 id="teste_fonte" class="text-center">
+                < Chocolate <br />Ponto e Vírgula />
+              </h2>
+            </li>
+            <li>
+              <div class="accordion-item" style="background-color: #432818;">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <b style="color: #432818;"> Cliente  </b>
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <button><a routerLink="fazer-pedido">Fazer Pedido 🛒🍫</a></button>
+                    <button><a routerLink="cliente-cadastrar">CadastrarCliente 🧏‍♂️🧏‍♀️</a></button>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="background-color: #432818;">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <b style="color: #432818;"> Empresa  </b>
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                  data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <button><a routerLink="cliente-listar">ListarClientes 🧏‍♂️🧏‍♀️</a></button>
+                    <button><a routerLink="produtos-listar">Listar Produtos 🍬🍫</a></button>
+                    <button><a routerLink="pedidos-listar">Listar Pedidos 🛒</a></button>
+                    <button><a routerLink="produto-cadastrar">Cadastrar Produtos 📑🍫</a></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <div class="componentes">
-        <button><a routerLink="cliente-cadastrar">Cadastrar Cliente 🧏‍♂️🧏‍♀️</a></button>
-        <button><a routerLink="fazer-pedido">Fazer Pedido 🛒🍫</a></button>
-        <button><a routerLink="cliente-listar">Listar Clientes 🧏‍♂️🧏‍♀️</a></button>
-        <button><a routerLink="produtos-listar">Listar Produtos 🍬🍫</a></button>
-        <button><a routerLink="pedidos-listar">Listar Pedidos 🛒</a></button>
-        <button><a routerLink="produto-cadastrar">Cadastrar Produtos 📑🍫</a></button>
+        <div class="col-9">
+          aqui o conteudo
+          <router-outlet></router-outlet>
+        </div>
       </div>
-    </nav>
+    </div>
   </div>
-  <router-outlet></router-outlet>
 </div>
