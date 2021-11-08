@@ -7,6 +7,7 @@ public class Cliente {
 	private Long codigo;
 	private String tipo;
 	private String documento;
+	private String nome;
 	
 	public Cliente() {
 		
@@ -42,6 +43,16 @@ public class Cliente {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	
 	
 
 }
