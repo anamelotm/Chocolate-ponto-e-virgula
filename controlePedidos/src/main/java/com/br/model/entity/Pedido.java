@@ -1,4 +1,5 @@
 package com.br.model.entity;
+
 import java.sql.Timestamp;
 
 public class Pedido {
@@ -10,7 +11,8 @@ public class Pedido {
     protected double valorTotal;
     protected int quantidadeTotal;
     protected int percentualDesconto;
-    public Pedido(){
+
+    public Pedido() {
 
     }
 
@@ -56,19 +58,15 @@ public class Pedido {
     public int getPercentualDesconto() {
         return percentualDesconto;
     }
-    public boolean isFechado(){
-        if(this.situacao){
-            return false;
-        }
-        else {
-            return true;
-        }
+
+    public boolean isFechado() {
+        return this.situacao;
     }
-    public void aplicarDesconto(){
-        if(!isFechado()){
-            valorTotal*=(1-(this.percentualDesconto*100));
-        }
-        else{
+
+    public void aplicarDesconto() {
+        if (!isFechado()) {
+            valorTotal *= (1 - (this.percentualDesconto * 100));
+        } else {
             System.out.println("Não foi possível aplicar o desconto");
         }
     }
