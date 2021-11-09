@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/pedidos")
 public class PedidoController {
 
     @Autowired
