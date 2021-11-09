@@ -1,5 +1,6 @@
 package com.br.model.entity;
 
+import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
