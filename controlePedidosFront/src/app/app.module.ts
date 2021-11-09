@@ -11,6 +11,7 @@ import { PedidosListarComponent } from './Empresa/pedidos-listar/pedidos-listar.
 import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-cadastrar.component';
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { FazerPedidoComponent } from './Cliente/fazer-pedido/fazer-pedido.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FazerPedidoComponent } from './Cliente/fazer-pedido/fazer-pedido.compon
     PedidosListarComponent,
     ProdutoCadastrarComponent,
     ProdutosListarComponent,
-    FazerPedidoComponent
+    FazerPedidoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
