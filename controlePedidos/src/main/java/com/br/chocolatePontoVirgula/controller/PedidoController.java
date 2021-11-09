@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 
 @RestController
-@RequestMapping("/pedidos")
+@RequestMapping(path="/pedidos")
 public class PedidoController {
 
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    @GetMapping("/lista-pedidos")
+    @GetMapping(path="/lista-pedidos")
     public ResponseEntity<Page<Pedido>> findAll(PageRequest pageRequest) {
         PageRequest.ofSize(10);
 
