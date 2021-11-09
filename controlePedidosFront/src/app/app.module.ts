@@ -12,6 +12,9 @@ import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-c
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { FazerPedidoComponent } from './Cliente/fazer-pedido/fazer-pedido.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,8 @@ import { FazerPedidoComponent } from './Cliente/fazer-pedido/fazer-pedido.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
     ],
 
   providers: [],
