@@ -1,4 +1,4 @@
-package com.br.model.entity;
+package com.br.chocolatePontoVirgula.model.entity;
 
 import java.sql.Timestamp;
 
