@@ -1,1 +1,21 @@
-<p>produtos-listar works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código</th>
+      <th scope="col">Descricao</th>
+      <th scope="col">Unidade de Medida</th>
+      <th scope="col">Valor Unitário</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let produto of produtos">
+    <tr>
+      <th scope="row">{{produto.codigo}}</th>
+      <td>{{produto.descricaoProduto}}</td>
+      <td>{{produto.unidadeMedida}}</td>
+      <td>{{produto.valorUnitario}}</td>
+      <td>{{produto.status}}</td>
+
+    </tr>
+  </tbody>
+</table>

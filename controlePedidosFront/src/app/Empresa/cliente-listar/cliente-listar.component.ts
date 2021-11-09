@@ -14,6 +14,6 @@ export class ClienteListarComponent implements OnInit {
   constructor(private servico: HomeService) { }
 
   ngOnInit(): void {
-    this.servico.listar().subscribe(objetos => this.clientes = objetos);
+    this.servico.listarClientes().subscribe(objetos => this.clientes = objetos);
     };
   }
