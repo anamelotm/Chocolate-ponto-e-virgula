@@ -1,60 +1,30 @@
 package com.br.chocolatePontoVirgula.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Cliente {
 	
 	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
+
 	private String tipo;
 	private String documento;
 	private String nome;
-	
-	public Cliente() {
-		
-	}
 
-	public Cliente(int codigo, String tipo, String documento, String nome) {
-		super();
-		this.codigo = codigo;
-		this.tipo = tipo;
-		this.documento = documento;
-		this.nome = nome;
-	}
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(String documento) {
-		this.documento = documento;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	
 	public boolean validarCPF(String cpf) {
         if(cpf.equals("000.000.000-00")||cpf.equals("111.111.111-11")||cpf.equals("222.222.222-22")||cpf.equals("333.333.333-33")||cpf.equals("444.444.444-44")||cpf.equals("555.555.555-55")||cpf.equals("666.666.666-66")||cpf.equals("777.777.777-77")||cpf.equals("888.888.888-88")||cpf.equals("999.999.999-99")) {
