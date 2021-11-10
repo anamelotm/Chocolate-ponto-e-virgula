@@ -2,3 +2,8 @@
   border-radius: 5px;
   margin: 10px;
 }
+
+.far{
+  cursor: pointer;
+  margin-right: 5px;
+}
