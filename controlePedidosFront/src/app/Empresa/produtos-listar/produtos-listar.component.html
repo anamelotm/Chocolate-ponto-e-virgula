@@ -5,7 +5,7 @@
       <th scope="col">Descricao</th>
       <th scope="col">Unidade de Medida</th>
       <th scope="col">Valor Unitário</th>
-      <th scope="col">Status</th>
+      <th scope="col">Status (Ativo / Inativo)</th>
     </tr>
   </thead>
   <tbody *ngFor="let produto of produtos">
@@ -14,8 +14,11 @@
       <td>{{produto.descricaoProduto}}</td>
       <td>{{produto.unidadeMedida}}</td>
       <td>{{produto.valorUnitario}}</td>
-      <td>{{produto.status}}</td>
-
+      <td>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="produtoAtivo" checked>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -5,3 +5,5 @@ export interface Produto {
   valorUnitario: number;
   status: boolean;
 }
+
+
