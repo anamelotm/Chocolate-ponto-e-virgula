@@ -1,5 +1,5 @@
 <table class="table">
-  <thead>
+  <thead style="background-color: #ffe6a7;">
     <tr>
       <th scope="col">Código</th>
       <th scope="col">Nome</th>
@@ -7,7 +7,7 @@
       <th scope="col">Documento</th>
     </tr>
   </thead>
-  <tbody *ngFor="let cliente of clientes">
+  <tbody  *ngFor="let cliente of clientes" style="background-color: #ffe6a7;">
     <tr>
       <th scope="row">{{cliente.codigo}}</th>
       <td>{{cliente.nome}}</td>
