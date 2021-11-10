@@ -22,6 +22,16 @@ public class ClienteController {
 		clienteRepository.save(cliente);
 	}
 
+	@PutMapping("/{id}")
+	public void update(@PathVariable Long id, @RequestBody Cliente cliente){
+		Cliente clientePesquisado = clienteRepository.getById(id);
+
+		if(clientePesquisado != null){
+			clientePesquisado.setNome(cliente.getNome());
+			clienteRepository.save(clientePesquisado);
+		}
+	}
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
 		Cliente cliente = clienteRepository.findById(id).get();
