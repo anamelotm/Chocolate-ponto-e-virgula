@@ -1,6 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
+import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/pedidos")
+@RequestMapping("/pedidos")
 public class PedidoController {
 
     @Autowired
@@ -30,7 +31,7 @@ public class PedidoController {
 	quantidade_Total -	int 		not null,
 	percentual_Desconto - int
 * */
-    @PostMapping(path = "/add") // Map ONLY POST Requests
+    @PostMapping
     public @ResponseBody
     String addNewUser(@RequestParam Date dataPedido
             , @RequestParam int codigoCliente, @RequestParam int percentualDesconto,
@@ -51,7 +52,7 @@ public class PedidoController {
         return "Saved";
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<Page<Pedido>> ListAll(Pageable pageable) {
 
         int size = 10;
@@ -61,4 +62,12 @@ public class PedidoController {
         return ResponseEntity.ok(result);
     }
 
+    @PutMapping("/{id}")
+    public void alterar(@PathVariable int id, @RequestBody Pedido pedido){
+        Pedido pedidoPesquisado = pedidoRepository.getOne(id);
+        if(pedidoPesquisado != null){
+            pedidoPesquisado.setSituacao(pedido.isSituacao());
+            pedidoRepository.save(pedidoPesquisado);
+        }
+    }
 }

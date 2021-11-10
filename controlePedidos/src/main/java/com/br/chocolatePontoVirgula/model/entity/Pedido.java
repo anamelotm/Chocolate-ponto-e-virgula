@@ -33,12 +33,12 @@ public class Pedido {
 
 
 
-    public boolean isFechado() {
+    public boolean fechado() {
         return this.situacao;
     }
 
     public void aplicarDesconto() {
-        if (!isFechado()) {
+        if (!fechado()) {
             valorTotal *= (1 - (this.percentualDesconto * 100));
         } else {
             System.out.println("Não foi possível aplicar o desconto");
