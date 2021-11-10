@@ -32,6 +32,11 @@ public class ClienteController {
 		}
 	}
 
+	@DeleteMapping("/{id}")
+	public void excluir(@PathVariable Long id){
+		clienteRepository.deleteById(id);
+	}
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
 		Cliente cliente = clienteRepository.findById(id).get();
