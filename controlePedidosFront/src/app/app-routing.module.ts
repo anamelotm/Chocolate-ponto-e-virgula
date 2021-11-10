@@ -6,8 +6,10 @@ import { ClienteListarComponent } from './Empresa/cliente-listar/cliente-listar.
 import { PedidosListarComponent } from './Empresa/pedidos-listar/pedidos-listar.component';
 import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-cadastrar.component';
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
+import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'cliente-cadastrar', component: ClienteCadastrarComponent},
   {path: 'fazer-pedido', component: FazerPedidoComponent},
   {path: 'cliente-listar', component: ClienteListarComponent},

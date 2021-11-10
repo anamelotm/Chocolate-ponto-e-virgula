@@ -1,8 +1,39 @@
+<div class="card"style="margin-top: 3%; ">
+    <div class="card-header">
+      <div class="card-header text-center">
+        <h2 id="titulo_card" >Cadastro de Produtos</h2>   
+      </div>
+      <div class="card-body">
 
-    <div class="input-group mb-3">
-        <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <span class="input-group-text">.00</span>
+        <form action="" method="post">
+          <div class="input-group mb-3" style="width: 300px;">
+            <span class="input-group-text">Código do Produto</span>
+            <input id="codigoProduto" class="form-control" type="text" placeholder="1234" aria-label="Codigo cliente"
+              disabled >
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Descrição</span>
+            <input type="text" class="form-control" placeholder="Nome do Produto">
+          </div>
+          <div class="input-group mb-3" style="width: 300px;">
+            <select  style="background-color: #ffe6a7; font-weight: bold;">
+              <option selected >Unidade de Medida</option>
+              <option value="kg">Kg</option>
+              <option value="und">Unidade</option>
+            </select>
+            <input type="number" class="form-control" placeholder="Quantidade">
+          </div>
+          <div class="input-group mb-3" style="width: 150px;">
+            <span class="input-group-text">R$</span>
+            <input type="text" class="form-control" aria-label="Valor Unitário">
+            <span class="input-group-text">.00</span>
+          </div>  
+          <br>    
+          <button class="btn btn-outline-danger" type="submit">Cadastrar</button>
+        </form>
+      </div>
     </div>
-
-
+  </div>
+  
+  
+  
