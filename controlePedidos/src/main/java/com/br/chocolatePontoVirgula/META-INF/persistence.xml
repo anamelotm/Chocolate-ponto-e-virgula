@@ -8,11 +8,11 @@
 
             <!-- Driver e Nome do Banco -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/controlePedidos"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/controlepedidos"/>
 
             <!-- Usuario e Senha -->
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="test123"/>
+            <property name="javax.persistence.jdbc.password" value="123456"/>
             <!-- Dialeto do Banco -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
             <!-- Mostrar SQL -->

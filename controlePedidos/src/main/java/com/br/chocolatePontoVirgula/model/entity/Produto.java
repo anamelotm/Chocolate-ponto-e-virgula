@@ -21,7 +21,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
 
-    private String descricao;
+    private String descricaoProduto;
     private String unidadeMedida;
     private double valorUnitario;
     private boolean status;
@@ -39,14 +39,5 @@ public class Produto {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "codigo=" + codigo +
-                ", descricao='" + descricao + '\'' +
-                ", unidadeMedida='" + unidadeMedida + '\'' +
-                ", valorUnitario=" + valorUnitario +
-                ", status=" + status +
-                '}';
-    }
+
 }
