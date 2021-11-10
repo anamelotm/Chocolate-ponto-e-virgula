@@ -1,14 +1,10 @@
-<div class="card" style="margin-top: 3%; ">
-  <div class="card-header text-center">
-    
-  </div>
+<div style="text-align: end; margin-top: 4%;" ><a class="btn btn-primary" routerLink=''>Inicio</a></div>
+<div class="card" style="margin-top: 4%; ">
  
-
-<div class="card">
-  <div class="card-header text-center">
-    <h2 id="titulo_card">Finalizar Pedido</h2>
+  <div class="card-header text-center ">
+    <h2 id="titulo_card" >Finalizando seu Pedido 🛒 </h2>
   </div>
-  <div class="card-body">
+  <div class="card-body" style="margin-top: 3%; color: #432818 ; ">
 
     
     
@@ -26,6 +22,12 @@
 
 
     <form action="" method="post">
+      <div class="input-group mb-3">  
+        <h2>Total: R$</h2>
+        <span style="margin-left: 2%;">Aqui vai o valor</span>
+        <h2 style="margin-left: 20%;">Quantidade: </h2>
+        <span style="margin-left: 2%;">Aqui a quantidade</span>
+      </div>
       <div class="input-group mb-3">
         <span class="input-group-text" >Cliente</span>
         <select class="form-select" aria-label="Default select example">
@@ -34,37 +36,12 @@
           <option value="3">Isabel</option>
         </select>
       </div>
-
       <div class="input-group mb-3">
         <span class="input-group-text" >Endereço de entrega</span>
         <input type="text" class="form-control" placeholder="Ex.: Avenida Boa Viagem, 254 - Boa Viagem - Recife - PE"
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
-
-      <div class="input-group mb-3">
-        <span class="input-group-text">Situação do pedido</span>
-        <select class="form-select" aria-label="Default select example">
-          <option value="true">Aberto</option>
-          <option value="false">Fechado</option>
-        </select>
-      </div>
-
-      <div class="input-group mb-3">
-        <span class="input-group-text">Valor total: R$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <span class="input-group-text">.00</span>
-      </div>
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" >Quantidade total de itens</span>
-        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-      </div>
-
-
-        <button class="btn btn-outline-danger" type="submit"> Finalizar Pedido ✔</button>
-
+        <button class="btn btn-outline-success" type="submit"> Finalizar Pedido ✔</button>
     </form>
-
   </div>
-
 </div>
