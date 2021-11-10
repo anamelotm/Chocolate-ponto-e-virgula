@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FazerPedidoComponent implements OnInit {
 
+  cep!: number;
+  
   constructor() { }
 
   ngOnInit(): void {
