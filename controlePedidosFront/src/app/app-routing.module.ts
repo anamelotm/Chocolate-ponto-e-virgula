@@ -11,11 +11,14 @@ import { HomeComponent } from './views/home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'cliente-cadastrar', component: ClienteCadastrarComponent},
+  {path: 'editar-cliente/:codigo', component: ClienteCadastrarComponent},
   {path: 'fazer-pedido', component: FazerPedidoComponent},
   {path: 'cliente-listar', component: ClienteListarComponent},
   {path: 'pedidos-listar', component: PedidosListarComponent},
   {path: 'produto-cadastrar', component: ProdutoCadastrarComponent},
-  {path: 'produtos-listar', component: ProdutosListarComponent}
+  {path: 'editar-produto/:codigo', component: ProdutoCadastrarComponent},
+  {path: 'produtos-listar', component: ProdutosListarComponent},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
