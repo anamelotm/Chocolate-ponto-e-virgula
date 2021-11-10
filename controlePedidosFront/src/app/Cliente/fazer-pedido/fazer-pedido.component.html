@@ -1,35 +1,29 @@
 <div class="card" style="margin-top: 3%; ">
   <div class="card-header text-center">
-
-    <h2 id="titulo_card" >Acrescentar Itens </h2>
-
+    
   </div>
-  <div class="card-body">
-    <div class="input-group mb-3">
-      <span class="input-group-text">Produto</span>
-      <select class="form-select" aria-label="Default select example">
-        <option value="1">Trufa de doce de leite</option>
-        <option value="2">Barra de chocolate ao leite</option>
-        <option value="3">Pepitas com Açúcar Mascavo</option>
-      </select>
-    </div>
-    <div class="input-group mb-3">
-      <span class="input-group-text" >Quantidade</span>
-      <input type="number" class="form-control">
-      <!-- fazer logica para pegar do produto a unidade de medida g ou unidade-->
-      <span class="input-group-text" >Kg ou Unidade</span>
-    </div>
-  </div>
-  <div class="card-footer-light" >
-    <button class="btn btn-outline-danger" type="submit"> Adicionar Produto 🍫<b>+</b> </button>
-  </div>
-</div>
+ 
 
 <div class="card">
   <div class="card-header text-center">
     <h2 id="titulo_card">Finalizar Pedido</h2>
   </div>
   <div class="card-body">
+
+    
+    
+    <form method="get" action="">
+      <label>CEP</label>
+      <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /> <br/>
+      <button ng-click ="buscarCEP()">Pesquisar CEP</button>
+    </form>
+
+  <div *ngIf = "enderecoBuscado">
+    <p>{{enderecoBuscado.logradouro}}</p>
+    <p>{{enderecoBuscado.bairro}} </p>
+    <p>{{enderecoBuscado.localidade}} / {{enderecoBuscado.uf}}</p>
+  </div>
+
 
     <form action="" method="post">
       <div class="input-group mb-3">
