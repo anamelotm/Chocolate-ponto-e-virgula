@@ -7,3 +7,11 @@
   cursor: pointer;
   margin-right: 5px;
 }
+
+.fas{
+  cursor: pointer;
+}
+
+.form-check-input{
+  margin-left: -1.5em;
+}
