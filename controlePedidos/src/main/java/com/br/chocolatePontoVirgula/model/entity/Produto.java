@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -21,10 +22,14 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
 
-    private String descricao;
+    private String descricaoProduto;
     private String unidadeMedida;
     private double valorUnitario;
     private boolean status;
+    private String urlFoto;
+    private double peso;
+    private Date dataFabricacao;
+    private Date dataValidade;
 
 
     public String Status() {
@@ -39,14 +44,4 @@ public class Produto {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "codigo=" + codigo +
-                ", descricao='" + descricao + '\'' +
-                ", unidadeMedida='" + unidadeMedida + '\'' +
-                ", valorUnitario=" + valorUnitario +
-                ", status=" + status +
-                '}';
-    }
 }
