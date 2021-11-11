@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="controlePedidos" />
+        <module name="api-controle-despesa" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-controle-despesa" target="11" />
       <module name="controlePedidos" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-controle-despesa" options="-parameters" />
       <module name="controlePedidos" options="-parameters" />
     </option>
   </component>
