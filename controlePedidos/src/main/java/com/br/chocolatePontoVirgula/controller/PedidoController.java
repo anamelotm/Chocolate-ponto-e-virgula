@@ -50,7 +50,10 @@ public class PedidoController {
         Page<Pedido> result = pedidoRepository.findAll(pageRequest);
         return ResponseEntity.ok(result);
     }
-
+    @DeleteMapping("/{codigo}")
+    public void excluir(@PathVariable int codigo){
+        pedidoRepository.deleteById(codigo);
+    }
     @PutMapping("/{codigo}")
     public void alterar(@PathVariable int codigo, @RequestBody Pedido pedido){
         Pedido pedidoPesquisado = pedidoRepository.getOne(codigo);

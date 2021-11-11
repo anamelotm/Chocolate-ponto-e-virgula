@@ -32,12 +32,12 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{codigo}")
-    public void excluir(@PathVariable Long codigo){
+    public void excluir(@PathVariable int codigo){
         produtoRepository.deleteById(codigo);
     }
 
     @PutMapping("/{codigo}")
-    public void alterar(@PathVariable Long codigo, @RequestBody Produto produto){
+    public void alterar(@PathVariable int codigo, @RequestBody Produto produto){
         Produto produtoPesquisado = produtoRepository.getOne(codigo);
         if(produtoPesquisado != null){
             produtoPesquisado.setDescricaoProduto(produto.getDescricaoProduto());
