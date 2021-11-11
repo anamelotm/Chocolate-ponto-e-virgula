@@ -1,6 +1,6 @@
 package com.br.chocolatePontoVirgula.model.dto;
 
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
+
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 
 import java.util.List;
