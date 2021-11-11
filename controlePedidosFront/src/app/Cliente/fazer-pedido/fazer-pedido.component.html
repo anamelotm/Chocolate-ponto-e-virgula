@@ -10,8 +10,8 @@
     
     <form method="get" action="">
       <label>CEP</label>
-      <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /> <br/>
-      <button ng-click ="buscarCEP()">Pesquisar CEP</button>
+      <input name="cep" type="text" id="cep"[(ngModel)]="cepDigitado" size="10" maxlength="9" /> <br/>
+      <button (click)="pegarcep()">Pesquisar CEP</button>
     </form>
 
   <div *ngIf = "enderecoBuscado">
