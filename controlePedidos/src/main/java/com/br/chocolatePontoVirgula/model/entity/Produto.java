@@ -43,9 +43,4 @@ public class Produto {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> fedc5758bb3116a2f8b7757d1be52c6598c950de
 }
