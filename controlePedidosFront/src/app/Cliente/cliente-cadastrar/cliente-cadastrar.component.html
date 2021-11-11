@@ -1,38 +1,38 @@
-<div style="text-align: end; margin-top: 4%;" ><a class="btn btn-primary" routerLink=''>Inicio</a></div>
-<div class="card" style="margin-top: 4%; ">
+<div style="text-align: end; margin-top: 4%;"><a class="btn btn-primary" routerLink=''>Inicio</a></div>
+<div class="card" style="margin-top: 4%;">
 
   <div class="card-header">
     <div class="card-header text-center">
-
-      <h2 id="titulo_card" >Cadastro de Clientes </h2>
-
+      <h2 id="titulo_card">Cadastro de Clientes </h2>
     </div>
     <div class="card-body">
-      <form action="" method="post">
-        <div class="input-group mb-3">
-          <span class="input-group-text">Código Cliente</span>
-          <input id="codigoCliente" class="form-control" type="text" placeholder="1234" aria-label="Codigo cliente"
-            disabled >
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">Nome completo</span>
-          <input type="text" class="form-control">
-        </div>
+      <form [formGroup]="clienteForm" (ngSubmit)="cadastrarCliente()">
         <div class="input-group">
-          <select  aria-label="Tipo documento" id="select-tipo" >
-            <option selected>Tipo</option>
+          <span class="input-group-text" style="width: 20%;">Nome completo</span>
+          <input type="text" class="form-control" formControlName="nome" >
+        </div>
+        <div class="text-danger"
+          *ngIf="clienteForm.get('nome')?.hasError('required') && clienteForm.get('nome')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mt-3">
+          <select aria-label="Tipo documento" id="select-tipo" formControlName="tipo" style="width: 13%;" >
+            <option value="">Tipo</option>
             <option value="CPF">CPF</option>
             <option value="CNPJ">CNPJ</option>
           </select>
-          <input type="text" class="form-control" placeholder="Nº do Documento">
-        </div>   
-        <br>    
-        <button class="btn btn-outline-success">Cadastrar</button>
+          <input type="text" class="form-control" placeholder="Nº do Documento" formControlName="documento" >
+        </div>
+        <div class="text-danger"
+            *ngIf="clienteForm.get('documento')?.hasError('required') && clienteForm.get('documento')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <br>
+        <button class="btn btn-outline-secondary float-start" routerLink="/">Voltar</button>
+        <button type="submit" [disabled]='clienteForm.invalid' class="btn btn-outline-success float-end">Cadastrar</button>
       </form>
     </div>
   </div>
 
 
 </div>
-
-

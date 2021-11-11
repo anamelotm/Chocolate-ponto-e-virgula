@@ -3,10 +3,7 @@
     <div class="col-lg-15 offset-lg-0">
       <div class="card">
         <div class="card-body text-center">
-
-          <span class="titulo">LISTA CLIENTES</span>
-
-          <button type="button" class="btn btn-outline-warning float-end">Novo</button>
+          <span class="titulo">Lista de Clientes</span>
           <table class="table table-borderless table-hover mt-lg-5">
             <thead>
               <tr>
@@ -24,7 +21,7 @@
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.tipo}}</td>
                 <td>{{cliente.documento}}</td>
-                <td><i class="fas fa-edit text-primary"></i></td>
+                <td><i class="fas fa-edit text-primary" routerLink="/cliente-cadastrar"></i></td>
                 <td><i class="far fa-trash-alt text-danger"></i></td>
               </tr>
             </tbody>

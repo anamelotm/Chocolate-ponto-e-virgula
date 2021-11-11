@@ -10,8 +10,14 @@
 
 .fas{
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .form-check-input{
   margin-left: -1.5em;
+}
+
+
+.card{
+  width: 110%;
 }

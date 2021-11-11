@@ -30,3 +30,9 @@
   border: none;
   border-radius: 5px 0px 0px 5px;
 }
+
+.text-danger{
+  text-align: start;
+  margin-left: 5px;
+
+}
