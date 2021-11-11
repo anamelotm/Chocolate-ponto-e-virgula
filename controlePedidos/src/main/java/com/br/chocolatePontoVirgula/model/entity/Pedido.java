@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Getter
@@ -22,7 +23,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
 
-    protected Timestamp dataPedido;
+    protected Date dataPedido;
     protected int codigoCliente;
     protected String enderecoEntrega;
     protected boolean situacao;
@@ -32,12 +33,12 @@ public class Pedido {
 
 
 
-    public boolean isFechado() {
+    public boolean fechado() {
         return this.situacao;
     }
 
     public void aplicarDesconto() {
-        if (!isFechado()) {
+        if (!fechado()) {
             valorTotal *= (1 - (this.percentualDesconto * 100));
         } else {
             System.out.println("Não foi possível aplicar o desconto");

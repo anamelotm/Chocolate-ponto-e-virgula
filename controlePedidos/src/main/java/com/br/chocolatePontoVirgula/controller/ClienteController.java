@@ -3,27 +3,53 @@ package com.br.chocolatePontoVirgula.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
 
 @RestController
-@RequestMapping(value = "/clientes")
+@RequestMapping("/clientes")
 public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
-	@GetMapping(value = "/lista-clientes")
-	public ResponseEntity<Page<Cliente>> findAll(PageRequest pageRequest) {
-		PageRequest.ofSize(10);
-		
-	    Page<Cliente> result = clienteRepository.findAll(pageRequest);
-	    return ResponseEntity.ok(result);
+
+	@PostMapping
+	public void save(@RequestBody Cliente cliente){
+		clienteRepository.save(cliente);
 	}
 
+	@PutMapping("/{id}")
+	public void update(@PathVariable Long id, @RequestBody Cliente cliente){
+		Cliente clientePesquisado = clienteRepository.getById(id);
+
+		if(clientePesquisado != null){
+			clientePesquisado.setNome(cliente.getNome());
+			clienteRepository.save(clientePesquisado);
+		}
+	}
+
+	@DeleteMapping("/{id}")
+	public void excluir(@PathVariable Long id){
+		clienteRepository.deleteById(id);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
+		Cliente cliente = clienteRepository.findById(id).get();
+		return ResponseEntity.ok().body(cliente);
+	}
+
+	@GetMapping("/all")
+	public ResponseEntity<Page<Cliente>> findAll( Pageable pageable) {
+
+		int size = 10;
+		PageRequest pageRequest = PageRequest.ofSize(size);
+
+		Page<Cliente> result = clienteRepository.findAll(pageRequest);
+		return ResponseEntity.ok(result);
+	}
 }

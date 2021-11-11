@@ -19,7 +19,7 @@ public class Cliente {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codigo;
+	private Long codigo;
 
 	private String tipo;
 	private String documento;

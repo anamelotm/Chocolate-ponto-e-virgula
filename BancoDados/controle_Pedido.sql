@@ -60,7 +60,7 @@ INSERT INTO produto (descricao_Produto, unidade_Medida , valor_Unitario , status
 INSERT INTO produto (descricao_Produto, unidade_Medida , valor_Unitario , status) VALUES('Barra de chocolate ao leite', 'gr', 22.90, true), 
 ('Pepitas com Açucar Mascavo', 'gr', 47.90, true);
 
--- alteracao da tabela produto - insercao de url_foto e peso
+-- alteracacao da tabela produto - insercao de url_foto e peso
 
 alter table produto add column url_Foto varchar (255) not null;
 alter table produto add column Peso double (3,2);
@@ -68,6 +68,8 @@ alter table produto add column data_Fabricação date not null;
 alter table produto add column data_Validade date not null;
 
 ALTER TABLE produto modify column Peso double(4,2);
+
+alter table produto modify column Peso double(5,2);
 
 -- correcao da tabela produto
 
@@ -81,6 +83,12 @@ SELECT DATE_FORMAT(data_Validade, "%d %M %Y") FROM produto;
 -- atualização dos produtos
 
 UPDATE produto SET url_Foto = 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', data_Fabricacao = '2021-11-08', data_Validade = '2024-11-08' WHERE Codigo = 1;
+UPDATE produto SET url_Foto = 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', data_Fabricacao = '2021-11-08', data_Validade = '2024-11-08' WHERE Codigo = 2;
+UPDATE produto SET url_Foto = 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', data_Fabricacao = '2021-11-08', data_Validade = '2024-11-08' WHERE Codigo = 3;
+
+update produto set peso = 11 where codigo = 1;
+update produto set peso = 250 where codigo = 2;
+update produto set peso = 100 where codigo = 3;
 
 -- insercao de cliente
 
@@ -91,6 +99,10 @@ insert into cliente (Tipo, Documento, Nome) values ('Jurídica', '13.109.836/000
 -- alteracao de cliente
 
 ALTER TABLE cliente modify column Documento varchar(20) not null;
+
+-- alteracao de pedido
+
+ALTER TABLE pedido modify column data_Pedido Date not null;
 
 
 -- insercao de pedidos
@@ -117,4 +129,23 @@ ALTER TABLE item_pedido modify column valor_total double(5,2) not null;
 
 select * from item_pedido ip ;
 select * from pedido;
+select * from produto p ;
 desc item_pedido ;
+desc produto;
+desc cliente;
+
+ALTER TABLE pedido DROP COLUMN codigoCliente;
+ALTER TABLE pedido DROP COLUMN dataPedido;
+ALTER TABLE pedido DROP COLUMN enderecoEntrega;
+ALTER TABLE pedido DROP COLUMN percentualDesconto;
+ALTER TABLE pedido DROP COLUMN quantidadeTotal;
+ALTER TABLE pedido DROP COLUMN valorTotal;
+
+drop table itempedido ;
+
+ALTER TABLE produto DROP COLUMN descricaoProduto;
+ALTER TABLE produto DROP COLUMN UnidadeMedida;
+ALTER TABLE produto DROP COLUMN valorUnitario;
+ALTER TABLE produto DROP COLUMN urlFoto;
+ALTER TABLE produto DROP COLUMN dataFabricacao;
+ALTER TABLE produto DROP COLUMN dataValidade;
