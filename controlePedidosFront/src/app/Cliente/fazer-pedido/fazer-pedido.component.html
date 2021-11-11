@@ -5,22 +5,6 @@
     <h2 id="titulo_card" >Finalizando seu Pedido 🛒 </h2>
   </div>
   <div class="card-body" style="margin-top: 3%; color: #432818 ; ">
-
-    
-    
-    <form method="get" action="">
-      <label>CEP</label>
-      <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /> <br/>
-      <button ng-click ="buscarCEP()">Pesquisar CEP</button>
-    </form>
-
-  <div *ngIf = "enderecoBuscado">
-    <p>{{enderecoBuscado.logradouro}}</p>
-    <p>{{enderecoBuscado.bairro}} </p>
-    <p>{{enderecoBuscado.localidade}} / {{enderecoBuscado.uf}}</p>
-  </div>
-
-
     <form action="" method="post">
       <div class="input-group mb-3">  
         <h2>Total: R$</h2>
@@ -38,7 +22,39 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" >Endereço de entrega</span>
-        <input type="text" class="form-control" placeholder="Ex.: Avenida Boa Viagem, 254 - Boa Viagem - Recife - PE">
+      </div>
+      <div class="input-group mb-3">
+      <form method="get" action="">
+        <span class="input-group-text" >CEP</span>
+        <input name="cep" class="form-control" type="text" id="cep"[(ngModel)]="cepDigitado"  
+        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> 
+        <button  class="btn btn-outline-success" (click)="pegarcep()">Buscar Endereço</button>
+      </form>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Rua</span>
+        <input  [value] = "enderecoBuscado.logradouro"  type="text" class="form-control" placeholder="Ex.: Rua Professor Antonio Coelho" 
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Bairro</span>
+        <input  [value] = "enderecoBuscado.bairro" type="text" class="form-control" placeholder="Ex.: Várzea"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Cidade</span>
+        <input [value] = "enderecoBuscado.localidade"   type="text" class="form-control" placeholder="Ex.: Recife"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Estado</span>
+        <input [value] = "enderecoBuscado.uf"   type="text" class="form-control" placeholder="Ex.:Pernambuco"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Complemento</span>
+        <input type="text" class="form-control" placeholder="Ex.: Nº 254 apt. 405"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
         <button class="btn btn-outline-success" type="submit"> Finalizar Pedido ✔</button>
     </form>

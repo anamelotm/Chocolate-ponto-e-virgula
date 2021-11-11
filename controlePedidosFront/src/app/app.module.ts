@@ -14,6 +14,8 @@ import { PedidosListarComponent } from './Empresa/pedidos-listar/pedidos-listar.
 import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-cadastrar.component';
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { HomeComponent } from './views/home/home.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -26,14 +28,16 @@ import { HomeComponent } from './views/home/home.component';
     ProdutoCadastrarComponent,
     ProdutosListarComponent,
     FazerPedidoComponent,
-    HomeComponent
+    HomeComponent,
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
     ],
 
   providers: [],

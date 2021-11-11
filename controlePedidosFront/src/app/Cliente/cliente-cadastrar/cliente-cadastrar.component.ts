@@ -33,11 +33,6 @@ export class ClienteCadastrarComponent implements OnInit {
           title: 'Cadastro concluído!',
           confirmButtonColor: 'blue'
         });
-
-        const cliente: Cliente = {
-          nome: this.clienteForm.get('nome')?.value,
-
-        }
     console.log(this.clienteForm);
     }
   }
