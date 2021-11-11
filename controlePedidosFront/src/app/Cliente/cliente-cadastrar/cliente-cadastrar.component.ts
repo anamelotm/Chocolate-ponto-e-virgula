@@ -1,8 +1,7 @@
-import { ThisReceiver } from '@angular/compiler';
+import { Cliente } from './../../shared/models/cliente';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-
 
 
 @Component({
@@ -33,7 +32,15 @@ export class ClienteCadastrarComponent implements OnInit {
           title: 'Cadastro concluído!',
           confirmButtonColor: 'blue'
         });
-    console.log(this.clienteForm);
+
+        const cliente: Cliente = {
+          codigo: this.clienteForm.get('')?.value,
+          nome: this.clienteForm.get('nome')?.value,
+          tipo: this.clienteForm.get('tipo')?.value,
+          documento: this.clienteForm.get('documento')?.value
+        }
+
+        console.log(cliente);
     }
   }
 
