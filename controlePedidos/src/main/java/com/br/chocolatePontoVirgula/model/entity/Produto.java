@@ -20,7 +20,7 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int codigo;
+    private Long codigo;
 
     private String descricaoProduto;
     private String unidadeMedida;
