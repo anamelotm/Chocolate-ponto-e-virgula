@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -25,6 +26,10 @@ public class Produto {
     private String unidadeMedida;
     private double valorUnitario;
     private boolean status;
+    private String urlFoto;
+    private double peso;
+    private Date dataFabricacao;
+    private Date dataValidade;
 
 
     public String Status() {
@@ -38,6 +43,5 @@ public class Produto {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
 
 }
