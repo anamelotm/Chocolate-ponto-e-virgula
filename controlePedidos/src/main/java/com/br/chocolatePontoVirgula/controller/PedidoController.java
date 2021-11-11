@@ -51,9 +51,9 @@ public class PedidoController {
         return ResponseEntity.ok(result);
     }
 
-    @PutMapping("/{id}")
-    public void alterar(@PathVariable int id, @RequestBody Pedido pedido){
-        Pedido pedidoPesquisado = pedidoRepository.getOne(id);
+    @PutMapping("/{codigo}")
+    public void alterar(@PathVariable int codigo, @RequestBody Pedido pedido){
+        Pedido pedidoPesquisado = pedidoRepository.getOne(codigo);
         if(pedidoPesquisado != null){
             pedidoPesquisado.setSituacao(pedido.isSituacao());
             pedidoRepository.save(pedidoPesquisado);
