@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ControlePedidos.iml" filepath="$PROJECT_DIR$/.idea/ControlePedidos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/controlePedidos/api-controle-despesa.iml" filepath="$PROJECT_DIR$/controlePedidos/api-controle-despesa.iml" />
       <module fileurl="file://$PROJECT_DIR$/controlePedidos/controlePedidos.iml" filepath="$PROJECT_DIR$/controlePedidos/controlePedidos.iml" />
     </modules>
   </component>

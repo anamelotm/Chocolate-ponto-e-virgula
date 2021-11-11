@@ -1,7 +1,5 @@
 package com.br.chocolatePontoVirgula.controller;
 
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
-import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,16 +19,7 @@ public class PedidoController {
 
     @Autowired
     private PedidoRepository pedidoRepository;
-/*
-* Codigo  			int 		not null auto_increment primary key,
-	data_Pedido -		DateTime 	not null,
-	Codigo_cliente - 		int 		not null,
-	endereco_Entrega - 	varchar (150),
-	Situacao 		-	boolean 	not null,
-	valor_Total - 		double (8,2) not null,
-	quantidade_Total -	int 		not null,
-	percentual_Desconto - int
-* */
+
     @PostMapping
     public @ResponseBody
     String addNewUser(@RequestParam Date dataPedido
@@ -61,10 +50,13 @@ public class PedidoController {
         Page<Pedido> result = pedidoRepository.findAll(pageRequest);
         return ResponseEntity.ok(result);
     }
-
-    @PutMapping("/{id}")
-    public void alterar(@PathVariable int id, @RequestBody Pedido pedido){
-        Pedido pedidoPesquisado = pedidoRepository.getOne(id);
+    @DeleteMapping("/{codigo}")
+    public void excluir(@PathVariable int codigo){
+        pedidoRepository.deleteById(codigo);
+    }
+    @PutMapping("/{codigo}")
+    public void alterar(@PathVariable int codigo, @RequestBody Pedido pedido){
+        Pedido pedidoPesquisado = pedidoRepository.getOne(codigo);
         if(pedidoPesquisado != null){
             pedidoPesquisado.setSituacao(pedido.isSituacao());
             pedidoRepository.save(pedidoPesquisado);
