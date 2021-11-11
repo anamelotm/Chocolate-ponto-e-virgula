@@ -14,6 +14,7 @@ body {
  .titulo{
    font-weight: bold;
    font-size: 1.5rem;
+   font-family: 'Mochiy Pop One', sans-serif;
  }
 
  .form-check-input{
@@ -23,3 +24,5 @@ body {
  .card-body{
    padding-top: 2rem;
  }
+
+
