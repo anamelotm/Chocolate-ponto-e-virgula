@@ -28,4 +28,8 @@ export class ProdutoCadastrarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cadastrarProduto(){
+    console.log(this.produtoForm);
+  }
+
 }

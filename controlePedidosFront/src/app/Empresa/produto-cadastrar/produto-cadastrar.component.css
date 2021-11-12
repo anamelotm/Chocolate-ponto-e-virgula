@@ -24,3 +24,8 @@
     font-family: 'Mochiy Pop One', sans-serif;
   }
   
+
+  .text-danger {
+    text-align: start;
+    margin-left: 7px;
+  }

@@ -17,6 +17,8 @@ import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-list
 import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalh
     ProdutosListarComponent,
     FazerPedidoComponent,
     HomeComponent,
-    PedidoDetalharComponent
+    PedidoDetalharComponent,
+    CarrinhoDialogComponent
 
   ],
   imports: [
@@ -38,7 +41,8 @@ import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalh
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatDialogModule
     ],
 
   providers: [],
