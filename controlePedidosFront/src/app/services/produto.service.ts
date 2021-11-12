@@ -8,15 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class ProdutoService {
 
-  //!!!atualizar o endereço!!!
-  url='http://localhost:4000/api/cliente';
-
-  private readonly ulrProduto = 'http://localhost:3000/produtos';
+  private readonly ulrProduto = 'http://localhost:3000/produtos/';
 
   constructor(private http: HttpClient) { }
 
   getProduto(): Observable<any> {
-    return this.http.get(this.url);
+    return this.http.get(this.ulrProduto);
   }
 
   listarProdutos(){

@@ -9,18 +9,12 @@ import { Produto } from '../../shared/models/produto';
 })
 export class ProdutosListarComponent implements OnInit {
 
-  produtos: Produto[] = [];
+  listaProdutos: Produto[] = [];
   estado: boolean = false;
 
 
   constructor(private servico: ProdutoService) { }
-
-  ngOnInit(): void {
-    this.servico.listarProdutos().subscribe(objetos => this.produtos = objetos);
-    this.produtos.map(produto => this.estado = produto.status);
-    console.log(this.estado);
+  ngOnInit(): void { 
+    this.servico.listarProdutos().subscribe(obj => this.listaProdutos = obj);
   }
-
-
-
 }
