@@ -14,17 +14,25 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "pedido")
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
+    @Column(name = "data_pedido")
     protected Date dataPedido;
+    @Column(name = "codigo_cliente")
     protected int codigoCliente;
+    @Column(name = "endereco_entrega")
     protected String enderecoEntrega;
+    @Column(name = "aberto")
     protected boolean aberto;
+    @Column(name = "valor_total")
     protected double valorTotal;
+    @Column(name = "quantidade_total")
     protected int quantidadeTotal;
+    @Column(name = "percentual_desconto")
     protected int percentualDesconto;
 
 
