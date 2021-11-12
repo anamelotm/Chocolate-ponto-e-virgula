@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-produto-cadastrar',
@@ -7,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoCadastrarComponent implements OnInit {
 
-  constructor() { }
+  produtoForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { 
+    this.produtoForm = this.fb.group({
+      nome: ['', Validators.required],
+      descricao: ['', Validators.required],
+      unidade_medida: ['', Validators.required],
+      peso: ['', Validators.required],
+      valor_unitario: ['', Validators.required],
+      url_fotos: ['', Validators.required],
+      data_fabricacao: ['', Validators.required],
+      data_validade: ['', Validators.required],
+      quantidade_estoque: ['', Validators.required]
+
+    })
+  }
 
   ngOnInit(): void {
   }
