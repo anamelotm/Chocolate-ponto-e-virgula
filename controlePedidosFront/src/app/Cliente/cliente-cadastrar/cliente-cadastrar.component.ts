@@ -13,7 +13,7 @@ import { ClienteService } from '../../services/cliente.service';
 export class ClienteCadastrarComponent implements OnInit {
   clienteForm: FormGroup;
   titulo = 'Cadastrar cliente';
-  id: string = '';
+  id: string | null;
 
   constructor(private fb: FormBuilder,
                 private router: Router,
@@ -25,10 +25,11 @@ export class ClienteCadastrarComponent implements OnInit {
       tipo: ['', Validators.required],
       documento: ['', Validators.required]
     })
-    //this.id = aRouter.snapshot.paraMap.get
+    this.id = aRouter.snapshot.paramMap.get('id');
    }
 
   ngOnInit(): void {
+    this.isEditar();
   }
 
   cadastrarCliente(){
@@ -36,12 +37,24 @@ export class ClienteCadastrarComponent implements OnInit {
      console.log(this.clienteForm);
     } else{
 
-        const cliente: Cliente = {
-          id: this.clienteForm.get('')?.value,
-          nome: this.clienteForm.get('nome')?.value,
-          tipo: this.clienteForm.get('tipo')?.value,
-          documento: this.clienteForm.get('documento')?.value
-        }
+      //criando um cliente
+      const cliente: Cliente = {
+        id: this.clienteForm.get('')?.value,
+        nome: this.clienteForm.get('nome')?.value,
+        tipo: this.clienteForm.get('tipo')?.value,
+        documento: this.clienteForm.get('documento')?.value
+      }
+
+      if(this.id !== null){
+        //editando o cliente
+        this.clienteService.editarCliente(this.id, cliente).subscribe(data => {
+          this.toastr.info('Cliente atualizado com sucesso!', 'Cliente atualizado');
+          this.router.navigate(['/cliente-listar']);
+        }, error => {
+          console.log(error);
+          this.clienteForm.reset();
+        })
+      } else{
 
         //metodo para gravar no banco
         this.clienteService.salvarCliente(cliente).subscribe(data => {
@@ -51,7 +64,20 @@ export class ClienteCadastrarComponent implements OnInit {
           console.log(error);
           this.clienteForm.reset();
         })
+      }
+    }
+  }
 
+  isEditar(){
+    if(this.id !== null){
+      this.titulo = 'Editar cliente';
+      this.clienteService.getCliente(this.id).subscribe(data => {
+        this.clienteForm.setValue({
+          nome: data.nome,
+          tipo: data.tipo,
+          documento: data.documento
+        })
+      })
     }
   }
 
