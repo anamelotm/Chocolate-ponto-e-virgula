@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, ViewChild } from '@angular/core';
-import { Endereco } from './model/endereco';
+import { Endereco } from '../shared/models/Endereco';
 
 @Injectable({
   providedIn: 'root'
