@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, ViewChild } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Endereco } from '../shared/models/Endereco';
 
 @Injectable({

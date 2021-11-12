@@ -29,6 +29,12 @@
       "tipo": "Física",
       "documento": "adada",
       "id": 6
+    },
+    {
+      "nome": "Alice Moraes",
+      "tipo": "Física",
+      "documento": "25414562589",
+      "id": 7
     }
   ],
   "produtos": [
@@ -81,6 +87,24 @@
       "subtotal": 35,
       "desconto": 3.5,
       "total": 31.5
+    },
+    {
+      "cliente": "3",
+      "enderecoEntrega": "Rua Doutor Machado, n 65, Campo Grande, Recife-PE",
+      "situacao": true,
+      "subtotal": 100,
+      "desconto": 10,
+      "total": 90,
+      "id": 6
+    },
+    {
+      "cliente": "2",
+      "enderecoEntrega": "Rua Doutor Machado, , Campo Grande, Recife-PE",
+      "situacao": true,
+      "subtotal": 100,
+      "desconto": 10,
+      "total": 90,
+      "id": 7
     }
   ],
   "itens": [
