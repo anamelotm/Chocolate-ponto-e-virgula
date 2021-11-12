@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
-import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
 
 @RestController
 @RequestMapping("/clientes")

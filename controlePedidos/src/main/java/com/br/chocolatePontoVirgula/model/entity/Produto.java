@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -22,6 +22,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
+    private String nome;
     private String descricaoProduto;
     private String unidadeMedida;
     private double valorUnitario;
@@ -42,5 +43,21 @@ public class Produto {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", descricaoProduto='" + descricaoProduto + '\'' +
+                ", unidadeMedida='" + unidadeMedida + '\'' +
+                ", valorUnitario=" + valorUnitario +
+                ", status=" + status +
+                ", urlFoto='" + urlFoto + '\'' +
+                ", peso=" + peso +
+                ", dataFabricacao=" + dataFabricacao +
+                ", dataValidade=" + dataValidade +
+                '}';
     }
 }
