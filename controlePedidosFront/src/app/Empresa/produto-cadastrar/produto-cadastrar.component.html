@@ -7,28 +7,44 @@
       <div class="card-body">
 
         <form action="" method="post">
-          <div class="input-group mb-3" style="width: 300px;">
-            <span class="input-group-text">Código do Produto</span>
-            <input id="codigoProduto" class="form-control" type="text" placeholder="1234" aria-label="Codigo cliente"
-              disabled >
-          </div>
           <div class="input-group mb-3">
-            <span class="input-group-text">Descrição</span>
-            <input type="text" class="form-control" placeholder="Nome do Produto">
+            <span class="input-group-text">Nome</span>
+            <input id="nome_produto" type="text" class="form-control" placeholder="Nome do Produto" required>
+          </div>
+          <div style="width: 300px;">
+          <label class="input-group-text">Descrição</label>
+           <textarea name="descricao" id="descricao" cols="40" rows="5">Informações do produto... </textarea>
+          </div>
+          <br>
+          <div class="input-group mb-3" style="width: 300px;">
+            <select  id="unidade_medida" style="background-color: #ffe6a7; font-weight: bold;">
+              <option selected >Unidade de Medida</option>
+              <option value="kg">Kilo</option>
+              <option value="und">Gramas</option>
+            </select>
+            <input id="peso" type="number" class="form-control" placeholder="Peso">
           </div>
           <div class="input-group mb-3" style="width: 300px;">
-            <select  style="background-color: #ffe6a7; font-weight: bold;">
-              <option selected >Unidade de Medida</option>
-              <option value="kg">Kg</option>
-              <option value="und">Unidade</option>
-            </select>
-            <input type="number" class="form-control" placeholder="Quantidade">
-          </div>
-          <div class="input-group mb-3" style="width: 150px;">
-            <span class="input-group-text">R$</span>
-            <input type="text" class="form-control" aria-label="Valor Unitário">
+            <span class="input-group-text">Valor Unitário R$</span>
+            <input id="valor_unitario" type="number" class="form-control" aria-label="Valor Unitário" required>
             <span class="input-group-text">.00</span>
           </div>  
+          <div class="input-group mb-3">
+            <span class="input-group-text">Imagem do Produto</span>
+            <input id="url_fotos" type="file"  class="form-control" required>
+          </div>
+          <div class="input-group mb-3" style="width: 400px;">
+            <span class="input-group-text">Data de Fabricação</span>
+            <input id="data_fabricacao" type="date" class="form-control" required>
+          </div>
+          <div class="input-group mb-3" style="width: 400px;">
+            <span class="input-group-text">Data de Validade</span>
+            <input id="data_validade" type="date" class="form-control" required>
+          </div>
+          <div class="input-group mb-3" style="width: 400px;">
+            <span class="input-group-text">Quantidade</span>
+            <input id="quantidade_estoque" type="number" class="form-control" placeholder="Quantidade para Estoque" required>
+          </div>
           <br>    
           <button class="btn btn-outline-success" type="submit">Cadastrar</button>
        
