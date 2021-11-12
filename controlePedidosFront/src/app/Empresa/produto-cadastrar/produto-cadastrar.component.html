@@ -6,44 +6,44 @@
       </div>
       <div class="card-body">
 
-        <form action="" method="post">
+        <form [formGroup] = "produtoForm">
           <div class="input-group mb-3">
             <span class="input-group-text">Nome</span>
-            <input id="nome_produto" type="text" class="form-control" placeholder="Nome do Produto" required>
+            <input id="nome" formControlName="nome" type="text" class="form-control" placeholder="Nome do Produto" required>
           </div>
           <div style="width: 300px;">
           <label class="input-group-text">Descrição</label>
-           <textarea name="descricao" id="descricao" cols="40" rows="5">Informações do produto... </textarea>
+           <textarea name="descricao" formControlName="descricao" id="descricao" cols="40" rows="5">Informações do produto... </textarea>
           </div>
           <br>
           <div class="input-group mb-3" style="width: 300px;">
-            <select  id="unidade_medida" style="background-color: #ffe6a7; font-weight: bold;">
+            <select  id="unidade_medida" formControlName="unidade_medida"  style="background-color: #ffe6a7; font-weight: bold;">
               <option selected >Unidade de Medida</option>
               <option value="kg">Kilo</option>
               <option value="und">Gramas</option>
             </select>
-            <input id="peso" type="number" class="form-control" placeholder="Peso">
+            <input id="peso" formControlName="peso"  type="number" class="form-control" placeholder="Peso">
           </div>
           <div class="input-group mb-3" style="width: 300px;">
             <span class="input-group-text">Valor Unitário R$</span>
-            <input id="valor_unitario" type="number" class="form-control" aria-label="Valor Unitário" required>
+            <input id="valor_unitario" formControlName="valor_unitario"  type="number" class="form-control" aria-label="Valor Unitário" required>
             <span class="input-group-text">.00</span>
           </div>  
           <div class="input-group mb-3">
             <span class="input-group-text">Imagem do Produto</span>
-            <input id="url_fotos" type="file"  class="form-control" required>
+            <input id="url_fotos" formControlName="url_fotos" type="file"  class="form-control" required>
           </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Data de Fabricação</span>
-            <input id="data_fabricacao" type="date" class="form-control" required>
+            <input id="data_fabricacao" formControlName="data_fabricacao" type="date" class="form-control" required>
           </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Data de Validade</span>
-            <input id="data_validade" type="date" class="form-control" required>
+            <input id="data_validade"  formControlName="data_validade" type="date" class="form-control" required>
           </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Quantidade</span>
-            <input id="quantidade_estoque" type="number" class="form-control" placeholder="Quantidade para Estoque" required>
+            <input id="quantidade_estoque" formControlName="quantidade_estoque" type="number" class="form-control" placeholder="Quantidade para Estoque" required>
           </div>
           <br>    
           <button class="btn btn-outline-success" type="submit">Cadastrar</button>
