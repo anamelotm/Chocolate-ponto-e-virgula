@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class ItemPedidoDTO {
 
-    private int codigo;
+    private Long codigo;
     private int quantidade;
     private Double valorTotal;
     private Long codigoPedido;
