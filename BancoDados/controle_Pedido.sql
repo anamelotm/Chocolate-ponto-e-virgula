@@ -90,5 +90,12 @@ insert into itemPedido (quantidade, valorTotal, codigoPedido, codigoProduto) val
 insert into itemPedido (quantidade, valorTotal, codigoPedido, codigoProduto) values (2, 43.51, 2, 2);
 insert into itemPedido (quantidade, valorTotal, codigoPedido, codigoProduto) values (10, 455.05, 3, 3);
 
+-- atualização do item pedido
+
+update produto set quantidadeEstoque=quantidadeEstoque -10 where codigo = 1;
+update produto set quantidadeEstoque=quantidadeEstoque -2 where codigo = 2;
+update produto set quantidadeEstoque=quantidadeEstoque -10 where codigo = 3;
+
+
 select * from itemPedido;
 select * from pedido;
