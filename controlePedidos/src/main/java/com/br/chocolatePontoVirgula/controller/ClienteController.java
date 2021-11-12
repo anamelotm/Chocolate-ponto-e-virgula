@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.controller;
 
+import com.br.chocolatePontoVirgula.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,41 +16,30 @@ import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
 public class ClienteController {
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private ClienteService clienteService;
 
 	@PostMapping
 	public void save(@RequestBody Cliente cliente){
-		clienteRepository.save(cliente);
+		clienteService.save(cliente);
 	}
 
 	@PutMapping("/{id}")
 	public void update(@PathVariable Long id, @RequestBody Cliente cliente){
-		Cliente clientePesquisado = clienteRepository.getById(id);
-
-		if(clientePesquisado != null){
-			clientePesquisado.setNome(cliente.getNome());
-			clienteRepository.save(clientePesquisado);
-		}
+		clienteService.update(id, cliente);
 	}
 
 	@DeleteMapping("/{id}")
 	public void excluir(@PathVariable Long id){
-		clienteRepository.deleteById(id);
+		clienteService.excluir(id);
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
-		Cliente cliente = clienteRepository.findById(id).get();
-		return ResponseEntity.ok().body(cliente);
+		 return clienteService.findById(id);
 	}
 
 	@GetMapping("/all")
 	public ResponseEntity<Page<Cliente>> findAll( Pageable pageable) {
-
-		int size = 10;
-		PageRequest pageRequest = PageRequest.ofSize(size);
-
-		Page<Cliente> result = clienteRepository.findAll(pageRequest);
-		return ResponseEntity.ok(result);
+		return clienteService.findAll(pageable);
 	}
 }
