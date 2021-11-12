@@ -2,7 +2,7 @@ import { Cliente } from './../../shared/models/cliente';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-cadastrar',
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ClienteCadastrarComponent implements OnInit {
   clienteForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.clienteForm = this.fb.group({
       nome: ['', Validators.required],
       tipo: ['', Validators.required],
@@ -41,6 +41,8 @@ export class ClienteCadastrarComponent implements OnInit {
         }
 
         console.log(cliente);
+        this.router.navigate(['/']);
+
     }
   }
 
