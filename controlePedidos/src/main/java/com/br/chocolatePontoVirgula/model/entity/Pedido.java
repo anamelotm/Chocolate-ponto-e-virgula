@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -22,11 +19,10 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int codigo;
-
     protected Date dataPedido;
     protected int codigoCliente;
     protected String enderecoEntrega;
-    protected boolean situacao;
+    protected boolean aberto;
     protected double valorTotal;
     protected int quantidadeTotal;
     protected int percentualDesconto;
@@ -34,7 +30,7 @@ public class Pedido {
 
 
     public boolean fechado() {
-        return this.situacao;
+        return this.aberto;
     }
 
     public void aplicarDesconto() {

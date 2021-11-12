@@ -24,7 +24,7 @@ public class PedidoController {
     public @ResponseBody
     String addNewUser(@RequestParam Date dataPedido
             , @RequestParam int codigoCliente, @RequestParam int percentualDesconto,
-                      @RequestParam boolean situacao,@RequestParam String enderecoEntrega,
+                      @RequestParam boolean aberto,@RequestParam String enderecoEntrega,
                       @RequestParam double valorTotal,@RequestParam int quantidadeTotal) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
@@ -33,7 +33,7 @@ public class PedidoController {
         pedido.setDataPedido(dataPedido);
         pedido.setCodigoCliente(codigoCliente);
         pedido.setPercentualDesconto(percentualDesconto);
-        pedido.setSituacao(situacao);
+        pedido.setAberto(aberto);
         pedido.setEnderecoEntrega(enderecoEntrega);
         pedido.setValorTotal(valorTotal);
         pedido.setQuantidadeTotal(quantidadeTotal);
@@ -58,7 +58,7 @@ public class PedidoController {
     public void alterar(@PathVariable int codigo, @RequestBody Pedido pedido){
         Pedido pedidoPesquisado = pedidoRepository.getOne(codigo);
         if(pedidoPesquisado != null){
-            pedidoPesquisado.setSituacao(pedido.isSituacao());
+            pedidoPesquisado.setAberto(pedido.isAberto());
             pedidoRepository.save(pedidoPesquisado);
         }
     }
