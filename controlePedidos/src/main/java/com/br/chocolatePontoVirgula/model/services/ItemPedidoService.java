@@ -23,14 +23,14 @@ public class ItemPedidoService {
     }
 
 
-//    public void update( Long id, Cliente cliente){
-//        ItemPedido itemPedidoPesquisado = itemPedidoRepository.getById(id);
-//
-//        if(itemPedidoPesquisado != null){
-//            itemPedidoPesquisado.;
-//            clienteRepository.save(clientePesquisado);
-//        }
-//    } REVISAR ESSE MÉTODO
+  public void update( Long id, ItemPedido itemPedido){
+       ItemPedido itemPedidoPesquisado = itemPedidoRepository.getById(id);
+
+       if(itemPedidoPesquisado != null){
+            itemPedidoPesquisado.setQuantidade(itemPedido.getQuantidade());
+            itemPedidoRepository.save(itemPedidoPesquisado);
+       }
+   }
 
 
     public void excluir(Long id){
