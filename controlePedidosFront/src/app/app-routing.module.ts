@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'cliente-listar', component: ClienteListarComponent},
   {path: 'pedidos-listar', component: PedidosListarComponent},
   {path: 'produto-cadastrar', component: ProdutoCadastrarComponent},
-  {path: 'editar-produto/:codigo', component: ProdutoCadastrarComponent},
+  {path: 'editar-produto/:id', component: ProdutoCadastrarComponent},
   {path: 'produtos-listar', component: ProdutosListarComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

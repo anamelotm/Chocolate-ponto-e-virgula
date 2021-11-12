@@ -1,7 +1,0 @@
-{
-  "produtos":[
-      {"codigo":1,"descricaoProduto":"Trufa de doce de leite","unidadeMedida":"g","valorUnitario":3.5,"status":"true"},
-      {"codigo":2,"descricaoProduto":"Barra de chocolate ao leite","unidadeMedida":"g","valorUnitario":22.9,"status":"true"},
-      {"codigo":3,"descricaoProduto":"Pepitas com Açúcar Mascavo","unidadeMedida":"g","valorUnitario":47.9,"status":"true"}
-  ]
-}

@@ -17,16 +17,15 @@
             </thead>
             <tbody *ngFor="let cliente of clientes">
               <tr>
-                <th scope="row">{{cliente.codigo}}</th>
+                <th scope="row">{{cliente.id}}</th>
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.tipo}}</td>
                 <td>{{cliente.documento}}</td>
-                <td><i class="fas fa-edit text-primary" routerLink="/cliente-cadastrar"></i></td>
-                <td><i class="far fa-trash-alt text-danger"></i></td>
+                <td><i [routerLink]="['/editar-cliente', cliente.id]" class="fas fa-edit text-primary"></i></td>
+                <td><i (click)="deletarCliente(cliente.id)" class="far fa-trash-alt text-danger"></i></td>
               </tr>
             </tbody>
           </table>
-
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
               <li class="page-item disabled">

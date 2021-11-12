@@ -9,18 +9,26 @@ import { Cliente } from '../shared/models/cliente';
 export class ClienteService {
 
   //!!!atualizar o endereço!!!
-  url='http://localhost:4000/api/cliente';
+  //url='http://localhost:4000/api/cliente';
 
-  private readonly urlCliente = 'http://localhost:3000/clientes';
+  private readonly url = 'http://localhost:3000/clientes/';
 
   constructor(private http: HttpClient) { }
 
-  getCliente(): Observable<any> {
-    return this.http.get(this.url);
-  }
 
   listarClientes(){
-    return this.http.get<Cliente[]>(this.urlCliente);
+    return this.http.get<Cliente[]>(this.url);
   }
 
+  deletarCliente(id: String): Observable<any>{
+    return this.http.delete(this.url + id);
+  }
+
+  salvarCliente(cliente: Cliente): Observable<any> {
+    return this.http.post(this.url, cliente);
+  }
+
+  getCliente(id: String): Observable<any> {
+    return this.http.get(this.url + id);
+  }
 }

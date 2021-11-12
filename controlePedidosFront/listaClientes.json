@@ -1,7 +1,0 @@
-{
-    "clientes":[
-        {"codigo":1,"tipo":"Física","documento":"187.312.848-76","nome":"Manoel Theo Victor da Costa"},
-         {"codigo":2, "tipo":"Física","documento":"241.712.021-67","nome":"Isabella Maitê Simone Barros"},
-         {"codigo":3, "tipo":"Jurídica","documento":"13.109.836/0001-70","nome":"Nair e Brenda Publicidade e Propaganda ME"}
-    ]
-}

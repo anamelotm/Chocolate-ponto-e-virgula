@@ -1,0 +1,29 @@
+{
+  "clientes": [
+    {
+      "id": 2,
+      "tipo": "Física",
+      "documento": "241.712.021-67",
+      "nome": "Isabella Maitê Simone Barros"
+    },
+    {
+      "nome": "Ana Maria Da Silva",
+      "tipo": "Física",
+      "documento": "100.100.100-00",
+      "id": 3
+    },
+    {
+      "tipo": "Física",
+      "documento": "000.000.000-00",
+      "nome": "Maria",
+      "id": 4
+    }
+  ],
+  "produtos":[
+    {"codigo":1,"descricaoProduto":"Trufa de doce de leite","unidadeMedida":"g","valorUnitario":3.5,"status":"true"},
+    {"codigo":2,"descricaoProduto":"Barra de chocolate ao leite","unidadeMedida":"g","valorUnitario":22.9,"status":"true"},
+    {"codigo":3,"descricaoProduto":"Pepitas com Açúcar Mascavo","unidadeMedida":"g","valorUnitario":47.9,"status":"true"}
+  ]
+
+}
+
