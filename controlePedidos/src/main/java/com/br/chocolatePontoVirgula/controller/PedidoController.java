@@ -51,11 +51,11 @@ public class PedidoController {
         return ResponseEntity.ok(result);
     }
     @DeleteMapping("/{codigo}")
-    public void excluir(@PathVariable int codigo){
+    public void excluir(@PathVariable long codigo){
         pedidoRepository.deleteById(codigo);
     }
     @PutMapping("/{codigo}")
-    public void alterar(@PathVariable int codigo, @RequestBody Pedido pedido){
+    public void alterar(@PathVariable long codigo, @RequestBody Pedido pedido){
         Pedido pedidoPesquisado = pedidoRepository.getOne(codigo);
         if(pedidoPesquisado != null){
             pedidoPesquisado.setAberto(pedido.isAberto());

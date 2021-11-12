@@ -19,7 +19,7 @@ public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int codigo;
+    protected Long codigo;
     @Column(name = "data_pedido")
     protected Date dataPedido;
     @Column(name = "codigo_cliente")
