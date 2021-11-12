@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ItemPedidoService } from 'src/app/services/item-pedido.service';
+import { ItemPedido } from 'src/app/shared/models/item-pedido';
 
 @Component({
   selector: 'app-pedido-detalhar',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidoDetalharComponent implements OnInit {
 
-  constructor() { }
+ itens:ItemPedido[] = [];
+
+  constructor(private servico: ItemPedidoService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.servico.listarItens().subscribe(obj => this.itens = obj );
   }
 
 }
+
+

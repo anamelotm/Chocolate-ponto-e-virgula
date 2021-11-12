@@ -26,8 +26,8 @@ cepDigitado: string = "";
     
     pegarcep(){
         this.servico.buscarCEP(this.cepDigitado).subscribe(objeto => this.enderecoBuscado = objeto);
-  }
+    }
 
+    
 
-  
 }

@@ -43,16 +43,18 @@
                 <th scope="col">Quantidade</th>
                 <th scope="col">Valor Total do item</th>
                 <th scope="col">Editar</th>
+               
               </tr>
             </thead>
-            <tbody >
+            <tbody *ngFor = "let item of itens" >
               <tr>
-                <td>123</td>
-                <td>Trufa</td>
-                <td> R$ 2,50</td>
-                <td>6</td>
-                <td>R$ 15,00</td>
+                <td>{{item.codigoPedido}}</td>
+                <td>{{item.produto}}</td>
+                <td> R$ {{item.valorUnitario}}</td>
+                <td>{{item.quantidade}}</td>
+                <td>R$ {{item.valorTotalItem}}</td>
                 <td><i class="fas fa-edit text-primary"></i></td>
+               
               </tr>
             </tbody>
           </table>
