@@ -1,13 +1,19 @@
-<h1 mat-dialog-title>Teste de Campo de Carrinho</h1>
-<div mat-dialog-content>
-    <ul>
-        <li>dasda</li>
-        <li>adada</li>
-        <li>dada</li>
-        <li>adadas</li>
-        <li>adaaasas</li>
+
+<h1 mat-dialog-title>Carrinho</h1>
+<div class="dialogo" mat-dialog-content>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let i of [1,2,3,4,5]">
+        <app-carrinho-item></app-carrinho-item>
+      </li>
+
+      <li class="list-group-item active">
+        <strong>Total: {{ 1100 | currency: 'BRL' }}</strong>
+      </li>
     </ul>
-    <p>Aqui vai o conteudo do carrinho</p>
-<div mat-dialog-actions>
-  <button mat-button (click)="cancelar()">No Thanks</button>
+
 </div>
+<div class="button" mat-dialog-actions>
+  <button class="btn btn-outline-secondary" (click)="cancelar()">Fechar</button>
+  <button class="btn btn-outline-success" type="submit"> Finalizar Pedido</button>
+</div>
+

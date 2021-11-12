@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
  carrinho(): void {
     const dialogRef = this.dialog.open(CarrinhoDialogComponent, {
       width: '400px',
-     
+      height: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

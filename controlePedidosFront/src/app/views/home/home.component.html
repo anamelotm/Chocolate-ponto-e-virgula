@@ -34,49 +34,13 @@
 
 <div class="card">
   <div class="card-header">
-   <h2 class="text-center"> Nossos Produtos <span class="float-end"><button (click)="carrinho()"> 🛒</button></span></h2> 
-  </div> 
+   <h2 class="text-center"> Nossos Produtos <span class="float-end"><button class="btn btn-warning" (click)="carrinho()"> <i class="fas fa-shopping-cart"></i></button></span></h2>
+  </div>
 
-  <div class="card-body">
-    <div class="grid-produtos">
-      
-      <div class="produto">
-        <div class="produto__imagem">
-          <img src="../../../assets/img/trufaMaracuja.png" width="200px" height="150px" alt="">
-          <p><b> Trufa Passion Fruit</b> </p>
-          <p> R$ 7,90</p>
-        </div>
-        <div class="produto_botao">
-          <input type="number" class="form-control">
-          <button class="btn btn-outline-danger">Quero!</button>
-        </div>
-      </div>
-      <div class="produto">
-        <div class="produto__imagem">
-          <img src="../../../assets/img/snack.png" width="200px" height="150px" alt="">
-          <p><b> Stuffed Preto e Branco</b> </p>
-          <p> R$ 9,90</p>
-        </div>
-        <div class="produto_botao">
-          <input type="number" class="form-control">
-          <button class="btn btn-outline-danger">Quero!</button>
-        </div>
-      </div>
-      <div class="produto">
-        <div class="produto__imagem">
-          <img src="../../../assets/img/blackWhite.png" width="200px" height="150px" alt="">
-          <p><b> Black and White </b> </p>
-          <p> R$ 11,90</p>
-        </div>
-        <div class="produto_botao">
-          <input type="number" class="form-control">
-          <button class="btn btn-outline-danger">Quero!</button>
-        </div>
-      </div>
-      
-    </div>  
-    <br>
-    <a class="btn btn-success" routerLink="fazer-pedido">Finalizar Pedido 🛒</a>
+  <div class="row">
+    <div class="col" *ngFor="let i of [1,2,3,4,5,6]">
+      <app-item-produto></app-item-produto>
+    </div>
   </div>
 
 </div>

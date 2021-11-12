@@ -14,7 +14,7 @@ export class CarrinhoDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   cancelar(): void {
     this.dialogRef.close();
   }
