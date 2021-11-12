@@ -16,8 +16,7 @@ import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-c
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
-
-
+import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     ProdutosListarComponent,
     FazerPedidoComponent,
     HomeComponent,
+    PedidoDetalharComponent
 
   ],
   imports: [
