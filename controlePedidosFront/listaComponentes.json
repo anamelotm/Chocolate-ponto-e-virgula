@@ -23,6 +23,12 @@
       "tipo": "Física",
       "documento": "241.712.021-67",
       "id": 5
+    },
+    {
+      "nome": "alice",
+      "tipo": "Física",
+      "documento": "25225252525",
+      "id": 6
     }
   ],
   "produtos": [
@@ -75,6 +81,15 @@
       "subtotal": 35,
       "desconto": 3.5,
       "total": 31.5
+    },
+    {
+      "cliente": "3",
+      "enderecoEntrega": "Rua Doutor Machado, n 65, Campo Grande, Recife-PE",
+      "situacao": true,
+      "subtotal": 100,
+      "desconto": 10,
+      "total": 90,
+      "id": 6
     }
   ],
   "itens": [
