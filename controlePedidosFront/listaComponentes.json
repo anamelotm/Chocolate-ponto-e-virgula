@@ -1,10 +1,10 @@
 {
   "clientes": [
     {
-      "id": 2,
+      "nome": "Ana Maria Braga",
       "tipo": "Física",
       "documento": "241.712.021-67",
-      "nome": "Isabella Maitê Simone Barros"
+      "id": 2
     },
     {
       "nome": "Ana Maria Da Silva",
@@ -19,9 +19,9 @@
       "id": 4
     },
     {
-      "nome": "856.564",
+      "nome": "Maria de Jesus",
       "tipo": "Física",
-      "documento": "fyfdyd",
+      "documento": "241.712.021-67",
       "id": 5
     }
   ],
@@ -46,6 +46,58 @@
       "unidadeMedida": "g",
       "valorUnitario": 47.9,
       "status": "true"
+    }
+  ],
+  "pedidos": [
+    {
+      "codigo": 1,
+      "cliente": "Ana Maria da Silva",
+      "enderecoEntrega": "Rua das Orquídeas, 155, Centro, Amaraji-PE",
+      "situacao": true,
+      "subtotal": 12,
+      "desconto": 1.2,
+      "total": 10.8
+    },
+    {
+      "codigo": 2,
+      "cliente": "Isabella Maitê Simone Barros",
+      "enderecoEntrega": "Rua Dom Pedro Henrique, Santo Amaro, Recife-PE",
+      "situacao": true,
+      "subtotal": 20,
+      "desconto": 2,
+      "total": 18
+    },
+    {
+      "codigo": 3,
+      "cliente": "Maria",
+      "enderecoEntrega": "Rua das Orquídeas, 155, Centro, Amaraji-PE",
+      "situacao": true,
+      "subtotal": 35,
+      "desconto": 3.5,
+      "total": 31.5
+    }
+  ],
+  "itens": [
+    {
+      "codigoPedido": 1,
+      "produto": "Trufa de doce de leite",
+      "valorUnitario": 3.5,
+      "quantidade": 2,
+      "valorTotalItem": 7
+    },
+    {
+      "codigoPedido": 2,
+      "produto": "Barra de chocolate ao leite",
+      "valorUnitario": 22.9,
+      "quantidade": 1,
+      "valorTotalItem": 22.9
+    },
+    {
+      "codigoPedido": 3,
+      "produto": "Pepitas com Açúcar Mascavo",
+      "valorUnitario": 47.9,
+      "quantidade": 1,
+      "valorTotalItem": 47.9
     }
   ]
 }

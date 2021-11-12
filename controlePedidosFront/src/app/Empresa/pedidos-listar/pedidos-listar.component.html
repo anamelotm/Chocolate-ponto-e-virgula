@@ -19,17 +19,17 @@
                 <th scope="col">Editar</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody  *ngFor="let pedido of pedidos">
               <tr>
-                <th scope="row">123</th>
+                <th scope="row">{{pedido.codigo}}</th>
                 <td>11/11/2021</td>
-                <td>Ana Luisa</td>
-                <td>Rua das Flores, 123</td>
-                <td>Aberto <i class="fas fa-exchange-alt text-primary"></i> </td>
+                <td>{{pedido.cliente}}</td>
+                <td>{{pedido.enderecoEntrega}}</td>
+                <td>{{pedido.situacao}} <i class="fas fa-exchange-alt text-primary"></i> </td>
                 <td>10</td>
-                <td>R$ 140,00</td>
-                <td>20%</td>
-                <td>R$ 100,00</td>
+                <td>R$ {{pedido.subtotal}}</td>
+                <td>{{pedido.desconto}}%</td>
+                <td>R$ {{pedido.total}}</td>
                 <td><i class="fas fa-edit text-primary"></i></td>
               </tr>
             </tbody>

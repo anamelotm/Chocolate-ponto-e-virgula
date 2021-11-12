@@ -12,7 +12,7 @@ import { HomeComponent } from './views/home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'cliente-cadastrar', component: ClienteCadastrarComponent},
-  {path: 'editar-cliente/:codigo', component: ClienteCadastrarComponent},
+  {path: 'editar-cliente/:id', component: ClienteCadastrarComponent},
   {path: 'fazer-pedido', component: FazerPedidoComponent},
   {path: 'cliente-listar', component: ClienteListarComponent},
   {path: 'pedidos-listar', component: PedidosListarComponent},
