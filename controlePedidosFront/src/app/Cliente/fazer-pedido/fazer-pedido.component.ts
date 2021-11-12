@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
-import { Endereco } from '../model/endereco';
-import { BuscaCEPService } from '../busca-cep.service';
+import { Endereco } from '../../shared/models/Endereco';
+import { BuscaCEPService } from '../../services/busca-cep.service';
 
 @Component({
   selector: 'app-fazer-pedido',

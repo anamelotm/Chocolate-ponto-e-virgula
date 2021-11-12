@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,9 +16,7 @@ import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-c
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     ProdutosListarComponent,
     FazerPedidoComponent,
     HomeComponent,
- 
+    PedidoDetalharComponent
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
     ],
 
   providers: [],

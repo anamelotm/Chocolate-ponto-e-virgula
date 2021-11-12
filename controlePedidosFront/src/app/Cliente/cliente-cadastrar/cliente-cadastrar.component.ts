@@ -1,8 +1,9 @@
 import { Cliente } from './../../shared/models/cliente';
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-cliente-cadastrar',
@@ -11,13 +12,20 @@ import { Router } from '@angular/router';
 })
 export class ClienteCadastrarComponent implements OnInit {
   clienteForm: FormGroup;
+  titulo = 'Cadastrar cliente';
+  id: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,
+                private router: Router,
+                private toastr: ToastrService,
+                private clienteService: ClienteService,
+                private aRouter: ActivatedRoute) {
     this.clienteForm = this.fb.group({
       nome: ['', Validators.required],
       tipo: ['', Validators.required],
       documento: ['', Validators.required]
     })
+    //this.id = aRouter.snapshot.paraMap.get
    }
 
   ngOnInit(): void {
@@ -27,21 +35,22 @@ export class ClienteCadastrarComponent implements OnInit {
     if(this.clienteForm.controls['nome'].errors || this.clienteForm.controls['documento'].errors || this.clienteForm.controls['tipo'].errors) {
      console.log(this.clienteForm);
     } else{
-      Swal.fire({
-          icon: 'success',
-          title: 'Cadastro concluído!',
-          confirmButtonColor: 'blue'
-        });
 
         const cliente: Cliente = {
-          codigo: this.clienteForm.get('')?.value,
+          id: this.clienteForm.get('')?.value,
           nome: this.clienteForm.get('nome')?.value,
           tipo: this.clienteForm.get('tipo')?.value,
           documento: this.clienteForm.get('documento')?.value
         }
 
-        console.log(cliente);
-        this.router.navigate(['/']);
+        //metodo para gravar no banco
+        this.clienteService.salvarCliente(cliente).subscribe(data => {
+          this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastro concluído!');
+          this.router.navigate(['/']);
+        }, error => {
+          console.log(error);
+          this.clienteForm.reset();
+        })
 
     }
   }

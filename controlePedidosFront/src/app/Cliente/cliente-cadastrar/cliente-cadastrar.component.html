@@ -3,7 +3,7 @@
 
   <div class="card-header">
     <div class="card-header text-center">
-      <h2 id="titulo_card">Cadastro de Clientes </h2>
+      <h2 id="titulo_card"> {{ titulo }} </h2>
     </div>
     <div class="card-body">
       <form [formGroup]="clienteForm" (ngSubmit)="cadastrarCliente()">
@@ -18,8 +18,8 @@
         <div class="input-group mt-3">
           <select aria-label="Tipo documento" id="select-tipo" formControlName="tipo" style="width: 13%;" >
             <option value="">Tipo</option>
-            <option value="CPF">CPF</option>
-            <option value="CNPJ">CNPJ</option>
+            <option value="Física">CPF</option>
+            <option value="Jurídica">CNPJ</option>
           </select>
           <input type="text" class="form-control" placeholder="Nº do Documento" formControlName="documento" >
         </div>

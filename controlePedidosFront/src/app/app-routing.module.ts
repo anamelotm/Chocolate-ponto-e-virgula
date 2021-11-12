@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClienteCadastrarComponent } from './Cliente/cliente-cadastrar/cliente-cadastrar.component';
 import { FazerPedidoComponent } from './Cliente/fazer-pedido/fazer-pedido.component';
 import { ClienteListarComponent } from './Empresa/cliente-listar/cliente-listar.component';
+import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 import { PedidosListarComponent } from './Empresa/pedidos-listar/pedidos-listar.component';
 import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-cadastrar.component';
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
@@ -16,8 +17,10 @@ const routes: Routes = [
   {path: 'cliente-listar', component: ClienteListarComponent},
   {path: 'pedidos-listar', component: PedidosListarComponent},
   {path: 'produto-cadastrar', component: ProdutoCadastrarComponent},
-  {path: 'editar-produto/:codigo', component: ProdutoCadastrarComponent},
+  {path: 'editar-produto/:id', component: ProdutoCadastrarComponent},
   {path: 'produtos-listar', component: ProdutosListarComponent},
+  {path: 'pedido-detalhar', component: PedidoDetalharComponent},
+
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

@@ -1,11 +1,11 @@
 export class Cliente {
-  codigo: number;
+  id: number;
   tipo: string;
   documento: string;
   nome: string;
 
   constructor(codigo: number, tipo: string, documento: string, nome:string){
-    this.codigo = codigo;
+    this.id = codigo;
     this.tipo = tipo;
     this.documento = documento;
     this.nome = nome;
