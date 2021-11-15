@@ -1,5 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
+import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
+import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,6 +21,10 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
+    @Autowired
+    private PedidosDTO pedidosDTO;
+    @Autowired
+    PedidoRepository pedidoRepository;
     @PostMapping
     public void save(@RequestBody Pedido pedido){
         pedidoService.save(pedido);
@@ -39,8 +45,10 @@ public class PedidoController {
         return pedidoService.findById(id);
     }
 
-    @GetMapping()
-    public ResponseEntity<Page<Pedido>> findAll( Pageable pageable) {
-        return pedidoService.findAll(pageable);
+    @GetMapping
+    public List<PedidosDTO> listarTudo() {
+        List<Pedido> categoriasLista = pedidoRepository.findAll();
+
+        return PedidosDTO.converter(categoriasLista);
     }
 }

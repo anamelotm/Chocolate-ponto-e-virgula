@@ -23,7 +23,7 @@ public class Pedido {
     @Column(name = "data_pedido")
     protected Date dataPedido;
     @Column(name = "codigo_cliente")
-    protected int codigoCliente;
+    protected Long codigoCliente;
     @Column(name = "endereco_entrega")
     protected String enderecoEntrega;
     @Column(name = "aberto")
