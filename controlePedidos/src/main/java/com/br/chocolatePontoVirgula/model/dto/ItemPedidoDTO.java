@@ -15,7 +15,7 @@ public class ItemPedidoDTO {
     private Long codigoProduto;
 
     public ItemPedidoDTO(ItemPedido itemPedido) {
-        this.codigo = itemPedido.getCodigo();
+        this.codigo = itemPedido.getId();
         this.quantidade = itemPedido.getQuantidade();
         this.valorTotal = itemPedido.getValorTotal();
         this.codigoPedido = itemPedido.getCodigoPedido();
