@@ -28,8 +28,8 @@ public class ClienteController {
 	}
 
 	@DeleteMapping("/{id}")
-	public void excluir(@PathVariable Long id){
-		clienteService.excluir(id);
+	public void delete(@PathVariable Long id){
+		clienteService.delete(id);
 	}
 
 	@GetMapping("/{id}")
