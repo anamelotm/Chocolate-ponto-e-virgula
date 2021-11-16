@@ -3,14 +3,14 @@ create schema controlepedidos;
 use controlepedidos;
 
 create table cliente (
-	codigo 				int 		not null auto_increment primary key,
+	id 				int 		not null auto_increment primary key,
 	tipo				varchar(8) not null,
 	documento			varchar(18) not null,
 	nome				varchar(100) not null
 );
 
 create table produto (
-	codigo 				int 		not null auto_increment primary key,
+	id 				int 		not null auto_increment primary key,
 	nome 				varchar(100) not null,
 	descricao 			text,
 	unidade_medida 		varchar (2) not null,
@@ -24,8 +24,8 @@ create table produto (
 );
 
 create table pedido(
-	codigo 				int not null auto_increment primary key,
-	codigo_cliente 		int not null, -- FK da coluna codigo tabela cliente
+	id 				int not null auto_increment primary key,
+	id_cliente 		int not null, -- FK da coluna codigo tabela cliente
 	endereco_entrega 	varchar(150) not null,
 	data_pedido			date not null,
 	aberto 				boolean not null,
@@ -36,18 +36,18 @@ create table pedido(
 );
 
 create table item_Pedido(
-	codigo 				int not null auto_increment primary key,
-	codigo_pedido		int not null,  -- FK da coluna codigo tabela pedido
-	codigo_produto		int not null,  -- FK da coluna codigo tabela produto
+	id 				int not null auto_increment primary key,
+	id_pedido		int not null,  -- FK da coluna codigo tabela pedido
+	id_produto		int not null,  -- FK da coluna codigo tabela produto
 	quantidade			int not null,
 	valorTotal			double(5,2) not null
 );
 
 -- alteração das tabelas e inserção das FK's
 
-ALTER TABLE item_Pedido add constraint fk_itemP_pedido FOREIGN KEY (codigo_pedido) REFERENCES pedido(codigo) on delete cascade;
-ALTER TABLE item_Pedido add constraint fk_itemP_produto FOREIGN KEY (codigo_produto) REFERENCES produto(codigo) on delete cascade;
-ALTER TABLE pedido add constraint fk_pedido_cliente FOREIGN KEY (codigo_cliente) REFERENCES cliente(codigo) on delete cascade;
+ALTER TABLE item_Pedido add constraint fk_itemP_pedido FOREIGN KEY (id_pedido) REFERENCES pedido(id) on delete cascade;
+ALTER TABLE item_Pedido add constraint fk_itemP_produto FOREIGN KEY (id_produto) REFERENCES produto(id) on delete cascade;
+ALTER TABLE pedido add constraint fk_pedido_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id) on delete cascade;
 
 desc cliente;
 desc itemPedido;
@@ -75,26 +75,26 @@ select * from cliente;
 
 -- insercao de pedido
 
-insert into pedido (data_pedido, codigo_cliente, endereco_entrega, aberto, valor_total, quantidade_total, percentual_desconto) 
+insert into pedido (data_pedido, id_cliente, endereco_entrega, aberto, valor_total, quantidade_total, percentual_desconto) 
 values ('2021-11-08', 1, 'Rua Capitão João Urias, 984, Centro, Águas da Prata/SP, 13890-972', true, 35.00, 10, 5);
-insert into pedido (data_pedido, codigo_cliente, endereco_entrega, aberto, valor_total, quantidade_total, percentual_desconto) 
+insert into pedido (data_pedido, id_cliente, endereco_entrega, aberto, valor_total, quantidade_total, percentual_desconto) 
 values ('2021-11-08', 2, 'Avenida João F. Abreu, 180, Setor Central, Abreulândia/TO, 77693-970', true, 45.80, 2, 5);
-insert into pedido (data_pedido, codigo_cliente, endereco_entrega, aberto, valor_total, quantidade_total, percentual_desconto)
+insert into pedido (data_pedido, id_cliente, endereco_entrega, aberto, valor_total, quantidade_total, percentual_desconto)
 values ('2021-11-08', 3, 'Travessa Nossa Senhora da Aparecida, 599, Getúlio Vargas, Barra Mansa/RJ, 27325-530', true, 479.00, 10, 5);
 
 -- insercao de item pedido
 
-insert into item_Pedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (10, 33.25, 1, 1);
-insert into item_Pedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (2, 43.51, 2, 2);
-insert into item_Pedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (10, 455.05, 3, 3);
+insert into item_Pedido (quantidade, valorTotal, id_pedido, id_produto) values (10, 33.25, 1, 1);
+insert into item_Pedido (quantidade, valorTotal, id_pedido, id_produto) values (2, 43.51, 2, 2);
+insert into item_Pedido (quantidade, valorTotal, id_pedido, id_produto) values (10, 455.05, 3, 3);
 
 
 -- atualização do item pedido
 
-update produto set quantidade_estoque=quantidade_estoque -10 where codigo =1;
-update produto set quantidade_estoque=quantidade_estoque -2 where codigo =2;
-update produto set quantidade_estoque=quantidade_estoque -10 where codigo =3;
+update produto set quantidade_estoque=quantidade_estoque -10 where id = 1;
+update produto set quantidade_estoque=quantidade_estoque -2 where id = 2;
+update produto set quantidade_estoque=quantidade_estoque -10 where id = 3;
 
 
-select * from itemPedido;
+select * from item_Pedido;
 select * from pedido;
