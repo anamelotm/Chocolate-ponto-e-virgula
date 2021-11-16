@@ -14,14 +14,14 @@ import java.util.stream.Collectors;
 
 @Getter
 public class PedidosDTO {
-    private Long codigo;
+    private Long id;
     private String enderecoEntrega;
     private boolean aberto;
     private double valorTotal;
 
 
     public PedidosDTO(Pedido pedido) {
-        this.codigo = pedido.getCodigo();
+        this.id = pedido.getId();
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         this.aberto = pedido.isAberto();
         this.valorTotal=pedido.getValorTotal();
