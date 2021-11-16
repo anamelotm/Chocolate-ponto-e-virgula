@@ -1,6 +1,4 @@
 package com.br.chocolatePontoVirgula.config;
-
-
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -29,5 +27,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
-
 }
