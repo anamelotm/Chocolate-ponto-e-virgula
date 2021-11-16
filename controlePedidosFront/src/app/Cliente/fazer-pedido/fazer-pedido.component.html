@@ -1,0 +1,68 @@
+<div style="text-align: end; margin-top: 4%;" ><a class="btn btn-primary" routerLink=''>Inicio</a></div>
+<div class="card" style="margin-top: 4%; ">
+ 
+  <div class="card-header text-center ">
+    <h2 id="titulo_card" >Finalizando seu Pedido 🛒 </h2>
+  </div>
+  <div class="card-body" style="margin-top: 3%; color: #432818 ; ">
+    <form [formGroup] = "pedidoForm" (ngSubmit)= "efetuarPedido()" >
+      <div class="input-group mb-3">  
+        <h2>Total: R$</h2>
+        <span style="margin-left: 2%;">Aqui vai o valor</span>
+        <h2 style="margin-left: 20%;">Quantidade: </h2>
+        <span style="margin-left: 2%;">Aqui a quantidade</span>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Cliente</span>
+        <select class="form-select" formControlName="cliente" aria-label="Default select example">
+          <option value="1">Evelin</option>
+          <option value="2">Ana Luisa</option>
+          <option value="3">Isabel</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Endereço de entrega</span>
+      </div>
+      <div class="input-group mb-3">
+     <!-- busca parte do endereço por CEP-->
+        <form method="get">
+        <span class="input-group-text" >CEP</span>
+        <input name="cep" class="form-control" type="text" id="cep"[(ngModel)]="cepDigitado"  
+        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> 
+        <button  class="btn btn-outline-success" (click)="pegarcep()">Buscar Endereço</button>
+      </form>
+
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Rua</span>
+        <input  [value] = "enderecoBuscado.logradouro" formControlName="rua"  type="text" class="form-control" placeholder="Ex.: Rua Professor Antonio Coelho" 
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Bairro</span>
+        <input  [value] = "enderecoBuscado.bairro"  formControlName="bairro" type="text" class="form-control" placeholder="Ex.: Várzea"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Cidade</span>
+        <input [value] = "enderecoBuscado.localidade" formControlName="cidade"  type="text" class="form-control" placeholder="Ex.: Recife"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Estado</span>
+        <input [value] = "enderecoBuscado.uf" formControlName="uf"  type="text" class="form-control" placeholder="Ex.:Pernambuco"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Complemento</span>
+        <input type="text" class="form-control" formControlName="complemento" placeholder="Ex.: Nº 254 apt. 405"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="text-danger"
+          *ngIf="pedidoForm.get('complemento')?.hasError('required') && pedidoForm.get('complemento')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <button class="btn btn-outline-success" type="submit"> Finalizar Pedido ✔</button>
+    </form>
+  </div>
+</div>
