@@ -10,15 +10,12 @@ import { Produto } from '../../shared/models/produto';
 export class ProdutosListarComponent implements OnInit {
 
   produtos: Produto[] = [];
-  estado: boolean = false;
 
 
   constructor(private servico: ProdutoService) { }
 
   ngOnInit(): void {
     this.servico.listarProdutos().subscribe(objetos => this.produtos = objetos);
-    this.produtos.map(produto => this.estado = produto.status);
-    console.log(this.estado);
   }
 
 

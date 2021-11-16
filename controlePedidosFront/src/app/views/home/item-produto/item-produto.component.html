@@ -3,14 +3,14 @@
 
     <div class="produto">
       <div class="produto__imagem">
-        <img src="../../../assets/img/trufaMaracuja.png" width="200px" height="150px" alt="">
-        <p><b> Trufa Passion Fruit</b> </p>
-        <p> Descricao Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p> <strong>R$ 7,90 </strong></p>
+        <img src="{{itemCarrinho.url_fotos}}" width="200px" height="150px" alt="">
+        <h3><b> {{itemCarrinho.nome}}</b> </h3>
+        <p class="descricao"> {{itemCarrinho.descricao}}</p>
+        <p class="preco"> <strong> {{ itemCarrinho.valor_unitario | currency: 'BRL' }}</strong></p>
       </div>
       <div class="produto_botao">
         <input type="number" class="form-control">
-        <button class="btn btn-outline-danger">Quero!</button>
+        <button class="btn btn-outline-danger" (click)="handleAddToCart()">Quero!</button>
       </div>
     </div>
 

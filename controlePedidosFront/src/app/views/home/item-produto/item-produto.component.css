@@ -23,3 +23,15 @@
   justify-content: center;
   text-align: center;
 }
+
+.descricao {
+  text-align: justify;
+}
+
+img {
+ margin-bottom: 10px;
+}
+
+.preco {
+  font-size: larger;
+}
