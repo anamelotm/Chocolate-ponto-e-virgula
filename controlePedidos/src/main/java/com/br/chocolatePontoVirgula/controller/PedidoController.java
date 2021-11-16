@@ -1,7 +1,6 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 
-import java.sql.Date;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
