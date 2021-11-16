@@ -32,7 +32,7 @@ public class ClienteService {
     }
 
 
-    public void excluir(Long id){
+    public void delete(Long id){
         clienteRepository.deleteById(id);
     }
 
