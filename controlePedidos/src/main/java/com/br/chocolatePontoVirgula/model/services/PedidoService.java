@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PedidoService {
+
     @Autowired
     PedidoRepository pedidoRepository;
 
@@ -27,7 +28,6 @@ public class PedidoService {
             pedidoRepository.save(pedidoPesquisado);
         }
     }
-
 
     public void excluir(Long id) {
         pedidoRepository.deleteById(id);

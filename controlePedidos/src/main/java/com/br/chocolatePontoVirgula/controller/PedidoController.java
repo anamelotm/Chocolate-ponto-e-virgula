@@ -50,6 +50,7 @@ public class PedidoController {
 
         return PedidosDTO.converter(pedidosLista);
     }
+
     @GetMapping("/all")
     public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {
         return pedidoService.findAll(pageable);

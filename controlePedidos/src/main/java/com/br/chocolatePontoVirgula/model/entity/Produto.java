@@ -20,8 +20,8 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
 
+    private Long id;
     private String nome;
     private String descricaoProduto;
     private String unidadeMedida;
@@ -48,7 +48,7 @@ public class Produto {
     @Override
     public String toString() {
         return "Produto{" +
-                "codigo=" + codigo +
+                "codigo=" + id +
                 ", nome='" + nome + '\'' +
                 ", descricaoProduto='" + descricaoProduto + '\'' +
                 ", unidadeMedida='" + unidadeMedida + '\'' +
