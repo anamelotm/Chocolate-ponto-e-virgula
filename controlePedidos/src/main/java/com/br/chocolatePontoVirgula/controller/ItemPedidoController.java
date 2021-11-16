@@ -27,8 +27,8 @@ public class ItemPedidoController {
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id){
-        itemPedidoService.excluir(id);
+    public void delete(@PathVariable Long id){
+        itemPedidoService.delete(id);
     }
 
     @GetMapping("/{id}")

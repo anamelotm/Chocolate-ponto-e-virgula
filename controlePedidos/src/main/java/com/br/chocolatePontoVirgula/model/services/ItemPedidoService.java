@@ -33,7 +33,7 @@ public class ItemPedidoService {
    }
 
 
-    public void excluir(Long id){
+    public void delete(Long id){
         itemPedidoRepository.deleteById(id);
     }
 
