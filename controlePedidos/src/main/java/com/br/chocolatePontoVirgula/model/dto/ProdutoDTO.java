@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Getter
 public class ProdutoDTO {
 
-    private Long codigo;
+    private Long id;
     private String nome;
     private String descricaoProduto;
     private String unidadeMedida;
