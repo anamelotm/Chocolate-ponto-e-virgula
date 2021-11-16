@@ -1,6 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
+import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import com.br.chocolatePontoVirgula.model.entity.Pedido;
 
 import java.sql.Date;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
@@ -21,7 +22,7 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
-    @Autowired
+
     private PedidosDTO pedidosDTO;
     @Autowired
     PedidoRepository pedidoRepository;
@@ -47,8 +48,12 @@ public class PedidoController {
 
     @GetMapping
     public List<PedidosDTO> listarTudo() {
-        List<Pedido> categoriasLista = pedidoRepository.findAll();
+        List<Pedido> pedidosLista = pedidoRepository.findAll();
 
-        return PedidosDTO.converter(categoriasLista);
+        return PedidosDTO.converter(pedidosLista);
+    }
+    @GetMapping("/all")
+    public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {
+        return pedidoService.findAll(pageable);
     }
 }
