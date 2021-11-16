@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
-import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
 
 @RestController
 @RequestMapping("/clientes")
@@ -29,8 +28,8 @@ public class ClienteController {
 	}
 
 	@DeleteMapping("/{id}")
-	public void excluir(@PathVariable Long id){
-		clienteService.excluir(id);
+	public void delete(@PathVariable Long id){
+		clienteService.delete(id);
 	}
 
 	@GetMapping("/{id}")

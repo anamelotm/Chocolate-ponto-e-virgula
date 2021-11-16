@@ -18,7 +18,7 @@ public class ItemPedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo")
-	private int codigo;
+	private Long codigo;
 
 	@Column(name = "quantidade")
 	private int quantidade;
@@ -27,9 +27,9 @@ public class ItemPedido {
 	private Double valorTotal;
 
 	@Column(name = "codigo_pedido")
-	private int codigoPedido;
+	private Long codigoPedido;
 
 	@Column(name = "codigo_produto")
-	private int codigoProduto;
+	private Long codigoProduto;
 
 }

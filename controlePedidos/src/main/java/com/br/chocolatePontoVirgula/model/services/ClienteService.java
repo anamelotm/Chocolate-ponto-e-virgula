@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 @Service
 public class ClienteService {
@@ -32,7 +31,9 @@ public class ClienteService {
     }
 
 
-    public void excluir(Long id){
+
+    public void delete(Long id){
+
         clienteRepository.deleteById(id);
     }
 

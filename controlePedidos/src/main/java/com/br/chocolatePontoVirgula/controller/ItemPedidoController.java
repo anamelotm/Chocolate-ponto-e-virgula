@@ -21,10 +21,10 @@ public class ItemPedidoController {
         itemPedidoService.save(itemPedido);
     }
 
-//    @PutMapping("/{id}")
-//    public void update(@PathVariable Long id, @RequestBody ItemPedido itemPedido){
-//        itemPedidoService.update(id, itemPedido);
-//    } REVISAR ESSE MÉTODO
+    @PutMapping("/{id}")
+    public void update(@PathVariable Long id, @RequestBody ItemPedido itemPedido){
+        itemPedidoService.update(id, itemPedido);
+    }
 
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable Long id){

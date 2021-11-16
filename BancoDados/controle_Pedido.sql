@@ -35,7 +35,7 @@ create table pedido(
 	
 );
 
-create table itemPedido(
+create table item_Pedido(
 	codigo 				int not null auto_increment primary key,
 	codigo_pedido		int not null,  -- FK da coluna codigo tabela pedido
 	codigo_produto		int not null,  -- FK da coluna codigo tabela produto
@@ -45,8 +45,8 @@ create table itemPedido(
 
 -- alteração das tabelas e inserção das FK's
 
-ALTER TABLE itemPedido add constraint fk_itemP_pedido FOREIGN KEY (codigo_pedido) REFERENCES pedido(codigo) on delete cascade;
-ALTER TABLE itemPedido add constraint fk_itemP_produto FOREIGN KEY (codigo_produto) REFERENCES produto(codigo) on delete cascade;
+ALTER TABLE item_Pedido add constraint fk_itemP_pedido FOREIGN KEY (codigo_pedido) REFERENCES pedido(codigo) on delete cascade;
+ALTER TABLE item_Pedido add constraint fk_itemP_produto FOREIGN KEY (codigo_produto) REFERENCES produto(codigo) on delete cascade;
 ALTER TABLE pedido add constraint fk_pedido_cliente FOREIGN KEY (codigo_cliente) REFERENCES cliente(codigo) on delete cascade;
 
 desc cliente;
@@ -64,11 +64,6 @@ INSERT INTO produto (nome, unidade_medida , valor_unitario , status, url_fotos, 
 VALUES('Pepitas com Açucar Mascavo', 'gr', 47.90, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 100, '2021-11-08', '2024-11-08', 22);
 
 select * from produto;
-
--- formatação das datas
-
-SELECT DATE_FORMAT(dataFabricacao, "%d %M %Y") FROM produto;
-SELECT DATE_FORMAT(dataValidade, "%d %M %Y") FROM produto;
 =
 -- insercao de cliente
 
@@ -89,9 +84,9 @@ values ('2021-11-08', 3, 'Travessa Nossa Senhora da Aparecida, 599, Getúlio Var
 
 -- insercao de item pedido
 
-insert into itemPedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (10, 33.25, 1, 1);
-insert into itemPedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (2, 43.51, 2, 2);
-insert into itemPedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (10, 455.05, 3, 3);
+insert into item_Pedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (10, 33.25, 1, 1);
+insert into item_Pedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (2, 43.51, 2, 2);
+insert into item_Pedido (quantidade, valorTotal, codigo_pedido, codigo_produto) values (10, 455.05, 3, 3);
 
 
 -- atualização do item pedido
