@@ -1,15 +1,9 @@
 {
   "clientes": [
     {
-      "nome": "Ana Maria Braga",
-      "tipo": "Física",
-      "documento": "241.712.021-67",
-      "id": 2
-    },
-    {
       "nome": "Ana Maria Da Silva",
       "tipo": "Física",
-      "documento": "100.100.100-00",
+      "documento": "100.100.100-22",
       "id": 3
     },
     {
@@ -99,12 +93,21 @@
     },
     {
       "cliente": "2",
-      "enderecoEntrega": "Rua Doutor Machado, , Campo Grande, Recife-PE",
+      "enderecoEntrega": "Rua Serra Dourada, hghghghg, Vila Carmela I, Guarulhos-SPCEP: 07178-560",
       "situacao": true,
       "subtotal": 100,
       "desconto": 10,
       "total": 90,
       "id": 7
+    },
+    {
+      "cliente": "2",
+      "enderecoEntrega": "Rua Doutor Machado, n45, Campo Grande, Recife-PECEP: 52040-020",
+      "situacao": true,
+      "subtotal": 100,
+      "desconto": 10,
+      "total": 90,
+      "id": 8
     }
   ],
   "itens": [

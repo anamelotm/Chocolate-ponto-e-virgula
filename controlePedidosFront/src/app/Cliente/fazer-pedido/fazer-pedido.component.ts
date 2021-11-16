@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Endereco } from '../../shared/models/Endereco';
 import { BuscaCEPService } from '../../services/busca-cep.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,7 +13,8 @@ import { Pedido } from 'src/app/shared/models/pedido';
   templateUrl: './fazer-pedido.component.html',
   styleUrls: ['./fazer-pedido.component.css']
 })
-export class FazerPedidoComponent {
+export class FazerPedidoComponent implements OnInit{
+  titulo = "Finalizando seu Pedido 🛒";
   enderecoBuscado : Endereco = {
     cep: "", 
     logradouro: "", 
@@ -50,26 +51,31 @@ export class FazerPedidoComponent {
       this.id = aRouter.snapshot.paramMap.get('id');
       
     }
+
+    ngOnInit(): void{
+      this.isEditar();
+    }
     
+    isEditar(){
+      if(this.id !== null){
+        this.titulo = "Editando Endereço de Entrega";
+        this.pedidoService.getPedido(this.id).subscribe(data => 
+          this.pedidoForm.patchValue({  //altero setValue para patch pois nao vou usar todos os atributos.
+            cliente: data.cliente,
+          }))
+      }
+    }
     pegarcep(){
         this.servico.buscarCEP(this.cepDigitado).subscribe(objeto => this.enderecoBuscado = objeto);
     }
 
+
     efetuarPedido(){
-//****validações
-    //   if(this.pedidoForm.controls['cliente'].errors ||
-    //   this.pedidoForm.controls['rua'].errors ||
-    //   this.pedidoForm.controls['bairro'].errors ||
-    //   this.pedidoForm.controls['cidade'].errors ||
-    //   this.pedidoForm.controls['uf'].errors ||
-    //   this.pedidoForm.controls['complemento'].errors){
-    //   console.log(this.pedidoForm);
-    // }else{
       const pedido: Pedido ={
         id: this.pedidoForm.get('')?.value ,
         cliente: this.pedidoForm.get('cliente')?.value,
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
-                          this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf,
+                          this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
   
         situacao: true,
         subtotal: 100,
@@ -77,12 +83,25 @@ export class FazerPedidoComponent {
         total: 90
       }
 
+      if(this.id !== null){
+        this.pedidoService.editarPedido(this.id, pedido).subscribe(data => {
+          this.toastr.info('Endereço de entrega atualizado com sucesso!', 'Pedido atualizado');
+          this.router.navigate(['/pedidos-listar']);
+        }, error => {
+          console.log(error);
+          this.pedidoForm.reset();
+        })
+      } else{
+      
+
       this.pedidoService.salvarPedido(pedido).subscribe(data => {
-        this.toastr.success('Pedido Efetuado com sucesso!', 'Pedido concluído!');
+        this.toastr.success('Pedido efetuado com sucesso!', 'Pedido efetuado!');
         this.router.navigate(['/']);
       }, error => {
         console.log(error);
         this.pedidoForm.reset();
       })
-    }
+    }}
 }
+
+

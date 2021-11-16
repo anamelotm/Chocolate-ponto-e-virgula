@@ -19,7 +19,9 @@ const routes: Routes = [
   {path: 'produto-cadastrar', component: ProdutoCadastrarComponent},
   {path: 'editar-produto/:id', component: ProdutoCadastrarComponent},
   {path: 'produtos-listar', component: ProdutosListarComponent},
-  {path: 'pedido-detalhar', component: PedidoDetalharComponent},
+  {path: 'pedido-detalhar/:id', component: PedidoDetalharComponent},
+  {path: 'editar-pedido/:id', component: FazerPedidoComponent},
+
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
