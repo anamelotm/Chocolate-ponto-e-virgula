@@ -1,7 +1,6 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
-import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
@@ -22,8 +20,6 @@ public class PedidoController {
 
 
     private PedidosDTO pedidosDTO;
-    @Autowired
-    PedidoRepository pedidoRepository;
     @PostMapping
     public void save(@RequestBody Pedido pedido){
         pedidoService.save(pedido);
@@ -44,12 +40,17 @@ public class PedidoController {
         return pedidoService.findById(id);
     }
 
-   /* @GetMapping
+   @GetMapping
     public List<PedidosDTO> listarTudo() {
-        //List<PedidosDTO> pedidosLista = pedidoRepository.consultaGeralPedidos();
+        List<PedidosDTO> pedidosLista = pedidoService.consultaGeralPedidos();
 
-        //return PedidosDTO.converter(pedidosLista);
-    }*/
+        return PedidosDTO.converter(pedidosLista);
+    }
+    @PostMapping("/{idCliente}")
+    public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente){
+        return pedidoService.consultaPedidosCliente(idCliente);
+
+    }
     @GetMapping("/all")
     public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {
         return pedidoService.findAll(pageable);
