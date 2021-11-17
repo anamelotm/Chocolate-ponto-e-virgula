@@ -46,7 +46,7 @@ public class PedidoController {
 
         return PedidosDTO.converter(pedidosLista);
     }
-    @PostMapping("/{idCliente}")
+    @GetMapping("cliente/{idCliente}")
     public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente){
         return pedidoService.consultaPedidosCliente(idCliente);
 
