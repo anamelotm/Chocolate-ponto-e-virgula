@@ -44,13 +44,12 @@ public class PedidoController {
         return pedidoService.findById(id);
     }
 
-    @GetMapping
+   /* @GetMapping
     public List<PedidosDTO> listarTudo() {
-        List<Pedido> pedidosLista = pedidoRepository.findAll();
+        //List<PedidosDTO> pedidosLista = pedidoRepository.consultaGeralPedidos();
 
-        return PedidosDTO.converter(pedidosLista);
-    }
-
+        //return PedidosDTO.converter(pedidosLista);
+    }*/
     @GetMapping("/all")
     public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {
         return pedidoService.findAll(pageable);

@@ -15,19 +15,21 @@ import java.util.stream.Collectors;
 @Getter
 public class PedidosDTO {
     private Long id;
+    private String nome;
     private String enderecoEntrega;
     private boolean aberto;
     private double valorTotal;
 
 
-    public PedidosDTO(Pedido pedido) {
-        this.id = pedido.getId();
-        this.enderecoEntrega = pedido.getEnderecoEntrega();
-        this.aberto = pedido.isAberto();
-        this.valorTotal=pedido.getValorTotal();
+    public PedidosDTO(Long id, String nome, String enderecoEntrega, boolean aberto, double valorTotal) {
+        this.id = id;
+        this.nome=nome;
+        this.enderecoEntrega = enderecoEntrega;
+        this.aberto = aberto;
+        this.valorTotal=valorTotal;
     }
 
-    public static List<PedidosDTO> converter(List<Pedido> pedidos) {
-        return pedidos.stream().map(PedidosDTO::new).collect(Collectors.toList());
+    public static List<PedidosDTO> converter(List<PedidosDTO> pedidos) {
+        return pedidos;
     }
 }
