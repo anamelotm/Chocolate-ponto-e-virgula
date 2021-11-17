@@ -18,8 +18,8 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@PostMapping
-	public void save(@RequestBody Cliente cliente){
-		clienteService.save(cliente);
+	public ResponseEntity<String> save(@RequestBody Cliente cliente){
+		return clienteService.save(cliente);
 	}
 
 	@PutMapping("/{id}")
