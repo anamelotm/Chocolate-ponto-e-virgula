@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ClienteService {
 
@@ -16,8 +17,25 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public void save(Cliente cliente){
-        clienteRepository.save(cliente);
+    public ResponseEntity<String> save(Cliente cliente){
+        boolean docValido = false;
+
+        //validando o o documento antes de realizar o insert no banco
+        if(cliente.getTipo().equals("Física")){
+           docValido = validarCPF(cliente.getDocumento());
+        } else if (cliente.getTipo().equals("Jurídica")){
+            docValido = validarCNPJ(cliente.getDocumento());
+        }
+
+        if(docValido){
+            clienteRepository.save(cliente);
+            return ResponseEntity.ok().body("cliente criado");
+        } else {
+            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção");
+            // TODO: rever aqui, metodos http não estão funcionando corretamente
+
+        }
+
     }
 
 
