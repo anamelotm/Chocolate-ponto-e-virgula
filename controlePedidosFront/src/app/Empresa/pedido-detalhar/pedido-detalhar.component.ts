@@ -18,7 +18,7 @@ export class PedidoDetalharComponent implements OnInit {
   cod : String = "";
  
 
-  constructor(private servico: ItemPedidoService, private pedidoService : PedidoService,  private aRouter: ActivatedRoute)
+  constructor(private servico: ItemPedidoService, private pedidoService : PedidoService,  private aRouter: ActivatedRoute, private toastr:ToastrService)
    {
     this.id = aRouter.snapshot.paramMap.get('id');
     }
@@ -27,6 +27,15 @@ export class PedidoDetalharComponent implements OnInit {
     if(this.id!== null) this.pedidoService.getPedido(this.id).subscribe(data =>{this.pedido = data;})
   }
 
+  deletarItem(codigo: any){
+    this.servico.deletarItem(codigo).subscribe(data => {
+      this.toastr.error('O item foi excluído do pedido com êxito', 'Item Excluído');
+      this.ngOnInit();
+    }, error => {
+      console.log(error);
+    })
+  
+}
 
 
 

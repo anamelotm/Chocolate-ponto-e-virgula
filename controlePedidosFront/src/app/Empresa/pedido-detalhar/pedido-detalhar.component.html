@@ -44,18 +44,18 @@
                 <th scope="col">Valor unitário</th>
                 <th scope="col">Quantidade</th>
                 <th scope="col">Valor Total do item</th>
-                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
                
               </tr>
             </thead>
             <tbody *ngFor = "let item of itens" >
               <tr>
                 
-                <td>{{item.produto}}</td>
+                <td>{{item.nomeProduto}}</td>
                 <td> R$ {{item.valorUnitario}}</td>
                 <td>{{item.quantidade}}</td>
                 <td>R$ {{item.valorTotalItem}}</td>
-                <td><i class="fas fa-edit text-primary"></i></td>
+                <td><i (click)="deletarItem(item.id)" class="far fa-trash-alt text-danger"></i></td>
                
               </tr>
             </tbody>

@@ -1,17 +1,19 @@
 export class ItemPedido {
+    id: number;
     codigoPedido: number;
-    produto: string;
+    nomeProduto: string;
     valorUnitario: number;
     quantidade: number;
     valorTotalItem: number;
   
-    constructor(codigoPedido: number,
-        produto: string,
+    constructor(id: number, codigoPedido: number,
+        nomeProduto: string,
         valorUnitario: number,
         quantidade: number,
         valorTotalItem: number){
+            this.id = id;
             this.codigoPedido= codigoPedido;
-            this.produto = produto;
+            this.nomeProduto = nomeProduto;
             this.valorUnitario = valorUnitario;
             this.quantidade = quantidade;
             this.valorTotalItem = valorTotalItem;
