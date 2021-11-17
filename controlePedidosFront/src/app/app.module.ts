@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-dialog.component';
+import { CarrinhoItemComponent } from './views/home/carrinho-item/carrinho-item.component';
+import { ItemProdutoComponent } from './views/home/item-produto/item-produto.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-d
     FazerPedidoComponent,
     HomeComponent,
     PedidoDetalharComponent,
-    CarrinhoDialogComponent
+    CarrinhoDialogComponent,
+    CarrinhoItemComponent,
+    ItemProdutoComponent
 
   ],
   imports: [
