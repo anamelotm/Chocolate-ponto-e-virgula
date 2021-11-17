@@ -19,11 +19,11 @@ public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long codigo;
+    protected Long id;
     @Column(name = "data_pedido")
     protected Date dataPedido;
-    @Column(name = "codigo_cliente")
-    protected Long codigoCliente;
+    @Column(name = "id_cliente")
+    protected Long idCliente;
     @Column(name = "endereco_entrega")
     protected String enderecoEntrega;
     @Column(name = "aberto")
