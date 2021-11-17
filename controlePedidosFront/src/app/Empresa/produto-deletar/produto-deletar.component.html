@@ -9,47 +9,47 @@
         <form>
           <div class="input-group mb-3">
             <span class="input-group-text">Nome</span>
-            <input [(ngModel)]="produto.nome" id="nome" type="text" class="form-control" placeholder="Nome do Produto" required>
+            <input [(ngModel)]="produto.nome" id="nome" type="text" class="form-control" disabled>
           </div>
           <br>
           <div style="width: 300px;">
           <label class="input-group-text">Descrição</label>
-           <textarea [(ngModel)]="produto.descricao" name="descricao" id="descricao" cols="40" rows="5">Informações do produto... </textarea>
+           <textarea  [(ngModel)]="produto.descricao" name="descricao" id="descricao" cols="40" rows="5"> </textarea>
           </div>
           <br>
           <div class="input-group mb-3" style="width: 300px;">
-            <select [(ngModel)]="produto.unidade_medida" id="unidade_medida"  style="background-color: #ffe6a7; font-weight: bold;">
+            <select  [(ngModel)]="produto.unidade_medida" id="unidade_medida"  style="background-color: #ffe6a7; font-weight: bold;">
               <option selected >Unidade de Medida</option>
               <option value="kg">Kilo</option>
               <option value="und">Gramas</option>
             </select>
-            <input  [(ngModel)]="produto.unidade_medida"  id="peso" type="number" class="form-control" placeholder="Peso" required>
+            <input  [(ngModel)]="produto.peso" id="peso" type="number" class="form-control">
           </div>
           <div class="input-group mb-3" style="width: 300px;">
             <span class="input-group-text">Valor Unitário R$</span>
-            <input  [(ngModel)]="produto.valor_unitario" id="valor_unitario" type="number" class="form-control" aria-label="Valor Unitário" required>
+            <input  [(ngModel)]="produto.valor_unitario" id="valor_unitario" type="number" class="form-control" aria-label="Valor Unitário" disabled>
             <span class="input-group-text">.00</span>
           </div> 
           <div class="input-group mb-3">
-            <span class="input-group-text">Imagem do Produto</span>
-            <input id="url_fotos" [(ngModel)]="produto.url_fotos" type="file"  class="form-control" required>
+            <span  class="input-group-text">Imagem do Produto</span>
+            <input [(ngModel)]="produto.url_fotos" id="url_fotos" type="file"  class="form-control" disabled>
           </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Data de Fabricação</span>
-            <input id="data_fabricacao" [(ngModel)]="produto.data_fabricacao" type="date" class="form-control" required>
+            <input [(ngModel)]="produto.data_fabricacao" id="data_fabricacao"  type="date" class="form-control" disabled>
           </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Data de Validade</span>
-            <input id="data_validade"  [(ngModel)]="produto.data_validade" type="date" class="form-control" required>
+            <input [(ngModel)]="produto.data_validade" id="data_validade"  type="date" class="form-control"disabled>
           </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Quantidade</span>
-            <input id="quantidade_estoque"  [(ngModel)]="produto.quantidade_estoque" type="number" class="form-control" placeholder="Quantidade para Estoque" required>
+            <input [(ngModel)]="produto.quantidade_estoque" id="quantidade_estoque"  type="number" class="form-control" disabled>
           </div>
         </div> 
           <br>    
-          <button (click)="create()" class="btn btn-outline-success">Cadastrar</button>
-          <button (click)="cancel()" class="btn btn-outline-danger" > Cancelar </button>
+          <button (click)="delete()" class="btn btn-outline-danger">Deletar</button>
+          <button (click)="cancel()" class="btn btn-outline-warning"> Cancelar </button>
         </form>
       </div>
     </div>

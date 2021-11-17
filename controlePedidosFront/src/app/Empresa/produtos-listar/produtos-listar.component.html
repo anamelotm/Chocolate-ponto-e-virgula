@@ -5,7 +5,7 @@
         <div class="card-body text-center">
           <span class="titulo">Lista de Produtos</span>
           <button type="button" class="btn btn-outline-warning float-end" routerLink="/produto-cadastrar">Novo Produto</button>
-          <table  *ngIf="listaProdutos.length > 0" class="table table-borderless table-hover mt-lg-5">
+          <table [dataSource]="produtos"  *ngIf="produtos.length > 0" class="table table-borderless table-hover mt-lg-5">
             <thead>
               <tr>
                 <th scope="col">Código</th>
@@ -19,7 +19,7 @@
                 <th scope="col">Excluir</th>
               </tr>
             </thead>
-            <tbody *ngFor="let produto of listaProdutos">
+            <tbody>
               <tr>
                 <th scope="row">{{produto.id}}</th>
                 <td>{{produto.nome}}</td>
@@ -27,12 +27,12 @@
                 <td>{{produto.data_validade}}</td>
                 <td>{{produto.status}}</td>
                 <td>{{produto.quantidade_estoque}}</td>
-                <td><i class="fas fa-edit text-primary"></i></td>
+                <td> <a routerLink="produto-delete/{{ produto.id }}"><i class="fas fa-edit text-primary"></i></a></td>
                 <td><i class="far fa-trash-alt text-danger"></i></td>
               </tr>
             </tbody>
           </table>
-          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listaProdutos.length == 0">Não existem produtos cadastrados no momento. </h5>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="produtos.length == 0">Não existem produtos cadastrados no momento. </h5>
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
               <li class="page-item disabled">

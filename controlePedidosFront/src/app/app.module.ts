@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-dialog.component';
+import { ProdutoDeletarComponent } from './Empresa/produto-deletar/produto-deletar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-d
     FazerPedidoComponent,
     HomeComponent,
     PedidoDetalharComponent,
-    CarrinhoDialogComponent
+    CarrinhoDialogComponent,
+    ProdutoDeletarComponent
 
   ],
   imports: [
