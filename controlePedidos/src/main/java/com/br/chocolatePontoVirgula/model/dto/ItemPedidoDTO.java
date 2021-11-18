@@ -18,11 +18,10 @@ public class ItemPedidoDTO {
 
     public ItemPedidoDTO(ItemPedido itemPedido) {
         this.id = itemPedido.getId();
-        this.nomeProduto = itemPedido.getProduto().getNome();
-        this.valorUnitario = itemPedido.getProduto().getValorUnitario();
+
         this.quantidade = itemPedido.getQuantidade();
         this.valorTotal = itemPedido.getValorTotal();
-        this.codigoPedido = itemPedido.getPedido().getId();
+
 
     }
 
