@@ -9,9 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-  // @Query("select p.id id,c.nome nome,p.endereco_entrega enderecoEntrega,p.aberto aberto, p.valor_total valorTotal from pedido p inner join cliente c on p.id_cliente =c.id")
-  //  List<PedidosDTO> consultaGeralPedidos();
 
-    @Query("SELECT p,c FROM Pedido p,Cliente c  WHERE c.id = :id")
+    @Query("SELECT p FROM Pedido p WHERE cliente.id = :id")
     List<Pedido> consultaPedidosCliente(@Param("id") long id);
 }
