@@ -1,0 +1,59 @@
+<div style="text-align: end; margin-top: 4%;" ><a class="btn btn-primary" routerLink=''>Inicio</a></div>
+<div class="card" style="margin-top: 4%; ">
+    <div class="card-header">
+      <div class="card-header text-center">
+        <h2 id="titulo_card" >Cadastro de Produtos</h2>   
+      </div>
+      <div class="card-body">
+
+        <form>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Nome</span>
+            <input [(ngModel)]="produto.nome" id="nome" type="text" class="form-control" disabled>
+          </div>
+          <br>
+          <div style="width: 300px;">
+          <label class="input-group-text">Descrição</label>
+           <textarea  [(ngModel)]="produto.descricao" name="descricao" id="descricao" cols="40" rows="5"> </textarea>
+          </div>
+          <br>
+          <div class="input-group mb-3" style="width: 300px;">
+            <select  [(ngModel)]="produto.unidade_medida" id="unidade_medida"  style="background-color: #ffe6a7; font-weight: bold;">
+              <option selected >Unidade de Medida</option>
+              <option value="kg">Kilo</option>
+              <option value="und">Gramas</option>
+            </select>
+            <input  [(ngModel)]="produto.peso" id="peso" type="number" class="form-control">
+          </div>
+          <div class="input-group mb-3" style="width: 300px;">
+            <span class="input-group-text">Valor Unitário R$</span>
+            <input  [(ngModel)]="produto.valor_unitario" id="valor_unitario" type="number" class="form-control" aria-label="Valor Unitário" disabled>
+            <span class="input-group-text">.00</span>
+          </div> 
+          <div class="input-group mb-3">
+            <span  class="input-group-text">Imagem do Produto</span>
+            <input [(ngModel)]="produto.url_fotos" id="url_fotos" type="file"  class="form-control" disabled>
+          </div>
+          <div class="input-group mb-3" style="width: 400px;">
+            <span class="input-group-text">Data de Fabricação</span>
+            <input [(ngModel)]="produto.data_fabricacao" id="data_fabricacao"  type="date" class="form-control" disabled>
+          </div>
+          <div class="input-group mb-3" style="width: 400px;">
+            <span class="input-group-text">Data de Validade</span>
+            <input [(ngModel)]="produto.data_validade" id="data_validade"  type="date" class="form-control"disabled>
+          </div>
+          <div class="input-group mb-3" style="width: 400px;">
+            <span class="input-group-text">Quantidade</span>
+            <input [(ngModel)]="produto.quantidade_estoque" id="quantidade_estoque"  type="number" class="form-control" disabled>
+          </div>
+        </div> 
+          <br>    
+          <button (click)="delete()" class="btn btn-outline-danger">Deletar</button>
+          <button (click)="cancel()" class="btn btn-outline-warning"> Cancelar </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  

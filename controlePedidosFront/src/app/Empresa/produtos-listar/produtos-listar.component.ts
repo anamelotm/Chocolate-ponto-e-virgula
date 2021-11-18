@@ -15,9 +15,13 @@ export class ProdutosListarComponent implements OnInit {
   constructor(private servico: ProdutoService) { }
 
   ngOnInit(): void {
-    this.servico.listarProdutos().subscribe(objetos => this.produtos = objetos);
+   this.findAll();
   }
 
-
-
+  findAll() {
+    this.servico.findAll().subscribe(resposta => {
+      console.log(resposta)
+      this.produtos = resposta;
+    })
+  }
 }
