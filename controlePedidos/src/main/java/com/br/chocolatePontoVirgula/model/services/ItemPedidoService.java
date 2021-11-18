@@ -1,6 +1,7 @@
 package com.br.chocolatePontoVirgula.model.services;
 
 
+import com.br.chocolatePontoVirgula.model.dto.ItemPedidoDTO;
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 
 import com.br.chocolatePontoVirgula.model.repository.ItemPedidoRepository;
@@ -10,6 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ItemPedidoService {
@@ -51,5 +54,10 @@ public class ItemPedidoService {
 
         Page<ItemPedido> result = itemPedidoRepository.findAll(pageRequest);
         return ResponseEntity.ok(result);
+    }
+
+    public  List<ItemPedido> itensDoPedido(Long idPedido){
+        List<ItemPedido> itemPedido = itemPedidoRepository.itensDoPedido(idPedido);
+        return itemPedido;
     }
 }
