@@ -8,6 +8,9 @@ import javax.persistence.OneToMany;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import lombok.Getter;
+import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,15 +24,15 @@ public class PedidosDTO {
     private double valorTotal;
 
 
-    public PedidosDTO(Long id, String nome, String enderecoEntrega, boolean aberto, double valorTotal) {
-        this.id = id;
-        this.nome=nome;
-        this.enderecoEntrega = enderecoEntrega;
-        this.aberto = aberto;
-        this.valorTotal=valorTotal;
+    public PedidosDTO(Pedido pedido) {
+        this.id = pedido.getId();
+        this.nome=pedido.getCliente().getNome();
+        this.enderecoEntrega = pedido.getEnderecoEntrega();
+        this.aberto = pedido.isAberto();
+        this.valorTotal=pedido.getValorTotal();
     }
 
-    public static List<PedidosDTO> converter(List<PedidosDTO> pedidos) {
-        return pedidos;
+    public static List<PedidosDTO> converter(ResponseEntity<Page<Pedido>> pedidos){
+        return pedidos.getBody().stream().map(PedidosDTO::new).collect(Collectors.toList());
     }
 }

@@ -41,10 +41,12 @@ public class PedidoController {
     }
 
    @GetMapping
-    public List<PedidosDTO> listarTudo() {
-        List<PedidosDTO> pedidosLista = pedidoService.consultaGeralPedidos();
+    public List<PedidosDTO> listarTudo(Pageable pageable) {
 
-        return PedidosDTO.converter(pedidosLista);
+       ResponseEntity<Page<Pedido>> pedidosLista = pedidoService.findAll(pageable);
+
+       return PedidosDTO.converter(pedidosLista);
+
     }
     @GetMapping("cliente/{idCliente}")
     public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente){
