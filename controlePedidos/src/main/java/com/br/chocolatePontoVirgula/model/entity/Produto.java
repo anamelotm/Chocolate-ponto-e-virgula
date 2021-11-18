@@ -5,32 +5,43 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "produto")
 public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "descricao")
     private String descricaoProduto;
+    @Column(name = "unidade_medida")
     private String unidadeMedida;
+    @Column(name = "valor_unitario")
     private double valorUnitario;
+    @Column(name = "status")
     private boolean status;
+    @Column(name = "url_Fotos")
     private String urlFoto;
+    @Column(name = "peso")
     private double peso;
+    @Column(name = "data_fabricacao")
     private Date dataFabricacao;
+    @Column(name = "data_validade")
     private Date dataValidade;
+    @Column(name = "quantidade_estoque")
+    private Integer quantidadeEstoque;
 
 
     public String Status() {
@@ -41,23 +52,9 @@ public class Produto {
         }
     }
 
+
     public void setStatus(boolean status) {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "codigo=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricaoProduto='" + descricaoProduto + '\'' +
-                ", unidadeMedida='" + unidadeMedida + '\'' +
-                ", valorUnitario=" + valorUnitario +
-                ", status=" + status +
-                ", urlFoto='" + urlFoto + '\'' +
-                ", peso=" + peso +
-                ", dataFabricacao=" + dataFabricacao +
-                ", dataValidade=" + dataValidade +
-                '}';
-    }
 }

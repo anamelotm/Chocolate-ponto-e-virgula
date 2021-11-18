@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProdutoService {
 
@@ -51,6 +53,10 @@ public class ProdutoService {
         Produto produtoExcluir = produtoRepository.getById(id);
         produtoExcluir.setStatus(false);
         produtoRepository.save(produtoExcluir);
+    }
+
+    public List<Produto> consultaProdutosAtivos() {
+        return produtoRepository.findByStatusTrue();
     }
 
 }
