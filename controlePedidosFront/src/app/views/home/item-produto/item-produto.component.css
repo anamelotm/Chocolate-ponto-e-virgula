@@ -3,15 +3,16 @@
   color: #6f1d1b;
 }
 
-
 .grid-produtos{
   width: 100%;
 }
 
 .produto_botao{
-  display: flex;
-  width: 160px;
-  margin-left: 30px;
+  margin: auto;
+}
+
+.produto_botao .btn{
+  width: 100%;
 }
 
 .produto{
@@ -37,3 +38,5 @@ img:hover{
 .preco {
   font-size: larger;
 }
+
+

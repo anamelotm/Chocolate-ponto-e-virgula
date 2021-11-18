@@ -8,44 +8,47 @@ import { ProdutoCadastrarComponent } from '../Empresa/produto-cadastrar/produto-
 export class CarrinhoService {
 
   public cartItemList: any = [];
-  public productList = new BehaviorSubject<any>([]);
+  public produtos = new BehaviorSubject<any>([]);
 
 
   constructor() { }
 
   getProducts(){
-    return this.productList.asObservable();
+    return this.produtos.asObservable();
   }
 
-  setProduct(product: any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
+  setProduct(produto: any){
+    this.cartItemList.push(...produto);
+    this.produtos.next(produto);
   }
 
-  addtoCart(product: any){
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
+  addtoCart(produto: any){
+    this.cartItemList.push(produto);
+    this.produtos.next(this.cartItemList);
     this.getTotalPrice();
+    console.log(this.cartItemList);
   }
 
-  getTotalPrice(){
+  getTotalPrice(): number{
     let grandTotal = 0;
     this.cartItemList.map((i:any) => {
-      grandTotal += i.total;
+      grandTotal += i.valor_unitario;
     })
+    return grandTotal;
   }
 
-  removeCartItem(product: any){
+  removeCartItem(produto: any){
     this.cartItemList.map((i: any, index: any) => {
-      if(product.id === i.id){
+      if(produto.id === i.id){
         this.cartItemList.splice(index, 1);
       }
     })
+    this.produtos.next(this.cartItemList);
   }
 
   removeAllCart() {
     this.cartItemList = [];
-    this.productList.next(this.cartItemList);
+    this.produtos.next(this.cartItemList);
   }
 
 }

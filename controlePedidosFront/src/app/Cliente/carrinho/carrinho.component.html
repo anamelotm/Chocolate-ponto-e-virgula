@@ -1,6 +1,7 @@
-<ng-container *ngIf="true">
+<ng-container *ngIf="produtos.length">
   <div class="card-table">
     <div class="cart-product">
+      <form  >
       <table class="table table-responsive">
         <thead>
           <tr>
@@ -14,34 +15,47 @@
           </tr>
         </thead>
         <tbody>
-          <td>1</td>
-          <td>Pepitas</td>
-          <td>Imagem</td>
-          <td>{{ 50.00 | currency: 'BRL' }} </td>
-          <td>1</td>
-          <td>{{ 50.00 | currency: 'BRL' }}</td>
-          <td>
-            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
-          </td>
+          <tr *ngFor="let item of produtos; let i = index">
+            <td hidden>{{item.id}}</td>
+            <td>{{i+1}}</td>
+            <td style="width: 25%;">{{item.nome}}</td>
+            <td> <img src="{{item.url_fotos}}" alt="foto protudo" style="width: 100px;"> </td>
+            <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }} </td>
+            <td style="width: 12%;">1</td>
+            <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }}</td>
+            <td>
+              <button (click)="removeItem(item)" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7" style="text-align: right; padding-right: 5%;"><strong>Total: R$ {{ grandTotal }}</strong></td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
 
+            <td><button class="btn btn-danger" (click)="emptyCart()" style="width: 80px;">Esvaziar</button></td>
+            <td><button class="btn btn-primary" routerLink='' style="width: 80px;">Voltar</button></td>
+            <td><button class="btn btn-success" style="width: 80px;">Finalizar</button></td>
+          </tr>
         </tbody>
       </table>
+    </form>
     </div>
   </div>
 </ng-container>
 
 
-<ng-container *ngIf="false">
-  <div class="container">
+<ng-container *ngIf="produtos.length == 0">
+  <div class="container ">
     <div class="card">
       <h3 class="card-title">Meu carrinho</h3>
     </div>
-    <div class="center">
+    <div class="center carrinho-vazio">
       <img src="https://img.freepik.com/fotos-gratis/carrinho-de-compras-vazio_23-2147948110.jpg?size=626&ext=jpg"
         alt="carrinho vazio">
       <h4>Seu carrinho está vazio!</h4>
-      <h6>Adicione itens ao seu carrinho!</h6>
-      <button class="btn btn-primary">Compre agora</button>
+      <h5>Adicione itens ao seu carrinho!</h5>
+      <button class="btn btn-primary" routerLink=''>Compre agora</button>
     </div>
   </div>
 

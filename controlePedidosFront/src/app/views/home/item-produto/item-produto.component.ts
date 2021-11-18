@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MessengerService } from 'src/app/services/messenger.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { Produto } from 'src/app/shared/models/produto';
 import { CarrinhoService } from '../../../services/carrinho.service';
@@ -15,7 +14,6 @@ export class ItemProdutoComponent implements OnInit {
   produtos: Produto[] = [];
 
   constructor(
-    private msg: MessengerService,
     private servico: ProdutoService,
     private cartService: CarrinhoService
    ) { }

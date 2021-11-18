@@ -18,8 +18,6 @@ import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-dialog.component';
-import { CarrinhoItemComponent } from './views/home/carrinho-item/carrinho-item.component';
 import { ItemProdutoComponent } from './views/home/item-produto/item-produto.component';
 import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
 
@@ -34,8 +32,6 @@ import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
     FazerPedidoComponent,
     HomeComponent,
     PedidoDetalharComponent,
-    CarrinhoDialogComponent,
-    CarrinhoItemComponent,
     ItemProdutoComponent,
     CarrinhoComponent
 
@@ -52,7 +48,6 @@ import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
     ],
 
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [CarrinhoDialogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
