@@ -34,13 +34,15 @@
 
 <div class="card">
   <div class="card-header">
-   <h2 class="text-center"> Nossos Produtos <span class="float-end"><button class="btn btn-warning" (click)="carrinho()"> <i class="fas fa-shopping-cart"></i></button></span></h2>
+   <h2 class="text-center"> Nossos Produtos <span class="float-end">
+      <button class="btn btn-light" > <i style="font-size: 30px" class="fas fa-cart-plus"></i>
+        <div style="font-size: 10px;" class="badge bg-danger">5</div>
+      </button>
+    </span></h2>
   </div>
 
   <div class="row">
-    <div class="col" *ngFor="let produto of produtos">
-      <app-item-produto [itemCarrinho]="produto"></app-item-produto>
-    </div>
+      <app-item-produto></app-item-produto>
   </div>
 
 </div>

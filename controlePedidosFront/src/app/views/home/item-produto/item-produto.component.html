@@ -1,16 +1,16 @@
-<div class="card-body">
-  <div class="grid-produtos">
+<div class="card-body row">
+  <div class="grid-produtos col" *ngFor="let produto of produtos">
 
     <div class="produto">
       <div class="produto__imagem">
-        <img src="{{itemCarrinho.url_fotos}}" width="200px" height="150px" alt="">
-        <h3><b> {{itemCarrinho.nome}}</b> </h3>
-        <p class="descricao"> {{itemCarrinho.descricao}}</p>
-        <p class="preco"> <strong> {{ itemCarrinho.valor_unitario | currency: 'BRL' }}</strong></p>
+        <img src="{{produto.url_fotos}}" width="200px" height="150px" alt="">
+        <h3><b> {{produto.nome}}</b> </h3>
+        <p class="descricao"> {{produto.descricao}}</p>
+        <p class="preco"> <strong> {{ produto.valor_unitario | currency: 'BRL' }}</strong></p>
       </div>
       <div class="produto_botao">
         <input type="number" class="form-control">
-        <button class="btn btn-outline-danger" (click)="handleAddToCart()">Quero!</button>
+        <button class="btn btn-outline-danger" >Quero!</button>
       </div>
     </div>
 

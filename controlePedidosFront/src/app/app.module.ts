@@ -21,6 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-dialog.component';
 import { CarrinhoItemComponent } from './views/home/carrinho-item/carrinho-item.component';
 import { ItemProdutoComponent } from './views/home/item-produto/item-produto.component';
+import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ItemProdutoComponent } from './views/home/item-produto/item-produto.com
     PedidoDetalharComponent,
     CarrinhoDialogComponent,
     CarrinhoItemComponent,
-    ItemProdutoComponent
+    ItemProdutoComponent,
+    CarrinhoComponent
 
   ],
   imports: [
@@ -50,6 +52,7 @@ import { ItemProdutoComponent } from './views/home/item-produto/item-produto.com
     ],
 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CarrinhoDialogComponent]
 })
 export class AppModule { }

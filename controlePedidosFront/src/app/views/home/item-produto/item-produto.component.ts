@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MessengerService } from 'src/app/services/messenger.service';
+import { ProdutoService } from 'src/app/services/produto.service';
+import { Produto } from 'src/app/shared/models/produto';
 
 @Component({
   selector: 'app-item-produto',
@@ -8,14 +10,15 @@ import { MessengerService } from 'src/app/services/messenger.service';
 })
 export class ItemProdutoComponent implements OnInit {
 
-  @Input() itemCarrinho?: any;
 
-  constructor(private msg: MessengerService) { }
+  produtos: Produto[] = [];
+
+  constructor(private msg: MessengerService,
+    private servico: ProdutoService) { }
 
   ngOnInit(): void {
+    this.servico.listarProdutos().subscribe(obj => this.produtos = obj);
   }
 
-  handleAddToCart(){
-    this.msg.sendMsg(this.itemCarrinho);
-  }
+
 }

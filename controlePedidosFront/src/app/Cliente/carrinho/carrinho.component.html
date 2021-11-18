@@ -1,0 +1,48 @@
+<ng-container *ngIf="true">
+  <div class="card-table">
+    <div class="cart-product">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Nome</th>
+            <th>Imagem</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td>1</td>
+          <td>Pepitas</td>
+          <td>Imagem</td>
+          <td>{{ 50.00 | currency: 'BRL' }} </td>
+          <td>1</td>
+          <td>{{ 50.00 | currency: 'BRL' }}</td>
+          <td>
+            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+          </td>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="false">
+  <div class="container">
+    <div class="card">
+      <h3 class="card-title">Meu carrinho</h3>
+    </div>
+    <div class="center">
+      <img src="https://img.freepik.com/fotos-gratis/carrinho-de-compras-vazio_23-2147948110.jpg?size=626&ext=jpg"
+        alt="carrinho vazio">
+      <h4>Seu carrinho está vazio!</h4>
+      <h6>Adicione itens ao seu carrinho!</h6>
+      <button class="btn btn-primary">Compre agora</button>
+    </div>
+  </div>
+
+</ng-container>

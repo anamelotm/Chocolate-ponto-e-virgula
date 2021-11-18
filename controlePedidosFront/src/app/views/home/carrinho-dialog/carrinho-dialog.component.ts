@@ -13,9 +13,9 @@ import { ItemPedido } from '../../../shared/models/item-pedido';
 export class CarrinhoDialogComponent implements OnInit {
 
   itensCarrinho: ItemPedido[] = [
-    {codigoPedido:100, produto: 'Teste 1', valorUnitario: 50.0, quantidade: 4, valorTotalItem: 100},
-    //{id:2, idProduto: 1, nome:'Teste 2',qtde: 1, preco: 100},
-    //{id:3, idProduto: 1, nome:'Teste 3',qtde: 2, preco: 100},
+    //{codigoPedido:100, produto: 'Teste 1', valorUnitario: 50.0, quantidade: 4, valorTotalItem: 100},
+    //{codigoPedido:100, produto: 'Teste 1', valorUnitario: 50.0, quantidade: 4, valorTotalItem: 100},
+    //{codigoPedido:100, produto: 'Teste 1', valorUnitario: 50.0, quantidade: 4, valorTotalItem: 100},
   ];
 
   totalCarrinho = 0;
@@ -27,10 +27,10 @@ export class CarrinhoDialogComponent implements OnInit {
 
   ngOnInit() {
       this.msg.getMsg().subscribe(produto => {
-      console.log(produto)
       this.addProductToCart(produto)
       })
 
+      console.log(this.itensCarrinho);
 
   }
 
