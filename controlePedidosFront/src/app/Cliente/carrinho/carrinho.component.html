@@ -1,7 +1,7 @@
 <ng-container *ngIf="produtos.length">
   <div class="card-table">
     <div class="cart-product">
-      <form  >
+     <!-- <form [formGroup]="carrinhoForm" (ngSubmit)="finalizarCarrinho()"> -->
       <table class="table table-responsive">
         <thead>
           <tr>
@@ -21,14 +21,14 @@
             <td style="width: 25%;">{{item.nome}}</td>
             <td> <img src="{{item.url_fotos}}" alt="foto protudo" style="width: 100px;"> </td>
             <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }} </td>
-            <td style="width: 12%;">1</td>
+            <td style="width: 12%;">{{item.quantity}}</td>
             <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }}</td>
             <td>
               <button (click)="removeItem(item)" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
             </td>
           </tr>
           <tr>
-            <td colspan="7" style="text-align: right; padding-right: 5%;"><strong>Total: R$ {{ grandTotal }}</strong></td>
+            <td colspan="7" style="text-align: right; padding-right: 5%;"><strong>Total: R$ {{ grandTotal.toFixed(2) }}</strong></td>
           </tr>
           <tr>
             <td colspan="4"></td>
@@ -39,7 +39,7 @@
           </tr>
         </tbody>
       </table>
-    </form>
+
     </div>
   </div>
 </ng-container>

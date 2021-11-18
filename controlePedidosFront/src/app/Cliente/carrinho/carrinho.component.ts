@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarrinhoService } from '../../services/carrinho.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ItemPedido } from '../../shared/models/item-pedido';
 
 @Component({
   selector: 'app-carrinho',
@@ -28,13 +29,15 @@ export class CarrinhoComponent implements OnInit {
   }
 
 
-
   removeItem(item: any){
     this.service.removeCartItem(item);
   }
 
   emptyCart(){
     this.service.removeAllCart();
+  }
+
+  finalizarCarrinho(){
   }
 
 }

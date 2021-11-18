@@ -2,7 +2,7 @@
 <div class="card" style="margin-top: 4%; ">
     <div class="card-header">
       <div class="card-header text-center">
-        <h2 id="titulo_card" >Cadastro de Produtos</h2>   
+        <h2 id="titulo_card" >Cadastro de Produtos</h2>
       </div>
       <div class="card-body">
 
@@ -37,19 +37,19 @@
             <span class="input-group-text">Valor Unitário R$</span>
             <input id="valor_unitario" formControlName="valor_unitario"  type="number" class="form-control" aria-label="Valor Unitário" required>
             <span class="input-group-text">.00</span>
-          </div> 
+          </div>
           <div class="text-danger"
             *ngIf="produtoForm.get('valor_unitario')?.hasError('required') && produtoForm.get('valor_unitario')?.touched">
             <span>Valor Unitário <strong>é obrigatório!</strong></span>
-          </div> 
+          </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Imagem do Produto</span>
-            <input id="url_fotos" formControlName="url_fotos" type="file"  class="form-control" required>
+            <input id="url_fotos" formControlName="url_fotos" type="text"  class="form-control" required>
           </div>
           <div class="text-danger"
             *ngIf="produtoForm.get('url_fotos')?.hasError('required') && produtoForm.get('url_fotos')?.touched">
             <span>Imagem do produto <strong>é obrigatória!</strong></span>
-          </div> 
+          </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Data de Fabricação</span>
             <input id="data_fabricacao" formControlName="data_fabricacao" type="date" class="form-control" required>
@@ -57,7 +57,7 @@
           <div class="text-danger"
             *ngIf="produtoForm.get('data_fabricacao')?.hasError('required') && produtoForm.get('data_fabricacao')?.touched">
             <span>Data de Fabricação <strong>é obrigatória!</strong></span>
-          </div> 
+          </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Data de Validade</span>
             <input id="data_validade"  formControlName="data_validade" type="date" class="form-control" required>
@@ -65,7 +65,7 @@
           <div class="text-danger"
           *ngIf="produtoForm.get('data_validade')?.hasError('required') && produtoForm.get('data_validade')?.touched">
           <span>Data de Validade <strong>é obrigatória!</strong></span>
-        </div> 
+        </div>
           <div class="input-group mb-3" style="width: 400px;">
             <span class="input-group-text">Quantidade</span>
             <input id="quantidade_estoque" formControlName="quantidade_estoque" type="number" class="form-control" placeholder="Quantidade para Estoque" required>
@@ -73,14 +73,13 @@
           <div class="text-danger"
           *ngIf="produtoForm.get('quantidade_estoque')?.hasError('required') && produtoForm.get('quantidade_estoque')?.touched">
           <span>Quantidade <strong>é obrigatória!</strong></span>
-        </div> 
-          <br>    
+        </div>
+          <br>
           <button class="btn btn-outline-success" [disabled]="produtoForm.invalid" type="submit">Cadastrar</button>
-       
+
         </form>
       </div>
     </div>
   </div>
-  
-  
-  
+
+
