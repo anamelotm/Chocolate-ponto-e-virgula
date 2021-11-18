@@ -1,77 +1,90 @@
-<div style="text-align: end; margin-top: 4%;" ><a class="btn btn-primary" routerLink=''>Inicio</a></div>
+<div style="text-align: end; margin-top: 4%;"><a class="btn btn-primary" routerLink=''>Inicio</a></div>
 <div class="card" style="margin-top: 4%; ">
-    <div class="card-header">
-      <div class="card-header text-center">
-        <h2 id="titulo_card" >Cadastro de Produtos</h2>
-      </div>
-      <div class="card-body">
+  <div class="card-header">
+    <div class="card-header text-center">
+      <h2 id="titulo_card">Cadastro de Produtos</h2>
+    </div>
+    <div class="card-body">
 
-        <form>
-          <div class="input-group mb-3">
-            <span class="input-group-text">Nome</span>
-            <input [(ngModel)]="produto.nome" id="nome" type="text" class="form-control" placeholder="Nome do Produto" required>
-          </div>
-          <br>
-          <div style="width: 300px;">
+      <form [formGroup]="produtoForm" (ngSubmit)="cadastrarProduto()">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Nome</span>
+          <input formControlName="nome" id="nome" type="text" class="form-control" placeholder="Nome do Produto"
+            required>
+        </div>
+        <div class="text-danger"
+          *ngIf="produtoForm.get('nome')?.hasError('required') && produtoForm.get('nome')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <br>
+        <div style="width: 300px;">
           <label class="input-group-text">Descrição</label>
-           <textarea [(ngModel)]="produto.descricao" name="descricao" id="descricao" cols="40" rows="5">Informações do produto... </textarea>
-          </div>
-          <br>
-          <div class="input-group mb-3" style="width: 300px;">
-            <select [(ngModel)]="produto.unidade_medida" id="unidade_medida"  style="background-color: #ffe6a7; font-weight: bold;">
-              <option selected >Unidade de Medida</option>
-              <option value="kg">Kilo</option>
-              <option value="und">Gramas</option>
-            </select>
-            <input  [(ngModel)]="produto.unidade_medida"  id="peso" type="number" class="form-control" placeholder="Peso" required>
-          </div>
-          <div class="input-group mb-3" style="width: 300px;">
-            <span class="input-group-text">Valor Unitário R$</span>
-            <input  [(ngModel)]="produto.valor_unitario" id="valor_unitario" type="number" class="form-control" aria-label="Valor Unitário" required>
-            <span class="input-group-text">.00</span>
-          </div>
-          <div class="text-danger"
-            *ngIf="produtoForm.get('valor_unitario')?.hasError('required') && produtoForm.get('valor_unitario')?.touched">
-            <span>Valor Unitário <strong>é obrigatório!</strong></span>
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text">Imagem do Produto</span>
-            <input id="url_fotos" formControlName="url_fotos" type="text"  class="form-control" required>
-          </div>
-          <div class="text-danger"
-            *ngIf="produtoForm.get('url_fotos')?.hasError('required') && produtoForm.get('url_fotos')?.touched">
-            <span>Imagem do produto <strong>é obrigatória!</strong></span>
-          </div>
-          <div class="input-group mb-3" style="width: 400px;">
-            <span class="input-group-text">Data de Fabricação</span>
-            <input id="data_fabricacao" [(ngModel)]="produto.data_fabricacao" type="date" class="form-control" required>
-          </div>
-          <div class="text-danger"
-            *ngIf="produtoForm.get('data_fabricacao')?.hasError('required') && produtoForm.get('data_fabricacao')?.touched">
-            <span>Data de Fabricação <strong>é obrigatória!</strong></span>
-          </div>
-          <div class="input-group mb-3" style="width: 400px;">
-            <span class="input-group-text">Data de Validade</span>
-            <input id="data_validade"  [(ngModel)]="produto.data_validade" type="date" class="form-control" required>
-          </div>
-          <div class="text-danger"
-          *ngIf="produtoForm.get('data_validade')?.hasError('required') && produtoForm.get('data_validade')?.touched">
-          <span>Data de Validade <strong>é obrigatória!</strong></span>
+          <textarea formControlName="descricao" name="descricao" id="descricao" cols="40"
+            rows="5">Informações do produto... </textarea>
         </div>
-          <div class="input-group mb-3" style="width: 400px;">
-            <span class="input-group-text">Quantidade</span>
-            <input id="quantidade_estoque"  [(ngModel)]="produto.quantidade_estoque" type="number" class="form-control" placeholder="Quantidade para Estoque" required>
-          </div>
-          <div class="text-danger"
-          *ngIf="produtoForm.get('quantidade_estoque')?.hasError('required') && produtoForm.get('quantidade_estoque')?.touched">
-          <span>Quantidade <strong>é obrigatória!</strong></span>
+        <br>
+        <div class="input-group mb-3" style="width: 300px;">
+          <select formControlName="unidade_medida" id="unidade_medida"
+            style="background-color: #ffe6a7; font-weight: bold;">
+            <option selected>Unidade de Medida</option>
+            <option value="kg">Kilo</option>
+            <option value="und">Gramas</option>
+          </select>
+          <input formControlName="peso" id="peso" type="number" class="form-control" placeholder="Peso" required>
         </div>
-          <br>
-          <button class="btn btn-outline-success" [disabled]="produtoForm.invalid" type="submit">Cadastrar</button>
+        <div class="text-danger"
+          *ngIf="produtoForm.get('peso')?.hasError('required') && produtoForm.get('peso')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mb-3" style="width: 300px;">
+          <span class="input-group-text">Valor Unitário R$</span>
+          <input formControlName="valorUnitario" id="valorUnitario" type="number" class="form-control"
+            aria-label="Valor Unitário" required>
+          <span class="input-group-text">.00</span>
+        </div>
+        <div class="text-danger"
+          *ngIf="produtoForm.get('valorUnitario')?.hasError('required') && produtoForm.get('valorUnitario')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Imagem do Produto</span>
+          <input id="url_fotos" formControlName="url_fotos" type="file" class="form-control" required>
+        </div>
+        <div class="text-danger"
+        *ngIf="produtoForm.get('url_fotos')?.hasError('required') && produtoForm.get('url_fotos')?.touched">
+        <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mb-3" style="width: 400px;">
+          <span class="input-group-text">Data de Fabricação</span>
+          <input id="data_fabricacao" formControlName="data_fabricacao" type="date" class="form-control" required>
+        </div>
+        <div class="text-danger"
+        *ngIf="produtoForm.get('data_fabricacao')?.hasError('required') && produtoForm.get('data_fabricacao')?.touched">
+        <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mb-3" style="width: 400px;">
+          <span class="input-group-text">Data de Validade</span>
+          <input id="data_validade" formControlName="data_validade" type="date" class="form-control" required>
+        </div>
+        <div class="text-danger"
+        *ngIf="produtoForm.get('data_validade')?.hasError('required') && produtoForm.get('data_validade')?.touched">
+        <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mb-3" style="width: 400px;">
+          <span class="input-group-text">Quantidade</span>
+          <input id="quantidade_estoque" formControlName="quantidade_estoque" type="number" class="form-control"
+            placeholder="Quantidade para Estoque" required>
+        </div>
+        <div class="text-danger"
+        *ngIf="produtoForm.get('quantidade_estoque')?.hasError('required') && produtoForm.get('quantidade_estoque')?.touched">
+        <span>Campo obrigatório!</span>
+        </div>
 
-        </form>
-      </div>
+        <br>
+        <button class="btn btn-outline-secondary float-start" routerLink="/">Voltar</button>
+        <button id="btn-cadastro" type="submit" [disabled]='produtoForm.invalid'
+          class="btn btn-outline-success float-end">Cadastrar</button>
+      </form>
     </div>
   </div>
-
-
+</div>

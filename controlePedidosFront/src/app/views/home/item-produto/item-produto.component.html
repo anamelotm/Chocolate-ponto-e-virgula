@@ -6,7 +6,7 @@
         <img src="{{produto.url_fotos}}" width="200px" height="150px" alt="">
         <h3><b> {{produto.nome}}</b> </h3>
         <p class="descricao"> {{produto.descricao}}</p>
-        <p class="preco"><strong> {{ produto.valor_unitario | currency: 'BRL' }}</strong></p>
+        <p class="preco"><strong> {{ produto.valorUnitario | currency: 'BRL' }}</strong></p>
       </div>
       <div class="produto_botao">
         <button class="btn btn-outline-danger" (click)="addToCart(produto)" >Quero!</button>

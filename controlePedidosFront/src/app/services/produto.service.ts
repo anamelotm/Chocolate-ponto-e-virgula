@@ -10,30 +10,28 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProdutoService {
 
-
-  //!!!atualizar o endereço!!!
-  baseUrl='http://localhost:4000/api/cliente';
+  url='http://localhost:8080/produtos';
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
-
-  findAll():Observable<Produto[]> {
-    const url = `${this.baseUrl}/produto`
-    return this.http.get<Produto[]>(url);
+  
+  listarProdutos(){
+    return this.http.get<Produto[]>(this.url);
   }
 
-  create(produto: Produto): Observable<Produto>{
-    const url = `${this.baseUrl}/produto`
-    return this.http.post<Produto>(url, produto);
+  deletarProduto(id: String): Observable<any>{
+    return this.http.delete(this.url + id);
   }
 
-  findById(id: string) : Observable<Produto> {
-    const url = `${this.baseUrl}/produto/${id}`
-    return this.http.get<Produto>(url);
+  salvarProduto(produto: Produto): Observable<any> {
+    return this.http.post(this.url, produto);
   }
 
-  delete(id: string) : Observable<void> {
-    const url = `${this.baseUrl}/produto/${id}`
-    return this.http.delete<void>(url);
+  getProduto(id: String): Observable<any> {
+    return this.http.get(this.url + id);
+  }
+
+  editarProduto(id: string,produto: Produto): Observable<any> {
+    return this.http.put(this.url + id, produto);
   }
 
 }

@@ -50,12 +50,12 @@
             </thead>
             <tbody *ngFor = "let item of itens" >
               <tr>
-
-                <td>{{item.produto}}</td>
+                
+                <td>{{item.nome}</td>
                 <td> R$ {{item.valorUnitario}}</td>
                 <td>{{item.quantidade}}</td>
                 <td>R$ {{item.valorTotalItem}}</td>
-                <td><i (click)="deletarItem(item.codigoPedido)" class="far fa-trash-alt text-danger"></i></td>
+                <td><i (click)="deletarItem(item.id)" class="far fa-trash-alt text-danger"></i></td>
 
               </tr>
             </tbody>

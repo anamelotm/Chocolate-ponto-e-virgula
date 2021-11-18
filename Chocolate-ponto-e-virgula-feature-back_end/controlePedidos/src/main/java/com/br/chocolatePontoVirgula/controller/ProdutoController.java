@@ -2,6 +2,7 @@ package com.br.chocolatePontoVirgula.controller;
 
 
 import com.br.chocolatePontoVirgula.model.entity.Produto;
+import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
 import com.br.chocolatePontoVirgula.model.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,9 +10,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
+
+    @Autowired
+    private ProdutoRepository repository;
 
     @Autowired
     private ProdutoService produtoService;
@@ -41,6 +47,10 @@ public class ProdutoController {
         return produtoService.findAll(pageable);
     }
 
+    @GetMapping
+    public List<Produto> listarTudo(){
+        return repository.findAll();
+    }
     @PatchMapping("/{id}")
     public void inativar(@PathVariable Long id){
         produtoService.inativar(id);
