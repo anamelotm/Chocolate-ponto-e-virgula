@@ -1,6 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
 
+import com.br.chocolatePontoVirgula.model.dto.ItemPedidoDTO;
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 import com.br.chocolatePontoVirgula.model.services.ItemPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/itens-pedidos")
@@ -41,4 +44,8 @@ public class ItemPedidoController {
         return itemPedidoService.findAll(pageable);
     }
 
+    @GetMapping("/tela-itens/{id}")
+    public List<ItemPedidoDTO> itensDoPedido(@PathVariable Long id){
+        return ItemPedidoDTO.converter(itemPedidoService.itensDoPedido(id));
+    }
 }
