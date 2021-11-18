@@ -13,5 +13,4 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     //@OneToMany(mappedBy = "pedido")
     //private List<item_Pedido> itens;
-
 }
