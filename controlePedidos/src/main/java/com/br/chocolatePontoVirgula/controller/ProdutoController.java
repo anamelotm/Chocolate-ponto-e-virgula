@@ -59,4 +59,9 @@ public class ProdutoController {
         produtoService.inativar(id);
     }
 
+    @GetMapping("/ativos")
+    public List<Produto> consultaProdutosAtivos(){
+        return produtoService.consultaProdutosAtivos();
+    }
+
 }
