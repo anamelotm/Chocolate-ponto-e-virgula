@@ -1,5 +1,5 @@
 export class ItemPedido {
-    codigoPedido: number = 0;
+    id: number = 0;
     produto: string;
     valorUnitario: number;
     quantidade: number;
@@ -14,6 +14,4 @@ export class ItemPedido {
             this.quantidade = quantidade;
             this.valorTotalItem = quantidade * valorUnitario;
         }
-
-
   }

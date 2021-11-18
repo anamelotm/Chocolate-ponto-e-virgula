@@ -3,7 +3,7 @@ export class Produto {
   nome: string;
   descricao!: string;
   unidade_medida: string;
-  valor_unitario: number;
+  valorUnitario: number;
   status: boolean;
   url_fotos: string;
   peso: number;
@@ -18,7 +18,7 @@ export class Produto {
     this.nome = nome;
     this.descricao = descricao;
     this.unidade_medida = unidade_medida;
-    this.valor_unitario = valor_unitario;
+    this.valorUnitario = valor_unitario;
     this.status = status;
     this.url_fotos = url_fotos;
     this.peso = peso;

@@ -13,9 +13,8 @@ import { ItemPedido } from '../../../shared/models/item-pedido';
 export class CarrinhoDialogComponent implements OnInit {
 
   itensCarrinho: ItemPedido[] = [
-    {codigoPedido:100, produto: 'Teste 1', valorUnitario: 50.0, quantidade: 4, valorTotalItem: 100},
-    //{id:2, idProduto: 1, nome:'Teste 2',qtde: 1, preco: 100},
-    //{id:3, idProduto: 1, nome:'Teste 3',qtde: 2, preco: 100},
+    {id:100, produto: 'Teste 1', valorUnitario: 50.0, quantidade: 4, valorTotalItem: 100},
+  
   ];
 
   totalCarrinho = 0;
@@ -30,15 +29,13 @@ export class CarrinhoDialogComponent implements OnInit {
       console.log(produto)
       this.addProductToCart(produto)
       })
-
-
   }
 
   addProductToCart(produto: Produto){
       this.itensCarrinho.push({
-        codigoPedido: 1,
+        id: 1,
         produto: produto.nome,
-        valorUnitario: produto.valor_unitario,
+        valorUnitario: produto.valorUnitario,
         quantidade: 1,
         valorTotalItem: 100
       })

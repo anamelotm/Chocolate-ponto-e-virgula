@@ -6,7 +6,6 @@ import { ClienteListarComponent } from './Empresa/cliente-listar/cliente-listar.
 import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 import { PedidosListarComponent } from './Empresa/pedidos-listar/pedidos-listar.component';
 import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-cadastrar.component';
-import { ProdutoDeletarComponent } from './Empresa/produto-deletar/produto-deletar.component';
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { HomeComponent } from './views/home/home.component';
 
