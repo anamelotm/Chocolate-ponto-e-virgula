@@ -12,7 +12,7 @@ import { Produto } from 'src/app/shared/models/produto';
 })
 export class ProdutoCadastrarComponent implements OnInit {
 
-  //produtoForm: FormGroup;
+  produtoForm: FormGroup;
   produto: Produto = {
     nome: '',
     descricao: '',
@@ -43,7 +43,7 @@ export class ProdutoCadastrarComponent implements OnInit {
       for(let i = 0; i < erro.error.errors.length; i++) {
         this.toastr.error(erro.error.errors[i].message);
         //mostra a mensagem de erro do console
-      }      
+      }
     })
   }
 

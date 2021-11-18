@@ -1,9 +1,5 @@
-import { ProdutoService } from './../../services/produto.service';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { CarrinhoDialogComponent } from './carrinho-dialog/carrinho-dialog.component';
-import { Produto } from '../../shared/models/produto';
-import { MessengerService } from 'src/app/services/messenger.service';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
 
 @Component({
   selector: 'app-home',
@@ -12,28 +8,15 @@ import { MessengerService } from 'src/app/services/messenger.service';
 })
 export class HomeComponent implements OnInit {
 
-  produtos: Produto[] = [];
+  public totalItens: number = 0;
 
-  constructor(public dialog: MatDialog,
-      private servico: ProdutoService,
-      private msg: MessengerService) {
-   }
+  constructor(private service: CarrinhoService) { }
 
   ngOnInit(): void {
-    this.servico.listarProdutos().subscribe(obj => this.produtos = obj);
+    this.service.getProducts().subscribe(res => {
+      this.totalItens = res.length;
+    })
   }
 
- carrinho(): void {
-    const dialogRef = this.dialog.open(CarrinhoDialogComponent, {
-      width: '400px',
-      height: 'auto'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    });
-
-  }
 
 }
