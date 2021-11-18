@@ -1,0 +1,22 @@
+.table{
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.far{
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.fas{
+  cursor: pointer;
+}
+
+.form-check-input{
+  margin-left: -1.5em;
+}
+
+
+.card{
+  width: 110%;
+}

@@ -1,0 +1,38 @@
+.form-select{
+  background-color: #ffe6a7;
+  width: 10px;
+}
+
+.form-control:disabled, .form-control[readonly]{
+  background-color: #fff;
+  opacity: 1;
+  size: 20px;
+}
+
+.input-group-text{
+  font-weight: bold ;
+  background-color: #ffe6a7;
+}
+
+.card-header{
+  color: #432818;
+  background-color: #fff;
+
+}
+
+#titulo_card{
+  font-family: 'Mochiy Pop One', sans-serif;
+}
+
+#select-tipo{
+  background-color: #ffe6a7;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.text-danger{
+  text-align: start;
+  margin-left: 5px;
+
+}
