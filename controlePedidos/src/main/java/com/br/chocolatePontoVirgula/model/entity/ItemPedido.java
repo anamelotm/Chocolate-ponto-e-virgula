@@ -26,10 +26,10 @@ public class ItemPedido {
 	@Column(name = "valor_total")
 	private Double valorTotal;
 
-	@Column(name = "codigo_pedido")
+	@Column(name = "id_pedido")
 	private Long codigoPedido;
 
-	@Column(name = "codigo_produto")
+	@Column(name = "id_produto")
 	private Long codigoProduto;
 
 }
