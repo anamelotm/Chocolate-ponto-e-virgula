@@ -1,0 +1,133 @@
+{
+  "clientes": [
+    {
+      "nome": "Ana Maria Braga",
+      "tipo": "Física",
+      "documento": "241.712.021-67",
+      "id": 2
+    },
+    {
+      "nome": "Ana Maria Da Silva",
+      "tipo": "Física",
+      "documento": "100.100.100-00",
+      "id": 3
+    },
+    {
+      "tipo": "Física",
+      "documento": "000.000.000-00",
+      "nome": "Maria",
+      "id": 4
+    },
+    {
+      "nome": "Maria de Jesus",
+      "tipo": "Física",
+      "documento": "241.712.021-67",
+      "id": 5
+    },
+    {
+      "nome": "sdadas",
+      "tipo": "Física",
+      "documento": "adada",
+      "id": 6
+    },
+    {
+      "nome": "Alice Moraes",
+      "tipo": "Física",
+      "documento": "25414562589",
+      "id": 7
+    }
+  ],
+  "produtos": [
+    {
+      "codigo": 1,
+      "descricaoProduto": "Trufa de doce de leite",
+      "unidadeMedida": "g",
+      "valorUnitario": 3.5,
+      "status": "true"
+    },
+    {
+      "codigo": 2,
+      "descricaoProduto": "Barra de chocolate ao leite",
+      "unidadeMedida": "g",
+      "valorUnitario": 22.9,
+      "status": "true"
+    },
+    {
+      "codigo": 3,
+      "descricaoProduto": "Pepitas com Açúcar Mascavo",
+      "unidadeMedida": "g",
+      "valorUnitario": 47.9,
+      "status": "true"
+    }
+  ],
+  "pedidos": [
+    {
+      "codigo": 1,
+      "cliente": "Ana Maria da Silva",
+      "enderecoEntrega": "Rua das Orquídeas, 155, Centro, Amaraji-PE",
+      "situacao": true,
+      "subtotal": 12,
+      "desconto": 1.2,
+      "total": 10.8
+    },
+    {
+      "codigo": 2,
+      "cliente": "Isabella Maitê Simone Barros",
+      "enderecoEntrega": "Rua Dom Pedro Henrique, Santo Amaro, Recife-PE",
+      "situacao": true,
+      "subtotal": 20,
+      "desconto": 2,
+      "total": 18
+    },
+    {
+      "codigo": 3,
+      "cliente": "Maria",
+      "enderecoEntrega": "Rua das Orquídeas, 155, Centro, Amaraji-PE",
+      "situacao": true,
+      "subtotal": 35,
+      "desconto": 3.5,
+      "total": 31.5
+    },
+    {
+      "cliente": "3",
+      "enderecoEntrega": "Rua Doutor Machado, n 65, Campo Grande, Recife-PE",
+      "situacao": true,
+      "subtotal": 100,
+      "desconto": 10,
+      "total": 90,
+      "id": 6
+    },
+    {
+      "cliente": "2",
+      "enderecoEntrega": "Rua Doutor Machado, , Campo Grande, Recife-PE",
+      "situacao": true,
+      "subtotal": 100,
+      "desconto": 10,
+      "total": 90,
+      "id": 7
+    }
+  ],
+  "itens": [
+    {
+      "codigoPedido": 1,
+      "produto": "Trufa de doce de leite",
+      "valorUnitario": 3.5,
+      "quantidade": 2,
+      "valorTotalItem": 7
+    },
+    {
+      "codigoPedido": 2,
+      "produto": "Barra de chocolate ao leite",
+      "valorUnitario": 22.9,
+      "quantidade": 1,
+      "valorTotalItem": 22.9
+    },
+    {
+      "codigoPedido": 3,
+      "produto": "Pepitas com Açúcar Mascavo",
+      "valorUnitario": 47.9,
+      "quantidade": 1,
+      "valorTotalItem": 47.9
+    }
+  ]
+}

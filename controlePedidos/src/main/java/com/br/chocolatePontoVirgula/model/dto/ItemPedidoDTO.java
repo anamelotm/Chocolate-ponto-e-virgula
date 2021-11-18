@@ -8,18 +8,21 @@ import java.util.stream.Collectors;
 
 public class ItemPedidoDTO {
 
-    private Long codigo;
+    private Long id;
+    private String nomeProduto;
+    private Double valorUnitario;
     private int quantidade;
     private Double valorTotal;
     private Long codigoPedido;
-    private Long codigoProduto;
+
 
     public ItemPedidoDTO(ItemPedido itemPedido) {
-        this.codigo = itemPedido.getId();
+        this.id = itemPedido.getId();
+
         this.quantidade = itemPedido.getQuantidade();
         this.valorTotal = itemPedido.getValorTotal();
-        this.codigoPedido = itemPedido.getCodigoPedido();
-        this.codigoProduto = itemPedido.getCodigoProduto();
+
+
     }
 
    public static List<ItemPedidoDTO> converter(List<ItemPedido> itensPedidos){

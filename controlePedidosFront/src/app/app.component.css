@@ -1,0 +1,28 @@
+html{
+  background-color: #ffe6a7 ;
+}
+ 
+  button {
+    background-color: #ffe6a7;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    margin-top: 1%;
+  }
+
+  a {
+      background-color: #ffe6a7;
+      text-decoration: none;
+      color: #6f1d1b;
+  }
+
+
+ #teste_fonte{
+  font-family: 'Mochiy Pop One', sans-serif;
+  color: #ffe6a7;
+
+ }
+ .conteudo_componente{
+  width: 100%;
+ }

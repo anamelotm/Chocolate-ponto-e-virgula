@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-15 offset-lg-0">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Lista de Pedidos</span>
+          <table class="table table-borderless table-hover mt-lg-5">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Data</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Endereco de Entrega</th>
+                <th scope="col">Situação</th>
+                <th scope="col">Itens</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Desconto</th>
+                <th scope="col">Valor Total</th>
+                <th scope="col">Editar</th>
+              </tr>
+            </thead>
+            <tbody  *ngFor="let pedido of pedidos">
+              <tr>
+                <th scope="row">{{pedido.id}}</th>
+                <td>11/11/2021</td>
+                <td>{{pedido.cliente}}</td>
+                <td>{{pedido.enderecoEntrega}}</td>
+                <td>{{pedido.situacao}} <i class="fas fa-exchange-alt text-primary"></i> </td>
+                <td>10</td>
+                <td>R$ {{pedido.subtotal}}</td>
+                <td>{{pedido.desconto}}%</td>
+                <td>R$ {{pedido.total}}</td>
+                <td><i class="fas fa-edit text-primary"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ drop schema controlepedidos;
 create schema controlepedidos;
 use controlepedidos;
 
+
 create table cliente (
 	id 				int 		not null auto_increment primary key,
 	tipo				varchar(8) not null,
@@ -64,7 +65,7 @@ INSERT INTO produto (nome, unidade_medida , valor_unitario , status, url_fotos, 
 VALUES('Pepitas com Açucar Mascavo', 'gr', 47.90, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 100, '2021-11-08', '2024-11-08', 22);
 
 select * from produto;
-=
+
 -- insercao de cliente
 
 insert into cliente (Tipo, Documento, Nome) values ('Física', '187.312.848-76', 'Manoel Theo Victor da Costa');
@@ -98,3 +99,6 @@ update produto set quantidade_estoque=quantidade_estoque -10 where id = 3;
 
 select * from item_Pedido;
 select * from pedido;
+
+desc cliente;
+
