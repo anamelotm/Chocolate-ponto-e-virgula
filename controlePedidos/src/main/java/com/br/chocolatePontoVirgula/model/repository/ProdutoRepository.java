@@ -9,8 +9,7 @@ import java.util.List;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
+    //metodo que lista apenas os produtos ativos
     List<Produto> findByStatusTrue();
 
-    //@OneToMany(mappedBy = "pedido")
-    //private List<item_Pedido> itens;
 }
