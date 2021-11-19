@@ -66,6 +66,10 @@ public class ProdutoController {
         produtoService.inativar(id);
     }
 
+    @PutMapping("baixaestoque/{id}")
+    public void baixaEstoque(@PathVariable Long id, @RequestBody Produto p)
+    {produtoService.atualizarEstoque(id, p);}
+
     //consulta apenas os produtos ativos
     @GetMapping("/ativos")
     public List<Produto> consultaProdutosAtivos(){

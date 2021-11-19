@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -59,4 +60,9 @@ public class ProdutoService {
         return produtoRepository.findByStatusTrue();
     }
 
+    public void atualizarEstoque(Long id, Produto p){
+        Optional<Produto> byId = produtoRepository.findById(id);
+        if(byId.isPresent()){ produtoRepository.baixaEstoque(id, p.getQuantidadeEstoque());
+        }
+    }
 }
