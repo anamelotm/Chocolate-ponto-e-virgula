@@ -51,6 +51,7 @@ public class ProdutoController {
     public List<Produto> listarTudo(){
         return repository.findAll();
     }
+
     @PatchMapping("/{id}")
     public void inativar(@PathVariable Long id){
         produtoService.inativar(id);

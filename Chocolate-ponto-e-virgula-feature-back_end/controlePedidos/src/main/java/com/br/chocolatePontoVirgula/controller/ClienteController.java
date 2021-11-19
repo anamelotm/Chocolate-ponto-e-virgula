@@ -1,5 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
+import com.br.chocolatePontoVirgula.model.entity.Produto;
+import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
 import com.br.chocolatePontoVirgula.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,9 +12,14 @@ import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
+
+	@Autowired
+	private ClienteRepository repository;
 	
 	@Autowired
 	private ClienteService clienteService;
@@ -35,6 +42,11 @@ public class ClienteController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
 		 return clienteService.findById(id);
+	}
+
+	@GetMapping
+	public List<Cliente> listarTudo(){
+		return repository.findAll();
 	}
 
 	@GetMapping("/all")
