@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,12 +23,9 @@ public class PedidosDTO {
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
-        Class<Pedido> pedidoClass= (Class<Pedido>) pedido.getClass();
-        for(Field field:pedidoClass.getFields()){
-            if(field.getName().equals("cliente")){
-                String nome=pedido.getCliente().getNome();
-            }
-
+        boolean clienteExiste=pedido.getCliente()==null;
+        if(!clienteExiste){
+            nome=pedido.getCliente().getNome();
         }
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         this.aberto = pedido.isAberto();
