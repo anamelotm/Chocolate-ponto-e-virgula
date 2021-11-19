@@ -3,35 +3,40 @@
   color: #6f1d1b;
 }
 
-.card-body{
-  margin-left: 5%;
-}
 .grid-produtos{
-  display: flex;
   width: 100%;
-
 }
 
 .produto_botao{
-  display: flex;
-  width: 160px;
-  margin-left: 8%;
+  margin: auto;
+}
+
+.produto_botao .btn{
+  width: 100%;
 }
 
 .produto{
-  margin-right: 5% ;
+  padding: 10px;
   justify-content: center;
   text-align: center;
 }
 
 .descricao {
-  text-align: justify;
+  text-align: center;
 }
 
 img {
  margin-bottom: 10px;
+ transition: 0.3s ease-in-out;
+}
+
+img:hover{
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
 }
 
 .preco {
   font-size: larger;
 }
+
+
