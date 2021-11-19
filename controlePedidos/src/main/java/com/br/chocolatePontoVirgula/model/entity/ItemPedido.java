@@ -27,9 +27,10 @@ public class ItemPedido {
 	private Double valorTotal;
 
 	@Column(name = "id_pedido")
-	private Long codigoPedido;
+	private Long idPedido;
 
-	@Column(name = "id_produto")
-	private Long codigoProduto;
+	@ManyToOne
+	@JoinColumn(name = "id_produto")
+	private Produto produto;
 
 }

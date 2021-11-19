@@ -15,10 +15,6 @@ public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long>{
 //            "INNER JOIN Produto p ON p.id = i.idProduto " +
 //            "INNER JOIN Pedido pe ON pe.id = i.idPedido " +
 //            "WHERE i.idPedido = :idPedido")
-    @Query(value = "SELECT p.nome, p.valor_unitario, i.quantidade, i.valorTotal \n" +
-            "FROM item_pedido i \n" +
-            "INNER JOIN Produto p ON p.id = i.id_produto \n" +
-            "INNER JOIN Pedido pe ON pe.id = i.id_pedido \n" +
-            "WHERE i.id_pedido = id_pedido;", nativeQuery = true)
+    @Query("SELECT item FROM ItemPedido item WHERE idPedido = :idPedido")
     List<ItemPedido> itensDoPedido(@Param("idPedido") long idPedido);
 }

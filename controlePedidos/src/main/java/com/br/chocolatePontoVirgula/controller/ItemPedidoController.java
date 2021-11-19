@@ -44,7 +44,7 @@ public class ItemPedidoController {
         return itemPedidoService.findAll(pageable);
     }
 
-    @GetMapping("/tela-itens/{id}")
+    @GetMapping("tela-itens/{id}")
     public List<ItemPedidoDTO> itensDoPedido(@PathVariable Long id){
         return ItemPedidoDTO.converter(itemPedidoService.itensDoPedido(id));
     }
