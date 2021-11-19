@@ -21,18 +21,23 @@ public class PedidosDTO {
     private String nome;
     private String enderecoEntrega;
     private boolean aberto;
-    private double valorTotal;
-
+    private double valorSemDesconto;
+    private double valorComDesconto;
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
-        this.nome=pedido.getCliente().getNome();
+        if (pedido.getCliente()!=null) {
+            String nome = "";
+        } else {
+            this.nome = pedido.getCliente().getNome();
+        }
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         this.aberto = pedido.isAberto();
-        this.valorTotal=pedido.getValorTotal();
+        this.valorSemDesconto = pedido.getValorSemDescontro();
+        this.valorComDesconto = pedido.getValorComDescontro();
     }
 
-    public static List<PedidosDTO> converter(ResponseEntity<Page<Pedido>> pedidos){
+    public static List<PedidosDTO> converter(ResponseEntity<Page<Pedido>> pedidos) {
         return pedidos.getBody().stream().map(PedidosDTO::new).collect(Collectors.toList());
     }
 }

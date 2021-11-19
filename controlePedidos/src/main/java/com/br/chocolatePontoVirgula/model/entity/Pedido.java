@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -20,15 +21,17 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-    @Column(name = "data_pedido")
+    @Column(name = "data_pedido",nullable = false)
     protected Date dataPedido;
     @Column(name = "endereco_entrega")
     protected String enderecoEntrega;
-    @Column(name = "aberto")
+    @Column(name = "aberto",nullable = false)
     protected boolean aberto;
-    @Column(name = "valor_total")
-    protected double valorTotal;
-    @Column(name = "quantidade_total")
+    @Column(name = "valor_sem_desconto",nullable = false)
+    protected double valorSemDescontro;
+    @Column(name = "valor_com_desconto")
+    protected double valorComDescontro;
+    @Column(name = "quantidade_total",nullable = false)
     protected int quantidadeTotal;
     @Column(name = "percentual_desconto")
     protected int percentualDesconto;
@@ -42,7 +45,7 @@ public class Pedido {
 
     public void aplicarDesconto() {
         if (!fechado()) {
-            valorTotal *= (1 - (this.percentualDesconto * 100));
+            valorComDescontro *= (1 - (this.percentualDesconto * 100));
         } else {
             System.out.println("Não foi possível aplicar o desconto");
         }
