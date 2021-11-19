@@ -35,7 +35,7 @@ create table pedido(
 	percentual_desconto	int
 	
 );
-
+    
 create table item_Pedido(
 	id 				int not null auto_increment primary key,
 	id_pedido		int not null,  -- FK da coluna codigo tabela pedido
@@ -101,4 +101,44 @@ select * from item_Pedido;
 select * from pedido;
 
 desc cliente;
+
+
+-- alteracoes na tabela pedido
+
+alter table pedido modify column id_cliente int;
+alter table pedido modify column endereco_entrega varchar(150);
+alter table pedido rename column valor_Total to valor_sem_desconto;
+alter table pedido modify column valor_sem_desconto double(8,2) not null;
+alter table pedido add column valor_com_desconto double(8,2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

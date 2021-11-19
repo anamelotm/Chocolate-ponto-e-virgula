@@ -18,8 +18,13 @@
     margin-left: 8%;
 }
 
+
 .produto{
     margin-right: 5% ;
     justify-content: center;
     text-align: center;
+}
+
+button:hover{
+  background-color: rgb(196, 196, 196);
 }

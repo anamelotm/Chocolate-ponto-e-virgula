@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { CarrinhoDialogComponent } from './carrinho-dialog/carrinho-dialog.component';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
 
 @Component({
   selector: 'app-home',
@@ -9,23 +8,15 @@ import { CarrinhoDialogComponent } from './carrinho-dialog/carrinho-dialog.compo
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {
-   }
+  public totalItens: number = 0;
+
+  constructor(private service: CarrinhoService) { }
 
   ngOnInit(): void {
+    this.service.getProducts().subscribe(res => {
+      this.totalItens = res.length;
+    })
   }
 
- carrinho(): void {
-    const dialogRef = this.dialog.open(CarrinhoDialogComponent, {
-      width: '400px',
-     
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    });
-
-  }
 
 }

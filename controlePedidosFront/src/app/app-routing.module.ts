@@ -8,6 +8,7 @@ import { PedidosListarComponent } from './Empresa/pedidos-listar/pedidos-listar.
 import { ProdutoCadastrarComponent } from './Empresa/produto-cadastrar/produto-cadastrar.component';
 import { ProdutosListarComponent } from './Empresa/produtos-listar/produtos-listar.component';
 import { HomeComponent } from './views/home/home.component';
+import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,7 +20,10 @@ const routes: Routes = [
   {path: 'produto-cadastrar', component: ProdutoCadastrarComponent},
   {path: 'editar-produto/:id', component: ProdutoCadastrarComponent},
   {path: 'produtos-listar', component: ProdutosListarComponent},
-  {path: 'pedido-detalhar', component: PedidoDetalharComponent},
+  {path: 'pedido-detalhar/:id', component: PedidoDetalharComponent},
+  {path: 'editar-pedido/:id', component: FazerPedidoComponent},
+  {path: 'carrinho', component: CarrinhoComponent},
+
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

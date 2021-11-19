@@ -11,7 +11,7 @@ export class ClienteService {
   //!!!atualizar o endereço!!!
   //url='http://localhost:4000/api/cliente';
 
-  private readonly url = 'http://localhost:3000/clientes/';
+  private readonly url = 'http://localhost:8080/clientes/';
 
   constructor(private http: HttpClient) { }
 
