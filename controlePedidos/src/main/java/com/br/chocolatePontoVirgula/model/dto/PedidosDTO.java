@@ -1,9 +1,5 @@
 package com.br.chocolatePontoVirgula.model.dto;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
@@ -11,7 +7,7 @@ import lombok.Getter;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,19 +18,20 @@ public class PedidosDTO {
     private String enderecoEntrega;
     private boolean aberto;
     private double valorSemDesconto;
-    private double valorComDesconto;
+    private double valorTotal;
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
-        if (pedido.getCliente()!=null) {
-            String nome = "";
-        } else {
-            this.nome = pedido.getCliente().getNome();
+        Class<Pedido> pedidoClass= (Class<Pedido>) pedido.getClass();
+        for(Field field:pedidoClass.getFields()){
+            if(field.getName().equals("cliente")){
+                String nome=pedido.getCliente().getNome();
+            }
+
         }
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         this.aberto = pedido.isAberto();
-        this.valorSemDesconto = pedido.getValorSemDescontro();
-        this.valorComDesconto = pedido.getValorComDescontro();
+        this.valorSemDesconto = pedido.getValorTotal();
     }
 
     public static List<PedidosDTO> converter(ResponseEntity<Page<Pedido>> pedidos) {

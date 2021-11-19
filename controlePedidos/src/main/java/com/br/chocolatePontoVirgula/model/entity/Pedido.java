@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Getter
@@ -21,17 +22,15 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-    @Column(name = "data_pedido",nullable = false)
+    @Column(name = "data_pedido", nullable = false)
     protected Date dataPedido;
     @Column(name = "endereco_entrega")
     protected String enderecoEntrega;
-    @Column(name = "aberto",nullable = false)
+    @Column(name = "aberto", nullable = false)
     protected boolean aberto;
-    @Column(name = "valor_sem_desconto",nullable = false)
-    protected double valorSemDescontro;
-    @Column(name = "valor_com_desconto")
-    protected double valorComDescontro;
-    @Column(name = "quantidade_total",nullable = false)
+    @Column(name = "valor_total")
+    protected double valorTotal;
+    @Column(name = "quantidade_total", nullable = false)
     protected int quantidadeTotal;
     @Column(name = "percentual_desconto")
     protected int percentualDesconto;
@@ -43,11 +42,12 @@ public class Pedido {
         return this.aberto;
     }
 
-    public void aplicarDesconto() {
-        if (!fechado()) {
-            valorComDescontro *= (1 - (this.percentualDesconto * 100));
-        } else {
-            System.out.println("Não foi possível aplicar o desconto");
-        }
+    public double retornarValorComDesconto() {
+        return valorTotal * (1 - (this.percentualDesconto * 100));
+    }
+
+    public Date getDataAtual() {
+        LocalDate dataAtual = LocalDate.now();
+        return Date.valueOf(dataAtual);
     }
 }

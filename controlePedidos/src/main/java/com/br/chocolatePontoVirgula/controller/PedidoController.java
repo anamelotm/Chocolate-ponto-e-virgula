@@ -22,6 +22,7 @@ public class PedidoController {
     private PedidosDTO pedidosDTO;
     @PostMapping
     public void save(@RequestBody Pedido pedido){
+        pedido.setDataPedido(pedido.getDataAtual());
         pedidoService.save(pedido);
     }
 
