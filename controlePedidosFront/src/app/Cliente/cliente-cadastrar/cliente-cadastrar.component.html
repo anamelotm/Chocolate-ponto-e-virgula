@@ -27,9 +27,10 @@
             *ngIf="clienteForm.get('documento')?.hasError('required') && clienteForm.get('documento')?.touched">
           <span>Campo obrigatório!</span>
         </div>
+
         <br>
         <button class="btn btn-outline-secondary float-start" routerLink="/">Voltar</button>
-        <button type="submit" [disabled]='clienteForm.invalid' class="btn btn-outline-success float-end">Cadastrar</button>
+        <button id="btn-cadastro" type="submit" [disabled]='clienteForm.invalid' class="btn btn-outline-success float-end">Cadastrar</button>
       </form>
     </div>
   </div>
