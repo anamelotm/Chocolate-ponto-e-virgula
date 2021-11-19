@@ -16,26 +16,26 @@ export class ClienteCadastrarComponent implements OnInit {
   id: string | null;
 
   constructor(private fb: FormBuilder,
-                private router: Router,
-                private toastr: ToastrService,
-                private clienteService: ClienteService,
-                private aRouter: ActivatedRoute) {
+    private router: Router,
+    private toastr: ToastrService,
+    private clienteService: ClienteService,
+    private aRouter: ActivatedRoute) {
     this.clienteForm = this.fb.group({
       nome: ['', Validators.required],
       tipo: ['', Validators.required],
       documento: ['', Validators.required]
     })
     this.id = aRouter.snapshot.paramMap.get('id');
-   }
+  }
 
   ngOnInit(): void {
     this.isEditar();
   }
 
-  cadastrarCliente(){
-    if(this.clienteForm.controls['nome'].errors || this.clienteForm.controls['documento'].errors || this.clienteForm.controls['tipo'].errors) {
-     console.log(this.clienteForm);
-    } else{
+  cadastrarCliente() {
+    if (this.clienteForm.controls['nome'].errors || this.clienteForm.controls['documento'].errors || this.clienteForm.controls['tipo'].errors) {
+      console.log(this.clienteForm);
+    } else {
 
       //criando um cliente
       const cliente: Cliente = {
@@ -45,7 +45,7 @@ export class ClienteCadastrarComponent implements OnInit {
         documento: this.clienteForm.get('documento')?.value
       }
 
-      if(this.id !== null){
+      if (this.id !== null) {
         //editando o cliente
         this.clienteService.editarCliente(this.id, cliente).subscribe(data => {
           this.toastr.info('Cliente atualizado com sucesso!', 'Cliente atualizado');
@@ -54,7 +54,7 @@ export class ClienteCadastrarComponent implements OnInit {
           console.log(error);
           this.clienteForm.reset();
         })
-      } else{
+      } else {
 
         //metodo para gravar no banco
         this.clienteService.salvarCliente(cliente).subscribe(data => {
@@ -68,8 +68,8 @@ export class ClienteCadastrarComponent implements OnInit {
     }
   }
 
-  isEditar(){
-    if(this.id !== null){
+  isEditar() {
+    if (this.id !== null) {
       this.titulo = 'Editar cliente';
       this.clienteService.getCliente(this.id).subscribe(data => {
         this.clienteForm.setValue({
@@ -78,6 +78,56 @@ export class ClienteCadastrarComponent implements OnInit {
           documento: data.documento
         })
       })
+    }
+  }
+
+  validarCpf(cpf: string): boolean {
+    if (cpf === "000.000.000-00" || cpf === "111.111.111-11" || cpf === "222.222.222-22" || cpf === "333.333.333-33" || cpf === "444.444.444-44" || cpf === "555.555.555-55" || cpf === "666.666.666-66" || cpf === "777.777.777-77" || cpf === "888.888.888-88" || cpf === "999.999.999-99") {
+      return false;
+    }
+    else {
+      let numerosCPF = cpf.split(".").join("");
+      numerosCPF = numerosCPF.split("-").join("");
+      let soma = 0;
+      let indice = 0;
+      let resto = 0;
+      let digitoVerificado;
+
+      if (numerosCPF.length == 11) {
+        for (let i = 10; i > 1; i--) {
+          soma += parseInt(numerosCPF.charAt(indice) + "", 10) * i;
+          indice++;
+        }
+        resto = 11 - (soma % 11);
+        if (resto == 10 || resto == 11) {
+          digitoVerificado = 0;
+        } else {
+          digitoVerificado = resto;
+        }
+        if (digitoVerificado == parseInt("" + numerosCPF.charAt(9), 10)) {
+          indice = 0;
+          soma = 0;
+          resto = 0;
+          for (let i = 11; i > 1; i--) {
+            soma += parseInt(numerosCPF.charAt(indice) + "", 10) * i;
+            indice++;
+          }
+          resto = 11 - (soma % 11);
+          if (resto == 10 || resto == 11) {
+            digitoVerificado = 0;
+          } else {
+            digitoVerificado = resto;
+          }
+          if (digitoVerificado == parseInt("" + numerosCPF.charAt(10), 10)) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return false;
+        }
+      } else
+        return false;
     }
   }
 

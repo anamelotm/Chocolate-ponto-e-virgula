@@ -1,0 +1,42 @@
+.text-center {
+  font-family:  'Mochiy Pop One', sans-serif;
+  color: #6f1d1b;
+}
+
+.grid-produtos{
+  width: 100%;
+}
+
+.produto_botao{
+  margin: auto;
+}
+
+.produto_botao .btn{
+  width: 100%;
+}
+
+.produto{
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.descricao {
+  text-align: center;
+}
+
+img {
+ margin-bottom: 10px;
+ transition: 0.3s ease-in-out;
+}
+
+img:hover{
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.preco {
+  font-size: larger;
+}
+
+

@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClienteCadastrarComponent } from './Cliente/cliente-cadastrar/cliente-cadastrar.component';
@@ -18,7 +16,8 @@ import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalhar.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-dialog.component';
+import { ItemProdutoComponent } from './views/home/item-produto/item-produto.component';
+import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,8 @@ import { CarrinhoDialogComponent } from './views/home/carrinho-dialog/carrinho-d
     FazerPedidoComponent,
     HomeComponent,
     PedidoDetalharComponent,
-    CarrinhoDialogComponent
+    ItemProdutoComponent,
+    CarrinhoComponent
 
   ],
   imports: [

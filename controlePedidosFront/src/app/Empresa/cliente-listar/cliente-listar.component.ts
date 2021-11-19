@@ -26,6 +26,6 @@ export class ClienteListarComponent implements OnInit {
     }, error => {
       console.log(error);
     })
-  
+
 }
 }
