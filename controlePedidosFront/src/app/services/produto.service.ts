@@ -10,10 +10,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProdutoService {
 
-  url='http://localhost:8080/produtos';
+  url='http://localhost:3000/produtos/';
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
-  
+
   listarProdutos(){
     return this.http.get<Produto[]>(this.url);
   }

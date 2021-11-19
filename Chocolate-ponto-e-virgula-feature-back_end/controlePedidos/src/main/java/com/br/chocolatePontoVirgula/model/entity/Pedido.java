@@ -22,8 +22,6 @@ public class Pedido {
     protected Long id;
     @Column(name = "data_pedido")
     protected Date dataPedido;
-    @Column(name = "id_cliente")
-    protected Long idCliente;
     @Column(name = "endereco_entrega")
     protected String enderecoEntrega;
     @Column(name = "aberto")
@@ -34,8 +32,9 @@ public class Pedido {
     protected int quantidadeTotal;
     @Column(name = "percentual_desconto")
     protected int percentualDesconto;
-
-
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 
     public boolean fechado() {
         return this.aberto;

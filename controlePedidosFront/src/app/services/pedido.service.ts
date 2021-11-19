@@ -9,10 +9,10 @@ import { Pedido } from '../shared/models/pedido';
 export class PedidoService {
 
   private readonly url = 'http://localhost:3000/pedidos/';
-  
+
   constructor(private http: HttpClient) { }
 
- 
+
   listarPedidos(){
     return this.http.get<Pedido[]>(this.url);
   }
@@ -29,7 +29,7 @@ export class PedidoService {
     return this.http.get(this.url + id);
   }
 
-  editarPedido(id:String, pedido: Pedido): Observable<any>{
+  editarPedido(id: number, pedido: Pedido): Observable<any>{
     return this.http.put(this.url + id, pedido);
   }
 }

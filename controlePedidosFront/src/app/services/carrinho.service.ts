@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ProdutoCadastrarComponent } from '../Empresa/produto-cadastrar/produto-cadastrar.component';
+import { Pedido } from '../shared/models/pedido';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,12 @@ export class CarrinhoService {
 
   public cartItemList: any = [];
   public produtos = new BehaviorSubject<any>([]);
+  public pedido: Pedido = {  };
 
 
-  constructor() { }
+  private readonly url = 'http://localhost:3000/pedidos/';
+
+  constructor(private http: HttpClient) { }
 
   getProducts(){
     return this.produtos.asObservable();
@@ -32,7 +37,7 @@ export class CarrinhoService {
   getTotalPrice(): number{
     let grandTotal = 0;
     this.cartItemList.map((i:any) => {
-      grandTotal += i.valor_unitario;
+      grandTotal += i.valorUnitario;
     })
     return grandTotal;
   }
@@ -49,6 +54,10 @@ export class CarrinhoService {
   removeAllCart() {
     this.cartItemList = [];
     this.produtos.next(this.cartItemList);
+  }
+
+  save(pedido: Pedido): Observable<any>{
+    return this.http.post(this.url, pedido);
   }
 
 }

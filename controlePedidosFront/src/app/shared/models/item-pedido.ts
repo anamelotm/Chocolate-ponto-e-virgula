@@ -1,17 +1,8 @@
-export class ItemPedido {
-    id: number = 0;
-    produto: string;
-    valorUnitario: number;
+export interface ItemPedido {
+    id?: number;
+    codigoProduto: number;
+    codigoPedido: number;
+    valorTotal: number;
     quantidade: number;
-    valorTotalItem: number;
 
-    constructor(
-        produto: string,
-        valorUnitario: number,
-        quantidade: number){
-            this.produto = produto;
-            this.valorUnitario = valorUnitario;
-            this.quantidade = quantidade;
-            this.valorTotalItem = quantidade * valorUnitario;
-        }
   }
