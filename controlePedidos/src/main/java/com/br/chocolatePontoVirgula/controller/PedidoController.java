@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.controller;
 
+import com.br.chocolatePontoVirgula.model.dto.PedidoDTO;
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
+import org.springframework.web.util.UriBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 @RestController
 @RequestMapping("/pedidos")
@@ -21,13 +27,20 @@ public class PedidoController {
 
     private PedidosDTO pedidosDTO;
     @PostMapping
-    public void save(@RequestBody Pedido pedido){
+    public ResponseEntity<PedidoDTO> save(@RequestBody Pedido pedido) throws URISyntaxException {
         pedido.setDataPedido(pedido.getDataAtual());
+        pedido.setPercentualDesconto(0);
+        pedido.setAberto(true);
         pedidoService.save(pedido);
+        URI uri = new URI("http://localhost:8080/pedidos/"+pedido.getId());
+        return ResponseEntity.created(uri).body(new PedidoDTO(pedido));
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("{id}")
     public void update(@PathVariable Long id, @RequestBody Pedido pedido){
+        pedido.setId(id);
+        System.out.println("Id do cliente"+ pedido.getCliente().getId());
+        System.out.println("id do pedido"+ pedido.getId());
         pedidoService.update(id, pedido);
     }
 
@@ -37,8 +50,10 @@ public class PedidoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> findById(@PathVariable Long id) {
-        return pedidoService.findById(id);
+    public List<PedidoDTO> findById(@PathVariable Long id) {
+        List<Pedido> pedido=new ArrayList<>();
+        pedido.add(pedidoService.findById(id));
+        return PedidoDTO.converter(pedido);
     }
 
    @GetMapping
@@ -54,8 +69,5 @@ public class PedidoController {
         return pedidoService.consultaPedidosCliente(idCliente);
 
     }
-    @GetMapping("/all")
-    public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {
-        return pedidoService.findAll(pageable);
-    }
+
 }
