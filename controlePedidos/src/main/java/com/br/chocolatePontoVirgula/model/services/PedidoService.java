@@ -12,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,10 +28,14 @@ public class PedidoService {
         return pedidoRepository.save(pedido);
     }
 
-    public void update(Long id, Pedido pedido) {
+    public void update(Long id, Pedido pedido) throws URISyntaxException {
         Optional<Pedido> pedidoPesquisado = Optional.of(pedidoRepository.getById(id));
         pedidoPesquisado.get().setCliente(pedido.getCliente());
         pedidoPesquisado.get().setEnderecoEntrega(pedido.getEnderecoEntrega());
+        List<Pedido> pedidos=pedidoRepository.consultaPedidosCliente(pedido.getCliente().getId());
+        if((pedidos.isEmpty()) && (pedidoPesquisado.get().isAberto())){
+            pedidoPesquisado.get().setPercentualDesconto(10);
+        }
         pedidoRepository.save(pedidoPesquisado.get());
     }
 
