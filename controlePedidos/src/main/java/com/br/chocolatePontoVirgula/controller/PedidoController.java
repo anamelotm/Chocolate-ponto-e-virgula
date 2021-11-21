@@ -37,11 +37,8 @@ public class PedidoController {
     }
 
     @PatchMapping("{id}")
-    public void update(@PathVariable Long id, @RequestBody Pedido pedido){
-        pedido.setId(id);
-        System.out.println("Id do cliente"+ pedido.getCliente().getId());
-        System.out.println("id do pedido"+ pedido.getId());
-        pedidoService.update(id, pedido);
+    public void update(@PathVariable Long id, @RequestBody Pedido pedido) throws URISyntaxException {
+       pedidoService.update(id, pedido);
     }
 
     @DeleteMapping("/{id}")
