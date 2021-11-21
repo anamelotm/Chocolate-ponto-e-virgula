@@ -37,7 +37,7 @@ public class ClienteController {
 		 return clienteService.findById(id);
 	}
 
-	@GetMapping("/all")
+	@GetMapping()
 	public ResponseEntity<Page<Cliente>> findAll( Pageable pageable) {
 		return clienteService.findAll(pageable);
 	}
