@@ -1,6 +1,9 @@
 package com.br.chocolatePontoVirgula.model.services;
 
+;
+import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
+import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,7 +20,14 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public ResponseEntity<String> save(Cliente cliente){
+    public ResponseEntity<String> save(ClienteForm clienteForm){
+       //pegando os dados do clienteForm e atribuindo a um Cliente:
+        Cliente cliente = new Cliente();
+        cliente.setNome(clienteForm.getNome());
+        cliente.setTipo(clienteForm.getTipo());
+        cliente.setDocumento(clienteForm.getDocumento());
+
+
         boolean docValido = false;
 
         //validando o o documento antes de realizar o insert no banco
@@ -31,15 +41,15 @@ public class ClienteService {
             clienteRepository.save(cliente);
             return ResponseEntity.ok().body("cliente criado");
         } else {
-            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção");
-            // TODO: rever aqui, metodos http não estão funcionando corretamente
+            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção (insira um documento válido)");
+
 
         }
 
     }
 
 
-    public void update( Long id, Cliente cliente){
+    public void update(Long id, Cliente cliente){
         Cliente clientePesquisado = clienteRepository.getById(id);
 
         if(clientePesquisado != null){
