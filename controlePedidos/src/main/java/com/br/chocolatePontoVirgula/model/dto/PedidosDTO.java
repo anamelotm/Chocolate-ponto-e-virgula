@@ -18,8 +18,7 @@ public class PedidosDTO {
     private String nome;
     private String enderecoEntrega;
     private boolean aberto;
-    private double valorSemDesconto;
-    private double valorTotal;
+    private double valorFinaldoPedido;
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
@@ -29,7 +28,12 @@ public class PedidosDTO {
         }
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         this.aberto = pedido.isAberto();
-        this.valorSemDesconto = pedido.getValorTotal();
+        if(pedido.getPercentualDesconto()==0){
+            this.valorFinaldoPedido = pedido.getValorTotal();
+        }
+        else {
+            this.valorFinaldoPedido = pedido.retornarValorComDesconto();
+        }
     }
 
     public static List<PedidosDTO> converter(ResponseEntity<Page<Pedido>> pedidos) {

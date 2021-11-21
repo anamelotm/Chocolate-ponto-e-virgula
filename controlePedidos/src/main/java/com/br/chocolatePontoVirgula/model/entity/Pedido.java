@@ -43,7 +43,7 @@ public class Pedido {
     }
 
     public double retornarValorComDesconto() {
-        return valorTotal * (1-(this.percentualDesconto/100));
+        return valorTotal * (1-(this.percentualDesconto/100.0));
     }
 
     public Date getDataAtual() {
