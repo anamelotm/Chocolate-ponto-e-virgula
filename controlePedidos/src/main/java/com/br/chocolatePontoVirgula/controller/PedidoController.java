@@ -53,7 +53,10 @@ public class PedidoController {
         return PedidoDTO.converter(pedido);
     }
 
+
    @GetMapping("pageable")
+
+   @GetMapping
     public List<PedidosDTO> listarTudo(Pageable pageable) {
 
        Page<Pedido> pedidosLista = pedidoService.findAll(pageable);
@@ -65,7 +68,15 @@ public class PedidoController {
     public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente){
         return pedidoService.consultaPedidosCliente(idCliente);
 
+
+    @GetMapping
+    public List<Pedido> listarTudo() {
+        //List<PedidosDTO> pedidosLista = pedidoRepository.consultaGeralPedidos();
+        return pedidoRepository.findAll();
+
+        //return PedidosDTO.converter(pedidosLista);
     }
+    
     @PatchMapping("fecharpedido/{id}")
     public void fecharPedido(@PathVariable Long id){
         pedidoService.fecharPedido(id);

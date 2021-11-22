@@ -19,7 +19,7 @@ export class ProdutoService {
   }
 
   deletarProduto(id: String): Observable<any>{
-    return this.http.delete(this.url + id);
+    return this.http.delete(this.url + "/" + id);
   }
 
   salvarProduto(produto: Produto): Observable<any> {
@@ -31,7 +31,7 @@ export class ProdutoService {
   }
 
   editarProduto(id: string,produto: Produto): Observable<any> {
-    return this.http.put(this.url + id, produto);
+    return this.http.put(this.url + "/" + id, produto);
   }
 
 }

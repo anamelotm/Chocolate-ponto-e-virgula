@@ -1,30 +1,30 @@
 export class Produto {
   id: number;
   nome: string;
-  descricao!: string;
-  unidade_medida: string;
+  descricaoProduto: string;
+  unidadeMedida: string;
   valorUnitario: number;
   status: boolean;
-  url_fotos: string;
+  urlFoto: string;
   peso: number;
-  data_fabricacao: string;
-  data_validade:string;
-  quantidade_estoque: number;
+  dataFabricacao: Date;
+  dataValidade:Date;
+  quantidadeEstoque: number;
 
   constructor(id: number, nome: string, descricao: string, unidade_medida: string,
-     valor_unitario: number, status: boolean,url_fotos: string, peso: number,
-     data_fabricacao: string,data_validade: string, quantidade_estoque: number ){
+     valor_unitario: number, status: boolean,urlFoto: string, peso: number,
+     data_fabricacao: Date, data_validade: Date, quantidade_estoque: number ){
     this.id = id;
     this.nome = nome;
-    this.descricao = descricao;
-    this.unidade_medida = unidade_medida;
+    this.descricaoProduto = descricao;
+    this.unidadeMedida = unidade_medida;
     this.valorUnitario = valor_unitario;
     this.status = status;
-    this.url_fotos = url_fotos;
+    this.urlFoto = urlFoto;
     this.peso = peso;
-    this.data_fabricacao = data_fabricacao;
-    this.data_validade = data_validade;
-    this.quantidade_estoque = quantidade_estoque;
+    this.dataFabricacao = data_fabricacao;
+    this.dataValidade = data_validade;
+    this.quantidadeEstoque = quantidade_estoque;
   }
 }
 

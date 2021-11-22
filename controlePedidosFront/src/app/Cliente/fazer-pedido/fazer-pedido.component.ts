@@ -73,11 +73,11 @@ export class FazerPedidoComponent implements OnInit{
     efetuarPedido(){
       const pedido: Pedido ={
         id: this.pedidoForm.get('')?.value ,
-        cliente: this.pedidoForm.get('cliente')?.value,
+        nome: this.pedidoForm.get('nome')?.value,
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
   
-        situacao: true,
+        aberto: true,
         subtotal: 100,
         desconto: 10,
         total: 90

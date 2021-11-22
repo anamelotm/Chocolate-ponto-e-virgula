@@ -22,14 +22,14 @@ export class ProdutoCadastrarComponent implements OnInit {
 
     this.produtoForm = this.fb.group({
       nome: ['', Validators.required],
-      descricao: ['', Validators.required],
-      unidade_medida: ['', Validators.required],
+      descricaoProduto: ['', Validators.required],
+      unidadeMedida: ['', Validators.required],
       peso: ['', Validators.required],
-      valor_unitario: ['', Validators.required],
-      url_fotos: ['', Validators.required],
-      data_fabricacao: ['', Validators.required],
-      data_validade: ['', Validators.required],
-      quantidade: ['', Validators.required],
+      valorUnitario: ['', Validators.required],
+      urlFoto: ['', Validators.required],
+      dataFabricacao: ['', Validators.required],
+      dataValidade: ['', Validators.required],
+      quantidadeEstoque: ['', Validators.required],
       status: true
     })
     this.id = aRouter.snapshot.paramMap.get('id');
@@ -40,14 +40,14 @@ export class ProdutoCadastrarComponent implements OnInit {
   }
   cadastrarProduto() {
     if (this.produtoForm.controls['nome'].errors ||
-      this.produtoForm.controls['descricao'].errors ||
-      this.produtoForm.controls['unidade_medida'].errors ||
+      this.produtoForm.controls['descricaoProduto'].errors ||
+      this.produtoForm.controls['unidadeMedida'].errors ||
       this.produtoForm.controls['peso'].errors ||
-      this.produtoForm.controls['valor_unitario'].errors ||
-      this.produtoForm.controls['url_fotos'].errors ||
-      this.produtoForm.controls['data_fabricacao'].errors ||
-      this.produtoForm.controls['data_validade'].errors ||
-      this.produtoForm.controls['quantidade_estoque'].errors) {
+      this.produtoForm.controls['valorUnitario'].errors ||
+      this.produtoForm.controls['urlFoto'].errors ||
+      this.produtoForm.controls['dataFabricacao'].errors ||
+      this.produtoForm.controls['dataValidade'].errors ||
+      this.produtoForm.controls['quantidadeEstoque'].errors) {
       console.log(this.produtoForm);
     } else {
 
@@ -55,14 +55,14 @@ export class ProdutoCadastrarComponent implements OnInit {
       const produto: Produto = {
         id: this.produtoForm.get('')?.value,
         nome: this.produtoForm.get('nome')?.value,
-        descricao: this.produtoForm.get('descricao')?.value,
-        unidade_medida: this.produtoForm.get('unidade_medida')?.value,
+        descricaoProduto: this.produtoForm.get('descricaoProduto')?.value,
+        unidadeMedida: this.produtoForm.get('unidadeMedida')?.value,
         peso: this.produtoForm.get('peso')?.value,
         valorUnitario: this.produtoForm.get('valorUnitario')?.value,
-        url_fotos: this.produtoForm.get('url_fotos')?.value,
-        data_fabricacao: this.produtoForm.get('data_fabricacao')?.value,
-        data_validade: this.produtoForm.get('data_validade')?.value,
-        quantidade_estoque: this.produtoForm.get('quantidade_estoque')?.value,
+        urlFoto: this.produtoForm.get('urlFoto')?.value,
+        dataFabricacao: this.produtoForm.get('dataFabricacao')?.value,
+        dataValidade: this.produtoForm.get('dataValidade')?.value,
+        quantidadeEstoque: this.produtoForm.get('quantidadeEstoque')?.value,
         status: true
       }
 
@@ -98,9 +98,9 @@ export class ProdutoCadastrarComponent implements OnInit {
       this.titulo = 'Editar produto';
       this.produtoService.getProduto(this.id).subscribe(data => {
         this.produtoForm.setValue({
-          valor_unitario: data.valor_unitario,
+          valorUnitario: data.valorUnitario,
           status: data.status,
-          quantidade_estoque: data.quantidade_estoque
+          quantidadeEstoque: data.quantidadeEstoque
         })
       })
     }

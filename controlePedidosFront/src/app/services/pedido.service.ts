@@ -8,13 +8,13 @@ import { Pedido } from '../shared/models/pedido';
 })
 export class PedidoService {
 
-  private readonly url = 'http://localhost:3000/pedidos/';
+  private readonly url = 'http://localhost:8080/pedidos/';
   
   constructor(private http: HttpClient) { }
 
  
   listarPedidos(){
-    return this.http.get<Pedido[]>(this.url);
+    return this.http.get<Pedido[]>(this.url + "pageable");
   }
 
   deletarPedido(id: String): Observable<any>{
@@ -32,4 +32,6 @@ export class PedidoService {
   editarPedido(id:String, pedido: Pedido): Observable<any>{
     return this.http.put(this.url + id, pedido);
   }
+
+  
 }

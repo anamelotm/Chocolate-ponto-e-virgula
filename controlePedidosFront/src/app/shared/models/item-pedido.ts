@@ -3,7 +3,7 @@ export class ItemPedido {
     produto: string;
     valorUnitario: number;
     quantidade: number;
-    valorTotalItem: number;
+    valorTotal: number;
 
     constructor(
         produto: string,
@@ -12,6 +12,6 @@ export class ItemPedido {
             this.produto = produto;
             this.valorUnitario = valorUnitario;
             this.quantidade = quantidade;
-            this.valorTotalItem = quantidade * valorUnitario;
+            this.valorTotal = quantidade * valorUnitario;
         }
   }
