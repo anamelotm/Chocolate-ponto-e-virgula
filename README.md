@@ -18,7 +18,7 @@ O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos 
 * [Autores](#autores)
 <!--te-->
 
-## Como usar
+# Como usar
 ### Ferramentas:
 *   Intellij Community 2021.2
 *   Visual Studio Code
