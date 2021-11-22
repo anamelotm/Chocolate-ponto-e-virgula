@@ -4,6 +4,7 @@ package com.br.chocolatePontoVirgula.model.services;
 import com.br.chocolatePontoVirgula.model.dto.ItemPedidoDTO;
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 
+import com.br.chocolatePontoVirgula.model.form.ItemPedidoForm;
 import com.br.chocolatePontoVirgula.model.repository.ItemPedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -20,8 +23,16 @@ public class ItemPedidoService {
     @Autowired
     private ItemPedidoRepository itemPedidoRepository;
 
+    //TODO: terminar aqui!!
+    public void save(@Validated @RequestBody ItemPedidoForm itemPedidoForm){
+        //pegando os dados do form e inserindo em um ItemPedido:
+        ItemPedido itemPedido = new ItemPedido();
 
-    public void save(ItemPedido itemPedido){
+        itemPedido.setIdPedido(itemPedidoForm.getIdPedido());
+        itemPedido.getProduto().setId(itemPedidoForm.getIdProduto());
+        itemPedido.setQuantidade(itemPedidoForm.getQuantidade());
+        itemPedido.setValorTotal(itemPedidoForm.getValorTotal());
+
         itemPedidoRepository.save(itemPedido);
     }
 
