@@ -40,6 +40,7 @@ public class PedidoController {
         return pedidoService.findById(id);
     }
 
+<<<<<<< HEAD:controlePedidos/src/main/java/com/br/chocolatePontoVirgula/controller/PedidoController.java
    @GetMapping
     public List<PedidosDTO> listarTudo(Pageable pageable) {
 
@@ -52,6 +53,14 @@ public class PedidoController {
     public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente){
         return pedidoService.consultaPedidosCliente(idCliente);
 
+=======
+    @GetMapping
+    public List<Pedido> listarTudo() {
+        //List<PedidosDTO> pedidosLista = pedidoRepository.consultaGeralPedidos();
+        return pedidoRepository.findAll();
+
+        //return PedidosDTO.converter(pedidosLista);
+>>>>>>> feature/alice.souza:Chocolate-ponto-e-virgula-feature-back_end/controlePedidos/src/main/java/com/br/chocolatePontoVirgula/controller/PedidoController.java
     }
     @GetMapping("/all")
     public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {

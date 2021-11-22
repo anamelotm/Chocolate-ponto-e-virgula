@@ -77,7 +77,7 @@ export class FazerPedidoComponent implements OnInit{
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
   
-        situacao: true,
+        aberto: true,
         subtotal: 100,
         desconto: 10,
         total: 90
