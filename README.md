@@ -48,22 +48,22 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ## Rodando o Back End (servidor)
 
-# Abra o Git Bash e clone este repositório
+### Abra o Git Bash e clone este repositório
 	$ git clone <>
-# Acesse a pasta do projeto no terminal/cmd
+### Acesse a pasta do projeto no terminal/cmd
 	$ cd <>
-# Vá para a pasta server
+### Vá para a pasta server
 	$ cd server
-# Instale as dependências
+### Instale as dependências
 	$ npm install
-# Execute a aplicação em modo de desenvolvimento
+### Execute a aplicação em modo de desenvolvimento
 	$ npm run dev:server
-# O servidor iniciará na porta 8080 – acesse <>
+### O servidor iniciará na porta 8080 – acesse <>
 
 
 ## Rodando o Front End (servidor)
 
-# Instale o Angular
+### Instale o Angular
 	$ npm i -g @angular/material
 
 ## Features
