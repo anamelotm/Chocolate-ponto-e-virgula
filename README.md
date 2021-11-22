@@ -74,15 +74,12 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ## Autores
 <sub><b>Alice Souza<b></sub></a>
-<br>
 [![Linkedin Badge](https://img.shields.io/badge/-Alice-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/alicefms/)](https://www.linkedin.com/in/alicefms/)
 
 <sub><b>Ana Caroline<b></sub></a>
-<br>
-[![Linkedin Badge](https://img.shields.io/badge/-Ana-Caroline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)](https://www.linkedin.com/in/ana-caroline-vilela-53a824209/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Ana_Caroline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)](https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)
 
 <sub><b>Ana Luísa<b></sub></a>
-<br>
 [![Linkedin Badge](https://img.shields.io/badge/-Ana-Luísa-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/analuisatmelo/)](https://www.linkedin.com/in/analuisatmelo/) 
 
 <sub><b>Evelin<b></sub></a>
