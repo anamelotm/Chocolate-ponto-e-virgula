@@ -2,7 +2,7 @@
   <div class="card-table">
     <div class="cart-product">
      <!-- <form [formGroup]="carrinhoForm" (ngSubmit)="finalizarCarrinho()"> -->
-      <table class="table table-responsive">
+      <table class="table table-responsive" >
         <thead>
           <tr>
             <th>Item</th>
@@ -15,14 +15,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of produtos; let i = index">
+          <tr *ngFor='let item of produtos; let i = index'>
             <td hidden>{{item.id}}</td>
             <td>{{i+1}}</td>
             <td style="width: 25%;">{{item.nome}}</td>
-            <td> <img src="{{item.url_fotos}}" alt="foto protudo" style="width: 100px;"> </td>
-            <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }} </td>
+            <td> <img src="{{item.urlFoto}}" alt="foto protudo" style="width: 100px;"> </td>
+            <td style="width: 12%;">{{item.valorUnitario | currency: 'BRL' }} </td>
             <td style="width: 12%;">{{item.quantity}}</td>
-            <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }}</td>
+            <td style="width: 12%;">{{item.valorUnitario | currency: 'BRL' }}</td>
             <td>
               <button (click)="removeItem(item)" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
             </td>
@@ -30,12 +30,12 @@
           <tr>
             <td colspan="7" style="text-align: right; padding-right: 5%;"><strong>Total: R$ {{ grandTotal.toFixed(2) }}</strong></td>
           </tr>
-          <tr>
+          <tr >
             <td colspan="4"></td>
 
             <td><button class="btn btn-danger" (click)="emptyCart()" style="width: 80px;">Esvaziar</button></td>
             <td><button class="btn btn-primary" routerLink='' style="width: 80px;">Voltar</button></td>
-            <td><button class="btn btn-success" style="width: 80px;">Finalizar</button></td>
+            <td><button class="btn btn-success" (click)="finalizarCarrinho(grandTotal)" (click)="salvarItem(4)" style="width: 80px;">Finalizar</button></td>
           </tr>
         </tbody>
       </table>

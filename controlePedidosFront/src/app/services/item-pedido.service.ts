@@ -11,7 +11,7 @@ export class ItemPedidoService {
   private readonly url = 'http://localhost:8080/itens-pedidos/';
   constructor(private http: HttpClient) { }
 
- 
+
   listarItens(){
     return this.http.get<ItemPedido[]>(this.url + "all/");
   }

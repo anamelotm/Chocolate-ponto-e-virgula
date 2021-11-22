@@ -1,12 +1,12 @@
 <div style="text-align: end; margin-top: 4%;" ><a class="btn btn-primary" routerLink=''>Inicio</a></div>
 <div class="card" style="margin-top: 4%; ">
- 
+
   <div class="card-header text-center ">
     <h2 id="titulo_card" >{{titulo}}  </h2>
   </div>
   <div class="card-body" style="margin-top: 3%; color: #432818 ; ">
-    <form [formGroup] = "pedidoForm" (ngSubmit)= "efetuarPedido()" >
-      <div class="input-group mb-3">  
+    <form [formGroup] = "pedidoForm" (ngSubmit)= "salvarPedido(1)" >
+      <div class="input-group mb-3">
         <h2>Total: R$</h2>
         <span style="margin-left: 2%;">Aqui vai o valor</span>
         <h2 style="margin-left: 20%;">Quantidade: </h2>
@@ -27,15 +27,15 @@
      <!-- busca parte do endereço por CEP-->
         <form method="get">
         <span class="input-group-text" >CEP</span>
-        <input name="cep" class="form-control" type="text" id="cep"[(ngModel)]="cepDigitado"  
-        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> 
+        <input name="cep" class="form-control" type="text" id="cep"[(ngModel)]="cepDigitado"
+        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         <button  class="btn btn-outline-success" (click)="pegarcep()">Buscar Endereço</button>
       </form>
 
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" >Rua</span>
-        <input  [value] = "enderecoBuscado.logradouro" formControlName="rua"  type="text" class="form-control" placeholder="Ex.: Rua Professor Antonio Coelho" 
+        <input  [value] = "enderecoBuscado.logradouro" formControlName="rua"  type="text" class="form-control" placeholder="Ex.: Rua Professor Antonio Coelho"
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
       </div>
       <div class="input-group mb-3">

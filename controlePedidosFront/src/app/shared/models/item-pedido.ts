@@ -1,8 +1,10 @@
-export class ItemPedido {
-    id: number = 0;
-    produto: string;
-    valorUnitario: number;
+import { Produto } from "./produto";
+export interface ItemPedido {
+    id?: number;
+    idPedido: number;
+    valorTotal: number;
     quantidade: number;
+<<<<<<< HEAD
     valorTotal: number;
 
     constructor(
@@ -14,4 +16,8 @@ export class ItemPedido {
             this.quantidade = quantidade;
             this.valorTotal = quantidade * valorUnitario;
         }
+=======
+    produto: Produto;
+
+>>>>>>> feature/ana.melo
   }

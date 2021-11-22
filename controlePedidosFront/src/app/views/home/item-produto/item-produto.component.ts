@@ -21,9 +21,10 @@ export class ItemProdutoComponent implements OnInit {
   ngOnInit(): void {
     this.servico.listarProdutos().subscribe(obj => {
       this.produtos = obj;
+      console.log(this.produtos);
 
       this.produtos.forEach((a:any) => {
-        Object.assign(a,{quantity:1, total:a.price});
+        Object.assign(a, {quantity:1, total:a.valorUnitario});
       });
     })
   }

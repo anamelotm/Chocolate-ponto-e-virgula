@@ -23,6 +23,7 @@
               <tr>
                 <th [routerLink]="['/pedido-detalhar', pedido.id ]" scope="row">{{pedido.id}}</th>
                 <td>11/11/2021</td>
+<<<<<<< HEAD
                 <td>{{pedido.nome}}</td>
                 <td>{{pedido.enderecoEntrega}}</td>
                 <td>{{pedido.aberto}} <i  class="fas fa-exchange-alt text-primary"></i> </td>
@@ -30,6 +31,14 @@
                 <td>R$ {{pedido.subtotal}}</td>
                 <td>{{pedido.desconto}}%</td>
                 <td>R$ {{pedido.total}}</td>
+=======
+                <td>{{pedido.idCliente}}</td>
+                <td>{{pedido.enderecoEntrega}}</td>
+                <td>{{pedido.aberto}} <i  class="fas fa-exchange-alt text-primary"></i> </td>
+                <td>{{pedido.quantidadeTotal}}</td>
+                <td>R$ {{pedido.valorTotal}}</td>
+                <td>{{pedido.percentualDesconto}}%</td>
+>>>>>>> feature/ana.melo
                 <td> <i [routerLink]="['/editar-pedido', pedido.id]" class="fas fa-edit text-primary"></i></td>
               </tr>
             </tbody>

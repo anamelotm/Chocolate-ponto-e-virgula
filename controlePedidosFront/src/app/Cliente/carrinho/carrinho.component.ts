@@ -3,6 +3,8 @@ import { CarrinhoService } from '../../services/carrinho.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ItemPedido } from '../../shared/models/item-pedido';
+import { ItemPedidoService } from '../../services/item-pedido.service';
+import { Produto } from 'src/app/shared/models/produto';
 
 @Component({
   selector: 'app-carrinho',
@@ -17,14 +19,18 @@ export class CarrinhoComponent implements OnInit {
 
   constructor(
     private service: CarrinhoService,
+    private serviceIP: ItemPedidoService,
     private fb: FormBuilder,
     private router: Router) { }
 
   ngOnInit(): void {
     this.service.getProducts().subscribe(res => {
       this.produtos = res;
+      this.produtos.map((item:any) => {
+        item.total = item.valorUnitario * item.quantity;
+      })
       this.grandTotal = this.service.getTotalPrice();
-      console.log(this.grandTotal);
+
     })
   }
 
@@ -37,7 +43,30 @@ export class CarrinhoComponent implements OnInit {
     this.service.removeAllCart();
   }
 
-  finalizarCarrinho(){
+  finalizarCarrinho(valorTotal: number){
+    const pedido = {
+      valorTotal: valorTotal,
+      quantidadeTotal: this.produtos.length
+    }
+    console.log(pedido);
+    this.service.save(pedido).subscribe(data => {this.router.navigate(['/fazer-pedido'])}, error => {console.log(error)});
   }
 
+  salvarItem(idPedido: number){
+    let itemPedido: ItemPedido;
+    this.produtos.map( (item: any) => {
+     itemPedido = {
+      idPedido: idPedido,
+      produto: {
+        id: item.id
+      },
+      valorTotal: item.total,
+      quantidade: item.quantity
+     }
+     this.serviceIP.salvarItem(itemPedido).subscribe(data => {this.router.navigate(['/fazer-pedido'])}, error => {console.log(error)});
+     console.log(itemPedido);
+    })
+
+    this.emptyCart();
+  }
 }

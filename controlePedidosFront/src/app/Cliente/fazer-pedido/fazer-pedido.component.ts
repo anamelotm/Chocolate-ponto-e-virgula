@@ -14,11 +14,11 @@ import { Pedido } from 'src/app/shared/models/pedido';
   styleUrls: ['./fazer-pedido.component.css']
 })
 export class FazerPedidoComponent implements OnInit{
-  titulo = "Finalizando seu Pedido 🛒";
+  titulo = "Finalizando seu Pedido";
   enderecoBuscado : Endereco = {
-    cep: "", 
-    logradouro: "", 
-    complemento: "", 
+    cep: "",
+    logradouro: "",
+    complemento: "",
     bairro: "",
     localidade: "",
     uf: "",
@@ -37,7 +37,7 @@ export class FazerPedidoComponent implements OnInit{
     private fb: FormBuilder,
     private router:Router,
     private toastr: ToastrService,
-    private pedidoService: PedidoService, 
+    private pedidoService: PedidoService,
     private aRouter: ActivatedRoute
     ) {
       this.pedidoForm = this.fb.group({
@@ -49,26 +49,17 @@ export class FazerPedidoComponent implements OnInit{
         complemento:['', Validators.required]
       })
       this.id = aRouter.snapshot.paramMap.get('id');
-      
+
     }
 
     ngOnInit(): void{
-      this.isEditar();
     }
-    
-    isEditar(){
-      if(this.id !== null){
-        this.titulo = "Editando Endereço de Entrega";
-        this.pedidoService.getPedido(this.id).subscribe(data => 
-          this.pedidoForm.patchValue({  //altero setValue para patch pois nao vou usar todos os atributos.
-            cliente: data.cliente,
-          }))
-      }
-    }
+
     pegarcep(){
         this.servico.buscarCEP(this.cepDigitado).subscribe(objeto => this.enderecoBuscado = objeto);
     }
 
+<<<<<<< HEAD
 
     efetuarPedido(){
       const pedido: Pedido ={
@@ -81,27 +72,22 @@ export class FazerPedidoComponent implements OnInit{
         subtotal: 100,
         desconto: 10,
         total: 90
+=======
+    salvarPedido(id: number){
+      const pedido: Pedido = {
+        idCliente: this.pedidoForm.get('cliente')?.value,
+        enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
+                          this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
+>>>>>>> feature/ana.melo
       }
-
-      if(this.id !== null){
-        this.pedidoService.editarPedido(this.id, pedido).subscribe(data => {
-          this.toastr.info('Endereço de entrega atualizado com sucesso!', 'Pedido atualizado');
-          this.router.navigate(['/pedidos-listar']);
-        }, error => {
-          console.log(error);
-          this.pedidoForm.reset();
-        })
-      } else{
-      
-
-      this.pedidoService.salvarPedido(pedido).subscribe(data => {
-        this.toastr.success('Pedido efetuado com sucesso!', 'Pedido efetuado!');
-        this.router.navigate(['/']);
+      this.pedidoService.editarPedido(id, pedido).subscribe(data => {
+        this.toastr.info('Pedido efetuado com sucesso!');
+          this.router.navigate(['/']);
       }, error => {
         console.log(error);
-        this.pedidoForm.reset();
-      })
-    }}
+      });
+
+    }
 }
 
 

@@ -103,3 +103,16 @@ update produto set quantidade_estoque=quantidade_estoque -10 where id = 3;
 
 
 select * from item_Pedido;
+select * from pedido;
+
+desc cliente;
+
+
+-- alteracoes na tabela pedido
+
+alter table pedido modify column id_cliente int;
+alter table pedido modify column endereco_entrega varchar(150);
+alter table pedido rename column valor_Total to valor_sem_desconto;
+alter table pedido modify column valor_sem_desconto double(8,2) not null;
+alter table pedido add column valor_com_desconto double(8,2);
+

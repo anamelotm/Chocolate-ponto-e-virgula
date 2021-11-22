@@ -60,6 +60,7 @@ export class ClienteCadastrarComponent implements OnInit {
         this.clienteService.salvarCliente(cliente).subscribe(data => {
           this.toastr.success('Cliente cadastrado com sucesso!', 'Cadastro concluído!');
           this.router.navigate(['/']);
+          console.log(data);
         }, error => {
           console.log(error);
           this.clienteForm.reset();

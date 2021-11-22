@@ -16,8 +16,16 @@ export class ClienteListarComponent implements OnInit {
     private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.servico.listarClientes().subscribe(obj => this.clientes = obj);
+    this.getClientes();
   };
+
+  getClientes() {
+    this.servico.listarClientes('previous').subscribe(data => {
+      this.clientes = data.content;
+      console.log(this.clientes);
+    })
+  }
+
 
   deletarCliente(codigo: any){
     this.servico.deletarCliente(codigo).subscribe(data => {
