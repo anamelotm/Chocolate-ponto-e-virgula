@@ -57,13 +57,8 @@ public class PedidoService {
 
     }
 
-    public ResponseEntity<Page<Pedido>> findAll(Pageable pageable) {
-
-        int size = 10;
-        PageRequest pageRequest = PageRequest.ofSize(size);
-
-        Page<Pedido> result = pedidoRepository.findAll(pageRequest);
-        return ResponseEntity.ok(result);
+    public Page<Pedido> findAll(Pageable pageable) {
+        return pedidoRepository.findAll(pageable);
     }
 
     public List<PedidosDTO> consultaGeralPedidos() {

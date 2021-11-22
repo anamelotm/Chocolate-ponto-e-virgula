@@ -53,11 +53,11 @@ public class PedidoController {
         return PedidoDTO.converter(pedido);
     }
 
-   @GetMapping
+   @GetMapping("pageable")
     public List<PedidosDTO> listarTudo(Pageable pageable) {
 
-       ResponseEntity<Page<Pedido>> pedidosLista = pedidoService.findAll(pageable);
-
+       Page<Pedido> pedidosLista = pedidoService.findAll(pageable);
+       System.out.println(pedidosLista.getTotalPages());
        return PedidosDTO.converter(pedidosLista);
 
     }
