@@ -80,17 +80,14 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 [![Linkedin Badge](https://img.shields.io/badge/-Ana_Caroline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)](https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)
 
 <sub><b>Ana Luísa<b></sub></a>
-[![Linkedin Badge](https://img.shields.io/badge/-Ana-Luísa-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/analuisatmelo/)](https://www.linkedin.com/in/analuisatmelo/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Ana_Luísa-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/analuisatmelo/)](https://www.linkedin.com/in/analuisatmelo/) 
 
 <sub><b>Evelin<b></sub></a>
-<br>
 [![Linkedin Badge](https://img.shields.io/badge/-Evellin-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/evelin-kashimir-ferraz-4a6553210/)](https://www.linkedin.com/in/evelin-kashimir-ferraz-4a6553210/) 
 
 <sub><b>Isabel<b></sub></a>
-<br>
 [![Linkedin Badge](https://img.shields.io/badge/-Isabel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/isabel-vargas-desenvolvedora/)](https://www.linkedin.com/in/isabel-vargas-desenvolvedora/) 
 
 <sub><b>Jacqueline<b></sub></a>
-<br>
 [![Linkedin Badge](https://img.shields.io/badge/-Jacqueline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jacquelinepslima/)](https://www.linkedin.com/in/jacquelinepslima/) 
 
