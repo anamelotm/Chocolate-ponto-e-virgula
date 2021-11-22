@@ -3,11 +3,13 @@ package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.ItemPedidoDTO;
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
+import com.br.chocolatePontoVirgula.model.form.ItemPedidoForm;
 import com.br.chocolatePontoVirgula.model.services.ItemPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +22,7 @@ public class ItemPedidoController {
     private ItemPedidoService itemPedidoService;
 
     @PostMapping
-    public void save(@RequestBody ItemPedido itemPedido){
-        itemPedidoService.save(itemPedido);
+    public void save(@Validated @RequestBody ItemPedidoForm itemPedido){itemPedidoService.save(itemPedido);
     }
 
     @PutMapping("/{id}")
