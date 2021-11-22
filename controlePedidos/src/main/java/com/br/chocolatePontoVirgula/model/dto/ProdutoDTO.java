@@ -23,7 +23,6 @@ public class ProdutoDTO {
 
     private Integer quantidadeEstoque;
 
-    private int quantidadeEstoque;
 
 
     public ProdutoDTO(Produto produto){
