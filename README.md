@@ -5,12 +5,13 @@ O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos 
 ## Status
 - Em constução
 
+## Tópicos
 
 [Como usar](#como-usar)
-	[Ferramentas](#ferramentas)
-	[Tecnologias](#tecnologias)
+[Ferramentas](#ferramentas)
+[Tecnologias](#tecnologias)
 [Pre requisitos](#pre-requisitos)
-		*[Rodar a aplicação](#rodar-aplicacao)
+[Rodar a aplicação](#rodar-aplicacao)
 [Testes](#testes)
 [Features](#features)
 [Demonstração da Aplicação](#demonstracao-aplicacao)
