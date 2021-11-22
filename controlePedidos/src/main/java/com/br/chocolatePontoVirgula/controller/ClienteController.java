@@ -2,6 +2,8 @@ package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
+import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
+import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
 import com.br.chocolatePontoVirgula.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +20,9 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;
+
+	@Autowired
+	ClienteRepository clienteRepository;
 
 	@PostMapping
 	public ResponseEntity<String> save(@RequestBody ClienteForm cliente){
@@ -39,7 +44,7 @@ public class ClienteController {
 		 return clienteService.findById(id);
 	}
 
-	@GetMapping()
+	@GetMapping("/all")
 	public ResponseEntity<Page<Cliente>> findAll( Pageable pageable) {
 		return clienteService.findAll(pageable);
 	}

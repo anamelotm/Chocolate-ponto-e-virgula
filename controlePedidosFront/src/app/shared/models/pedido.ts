@@ -1,12 +1,11 @@
 
 export interface Pedido {
     id?: number;
-    idCliente?: number;
+    idCliente?: any;
     dataPedido?: Date;
     enderecoEntrega?: string;
     aberto?: boolean;
-    valorSemDesconto?: number;
-    valorComDesconto?: number;
+    valorTotal?: number;
     quantidadeTotal?:number;
     percentualDesconto?: number;
 }

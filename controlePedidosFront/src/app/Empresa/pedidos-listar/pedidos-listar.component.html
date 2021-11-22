@@ -27,9 +27,8 @@
                 <td>{{pedido.enderecoEntrega}}</td>
                 <td>{{pedido.aberto}} <i  class="fas fa-exchange-alt text-primary"></i> </td>
                 <td>{{pedido.quantidadeTotal}}</td>
-                <td>R$ {{pedido.valorSemDesconto}}</td>
+                <td>R$ {{pedido.valorTotal}}</td>
                 <td>{{pedido.percentualDesconto}}%</td>
-                <td>R$ {{pedido.valorComDesconto}}</td>
                 <td> <i [routerLink]="['/editar-pedido', pedido.id]" class="fas fa-edit text-primary"></i></td>
               </tr>
             </tbody>

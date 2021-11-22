@@ -28,7 +28,7 @@ public class Pedido {
     protected String enderecoEntrega;
     @Column(name = "aberto", nullable = false)
     protected boolean aberto;
-    @Column(name = "valor_total")
+    @Column(name = "valor_sem_desconto")
     protected double valorTotal;
     @Column(name = "quantidade_total", nullable = false)
     protected int quantidadeTotal;

@@ -20,16 +20,16 @@ export class PedidosListarComponent implements OnInit {
     this.servico.listarPedidos().subscribe(obj => this.pedidos = obj );
   }
 
-    
+
   // alterarStatus(id: number, pedido:Pedido){
-  
+
   //   if(pedido.situacao== true){
   //     pedido.situacao = false;
   //     this.pedidoService.editarPedido( cod, pedido ).subscribe(data => {
   //       this.toastr.info('Situação do pedido atualizada com sucesso!', 'Situação atualizada');
-  //       this.router.navigate(['/pedidos-listar']); 
+  //       this.router.navigate(['/pedidos-listar']);
   //     })
-      
+
   //   }
 
   // } ***** falta coverter a id para String

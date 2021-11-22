@@ -19,8 +19,8 @@
             <td hidden>{{item.id}}</td>
             <td>{{i+1}}</td>
             <td style="width: 25%;">{{item.nome}}</td>
-            <td> <img src="{{item.url_fotos}}" alt="foto protudo" style="width: 100px;"> </td>
-            <td style="width: 12%;">{{item.valor_unitario | currency: 'BRL' }} </td>
+            <td> <img src="{{item.urlFoto}}" alt="foto protudo" style="width: 100px;"> </td>
+            <td style="width: 12%;">{{item.valorUnitario | currency: 'BRL' }} </td>
             <td style="width: 12%;">{{item.quantity}}</td>
             <td style="width: 12%;">{{item.valorUnitario | currency: 'BRL' }}</td>
             <td>
@@ -35,7 +35,7 @@
 
             <td><button class="btn btn-danger" (click)="emptyCart()" style="width: 80px;">Esvaziar</button></td>
             <td><button class="btn btn-primary" routerLink='' style="width: 80px;">Voltar</button></td>
-            <td><button class="btn btn-success" (click)="finalizarCarrinho(grandTotal)" (click)="salvarItem(1)" style="width: 80px;">Finalizar</button></td>
+            <td><button class="btn btn-success" (click)="finalizarCarrinho(grandTotal)" (click)="salvarItem(4)" style="width: 80px;">Finalizar</button></td>
           </tr>
         </tbody>
       </table>

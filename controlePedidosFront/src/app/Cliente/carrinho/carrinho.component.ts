@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ItemPedido } from '../../shared/models/item-pedido';
 import { ItemPedidoService } from '../../services/item-pedido.service';
+import { Produto } from 'src/app/shared/models/produto';
 
 @Component({
   selector: 'app-carrinho',
@@ -44,7 +45,7 @@ export class CarrinhoComponent implements OnInit {
 
   finalizarCarrinho(valorTotal: number){
     const pedido = {
-      valorSemDesconto: valorTotal,
+      valorTotal: valorTotal,
       quantidadeTotal: this.produtos.length
     }
     console.log(pedido);
@@ -55,15 +56,17 @@ export class CarrinhoComponent implements OnInit {
     let itemPedido: ItemPedido;
     this.produtos.map( (item: any) => {
      itemPedido = {
-      codigoPedido: idPedido,
-      codigoProduto: item.id,
+      idPedido: idPedido,
+      produto: {
+        id: item.id
+      },
       valorTotal: item.total,
       quantidade: item.quantity
      }
      this.serviceIP.salvarItem(itemPedido).subscribe(data => {this.router.navigate(['/fazer-pedido'])}, error => {console.log(error)});
+     console.log(itemPedido);
     })
 
     this.emptyCart();
-
   }
 }

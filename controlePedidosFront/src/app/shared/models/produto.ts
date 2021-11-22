@@ -1,15 +1,15 @@
 export class Produto {
   id: number;
-  nome: string;
-  descricaoProduto: string;
-  unidadeMedida: string;
-  valorUnitario: number;
-  status: boolean;
-  urlFoto: string;
-  peso: number;
-  dataFabricacao: Date;
-  dataValidade:Date;
-  quantidadeEstoque: number;
+  nome?: string;
+  descricaoProduto?: string;
+  unidadeMedida?: string;
+  valorUnitario?: number;
+  status?: boolean;
+  urlFoto?: string;
+  peso?: number;
+  dataFabricacao?: Date;
+  dataValidade?:Date;
+  quantidadeEstoque?: number;
 
   constructor(id: number, nome: string, descricao: string, unidade_medida: string,
      valor_unitario: number, status: boolean,urlFoto: string, peso: number,
