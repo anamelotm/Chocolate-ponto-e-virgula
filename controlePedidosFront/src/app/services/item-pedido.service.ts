@@ -27,4 +27,8 @@ export class ItemPedidoService {
   getItem(id: String): Observable<any> {
     return this.http.get(this.url + id);
   }
+
+  getItensPedido(id:String){
+    return this.http.get(this.url + "tela-itens/" + id);
+  }
 }

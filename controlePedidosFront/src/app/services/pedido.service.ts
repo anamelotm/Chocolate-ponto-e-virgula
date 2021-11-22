@@ -14,7 +14,7 @@ export class PedidoService {
 
  
   listarPedidos(){
-    return this.http.get<Pedido[]>(this.url);
+    return this.http.get<Pedido[]>(this.url + "pageable");
   }
 
   deletarPedido(id: String): Observable<any>{
@@ -32,4 +32,6 @@ export class PedidoService {
   editarPedido(id:String, pedido: Pedido): Observable<any>{
     return this.http.put(this.url + id, pedido);
   }
+
+  
 }

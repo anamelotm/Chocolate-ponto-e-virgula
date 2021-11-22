@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-lg-15 offset-lg-0">
         <div class="card">
-          <div  class="card-body text-center">
+          <div *ngFor= "let pedido of pedido" class="card-body text-center">
             <span class="titulo">Detalhamento de Pedido</span>
     <div class="input-group mb-3">
       <span class="input-group-text">Código do pedido</span>
@@ -10,7 +10,7 @@
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Cliente</span>
-        <span class="form-control" >{{pedido.cliente}}</span>
+        <span class="form-control" >{{pedido.nome}}</span>
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Endereço de entrega</span>
@@ -22,15 +22,15 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Sub-Total</span>
-        <span class="form-control" >{{pedido.subtotal}}</span>
+        <span class="form-control" >{{pedido.valorTotal}}</span>
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Desconto</span>
-        <span class="form-control" >{{pedido.desconto}}</span>
+        <span class="form-control" >{{pedido.percentualDesconto}} %</span>
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Valor Total</span>
-        <span class="form-control" >{{pedido.valortotal}}</span>
+        <span class="form-control" >{{pedido.valorComDesconto}}</span>
       </div>
     </div>
 
@@ -44,18 +44,17 @@
                 <th scope="col">Valor unitário</th>
                 <th scope="col">Quantidade</th>
                 <th scope="col">Valor Total do item</th>
-                <th scope="col">Excluir</th>
-
+               
               </tr>
             </thead>
             <tbody *ngFor = "let item of itens" >
               <tr>
                 
-                <td>{{item.produto}</td>
+                <td>{{item.nomeProduto}}</td>
                 <td> R$ {{item.valorUnitario}}</td>
                 <td>{{item.quantidade}}</td>
-                <td>R$ {{item.valorTotalItem}}</td>
-                <td><i (click)="deletarItem(item.id)" class="far fa-trash-alt text-danger"></i></td>
+                <td>R$ {{item.valorTotal}}</td>
+               
 
               </tr>
             </tbody>

@@ -14,7 +14,7 @@ import { Pedido } from 'src/app/shared/models/pedido';
 export class PedidoDetalharComponent implements OnInit {
   id: string | null;
   pedido: any ;
-  itens:ItemPedido[] = [];
+  itens: any;
   cod : String = "";
  
 
@@ -23,10 +23,10 @@ export class PedidoDetalharComponent implements OnInit {
     this.id = aRouter.snapshot.paramMap.get('id');
     }
   ngOnInit(): void {
-    this.servico.listarItens().subscribe(obj => this.itens = obj ); 
-    if(this.id!== null) 
+    if(this.id!== null) {
+    this.servico.getItensPedido(this.id).subscribe(obj => this.itens = obj ); 
       this.pedidoService.getPedido(this.id).subscribe(data =>this.pedido = data);
-  }
+  }}
 
   deletarItem(codigo: any){
     this.servico.deletarItem(codigo).subscribe(data => {
@@ -35,8 +35,9 @@ export class PedidoDetalharComponent implements OnInit {
     }, error => {
       console.log(error);
     })
-  
 }
+
+
 
 
 

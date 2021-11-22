@@ -1,6 +1,6 @@
 export class Pedido {
     id: number;
-    cliente: string;
+    nome: string;
     enderecoEntrega: string;
     aberto: boolean;
     subtotal: number;
@@ -15,7 +15,7 @@ export class Pedido {
         desconto: number,
         total: number){
             this.id = codigo;
-            this.cliente = cliente;
+            this.nome = cliente;
             this.enderecoEntrega= enderecoEntrega;
             this.aberto =situacao;
             this.subtotal = subtotal;
