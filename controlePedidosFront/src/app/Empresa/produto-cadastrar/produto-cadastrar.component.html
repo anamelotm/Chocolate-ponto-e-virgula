@@ -19,7 +19,7 @@
         <br>
         <div style="width: 300px;">
           <label class="input-group-text">Descrição</label>
-          <textarea formControlName="descricao" name="descricao" id="descricao" cols="40"
+          <textarea formControlName="descricaoProduto" name="descricaoProduto" id="descricaoProduto" cols="40"
             rows="5">Informações do produto... </textarea>
         </div>
         <br>
@@ -48,10 +48,10 @@
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text">Imagem do Produto</span>
-          <input id="url_fotos" formControlName="url_fotos" type="file" class="form-control" required>
+          <input id="urlFoto" formControlName="urlFoto" type="text" class="form-control" required>
         </div>
         <div class="text-danger"
-        *ngIf="produtoForm.get('urlFotos')?.hasError('required') && produtoForm.get('urlFotos')?.touched">
+        *ngIf="produtoForm.get('urlFoto')?.hasError('required') && produtoForm.get('urlFoto')?.touched">
         <span>Campo obrigatório!</span>
         </div>
         <div class="input-group mb-3" style="width: 400px;">
@@ -72,7 +72,7 @@
         </div>
         <div class="input-group mb-3" style="width: 400px;">
           <span class="input-group-text">Quantidade</span>
-          <input id="quantidade_estoque" formControlName="quantidade_estoque" type="number" class="form-control"
+          <input id="quantidadeEstoque" formControlName="quantidadeEstoque" type="number" class="form-control"
             placeholder="Quantidade para Estoque" required>
         </div>
         <div class="text-danger"

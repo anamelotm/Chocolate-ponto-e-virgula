@@ -32,7 +32,7 @@ public class Produto {
     private double valorUnitario;
     @Column(name = "status")
     private boolean status;
-    @Column(name = "url_fotos")
+    @Column(name = "url_foto")
     private String urlFoto;
     @Column(name = "peso")
     private double peso;
