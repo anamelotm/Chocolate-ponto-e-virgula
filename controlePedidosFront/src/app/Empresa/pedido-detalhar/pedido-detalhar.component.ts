@@ -24,7 +24,8 @@ export class PedidoDetalharComponent implements OnInit {
     }
   ngOnInit(): void {
     this.servico.listarItens().subscribe(obj => this.itens = obj ); 
-    if(this.id!== null) this.pedidoService.getPedido(this.id).subscribe(data =>{this.pedido = data;})
+    if(this.id!== null) 
+      this.pedidoService.getPedido(this.id).subscribe(data =>this.pedido = data);
   }
 
   deletarItem(codigo: any){

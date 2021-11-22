@@ -18,7 +18,7 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Situação</span>
-        <span class="form-control" >{{pedido.situacao}}<i class="fas fa-exchange-alt text-primary"></i></span>
+        <span class="form-control" >{{pedido.aberto}}<i class="fas fa-exchange-alt text-primary"></i></span>
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Sub-Total</span>
@@ -51,7 +51,7 @@
             <tbody *ngFor = "let item of itens" >
               <tr>
                 
-                <td>{{item.nome}</td>
+                <td>{{item.produto}</td>
                 <td> R$ {{item.valorUnitario}}</td>
                 <td>{{item.quantidade}}</td>
                 <td>R$ {{item.valorTotalItem}}</td>
