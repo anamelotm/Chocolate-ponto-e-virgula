@@ -1,3 +1,4 @@
+import { Cliente } from './../../shared/models/cliente';
 
 import { Component, OnInit } from '@angular/core';
 import { Endereco } from '../../shared/models/Endereco';
@@ -7,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { Pedido } from 'src/app/shared/models/pedido';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-fazer-pedido',
@@ -15,6 +17,8 @@ import { Pedido } from 'src/app/shared/models/pedido';
 })
 export class FazerPedidoComponent implements OnInit{
   titulo = "Finalizando seu Pedido";
+  clientes: Cliente[] = [];
+
   enderecoBuscado : Endereco = {
     cep: "",
     logradouro: "",
@@ -38,7 +42,8 @@ export class FazerPedidoComponent implements OnInit{
     private router:Router,
     private toastr: ToastrService,
     private pedidoService: PedidoService,
-    private aRouter: ActivatedRoute
+    private aRouter: ActivatedRoute,
+    private servicoCliente: ClienteService
     ) {
       this.pedidoForm = this.fb.group({
         cliente:['', Validators.required],
@@ -53,6 +58,14 @@ export class FazerPedidoComponent implements OnInit{
     }
 
     ngOnInit(): void{
+      this.getClientes();
+    }
+
+    getClientes() {
+      this.servicoCliente.listarClientes().subscribe(data => {
+        this.clientes = data;
+        console.log(this.clientes);
+      })
     }
 
     pegarcep(){

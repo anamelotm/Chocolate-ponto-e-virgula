@@ -23,8 +23,8 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
 
-  listarClientes(flag: String): Observable<ResponsePageble>{
-    return this.http.get<ResponsePageble>(this.url + 'pageable?page=' + flag + '&size=10');
+  listarClientes() {
+    return this.http.get<Cliente[]>(this.url);
   }
 
   deletarCliente(id: String): Observable<any>{

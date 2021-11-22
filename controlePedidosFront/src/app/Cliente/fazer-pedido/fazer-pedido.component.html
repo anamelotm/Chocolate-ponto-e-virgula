@@ -15,9 +15,7 @@
       <div class="input-group mb-3">
         <span class="input-group-text" >Cliente</span>
         <select class="form-select" formControlName="nome" aria-label="Default select example">
-          <option value="1">Evelin</option>
-          <option value="2">Ana Luisa</option>
-          <option value="3">Isabel</option>
+          <option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{cliente.nome}}</option>
         </select>
       </div>
       <div class="input-group mb-3">

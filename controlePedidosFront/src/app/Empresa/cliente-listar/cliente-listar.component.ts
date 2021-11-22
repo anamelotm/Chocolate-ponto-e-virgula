@@ -20,8 +20,8 @@ export class ClienteListarComponent implements OnInit {
   };
 
   getClientes() {
-    this.servico.listarClientes('previous').subscribe(data => {
-      this.clientes = data.content;
+    this.servico.listarClientes().subscribe(data => {
+      this.clientes = data;
       console.log(this.clientes);
     })
   }
