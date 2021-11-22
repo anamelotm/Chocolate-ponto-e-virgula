@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 
 @Service
@@ -20,7 +21,7 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public ResponseEntity<String> save(ClienteForm clienteForm){
+    public ResponseEntity<String> save(@Validated ClienteForm clienteForm){
        //pegando os dados do clienteForm e atribuindo a um Cliente:
         Cliente cliente = new Cliente();
         cliente.setNome(clienteForm.getNome());
