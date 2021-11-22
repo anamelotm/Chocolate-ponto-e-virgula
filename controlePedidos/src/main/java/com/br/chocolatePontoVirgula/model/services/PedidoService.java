@@ -3,6 +3,7 @@ package com.br.chocolatePontoVirgula.model.services;
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
+import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -63,5 +64,11 @@ public class PedidoService {
 
     public List<PedidosDTO> consultaGeralPedidos() {
         return null;
+    }
+
+    public void fecharPedido(Long id) {
+        Optional<Pedido> pedido = pedidoRepository.findById(id);
+        pedido.get().setAberto(false);
+        pedidoRepository.save(pedido.get());
     }
 }
