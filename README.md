@@ -6,16 +6,17 @@ O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos 
 - Em constução
 
 ## Tópicos
-
-[Como usar](#como-usar)
-[Ferramentas](#ferramentas)
-[Tecnologias](#tecnologias)
-[Pre requisitos](#pre-requisitos)
-[Rodar a aplicação](#rodar-aplicacao)
-[Testes](#testes)
-[Features](#features)
-[Demonstração da Aplicação](#demonstracao-aplicacao)
-[Autores](#autores)
+<!--ts-->
+* [Como usar](#como-usar)
+	* [Ferramentas](#ferramentas)
+	* [Tecnologias](#tecnologias)
+	* [Pre requisitos](#pre-requisitos)
+* [Rodar a aplicação](#rodar-aplicacao)
+* [Testes](#testes)
+* [Features](#features)
+* [Demonstração da Aplicação](#demonstracao-aplicacao)
+* [Autores](#autores)
+<!--te-->
 
 ## Como usar
 ### Ferramentas:
