@@ -11,10 +11,10 @@ export class PedidoService {
   private readonly url = 'http://localhost:8080/pedidos/';
 
   constructor(private http: HttpClient) { }
+ 
 
-
-  listarPedidos(){
-    return this.http.get<Pedido[]>(this.url + "pageable");
+  listarPedidos(page: string){
+    return this.http.get<Pedido[]>(this.url + "pageable?page"+ page + "&size=10");
   }
 
   deletarPedido(id: String): Observable<any>{

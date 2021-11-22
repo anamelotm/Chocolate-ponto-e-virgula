@@ -10,12 +10,11 @@
                 <th scope="col">Código</th>
                 <th scope="col">Data</th>
                 <th scope="col">Cliente</th>
-                <th scope="col">Endereco de Entrega</th>
+               
                 <th scope="col">Situação</th>
-                <th scope="col">Itens</th>
-                <th scope="col">Subtotal</th>
-                <th scope="col">Desconto</th>
-                <th scope="col">Valor Total</th>
+                
+                
+                <th scope="col">Valor Final</th>
                 <th scope="col">Editar</th>
               </tr>
             </thead>
@@ -24,26 +23,22 @@
                 <th [routerLink]="['/pedido-detalhar', pedido.id ]" class="page-link" scope="row">{{pedido.id}}</th>
                 <td>11/11/2021</td>
 
-                <td >{{pedido.nome}}</td>
-                <td>{{pedido.enderecoEntrega}}</td>
+                <td >{{pedido.nome}}</td>          
                 <td >{{pedido.aberto}} <i (click) = "alteraStatus(pedido.id)" class="fas fa-exchange-alt text-primary"></i> </td>
-                <td>{{pedido.quantidadeTotal}}</td>
-                <td>R$ {{pedido.valorTotal}}</td>
-                <td>{{pedido.percentualDesconto}}%</td>
+                <td>R$ {{pedido.valorFinaldoPedido}}</td>
+                
                 <td> <i [routerLink]="['/editar-pedido', pedido.id]" class="fas fa-edit text-primary"></i></td>
               </tr>
             </tbody>
           </table>
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              
+              <li class="page-item"> <button (click)= "buscaPaginado('0')" >1</button></li>
+              <li class="page-item"><button (click)= "buscaPaginado('1')" >2</button></li>
+              <li class="page-item"><button (click)= "buscaPaginado('2')" >3</button></li>
               <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                
               </li>
             </ul>
           </nav>
