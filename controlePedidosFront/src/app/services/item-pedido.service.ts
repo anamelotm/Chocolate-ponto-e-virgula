@@ -8,7 +8,7 @@ import { ItemPedido } from '../shared/models/item-pedido';
 })
 export class ItemPedidoService {
 
-  private readonly url = 'http://localhost:3000/itens/';
+  private readonly url = 'http://localhost:8080/itens/';
   constructor(private http: HttpClient) { }
 
 

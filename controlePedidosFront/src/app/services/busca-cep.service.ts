@@ -6,7 +6,7 @@ import { Endereco } from '../shared/models/Endereco';
   providedIn: 'root'
 })
 export class BuscaCEPService {
-  
+
   private baseUrl = 'http://viacep.com.br/ws/';
   private url = "";
 
