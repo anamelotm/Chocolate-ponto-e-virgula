@@ -21,12 +21,12 @@
             </thead>
             <tbody  *ngFor="let pedido of pedidos">
               <tr>
-                <th [routerLink]="['/pedido-detalhar', pedido.id ]" scope="row">{{pedido.id}}</th>
+                <th [routerLink]="['/pedido-detalhar', pedido.id ]" class="page-link" scope="row">{{pedido.id}}</th>
                 <td>11/11/2021</td>
 
-                <td>{{pedido.idCliente}}</td>
+                <td >{{pedido.nome}}</td>
                 <td>{{pedido.enderecoEntrega}}</td>
-                <td>{{pedido.aberto}} <i  class="fas fa-exchange-alt text-primary"></i> </td>
+                <td >{{pedido.aberto}} <i (click) = "alteraStatus(pedido.id)" class="fas fa-exchange-alt text-primary"></i> </td>
                 <td>{{pedido.quantidadeTotal}}</td>
                 <td>R$ {{pedido.valorTotal}}</td>
                 <td>{{pedido.percentualDesconto}}%</td>

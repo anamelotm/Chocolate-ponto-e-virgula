@@ -33,5 +33,8 @@ export class PedidoService {
     return this.http.put(this.url + id, pedido);
   }
 
+  fechaStatus(id:number):  Observable<any>{
+    return this.http.patch(this.url +"fecharpedido/"+ id, id);}
+
 
 }

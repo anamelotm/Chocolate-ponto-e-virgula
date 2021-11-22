@@ -10,7 +10,7 @@ import { Pedido } from 'src/app/shared/models/pedido';
   styleUrls: ['./pedidos-listar.component.css']
 })
 export class PedidosListarComponent implements OnInit {
-  pedidos: Pedido[] = [];
+  pedidos: any;
 
   constructor(private servico: PedidoService, private toastr: ToastrService,
     private pedidoService :PedidoService,
@@ -20,17 +20,10 @@ export class PedidosListarComponent implements OnInit {
     this.servico.listarPedidos().subscribe(obj => this.pedidos = obj );
   }
 
-
-  // alterarStatus(id: number, pedido:Pedido){
-
-  //   if(pedido.situacao== true){
-  //     pedido.situacao = false;
-  //     this.pedidoService.editarPedido( cod, pedido ).subscribe(data => {
-  //       this.toastr.info('Situação do pedido atualizada com sucesso!', 'Situação atualizada');
-  //       this.router.navigate(['/pedidos-listar']);
-  //     })
-
-  //   }
-
-  // } ***** falta coverter a id para String
+  alteraStatus(id: any){
+    this.servico.fechaStatus(id).subscribe(obj =>{
+      this.toastr.success('O pedido foi fechado com êxito', 'Pedido fechado');
+    });
+    this.ngOnInit();
+  }
 }
