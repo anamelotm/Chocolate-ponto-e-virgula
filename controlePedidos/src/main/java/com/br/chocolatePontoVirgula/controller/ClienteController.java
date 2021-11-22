@@ -8,9 +8,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/clientes")
@@ -20,7 +23,7 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@PostMapping
-	public ResponseEntity<String> save(@RequestBody ClienteForm cliente){
+	public ResponseEntity<String> save(@Validated @RequestBody  ClienteForm cliente){
 		return clienteService.save(cliente);
 	}
 

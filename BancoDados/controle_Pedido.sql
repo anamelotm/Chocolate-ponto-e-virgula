@@ -17,12 +17,16 @@ create table produto (
 	unidade_medida 		varchar (2) not null,
 	valor_unitario 		double (4,2) not null,
 	status 				boolean 	not null,
-	url_fotos			varchar(255) not null,
+	url_foto			varchar(255) not null,
 	peso				double(5,2) not null,
 	data_fabricacao		date not null,
 	data_validade		date not null,
 	quantidade_estoque	int not null
 );
+
+select * from produto p;
+drop table produto;
+drop table item_pedido;
 
 create table pedido(
 	id 				int not null auto_increment primary key,
@@ -35,7 +39,8 @@ create table pedido(
 	percentual_desconto	int
 	
 );
-    
+
+
 create table item_Pedido(
 	id 				int not null auto_increment primary key,
 	id_pedido		int not null,  -- FK da coluna codigo tabela pedido
@@ -44,6 +49,7 @@ create table item_Pedido(
 	valorTotal			double(5,2) not null
 );
 
+select * from item_pedido;
 -- alteração das tabelas e inserção das FK's
 
 ALTER TABLE item_Pedido add constraint fk_itemP_pedido FOREIGN KEY (id_pedido) REFERENCES pedido(id) on delete cascade;
@@ -57,12 +63,11 @@ desc produto;
 
 -- inserção de produtos
 
-INSERT INTO produto (nome, unidade_medida , valor_unitario , status, url_fotos, peso, data_fabricacao, data_validade, quantidade_estoque) 
-VALUES('Trufa de doce de leite', 'gr', 3.50, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 11, '2021-11-08', '2024-11-08', 12);
+INSERT INTO produto VALUES(null, 'Trufa', 'Trufa de doce de leite', 'gr', 3.50, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 11, '2021-11-08', '2024-11-08', 12);
 INSERT INTO produto (nome, unidade_medida , valor_unitario , status, url_fotos, peso, data_fabricacao, data_validade, quantidade_estoque) 
 VALUES('Barra de chocolate ao leite', 'gr', 22.90, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 250, '2021-11-08', '2024-11-08', 20); 
-INSERT INTO produto (nome, unidade_medida , valor_unitario , status, url_fotos, peso, data_fabricacao, data_validade, quantidade_estoque)
-VALUES('Pepitas com Açucar Mascavo', 'gr', 47.90, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 100, '2021-11-08', '2024-11-08', 22);
+INSERT INTO produto (id, nome, descricao, unidade_medida , valor_unitario , status, url_fotos, peso, data_fabricacao, data_validade, quantidade_estoque)
+VALUES(null, 'Pepitas', 'Pepitas com Açucar Mascavo', 'gr', 47.90, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 100, '2021-11-08', '2024-11-08', 22);
 
 select * from produto;
 
@@ -98,47 +103,3 @@ update produto set quantidade_estoque=quantidade_estoque -10 where id = 3;
 
 
 select * from item_Pedido;
-select * from pedido;
-
-desc cliente;
-
-
--- alteracoes na tabela pedido
-
-alter table pedido modify column id_cliente int;
-alter table pedido modify column endereco_entrega varchar(150);
-alter table pedido rename column valor_Total to valor_sem_desconto;
-alter table pedido modify column valor_sem_desconto double(8,2) not null;
-alter table pedido add column valor_com_desconto double(8,2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

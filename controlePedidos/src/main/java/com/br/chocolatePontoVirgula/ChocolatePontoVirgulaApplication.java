@@ -8,6 +8,6 @@ public class ChocolatePontoVirgulaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ChocolatePontoVirgulaApplication.class, args);
-	}
 
+	}
 }

@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +24,8 @@ public class ProdutoService {
         produtoRepository.save(produto);
     }
 
-    public void update(Long id, Produto produto){
+
+    public void update(@PathVariable Long id, Produto produto){
 
         Produto produtoPesquisado = produtoRepository.getById(id);
 
@@ -62,7 +65,12 @@ public class ProdutoService {
 
     public void atualizarEstoque(Long id, Produto p){
         Optional<Produto> byId = produtoRepository.findById(id);
-        if(byId.isPresent()){ produtoRepository.baixaEstoque(id, p.getQuantidadeEstoque());
+        if(byId.isPresent()){ produtoRepository.atualizarEstoque(id, p.getQuantidadeEstoque());
         }
+    }
+
+    public Integer verificarEstoque(Produto produto){
+        Produto produtoEstoque = produtoRepository.getById(produto.getId());
+        return produtoEstoque.getQuantidadeEstoque();
     }
 }

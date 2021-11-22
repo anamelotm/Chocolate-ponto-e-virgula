@@ -20,9 +20,14 @@ public class ProdutoDTO {
     private double peso;
     private Date dataFabricacao;
     private Date dataValidade;
+
     private Integer quantidadeEstoque;
 
+    private int quantidadeEstoque;
+
+
     public ProdutoDTO(Produto produto){
+        this.id = produto.getId();
         this.nome = produto.getNome();
         this.descricaoProduto = produto.getDescricaoProduto();
         this.unidadeMedida = produto.getUnidadeMedida();
