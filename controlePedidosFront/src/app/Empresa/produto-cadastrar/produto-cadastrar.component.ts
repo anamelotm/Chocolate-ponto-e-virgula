@@ -23,12 +23,12 @@ export class ProdutoCadastrarComponent implements OnInit {
     this.produtoForm = this.fb.group({
       nome: ['', Validators.required],
       descricao: ['', Validators.required],
-      unidade_medida: ['', Validators.required],
+      unidadeMedida: ['', Validators.required],
       peso: ['', Validators.required],
-      valor_unitario: ['', Validators.required],
-      url_fotos: ['', Validators.required],
-      data_fabricacao: ['', Validators.required],
-      data_validade: ['', Validators.required],
+      valorUnitario: ['', Validators.required],
+      urlFotos: ['', Validators.required],
+      dataFabricacao: ['', Validators.required],
+      dataValidade: ['', Validators.required],
       quantidade: ['', Validators.required],
       status: true
     })
@@ -41,13 +41,13 @@ export class ProdutoCadastrarComponent implements OnInit {
   cadastrarProduto() {
     if (this.produtoForm.controls['nome'].errors ||
       this.produtoForm.controls['descricao'].errors ||
-      this.produtoForm.controls['unidade_medida'].errors ||
+      this.produtoForm.controls['unidadeMedida'].errors ||
       this.produtoForm.controls['peso'].errors ||
-      this.produtoForm.controls['valor_unitario'].errors ||
-      this.produtoForm.controls['url_fotos'].errors ||
-      this.produtoForm.controls['data_fabricacao'].errors ||
-      this.produtoForm.controls['data_validade'].errors ||
-      this.produtoForm.controls['quantidade_estoque'].errors) {
+      this.produtoForm.controls['valorUnitario'].errors ||
+      this.produtoForm.controls['urlFotos'].errors ||
+      this.produtoForm.controls['dataFabricacao'].errors ||
+      this.produtoForm.controls['dataValidade'].errors ||
+      this.produtoForm.controls['quantidadeEstoque'].errors) {
       console.log(this.produtoForm);
     } else {
 
@@ -56,13 +56,13 @@ export class ProdutoCadastrarComponent implements OnInit {
         id: this.produtoForm.get('')?.value,
         nome: this.produtoForm.get('nome')?.value,
         descricao: this.produtoForm.get('descricao')?.value,
-        unidade_medida: this.produtoForm.get('unidade_medida')?.value,
+        unidadeMedida: this.produtoForm.get('unidadeMedida')?.value,
         peso: this.produtoForm.get('peso')?.value,
         valorUnitario: this.produtoForm.get('valorUnitario')?.value,
-        url_fotos: this.produtoForm.get('url_fotos')?.value,
-        data_fabricacao: this.produtoForm.get('data_fabricacao')?.value,
-        data_validade: this.produtoForm.get('data_validade')?.value,
-        quantidade_estoque: this.produtoForm.get('quantidade_estoque')?.value,
+        urlFotos: this.produtoForm.get('urlFotos')?.value,
+        dataFabricacao: this.produtoForm.get('dataFabricacao')?.value,
+        dataValidade: this.produtoForm.get('dataValidade')?.value,
+        quantidadeEstoque: this.produtoForm.get('quantidadeEstoque')?.value,
         status: true
       }
 

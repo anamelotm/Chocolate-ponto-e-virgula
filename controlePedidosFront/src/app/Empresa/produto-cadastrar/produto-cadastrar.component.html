@@ -24,7 +24,7 @@
         </div>
         <br>
         <div class="input-group mb-3" style="width: 300px;">
-          <select formControlName="unidade_medida" id="unidade_medida"
+          <select formControlName="unidadeMedida" id="unidade_medida"
             style="background-color: #ffe6a7; font-weight: bold;">
             <option selected>Unidade de Medida</option>
             <option value="kg">Kilo</option>
@@ -51,23 +51,23 @@
           <input id="url_fotos" formControlName="url_fotos" type="file" class="form-control" required>
         </div>
         <div class="text-danger"
-        *ngIf="produtoForm.get('url_fotos')?.hasError('required') && produtoForm.get('url_fotos')?.touched">
+        *ngIf="produtoForm.get('urlFotos')?.hasError('required') && produtoForm.get('urlFotos')?.touched">
         <span>Campo obrigatório!</span>
         </div>
         <div class="input-group mb-3" style="width: 400px;">
           <span class="input-group-text">Data de Fabricação</span>
-          <input id="data_fabricacao" formControlName="data_fabricacao" type="date" class="form-control" required>
+          <input id="dataFabricacao" formControlName="dataFabricacao" type="date" class="form-control" required>
         </div>
         <div class="text-danger"
-        *ngIf="produtoForm.get('data_fabricacao')?.hasError('required') && produtoForm.get('data_fabricacao')?.touched">
+        *ngIf="produtoForm.get('dataFabricacao')?.hasError('required') && produtoForm.get('dataFabricacao')?.touched">
         <span>Campo obrigatório!</span>
         </div>
         <div class="input-group mb-3" style="width: 400px;">
           <span class="input-group-text">Data de Validade</span>
-          <input id="data_validade" formControlName="data_validade" type="date" class="form-control" required>
+          <input id="dataValidade" formControlName="dataValidade" type="date" class="form-control" required>
         </div>
         <div class="text-danger"
-        *ngIf="produtoForm.get('data_validade')?.hasError('required') && produtoForm.get('data_validade')?.touched">
+        *ngIf="produtoForm.get('dataValidade')?.hasError('required') && produtoForm.get('dataValidade')?.touched">
         <span>Campo obrigatório!</span>
         </div>
         <div class="input-group mb-3" style="width: 400px;">
@@ -76,7 +76,7 @@
             placeholder="Quantidade para Estoque" required>
         </div>
         <div class="text-danger"
-        *ngIf="produtoForm.get('quantidade_estoque')?.hasError('required') && produtoForm.get('quantidade_estoque')?.touched">
+        *ngIf="produtoForm.get('quantidadeEstoque')?.hasError('required') && produtoForm.get('quantidadeEstoque')?.touched">
         <span>Campo obrigatório!</span>
         </div>
 

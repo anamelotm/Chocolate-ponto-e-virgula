@@ -20,8 +20,10 @@ public class ProdutoDTO {
     private double peso;
     private Date dataFabricacao;
     private Date dataValidade;
+    private int quantidadeEstoque;
 
     public ProdutoDTO(Produto produto){
+        this.id = produto.getId();
         this.nome = produto.getNome();
         this.descricaoProduto = produto.getDescricaoProduto();
         this.unidadeMedida = produto.getUnidadeMedida();
@@ -31,6 +33,7 @@ public class ProdutoDTO {
         this.peso = produto.getPeso();
         this.dataFabricacao = produto.getDataFabricacao();
         this.dataValidade = produto.getDataValidade();
+        this.quantidadeEstoque = produto.getQuantidadeEstoque();
     }
 
     public static List<ProdutoDTO> converter(List<Produto> produtos){
