@@ -1,14 +1,9 @@
 package com.br.chocolatePontoVirgula.model.dto;
 
 
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import lombok.Getter;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
-
-import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,8 +13,7 @@ public class PedidosDTO {
     private String nome;
     private String enderecoEntrega;
     private boolean aberto;
-    private double valorSemDesconto;
-    private double valorTotal;
+    private double valorFinaldoPedido;
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
@@ -29,10 +23,15 @@ public class PedidosDTO {
         }
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         this.aberto = pedido.isAberto();
-        this.valorSemDesconto = pedido.getValorTotal();
+        if(pedido.getPercentualDesconto()==0){
+            this.valorFinaldoPedido = pedido.getValorTotal();
+        }
+        else {
+            this.valorFinaldoPedido = pedido.retornarValorComDesconto();
+        }
     }
 
-    public static List<PedidosDTO> converter(ResponseEntity<Page<Pedido>> pedidos) {
-        return pedidos.getBody().stream().map(PedidosDTO::new).collect(Collectors.toList());
+    public static List<PedidosDTO> converter(Page<Pedido> pedidos) {
+        return pedidos.stream().map(PedidosDTO::new).collect(Collectors.toList());
     }
 }

@@ -39,7 +39,7 @@ public class ItemPedidoController {
         return itemPedidoService.findById(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public ResponseEntity<Page<ItemPedido>> findAll(Pageable pageable) {
         return itemPedidoService.findAll(pageable);
     }

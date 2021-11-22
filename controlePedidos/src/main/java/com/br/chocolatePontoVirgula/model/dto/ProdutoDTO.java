@@ -23,6 +23,7 @@ public class ProdutoDTO {
     private Integer quantidadeEstoque;
 
     public ProdutoDTO(Produto produto){
+        this.id = produto.getId();
         this.nome = produto.getNome();
         this.descricaoProduto = produto.getDescricaoProduto();
         this.unidadeMedida = produto.getUnidadeMedida();

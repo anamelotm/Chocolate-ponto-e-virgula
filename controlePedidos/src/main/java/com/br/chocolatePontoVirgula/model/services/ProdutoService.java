@@ -65,4 +65,11 @@ public class ProdutoService {
         if(byId.isPresent()){ produtoRepository.baixaEstoque(id, p.getQuantidadeEstoque());
         }
     }
+
+    public void quantidadeEstoque(Long id, Integer quantidadeEstoque){
+        Produto produtoEstoque = produtoRepository.getById(id);
+        produtoEstoque.getQuantidadeEstoque();
+        produtoRepository.quantidadeEstoque(id, quantidadeEstoque);
+    }
+
 }
