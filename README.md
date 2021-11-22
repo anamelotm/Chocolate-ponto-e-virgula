@@ -1,5 +1,5 @@
 # Loja Virtual: Chocolate ponto e vírgula
-	# # O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos tipos de chocolate, indivualmente ou kit’s. Ele conta com telas de cadastro de cliente, produto, carrinho e pedido também conta a com movimentação de vendas do produto que acarreta na diminuição do estoque. (precisa finalizar com os respectivos metodos e telas).
+	O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos tipos de chocolate, indivualmente ou kit’s. Ele conta com telas de cadastro de cliente, produto, carrinho e pedido também conta a com movimentação de vendas do produto que acarreta na diminuição do estoque. (precisa finalizar com os respectivos metodos e telas).
 
 ## Status
 - Em constução
