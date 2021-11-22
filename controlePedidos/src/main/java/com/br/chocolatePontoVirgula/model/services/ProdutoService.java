@@ -62,7 +62,7 @@ public class ProdutoService {
 
     public void atualizarEstoque(Long id, Produto p){
         Optional<Produto> byId = produtoRepository.findById(id);
-        if(byId.isPresent()){ produtoRepository.baixaEstoque(id, p.getQuantidadeEstoque());
+        if(byId.isPresent()){ produtoRepository.atualizarEstoque(id, p.getQuantidadeEstoque());
         }
     }
 
