@@ -66,5 +66,8 @@ public class PedidoController {
         return pedidoService.consultaPedidosCliente(idCliente);
 
     }
-
+    @PatchMapping("fecharpedido/{id}")
+    public void fecharPedido(@PathVariable Long id){
+        pedidoService.fecharPedido(id);
+    }
 }
