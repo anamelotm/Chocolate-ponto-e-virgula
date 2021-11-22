@@ -43,28 +43,28 @@ O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos 
 
 
 ## Pré-requisitos:
-	Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: Git Bash, Node.js.
-	Além disso é necessário um editor de código, como o Visual Studio Code e uma IDE, como o Intellij.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: Git Bash, Node.js.
+Além disso é necessário um editor de código, como o Visual Studio Code e uma IDE, como o Intellij.
 
 ## Rodando o Back End (servidor)
 
 # Abra o Git Bash e clone este repositório
-$ git clone <>
+	$ git clone <>
 # Acesse a pasta do projeto no terminal/cmd
-$ cd <>
+	$ cd <>
 # Vá para a pasta server
-$ cd server
+	$ cd server
 # Instale as dependências
-$ npm install
+	$ npm install
 # Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
+	$ npm run dev:server
 # O servidor iniciará na porta 8080 – acesse <>
 
 
 ## Rodando o Front End (servidor)
 
 # Instale o Angular
-$ npm i -g @angular/material
+	$ npm i -g @angular/material
 
 ## Features
 - [ x ] Tela de Cadastro
