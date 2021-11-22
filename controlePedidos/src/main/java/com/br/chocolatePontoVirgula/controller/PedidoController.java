@@ -21,6 +21,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
@@ -30,15 +31,16 @@ public class PedidoController {
 
 
     private PedidosDTO pedidosDTO;
+
     @PostMapping
-    public ResponseEntity<PedidoDTO> save(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result){
+    public ResponseEntity<PedidoDTO> save(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result) {
         System.out.println(result.hasErrors());
-        if(result.hasErrors()){
-            List<PedidoForm> pedidoForms=new ArrayList<>();
+        if (result.hasErrors()) {
+            List<PedidoForm> pedidoForms = new ArrayList<>();
             pedidoForms.add(pedidoForm);
             ResponseEntity.badRequest().body(new PedidoFormDTO((PedidoForm) pedidoForms));
-        }else {
-            Pedido pedidoSalvo=pedidoService.save(pedidoForm);
+        } else {
+            Pedido pedidoSalvo = pedidoService.save(pedidoForm);
             return ResponseEntity.ok().body(new PedidoDTO(pedidoSalvo));
         }
         return null;
@@ -46,47 +48,38 @@ public class PedidoController {
 
     @PatchMapping("{id}")
     public void update(@PathVariable Long id, @RequestBody Pedido pedido) throws URISyntaxException {
-       pedidoService.update(id, pedido);
+        pedidoService.update(id, pedido);
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id){
+    public void excluir(@PathVariable Long id) {
         pedidoService.excluir(id);
     }
 
     @GetMapping("/{id}")
     public List<PedidoDTO> findById(@PathVariable Long id) {
-        List<Pedido> pedido=new ArrayList<>();
+        List<Pedido> pedido = new ArrayList<>();
         pedido.add(pedidoService.findById(id));
         return PedidoDTO.converter(pedido);
     }
 
 
-   @GetMapping("pageable")
-
-   @GetMapping
+    @GetMapping("pageable")
     public List<PedidosDTO> listarTudo(Pageable pageable) {
 
-       Page<Pedido> pedidosLista = pedidoService.findAll(pageable);
-       System.out.println(pedidosLista.getTotalPages());
-       return PedidosDTO.converter(pedidosLista);
+        Page<Pedido> pedidosLista = pedidoService.findAll(pageable);
+        System.out.println(pedidosLista.getTotalPages());
+        return PedidosDTO.converter(pedidosLista);
 
     }
+
     @GetMapping("cliente/{idCliente}")
-    public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente){
+    public List<Pedido> consultaPedidoCliente(@PathVariable Long idCliente) {
         return pedidoService.consultaPedidosCliente(idCliente);
-
-
-    @GetMapping
-    public List<Pedido> listarTudo() {
-        //List<PedidosDTO> pedidosLista = pedidoRepository.consultaGeralPedidos();
-        return pedidoRepository.findAll();
-
-        //return PedidosDTO.converter(pedidosLista);
     }
-    
+
     @PatchMapping("fecharpedido/{id}")
-    public void fecharPedido(@PathVariable Long id){
+    public void fecharPedido(@PathVariable Long id) {
         pedidoService.fecharPedido(id);
     }
 }
