@@ -9,11 +9,7 @@ import { Pedido } from '../shared/models/pedido';
 export class PedidoService {
 
   private readonly url = 'http://localhost:8080/pedidos/';
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> feature/ana.melo
   constructor(private http: HttpClient) { }
 
 
@@ -37,5 +33,5 @@ export class PedidoService {
     return this.http.put(this.url + id, pedido);
   }
 
-  
+
 }

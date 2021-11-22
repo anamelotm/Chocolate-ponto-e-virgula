@@ -59,26 +59,11 @@ export class FazerPedidoComponent implements OnInit{
         this.servico.buscarCEP(this.cepDigitado).subscribe(objeto => this.enderecoBuscado = objeto);
     }
 
-<<<<<<< HEAD
-
-    efetuarPedido(){
-      const pedido: Pedido ={
-        id: this.pedidoForm.get('')?.value ,
-        nome: this.pedidoForm.get('nome')?.value,
-        enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
-                          this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
-  
-        aberto: true,
-        subtotal: 100,
-        desconto: 10,
-        total: 90
-=======
     salvarPedido(id: number){
       const pedido: Pedido = {
         idCliente: this.pedidoForm.get('cliente')?.value,
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
->>>>>>> feature/ana.melo
       }
       this.pedidoService.editarPedido(id, pedido).subscribe(data => {
         this.toastr.info('Pedido efetuado com sucesso!');
