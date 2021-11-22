@@ -4,6 +4,7 @@ import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
+import com.br.chocolatePontoVirgula.model.form.PedidoForm;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -25,7 +27,15 @@ public class PedidoService {
     @Autowired
     PedidoRepository pedidoRepository;
 
-    public Pedido save(Pedido pedido) {
+    public Pedido save(@Validated PedidoForm pedidoForm) {
+        Pedido pedido=new Pedido();
+        pedido.setDataPedido(pedido.getDataAtual());
+        pedido.setCliente(null);
+        pedido.setAberto(true);
+        pedido.setPercentualDesconto(0);
+        pedido.setEnderecoEntrega(null);
+        pedido.setValorTotal(pedidoForm.getValorTotal());
+        pedido.setQuantidadeTotal(pedidoForm.getQuantidadeTotal());
         return pedidoRepository.save(pedido);
     }
 

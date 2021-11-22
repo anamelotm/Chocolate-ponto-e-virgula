@@ -1,12 +1,16 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.PedidoDTO;
+import com.br.chocolatePontoVirgula.model.dto.PedidoFormDTO;
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
+import com.br.chocolatePontoVirgula.model.form.PedidoForm;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
@@ -27,13 +31,17 @@ public class PedidoController {
 
     private PedidosDTO pedidosDTO;
     @PostMapping
-    public ResponseEntity<PedidoDTO> save(@RequestBody Pedido pedido) throws URISyntaxException {
-        pedido.setDataPedido(pedido.getDataAtual());
-        pedido.setPercentualDesconto(0);
-        pedido.setAberto(true);
-        pedidoService.save(pedido);
-        URI uri = new URI("http://localhost:8080/pedidos/"+pedido.getId());
-        return ResponseEntity.created(uri).body(new PedidoDTO(pedido));
+    public ResponseEntity<PedidoDTO> save(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result){
+        System.out.println(result.hasErrors());
+        if(result.hasErrors()){
+            List<PedidoForm> pedidoForms=new ArrayList<>();
+            pedidoForms.add(pedidoForm);
+            ResponseEntity.badRequest().body(new PedidoFormDTO((PedidoForm) pedidoForms));
+        }else {
+            Pedido pedidoSalvo=pedidoService.save(pedidoForm);
+            return ResponseEntity.ok().body(new PedidoDTO(pedidoSalvo));
+        }
+        return null;
     }
 
     @PatchMapping("{id}")
