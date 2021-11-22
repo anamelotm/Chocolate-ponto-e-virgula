@@ -66,10 +66,8 @@ public class ProdutoService {
         }
     }
 
-    public void quantidadeEstoque(Long id, Integer quantidadeEstoque){
-        Produto produtoEstoque = produtoRepository.getById(id);
-        produtoEstoque.getQuantidadeEstoque();
-        produtoRepository.quantidadeEstoque(id, quantidadeEstoque);
+    public Integer verificarEstoque(Produto produto){
+        Produto produtoEstoque = produtoRepository.getById(produto.getId());
+        return produtoEstoque.getQuantidadeEstoque();
     }
-
 }

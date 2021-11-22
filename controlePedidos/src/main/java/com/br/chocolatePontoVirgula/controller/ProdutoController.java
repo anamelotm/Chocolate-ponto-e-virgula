@@ -76,9 +76,9 @@ public class ProdutoController {
         return produtoService.consultaProdutosAtivos();
     }
 
-    @GetMapping("/estoque")
-    public void atualizarEstoque(@PathVariable Long id, @RequestBody Integer quantidadeEstoque){
-        produtoService.quantidadeEstoque(id, quantidadeEstoque);
+    @GetMapping("/estoque/{id}")
+    public Integer verificarEstoque(@PathVariable Long id){
+        return produtoService.verificarEstoque(findById(id).getBody());
     }
 
 }
