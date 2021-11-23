@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PedidoService } from 'src/app/services/pedido.service';
@@ -9,9 +9,9 @@ import { Pedido } from 'src/app/shared/models/pedido';
   templateUrl: './pedidos-listar.component.html',
   styleUrls: ['./pedidos-listar.component.css']
 })
-export class PedidosListarComponent implements OnInit {
+export class PedidosListarComponent implements OnInit , OnChanges{
   pedidos: any;
-  page: string = "0";
+  //page: string;
   totalPages = 3;
 
   constructor(private servico: PedidoService, private toastr: ToastrService,
@@ -28,9 +28,12 @@ export class PedidosListarComponent implements OnInit {
     });
     this.ngOnInit();
   }
-
+  ngOnChanges(){
+  this.buscaPaginado('1');
+}
     buscaPaginado(pag: string){
       this.servico.listarPedidos(pag).subscribe(obj => this.pedidos = obj );
-      console.log("chamou o " + pag)
+      console.log("chamou o " + pag);
+      console.log(this.pedidos);
     }
 }

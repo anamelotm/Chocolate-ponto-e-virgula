@@ -14,7 +14,8 @@ export class PedidoService {
  
 
   listarPedidos(page: string){
-    return this.http.get<Pedido[]>(this.url + "pageable?page"+ page + "&size=10");
+    console.log(this.url + "pageable?page"+ page + "&size=10");
+    return this.http.get<Pedido[]>(this.url + "pageable?page="+ page + "&size=10");
   }
 
   deletarPedido(id: String): Observable<any>{
