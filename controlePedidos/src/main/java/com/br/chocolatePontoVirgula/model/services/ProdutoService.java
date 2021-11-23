@@ -29,8 +29,8 @@ public class ProdutoService {
         p.setStatus(produto.isStatus());
         p.setUrlFoto(produto.getUrlFoto());
         p.setPeso(produto.getPeso());
-        p.setDataFabricacao(produto.getDataFabricacao());
-        p.setDataValidade(produto.getDataValidade());
+        p.setDataFabricacao((java.sql.Date.valueOf(produto.getDataFabricacao())));
+        p.setDataValidade((java.sql.Date.valueOf(produto.getDataValidade())));
         p.setQuantidadeEstoque(produto.getQuantidadeEstoque());
         produtoRepository.save(p);
     }

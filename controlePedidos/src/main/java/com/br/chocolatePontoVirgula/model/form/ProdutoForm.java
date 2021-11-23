@@ -4,6 +4,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -31,11 +32,11 @@ public class ProdutoForm {
     @DecimalMax("999999.99")
     private double peso;
 
-    @NotNull(message = "Data de fabricação é obrigatória")
-    private Date dataFabricacao;
+    @PastOrPresent
+    private LocalDate dataFabricacao;
 
-    @NotNull(message = "Data de validade é obrigatória")
-    private Date dataValidade;
+    @Future
+    private LocalDate dataValidade;
 
     @NotNull(message = "Quantidade do estoque é obrigatório")
     @Min(value = 1)
