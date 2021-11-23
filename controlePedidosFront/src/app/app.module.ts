@@ -18,7 +18,6 @@ import { PedidoDetalharComponent } from './Empresa/pedido-detalhar/pedido-detalh
 import {MatDialogModule} from '@angular/material/dialog';
 import { ItemProdutoComponent } from './views/home/item-produto/item-produto.component';
 import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
-import { ReceberIdPedidoComponent } from './Cliente/receber-id-pedido/receber-id-pedido.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { ReceberIdPedidoComponent } from './Cliente/receber-id-pedido/receber-id
     HomeComponent,
     PedidoDetalharComponent,
     ItemProdutoComponent,
-    CarrinhoComponent,
-    ReceberIdPedidoComponent
+    CarrinhoComponent
 
   ],
   imports: [

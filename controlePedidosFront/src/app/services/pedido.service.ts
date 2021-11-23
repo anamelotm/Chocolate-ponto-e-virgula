@@ -28,12 +28,12 @@ export class PedidoService {
     return this.http.post(this.url, Pedido);
   }
 
-  getPedido(id: String): Observable<any> {
+  getPedido(id: String | null): Observable<any> {
     return this.http.get(this.url + id);
   }
 
   editarPedido(id: number, pedido: Pedido): Observable<any>{
-    return this.http.put(this.url + id, pedido);
+    return this.http.patch(this.url + id, pedido);
   }
 
 

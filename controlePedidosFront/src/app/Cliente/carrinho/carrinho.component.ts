@@ -8,6 +8,7 @@ import { Produto } from 'src/app/shared/models/produto';
 import { Pedido } from '../../shared/models/pedido';
 import { PedidoService } from '../../services/pedido.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ProdutoService } from '../../services/produto.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -49,13 +50,17 @@ export class CarrinhoComponent implements OnInit {
 
   finalizarCarrinho(valorTotal: number){
     const pedido = {
+      cliente: {
+        id: 0,
+        tipo: '',
+        nome: '',
+        documento: ''
+      },
       valorTotal: valorTotal,
       quantidadeTotal: this.produtos.length
     }
     this.service.save(pedido).subscribe(data => {
-      this.idPedido = data;
-      this.router.navigate(['/fazer-pedido'])
-      console.log(data);
+      this.router.navigate(['/fazer-pedido', data])
       this.salvarItem(data);
     }, error => {
       console.log(error)
@@ -68,15 +73,11 @@ export class CarrinhoComponent implements OnInit {
     this.produtos.map( (item: any) => {
      itemPedido = {
       idPedido: idPedido,
-      produto: {
-        id: item.id
-      },
+      idProduto: item.id,
       valorTotal: item.total,
       quantidade: item.quantity
      }
-     this.serviceIP.salvarItem(itemPedido).subscribe(data => {
-       this.router.navigate(['/fazer-pedido'])
-      }, error => {
+     this.serviceIP.salvarItem(itemPedido).subscribe(data => data, error => {
         console.log(error)
       });
     })

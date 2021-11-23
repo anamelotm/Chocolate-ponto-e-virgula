@@ -1,6 +1,8 @@
+import { Cliente } from "./cliente";
+
 export interface Pedido {
     id?: number;
-    idCliente?: any;
+    cliente: Cliente;
     dataPedido?: Date;
     enderecoEntrega?: string;
     aberto?: boolean;

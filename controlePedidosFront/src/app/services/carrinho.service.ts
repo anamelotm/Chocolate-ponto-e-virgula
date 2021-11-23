@@ -11,7 +11,14 @@ export class CarrinhoService {
 
   public cartItemList: any = [];
   public produtos = new BehaviorSubject<any>([]);
-  public pedido: Pedido = {  };
+  public pedido: Pedido = {
+    cliente: {
+      id: 0,
+      tipo: '',
+      documento: '',
+      nome: ''
+    }
+   };
 
   idPedidoCriado = new EventEmitter<number>();
 
@@ -33,7 +40,6 @@ export class CarrinhoService {
     this.cartItemList.push(produto);
     this.produtos.next(this.cartItemList);
     this.getTotalPrice();
-    console.log(this.cartItemList);
   }
 
   getTotalPrice(): number{

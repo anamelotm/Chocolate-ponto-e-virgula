@@ -11,7 +11,6 @@ import { Pedido } from 'src/app/shared/models/pedido';
 import { ClienteService } from '../../services/cliente.service';
 import { CarrinhoService } from '../../services/carrinho.service';
 import { Subscription } from 'rxjs';
-import { ReceberIdPedidoComponent } from '../receber-id-pedido/receber-id-pedido.component';
 
 @Component({
   selector: 'app-fazer-pedido',
@@ -23,6 +22,16 @@ export class FazerPedidoComponent implements OnInit{
   clientes: Cliente[] = [];
   public rotaAtual?: Subscription;
   idPedido: string | null = '';
+  pedidoCriado: Pedido = {
+    cliente: {
+      id: 0,
+      nome:'',
+      tipo:'',
+      documento: ''
+    }
+  };
+  valorTotal: number = 0;
+  quantidadeItens: number = 0;
 
   enderecoBuscado : Endereco = {
     cep: "",
@@ -65,11 +74,19 @@ export class FazerPedidoComponent implements OnInit{
 
     ngOnInit(): void{
       this.getClientes();
+      this.getPedido();
     }
 
     getClientes() {
       this.servicoCliente.listarClientes().subscribe(data => {
         this.clientes = data;
+      })
+    }
+
+    getPedido(){
+      this.pedidoService.getPedido(this.idPedido).subscribe(data => {
+        this.valorTotal = data.valorTotal;
+        this.quantidadeItens = data.quantidadeTotal;
       })
     }
 
@@ -79,10 +96,17 @@ export class FazerPedidoComponent implements OnInit{
 
     salvarPedido(){
       const pedido: Pedido = {
-        idCliente: this.pedidoForm.get('cliente')?.value,
+        cliente : {
+          id: this.pedidoForm.get('cliente')?.value,
+          nome: "",
+          tipo: "",
+          documento: ""
+        },
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
       }
+
+      console.log(pedido)
 
       this.pedidoService.editarPedido(Number(this.idPedido), pedido).subscribe(data => {
         this.toastr.info('Pedido efetuado com sucesso!');

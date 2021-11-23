@@ -24,7 +24,7 @@ export class ClienteService {
 
 
   listarClientes() {
-    return this.http.get<Cliente[]>(this.url);
+    return this.http.get<Cliente[]>(this.url + 'pageable');
   }
 
   deletarCliente(id: String): Observable<any>{
