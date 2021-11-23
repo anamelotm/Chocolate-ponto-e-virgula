@@ -10,16 +10,16 @@ import java.sql.Date;
 @Setter
 @Getter
 public class PedidoForm {
+    private Long id;
     private Cliente cliente;
     private String enderecoEntrega;
-    @PastOrPresent(message = "datainválida")
     private Date dataPedido;
     private boolean aberto;
-    @DecimalMin("0.01")
-    @DecimalMax("999999.99")
+    @DecimalMin(value = "0.01",message = "O valor mínimo é R$1.00")
+    @DecimalMax(value = "999999.99",message = "Ultrapassou o valor Máximo permitido")
     private double valorTotal;
-    @Min(1)
-    @Max(999999)
+    @Min(value = 1,message = "A quantidade total precisa ser pelo menos de 1 produto")
+    @Max(value = 999999,message = "Ultrapassou a quantidade máxima")
     private int quantidadeTotal;
     private int percentualDesconto;
 }
