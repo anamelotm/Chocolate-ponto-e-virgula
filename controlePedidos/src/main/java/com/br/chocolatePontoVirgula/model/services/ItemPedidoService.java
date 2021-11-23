@@ -48,8 +48,7 @@ public class ItemPedidoService {
 
         if(itemPedido.getQuantidade() <= qnt.getBody()){
             itemPedidoRepository.save(itemPedido);
-            produtoRepository.atualizarEstoque(itemPedido.getProduto().getId(), qnt.getBody());
-            //TODO: att estoque ainda não está funcionando
+            produtoRepository.atualizarEstoque(itemPedido.getProduto().getId(), itemPedido.getQuantidade());
 
         } else {
             //TODO: terminar aqui!! (add excecao)
