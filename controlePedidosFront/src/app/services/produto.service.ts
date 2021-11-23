@@ -34,4 +34,7 @@ export class ProdutoService {
     return this.http.put(this.url + "/" + id, produto);
   }
 
+  getTotalPaginas(): Observable<any>{
+    return this.http.get(this.url + "totaldepaginas");
+  }
 }
