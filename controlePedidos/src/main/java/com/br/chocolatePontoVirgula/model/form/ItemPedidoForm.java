@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.model.form;
 
+import com.br.chocolatePontoVirgula.model.entity.Produto;
 import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
@@ -11,12 +12,12 @@ public class ItemPedidoForm {
     private Long idPedido;
 
     @NotBlank(message = "Deve conter um produto")
-    private Long idProduto;
+    private Produto produto;
 
     @NotBlank(message = "Deve informar a quantidade")
     private int quantidade;
 
     @NotBlank(message = "Deve possuir um valor total")
-    private Double valorTotal;
+    private double valorTotal;
 
 }
