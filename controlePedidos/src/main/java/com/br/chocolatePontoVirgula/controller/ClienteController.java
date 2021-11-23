@@ -50,9 +50,9 @@ public class ClienteController {
 		return ClienteDTO.converter(clientesLista);
 	}
 	@GetMapping("totaldepaginas")
-	public int retornaTotalpaginas(){
+	public int retornaTotalPaginas(){
 		Pageable pageable=PageRequest.of(0,10);
-		Page<Cliente> pedidosLista = clienteService.findAll(pageable);
-		return pedidosLista.getTotalPages();
+		Page<Cliente> clientesLista = clienteService.findAll(pageable);
+		return clientesLista.getTotalPages();
 	}
 }

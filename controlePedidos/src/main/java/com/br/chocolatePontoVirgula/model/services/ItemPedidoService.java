@@ -71,13 +71,10 @@ public class ItemPedidoService {
     }
 
 
-    public ResponseEntity<Page<ItemPedido>> findAll(Pageable pageable) {
+    public Page<ItemPedido> findAll(Pageable pageable) {
 
-        int size = 10;
-        PageRequest pageRequest = PageRequest.ofSize(size);
+       return itemPedidoRepository.findAll(pageable);
 
-        Page<ItemPedido> result = itemPedidoRepository.findAll(pageRequest);
-        return ResponseEntity.ok(result);
     }
 
     public  List<ItemPedido> itensDoPedido(Long idPedido){
