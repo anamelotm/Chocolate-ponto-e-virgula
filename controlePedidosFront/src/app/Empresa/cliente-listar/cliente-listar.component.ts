@@ -1,5 +1,5 @@
 import { ClienteService } from './../../services/cliente.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Cliente } from '../../shared/models/cliente';
 import { ToastrService } from 'ngx-toastr';
 
@@ -9,14 +9,22 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cliente-listar.component.css']
 })
 
-export class ClienteListarComponent implements OnInit {
+export class ClienteListarComponent implements OnInit, OnChanges {
   clientes: Cliente[] = [];
+  totalPages: number = 0;
+  paginasBotoes: number[] = [];
 
   constructor(private servico: ClienteService,
     private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.getClientes();
+    this.getClientes('0');
+    this.servico.getTotalPaginas().subscribe(obj => {
+      this.totalPages = obj;
+      for(let i=0; i< obj; i++){
+        this.paginasBotoes.push(i);
+      }
+    })
   };
 
   getClientes() {

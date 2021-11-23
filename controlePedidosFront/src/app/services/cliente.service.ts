@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente } from '../shared/models/cliente';
-import { ResponsePageble } from '../shared/models/responsePageable.model';
+//import { ResponsePageble } from '../shared/models/responsePageable.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +41,9 @@ export class ClienteService {
 
   editarCliente(id: string, cliente: Cliente): Observable<any> {
     return this.http.put(this.url + id, cliente);
+  }
+
+  getTotalPaginas() : Observable<any>{
+    return this.http.get(this.url + "totaldepaginas");
   }
 }

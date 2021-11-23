@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PedidoService } from 'src/app/services/pedido.service';
@@ -9,28 +9,45 @@ import { Pedido } from 'src/app/shared/models/pedido';
   templateUrl: './pedidos-listar.component.html',
   styleUrls: ['./pedidos-listar.component.css']
 })
-export class PedidosListarComponent implements OnInit {
-  pedidos: Pedido[] = [];
+export class PedidosListarComponent implements OnInit , OnChanges{
+  pedidos: any;
+  totalPages: number  = 0;
+  page: number = 0;
+  paginasBotoes: number[]= [];
+  
 
   constructor(private servico: PedidoService, private toastr: ToastrService,
     private pedidoService :PedidoService,
-    private router:Router) { }
+    private router:Router) {
+     
+     }
 
   ngOnInit(): void {
-    this.servico.listarPedidos().subscribe(obj => this.pedidos = obj );
+    this.page = 0;
+    this.getPedidos(this.page.toString());
+    this.servico.getTotalPaginas().subscribe(obj => {
+      this.totalPages= obj;
+      for(let i=0; i<obj; i++){
+        this.paginasBotoes.push(i);
+      }
+    });
+    
+    
   }
 
+  alteraStatus(id: any){
+    this.servico.fechaStatus(id).subscribe(obj =>{
+      this.toastr.success('O pedido foi fechado com êxito', 'Pedido fechado');
+    });
+    this.ngOnInit();
+  }
+  ngOnChanges(){
+  this.getPedidos(this.page.toString());
+  console.log(this.page);
+  }
+  
+  getPedidos(pag: string){
+   this.servico.listarPedidos(pag).subscribe(obj => this.pedidos = obj );
+  }
 
-  // alterarStatus(id: number, pedido:Pedido){
-
-  //   if(pedido.situacao== true){
-  //     pedido.situacao = false;
-  //     this.pedidoService.editarPedido( cod, pedido ).subscribe(data => {
-  //       this.toastr.info('Situação do pedido atualizada com sucesso!', 'Situação atualizada');
-  //       this.router.navigate(['/pedidos-listar']);
-  //     })
-
-  //   }
-
-  // } ***** falta coverter a id para String
 }

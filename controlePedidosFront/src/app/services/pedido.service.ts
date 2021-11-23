@@ -15,9 +15,9 @@ export class PedidoService {
   constructor(private http: HttpClient,
     private carrinhoService: CarrinhoService) { }
 
+  listarPedidos(page: any){
 
-  listarPedidos(){
-    return this.http.get<Pedido[]>(this.url + "pageable");
+    return this.http.get<Pedido[]>(this.url + "pageable?page="+ page + "&size=10");
   }
 
   deletarPedido(id: String): Observable<any>{
@@ -36,6 +36,12 @@ export class PedidoService {
     return this.http.patch(this.url + id, pedido);
   }
 
+  fechaStatus(id:number):  Observable<any>{
+    return this.http.patch(this.url +"fecharpedido/"+ id, id);}
+
+  getTotalPaginas() : Observable<any>{
+    return this.http.get(this.url + "totaldepaginas");
+  }
 
 
 
