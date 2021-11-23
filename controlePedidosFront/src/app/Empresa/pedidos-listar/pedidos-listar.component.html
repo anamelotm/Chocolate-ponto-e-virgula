@@ -32,12 +32,16 @@
             </tbody>
           </table>
           <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
+            <ul class="pagination justify-content-center" >
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
               
-              <li class="page-item"> <button (click)= "getPedidos('0')" >{{page + 1}}</button></li>
-              <li class="page-item"><button (click)= "getPedidos('{{page +1}}')">{{page +2}}</button></li>
-              <li class="page-item"><button (click)= "getPedidos('{{page +2}}')" >{{page +3}}</button></li>
-            
+              <li *ngFor= "let pag of paginasBotoes" class="page-item"><a class="page-link"(click)="getPedidos(pag.toString())">{{pag +1}}</a></li>
+              
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
             </ul>
           </nav>
         </div>

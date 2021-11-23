@@ -37,5 +37,11 @@ export class PedidoService {
   fechaStatus(id:number):  Observable<any>{
     return this.http.patch(this.url +"fecharpedido/"+ id, id);}
 
+  getTotalPaginas() : Observable<any>{
+
+    return this.http.get(this.url + "totaldepaginas");
+     
+    
+  }
 
 }

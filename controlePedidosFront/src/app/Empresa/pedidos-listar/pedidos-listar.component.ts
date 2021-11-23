@@ -11,16 +11,28 @@ import { Pedido } from 'src/app/shared/models/pedido';
 })
 export class PedidosListarComponent implements OnInit , OnChanges{
   pedidos: any;
-  totalPages = 3;
+  totalPages: number  = 0;
   page: number = 0;
+  paginasBotoes: number[]= [];
+  
 
   constructor(private servico: PedidoService, private toastr: ToastrService,
     private pedidoService :PedidoService,
-    private router:Router) { }
+    private router:Router) {
+     
+     }
 
   ngOnInit(): void {
     this.page = 0;
     this.getPedidos(this.page.toString());
+    this.servico.getTotalPaginas().subscribe(obj => {
+      this.totalPages= obj;
+      for(let i=0; i<obj; i++){
+        this.paginasBotoes.push(i)
+      }
+    });
+    
+    
   }
 
   alteraStatus(id: any){
@@ -32,8 +44,10 @@ export class PedidosListarComponent implements OnInit , OnChanges{
   ngOnChanges(){
   this.getPedidos(this.page.toString());
   console.log(this.page);
-}
-    getPedidos(pag: string){
-      this.servico.listarPedidos(pag).subscribe(obj => this.pedidos = obj );
-    }
+  }
+  
+  getPedidos(pag: string){
+   this.servico.listarPedidos(pag).subscribe(obj => this.pedidos = obj );
+  }
+
 }
