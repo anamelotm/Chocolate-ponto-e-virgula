@@ -14,8 +14,8 @@ export class ProdutoService {
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
   
-  listarProdutos(){
-    return this.http.get<Produto[]>(this.url);
+  listarProdutos(page: string){
+    return this.http.get<Produto[]>(this.url + "pageable?page=" + page + "&size=10");
   }
 
   deletarProduto(id: String): Observable<any>{
