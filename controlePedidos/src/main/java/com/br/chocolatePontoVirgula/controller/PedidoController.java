@@ -33,8 +33,21 @@ public class PedidoController {
 
 
     private PedidosDTO pedidosDTO;
-
     @PostMapping
+    public ResponseEntity<PedidoFormDTO> save(@Validated @RequestBody PedidoForm pedidoForm,BindingResult result) {
+        Pedido pedido=new Pedido();
+        pedidoForm.setDataPedido(pedido.getDataAtual());
+        pedidoForm.setAberto(true);
+        pedidoForm.setPercentualDesconto(0);
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(new PedidoFormDTO(pedidoForm));
+        }
+        else {
+        pedidoService.save(pedidoForm);
+        return ResponseEntity.ok().body(new PedidoFormDTO(pedidoForm));
+        }
+    }
+    /*@PostMapping
     public Long save(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result) {
         System.out.println(result.hasErrors());
         if (result.hasErrors()) {
@@ -46,7 +59,7 @@ public class PedidoController {
             return pedidoSalvo.getId();
         }
         return null;
-    }
+    }*/
 
     @PatchMapping("{id}")
     public void update(@PathVariable Long id, @RequestBody Pedido pedido) throws URISyntaxException {
