@@ -20,7 +20,7 @@ public class PedidoDTO {
     private String nome;
     private String enderecoEntrega;
     private String dataPedido;
-    private String aberto;
+    private String situacao;
     private double valorTotal;
     private String valorComDesconto;
     private int quantidadeTotal;
@@ -35,16 +35,12 @@ public class PedidoDTO {
         this.enderecoEntrega = pedido.getEnderecoEntrega();
         SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy");
         this.dataPedido=formato.format(pedido.getDataPedido());
-        this.aberto = pedido.isAberto()?"Sim":"Não";
+        this.situacao = pedido.isAberto()?"Aberto":"Fechado";
         this.valorTotal = pedido.getValorTotal();
         if(pedido.getPercentualDesconto()!=0){
             this.valorComDesconto=""+pedido.retornarValorComDesconto();
         }
         this.quantidadeTotal=pedido.getQuantidadeTotal();
         this.percentualDesconto=pedido.getPercentualDesconto();
-    }
-
-    public static List<PedidoDTO> converter(List<Pedido> pedido) {
-        return pedido.stream().map(PedidoDTO::new).collect(Collectors.toList());
     }
 }
