@@ -12,13 +12,14 @@ import java.sql.Date;
 public class PedidoForm {
     private Cliente cliente;
     private String enderecoEntrega;
+    @PastOrPresent(message = "datainválida")
     private Date dataPedido;
     private boolean aberto;
-    @NotNull
-    @Digits(message = "O valor Total é obrigatório", integer = 6, fraction = 2)
+    @DecimalMin("0.01")
+    @DecimalMax("999999.99")
     private double valorTotal;
-    @NotNull
-    @Digits(message = "A quantidade total é obrigatória",integer = 4,fraction = 0)
+    @Min(1)
+    @Max(999999)
     private int quantidadeTotal;
     private int percentualDesconto;
 }
