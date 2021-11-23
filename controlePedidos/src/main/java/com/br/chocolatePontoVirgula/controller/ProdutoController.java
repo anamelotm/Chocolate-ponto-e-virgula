@@ -1,12 +1,15 @@
 package com.br.chocolatePontoVirgula.controller;
 
 
+import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
 import com.br.chocolatePontoVirgula.model.dto.ProdutoDTO;
+import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
 import com.br.chocolatePontoVirgula.model.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +22,6 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
-
-    @Autowired
-    ProdutoRepository produtoRepository;
 
     //salva o produto
     @PostMapping
@@ -47,17 +47,17 @@ public class ProdutoController {
         return produtoService.findById(id);
     }
 
-    //lista todos os produtos
-    @GetMapping
-    public List<ProdutoDTO> listarTudo(){
-        List<Produto> produtosLista = produtoRepository.findAll();
+    @GetMapping("pageable")
+    public List<ProdutoDTO> findAll(Pageable pageable) {
+        Page<Produto> produtosLista = produtoService.findAll(pageable);
         return ProdutoDTO.converter(produtosLista);
     }
 
-    //lista dos produtos com paginação
-    @GetMapping("/all")
-    public ResponseEntity<Page<Produto>> findAll( Pageable pageable) {
-        return produtoService.findAll(pageable);
+    @GetMapping("totaldepaginas")
+    public int retornaTotalpaginas(){
+        Pageable pageable= PageRequest.of(0,10);
+        Page<Produto> produtosLista = produtoService.findAll(pageable);
+        return produtosLista.getTotalPages();
     }
 
     //inativar o produto
