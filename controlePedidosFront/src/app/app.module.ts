@@ -19,6 +19,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ItemProdutoComponent } from './views/home/item-produto/item-produto.component';
 import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
     ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    NgxPaginationModule
     ],
 
   providers: [],
