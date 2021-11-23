@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class ItemPedidoController {
     private ItemPedidoService itemPedidoService;
 
     @PostMapping
-    public void save(@Validated @RequestBody ItemPedidoForm itemPedido){itemPedidoService.save(itemPedido);
+    public void save(@Validated @RequestBody ItemPedidoForm itemPedido) throws URISyntaxException {itemPedidoService.save(itemPedido);
     }
 
     @PutMapping("/{id}")
