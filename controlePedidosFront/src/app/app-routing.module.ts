@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'pedido-detalhar/:id', component: PedidoDetalharComponent},
   {path: 'editar-pedido/:id', component: FazerPedidoComponent},
   {path: 'carrinho', component: CarrinhoComponent},
+  {path: 'cliente/:id', component: FazerPedidoComponent},
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}

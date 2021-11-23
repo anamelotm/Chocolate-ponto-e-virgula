@@ -32,7 +32,7 @@ export class ClienteService {
   }
 
   salvarCliente(cliente: Cliente): Observable<any> {
-    return this.http.post(this.url, cliente);
+    return this.http.post(this.url, cliente, {responseType: 'text'});
   }
 
   getCliente(id: String): Observable<any> {

@@ -12,12 +12,14 @@ export class ProdutosListarComponent implements OnInit {
 
   produtos: Produto[] = [];
 
-  constructor(private servico: ProdutoService, 
+  constructor(private servico: ProdutoService,
     private toastr:ToastrService) { }
 
 
   ngOnInit(): void {
-    this.servico.listarProdutos().subscribe(obj => this.produtos = obj);
+    this.servico.listarProdutos().subscribe(obj => {
+      this.produtos = obj
+    });
   }
 
   deletarProduto(codigo: any){

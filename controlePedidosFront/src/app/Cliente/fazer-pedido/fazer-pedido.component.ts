@@ -34,6 +34,7 @@ export class FazerPedidoComponent implements OnInit{
   cepDigitado: string = "";
   pedidoForm: FormGroup;
   id: string | null;
+  idPedido: number = 0;
 
 
   constructor(
@@ -54,7 +55,7 @@ export class FazerPedidoComponent implements OnInit{
         complemento:['', Validators.required]
       })
       this.id = aRouter.snapshot.paramMap.get('id');
-
+      this.aRouter.params.subscribe(params => this.idPedido = params['id']);
     }
 
     ngOnInit(): void{
@@ -72,13 +73,13 @@ export class FazerPedidoComponent implements OnInit{
         this.servico.buscarCEP(this.cepDigitado).subscribe(objeto => this.enderecoBuscado = objeto);
     }
 
-    salvarPedido(id: number){
+    salvarPedido(){
       const pedido: Pedido = {
         idCliente: this.pedidoForm.get('cliente')?.value,
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
       }
-      this.pedidoService.editarPedido(id, pedido).subscribe(data => {
+      this.pedidoService.editarPedido(this.idPedido, pedido).subscribe(data => {
         this.toastr.info('Pedido efetuado com sucesso!');
           this.router.navigate(['/']);
       }, error => {
