@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pedido } from '../shared/models/pedido';
+import { CarrinhoService } from './carrinho.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class PedidoService {
 
   private readonly url = 'http://localhost:8080/pedidos/';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient,
+    private carrinhoService: CarrinhoService) { }
 
 
   listarPedidos(){
@@ -25,13 +28,15 @@ export class PedidoService {
     return this.http.post(this.url, Pedido);
   }
 
-  getPedido(id: String): Observable<any> {
+  getPedido(id: String | null): Observable<any> {
     return this.http.get(this.url + id);
   }
 
   editarPedido(id: number, pedido: Pedido): Observable<any>{
-    return this.http.put(this.url + id, pedido);
+    return this.http.patch(this.url + id, pedido);
   }
+
+
 
 
 }
