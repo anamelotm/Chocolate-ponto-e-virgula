@@ -7,40 +7,40 @@
 
 ## Tópicos
 <!--ts-->
-*📌 [Como usar](#como-usar)
-	*📌 [Ferramentas](#ferramentas)
-	*📌 [Tecnologias](#tecnologias)
-	*📌 [Pre requisitos](#pre-requisitos)
-*📌 [Rodar a aplicação](#rodar-aplicacao)
-*📌 [Testes](#testes)
-*📌 [Features](#features)
-*📌 [Demonstração da Aplicação](#demonstracao-aplicacao)
-*📌 [Autores](#autores)
+* 📌 [Como usar](#como-usar)
+	* 📌 [Ferramentas](#ferramentas)
+	* 📌 [Tecnologias](#tecnologias)
+	* 📌 [Pre requisitos](#pre-requisitos)
+* 📌 [Rodar a aplicação](#rodar-aplicacao)
+* 📌 [Testes](#testes)
+* 📌 [Features](#features)
+* 📌 [Demonstração da Aplicação](#demonstracao-aplicacao)
+* 📌 [Autores](#autores)
 <!--te-->
 
 # Como usar
 ### Ferramentas:
-*🔧  Intellij Community 2021.2
-*🔧  Visual Studio Code
+* 🔧  Intellij Community 2021.2
+* 🔧  Visual Studio Code
 
 ### Tecnologias:
-*🖥  JDK 15.0.0.36
-*🖥  Spring Boot 2.5.6
-*🖥	 Spring MVC
-*🖥	 Spring Data JPA 
-*🖥	 Java 11
-*🖥	 MySQL
-*🖥  Angular 13.0
-*🖥  TypeScript
-*🖥	 BootStrap
-*🖥  API ViaCEP
-*🖥  Maven
-*🖥  Git
+* 🖥  JDK 15.0.0.36
+* 🖥  Spring Boot 2.5.6
+* 🖥  Spring MVC
+* 🖥  Spring Data JPA 
+* 🖥  Java 11
+* 🖥  MySQL
+* 🖥  Angular 13.0
+* 🖥  TypeScript
+* 🖥  BootStrap
+* 🖥  API ViaCEP
+* 🖥  Maven
+* 🖥  Git
 
 ### Dependências:
-*🖥  Lombok 1.18.22
-*🖥  API Validation Javax 2.0.1
-*🖥  JUnit 5.8.1
+* 🖥  Lombok 1.18.22
+* 🖥  API Validation Javax 2.0.1
+* 🖥  JUnit 5.8.1
 
 
 ## Pré-requisitos:
