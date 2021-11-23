@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.model.repository;
 
+import com.br.chocolatePontoVirgula.model.entity.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
@@ -17,4 +18,7 @@ public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long>{
 //            "WHERE i.idPedido = :idPedido")
     @Query("SELECT item FROM ItemPedido item WHERE idPedido = :idPedido")
     List<ItemPedido> itensDoPedido(@Param("idPedido") long idPedido);
+
+    @Query("SELECT idProduto FROM ItemPedido WHERE idProduto = :idProduto")
+    List<Long> produtoHasPedido(@Param("idProduto") long idProduto);
 }
