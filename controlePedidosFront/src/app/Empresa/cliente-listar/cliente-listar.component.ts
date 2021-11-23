@@ -27,13 +27,10 @@ export class ClienteListarComponent implements OnInit, OnChanges {
     })
   };
 
-  ngOnChanges(){
-    this.getClientes('1');
-  }
-
-  getClientes(page: string) {
-    this.servico.listarClientes(page).subscribe(data => {
-      this.clientes = data;})
+  getClientes() {
+    this.servico.listarClientes().subscribe(data => {
+      this.clientes = data;
+    })
   }
 
 

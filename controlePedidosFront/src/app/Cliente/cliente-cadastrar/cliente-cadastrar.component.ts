@@ -51,6 +51,7 @@ export class ClienteCadastrarComponent implements OnInit {
           this.toastr.info('Cliente atualizado com sucesso!', 'Cliente atualizado');
           this.router.navigate(['/cliente-listar']);
         }, error => {
+          this.toastr.error('Erro ao editar cliente', 'Erro ao editar!');
           console.log(error);
           this.clienteForm.reset();
         })
@@ -62,6 +63,7 @@ export class ClienteCadastrarComponent implements OnInit {
           this.router.navigate(['/']);
           console.log(data);
         }, error => {
+          this.toastr.error('Insira um documento válido!', 'Erro no cadastro');
           console.log(error);
           this.clienteForm.reset();
         })

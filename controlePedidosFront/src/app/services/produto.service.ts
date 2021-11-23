@@ -18,6 +18,10 @@ export class ProdutoService {
     return this.http.get<Produto[]>(this.url + "/pageable?page=" + page + "&size=10");
   }
 
+  listarProdutosAtivos(){
+    return this.http.get<Produto[]>(this.url + 'ativos');
+  }
+
   deletarProduto(id: String): Observable<any>{
     return this.http.delete(this.url + "/" + id);
   }

@@ -14,7 +14,7 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
   totalPages: number = 0;
   paginasBotoes: number[] = [];
 
-  constructor(private servico: ProdutoService, 
+  constructor(private servico: ProdutoService,
     private toastr:ToastrService) { }
 
   ngOnInit(): void {

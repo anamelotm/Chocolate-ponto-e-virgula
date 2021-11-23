@@ -13,7 +13,7 @@ export class ClienteService {
   //url='http://localhost:4000/api/cliente';
 
   private readonly url = 'http://localhost:8080/clientes/';
-  
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -23,8 +23,8 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
 
-  listarClientes(page: string) {
-    return this.http.get<Cliente[]>(this.url +"pageable?page=" + page + "&size=10");
+  listarClientes() {
+    return this.http.get<Cliente[]>(this.url + 'pageable');
   }
 
   deletarCliente(id: String): Observable<any>{
@@ -32,7 +32,7 @@ export class ClienteService {
   }
 
   salvarCliente(cliente: Cliente): Observable<any> {
-    return this.http.post(this.url, cliente);
+    return this.http.post(this.url, cliente, {responseType: 'text'});
   }
 
   getCliente(id: String): Observable<any> {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProdutoCadastrarComponent } from '../Empresa/produto-cadastrar/produto-cadastrar.component';
 import { Pedido } from '../shared/models/pedido';
@@ -11,7 +11,16 @@ export class CarrinhoService {
 
   public cartItemList: any = [];
   public produtos = new BehaviorSubject<any>([]);
-  public pedido: Pedido = {  };
+  public pedido: Pedido = {
+    cliente: {
+      id: 0,
+      tipo: '',
+      documento: '',
+      nome: ''
+    }
+   };
+
+  idPedidoCriado = new EventEmitter<number>();
 
 
   private readonly url = 'http://localhost:8080/pedidos/';
@@ -31,7 +40,6 @@ export class CarrinhoService {
     this.cartItemList.push(produto);
     this.produtos.next(this.cartItemList);
     this.getTotalPrice();
-    console.log(this.cartItemList);
   }
 
   getTotalPrice(): number{
@@ -58,6 +66,10 @@ export class CarrinhoService {
 
   save(pedido: Pedido): Observable<any>{
     return this.http.post(this.url, pedido);
+  }
+
+  emitirIdCriado(idPedido: number) {
+    this.idPedidoCriado.emit(idPedido);
   }
 
 }

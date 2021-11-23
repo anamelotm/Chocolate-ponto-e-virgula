@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { Pedido } from 'src/app/shared/models/pedido';
 import { ClienteService } from '../../services/cliente.service';
+import { CarrinhoService } from '../../services/carrinho.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-fazer-pedido',
@@ -18,6 +20,18 @@ import { ClienteService } from '../../services/cliente.service';
 export class FazerPedidoComponent implements OnInit{
   titulo = "Finalizando seu Pedido";
   clientes: Cliente[] = [];
+  public rotaAtual?: Subscription;
+  idPedido: string | null = '';
+  pedidoCriado: Pedido = {
+    cliente: {
+      id: 0,
+      nome:'',
+      tipo:'',
+      documento: ''
+    }
+  };
+  valorTotal: number = 0;
+  quantidadeItens: number = 0;
 
   enderecoBuscado : Endereco = {
     cep: "",
@@ -33,7 +47,6 @@ export class FazerPedidoComponent implements OnInit{
 
   cepDigitado: string = "";
   pedidoForm: FormGroup;
-  id: string | null;
 
 
   constructor(
@@ -53,18 +66,27 @@ export class FazerPedidoComponent implements OnInit{
         uf:['', Validators.required],
         complemento:['', Validators.required]
       })
-      this.id = aRouter.snapshot.paramMap.get('id');
+
+      this.idPedido = this.aRouter.snapshot.paramMap.get('id');
 
     }
 
+
     ngOnInit(): void{
-      this.getClientes('0');
+      this.getClientes();
+      this.getPedido();
     }
 
     getClientes(page:string) {
       this.servicoCliente.listarClientes(page).subscribe(data => {
         this.clientes = data;
-        console.log(this.clientes);
+      })
+    }
+
+    getPedido(){
+      this.pedidoService.getPedido(this.idPedido).subscribe(data => {
+        this.valorTotal = data.valorTotal;
+        this.quantidadeItens = data.quantidadeTotal;
       })
     }
 
@@ -72,13 +94,21 @@ export class FazerPedidoComponent implements OnInit{
         this.servico.buscarCEP(this.cepDigitado).subscribe(objeto => this.enderecoBuscado = objeto);
     }
 
-    salvarPedido(id: number){
+    salvarPedido(){
       const pedido: Pedido = {
-        idCliente: this.pedidoForm.get('cliente')?.value,
+        cliente : {
+          id: this.pedidoForm.get('cliente')?.value,
+          nome: "",
+          tipo: "",
+          documento: ""
+        },
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
       }
-      this.pedidoService.editarPedido(id, pedido).subscribe(data => {
+
+      console.log(pedido)
+
+      this.pedidoService.editarPedido(Number(this.idPedido), pedido).subscribe(data => {
         this.toastr.info('Pedido efetuado com sucesso!');
           this.router.navigate(['/']);
       }, error => {
