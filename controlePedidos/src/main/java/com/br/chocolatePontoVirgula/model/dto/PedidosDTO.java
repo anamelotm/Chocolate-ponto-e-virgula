@@ -10,24 +10,23 @@ import java.util.stream.Collectors;
 @Getter
 public class PedidosDTO {
     private Long id;
-    private String nome;
-    private String enderecoEntrega;
-    private boolean aberto;
-    private double valorFinaldoPedido;
+    private String dataPedido;
+    private String cliente;
+    private String situacao;
+    private String valorFinal;
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
         boolean clienteExiste=pedido.getCliente()==null;
         if(!clienteExiste){
-            nome=pedido.getCliente().getNome();
+            cliente=pedido.getCliente().getNome();
         }
-        this.enderecoEntrega = pedido.getEnderecoEntrega();
-        this.aberto = pedido.isAberto();
+        this.situacao = pedido.isAberto()?"Aberto":"Fechado";
         if(pedido.getPercentualDesconto()==0){
-            this.valorFinaldoPedido = pedido.getValorTotal();
+            this.valorFinal = ""+pedido.getValorTotal();
         }
         else {
-            this.valorFinaldoPedido = pedido.retornarValorComDesconto();
+            this.valorFinal = pedido.retornarValorComDesconto();
         }
     }
 

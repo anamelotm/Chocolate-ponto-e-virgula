@@ -35,7 +35,7 @@ public class PedidoController {
     private PedidosDTO pedidosDTO;
 
     @PostMapping
-    public ResponseEntity<PedidoDTO> save(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result) {
+    public Long save(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result) {
         System.out.println(result.hasErrors());
         if (result.hasErrors()) {
             List<PedidoForm> pedidoForms = new ArrayList<>();
@@ -43,7 +43,7 @@ public class PedidoController {
             ResponseEntity.badRequest().body(new PedidoFormDTO((PedidoForm) pedidoForms));
         } else {
             Pedido pedidoSalvo = pedidoService.save(pedidoForm);
-            return ResponseEntity.ok().body(new PedidoDTO(pedidoSalvo));
+            return pedidoSalvo.getId();
         }
         return null;
     }

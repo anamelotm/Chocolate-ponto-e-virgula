@@ -22,7 +22,7 @@ public class PedidoDTO {
     private String dataPedido;
     private String aberto;
     private double valorTotal;
-    private double valorComDesconto;
+    private String valorComDesconto;
     private int quantidadeTotal;
     private int percentualDesconto;
 
@@ -38,7 +38,7 @@ public class PedidoDTO {
         this.aberto = pedido.isAberto()?"Sim":"Não";
         this.valorTotal = pedido.getValorTotal();
         if(pedido.getPercentualDesconto()!=0){
-            this.valorComDesconto=pedido.retornarValorComDesconto();
+            this.valorComDesconto=""+pedido.retornarValorComDesconto();
         }
         this.quantidadeTotal=pedido.getQuantidadeTotal();
         this.percentualDesconto=pedido.getPercentualDesconto();
