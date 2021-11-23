@@ -11,15 +11,16 @@ import { Pedido } from 'src/app/shared/models/pedido';
 })
 export class PedidosListarComponent implements OnInit , OnChanges{
   pedidos: any;
-  //page: string;
   totalPages = 3;
+  page: number = 0;
 
   constructor(private servico: PedidoService, private toastr: ToastrService,
     private pedidoService :PedidoService,
     private router:Router) { }
 
   ngOnInit(): void {
-    this.buscaPaginado('0');
+    this.page = 0;
+    this.getPedidos(this.page.toString());
   }
 
   alteraStatus(id: any){
@@ -29,11 +30,10 @@ export class PedidosListarComponent implements OnInit , OnChanges{
     this.ngOnInit();
   }
   ngOnChanges(){
-  this.buscaPaginado('1');
+  this.getPedidos(this.page.toString());
+  console.log(this.page);
 }
-    buscaPaginado(pag: string){
+    getPedidos(pag: string){
       this.servico.listarPedidos(pag).subscribe(obj => this.pedidos = obj );
-      console.log("chamou o " + pag);
-      console.log(this.pedidos);
     }
 }

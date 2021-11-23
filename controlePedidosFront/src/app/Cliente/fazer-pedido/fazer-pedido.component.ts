@@ -58,11 +58,11 @@ export class FazerPedidoComponent implements OnInit{
     }
 
     ngOnInit(): void{
-      this.getClientes();
+      this.getClientes('0');
     }
 
-    getClientes() {
-      this.servicoCliente.listarClientes().subscribe(data => {
+    getClientes(page:string) {
+      this.servicoCliente.listarClientes(page).subscribe(data => {
         this.clientes = data;
         console.log(this.clientes);
       })

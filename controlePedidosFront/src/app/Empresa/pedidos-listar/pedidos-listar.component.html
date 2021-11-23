@@ -34,9 +34,9 @@
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
               
-              <li class="page-item"> <button (click)= "buscaPaginado('0')" >1</button></li>
-              <li class="page-item"><button (click)= "buscaPaginado('1')">2</button></li>
-              <li class="page-item"><button (click)= "buscaPaginado('2')" >3</button></li>
+              <li class="page-item"> <button (click)= "getPedidos('0')" >{{page + 1}}</button></li>
+              <li class="page-item"><button (click)= "getPedidos('{{page +1}}')">{{page +2}}</button></li>
+              <li class="page-item"><button (click)= "getPedidos('{{page +2}}')" >{{page +3}}</button></li>
             
             </ul>
           </nav>

@@ -13,8 +13,8 @@ export class PedidoService {
   constructor(private http: HttpClient) { }
  
 
-  listarPedidos(page: string){
-    console.log(this.url + "pageable?page"+ page + "&size=10");
+  listarPedidos(page: any){
+   
     return this.http.get<Pedido[]>(this.url + "pageable?page="+ page + "&size=10");
   }
 
