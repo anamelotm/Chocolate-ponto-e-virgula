@@ -42,4 +42,8 @@ export class ClienteService {
   editarCliente(id: string, cliente: Cliente): Observable<any> {
     return this.http.put(this.url + id, cliente);
   }
+
+  getTotalPaginas() : Observable<any>{
+    return this.http.get(this.url + "totaldepaginas");
+  }
 }
