@@ -3,6 +3,7 @@ package com.br.chocolatePontoVirgula.model.dto;
 
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 import lombok.Getter;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +28,11 @@ public class ItemPedidoDTO {
         this.idPedido = item.getIdPedido();
     }
 
-    public static List<ItemPedidoDTO> converter(List<ItemPedido> itensPedidos){
+    public static List<ItemPedidoDTO> converter(Page<ItemPedido> itensPedidos){
       return itensPedidos.stream().map(ItemPedidoDTO::new).collect(Collectors.toList());
    }
+
+    public static List<ItemPedidoDTO> converterList(List<ItemPedido> itensPedidos){
+        return itensPedidos.stream().map(ItemPedidoDTO::new).collect(Collectors.toList());
+    }
 }
