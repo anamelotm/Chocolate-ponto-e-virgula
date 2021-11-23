@@ -19,7 +19,7 @@ export class ItemProdutoComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
-    this.servico.listarProdutos().subscribe(obj => {
+    this.servico.listarProdutos('0').subscribe(obj => {
       this.produtos = obj;
       console.log(this.produtos);
 

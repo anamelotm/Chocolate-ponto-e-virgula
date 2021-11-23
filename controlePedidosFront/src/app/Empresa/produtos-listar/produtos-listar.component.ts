@@ -1,5 +1,5 @@
 import { ProdutoService } from './../../services/produto.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Produto } from '../../shared/models/produto';
 import { ToastrService } from 'ngx-toastr';
 
@@ -8,16 +8,25 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './produtos-listar.component.html',
   styleUrls: ['./produtos-listar.component.css']
 })
-export class ProdutosListarComponent implements OnInit {
+export class ProdutosListarComponent implements OnInit, OnChanges {
 
   produtos: Produto[] = [];
 
   constructor(private servico: ProdutoService, 
     private toastr:ToastrService) { }
 
-
   ngOnInit(): void {
-    this.servico.listarProdutos().subscribe(obj => this.produtos = obj);
+    this.getProdutos('0');
+  }
+
+  ngOnChanges(){
+    this.getProdutos('1');
+  }
+
+  getProdutos(page: string){
+    this.servico.listarProdutos(page).subscribe(data => {
+      this.produtos = data});
+      console.log(this.produtos);
   }
 
   deletarProduto(codigo: any){
