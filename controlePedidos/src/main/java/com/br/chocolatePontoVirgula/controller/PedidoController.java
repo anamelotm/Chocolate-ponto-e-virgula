@@ -59,10 +59,9 @@ public class PedidoController {
     }
 
     @GetMapping("/{id}")
-    public List<PedidoDTO> findById(@PathVariable Long id) {
-        List<Pedido> pedido = new ArrayList<>();
-        pedido.add(pedidoService.findById(id));
-        return PedidoDTO.converter(pedido);
+    public PedidoDTO findById(@PathVariable Long id) {
+        PedidoDTO pedidoDTO=new PedidoDTO(pedidoService.findById(id));
+        return pedidoDTO;
     }
 
 
@@ -70,7 +69,6 @@ public class PedidoController {
     public List<PedidosDTO> listarTudo(Pageable pageable) {
 
         Page<Pedido> pedidosLista = pedidoService.findAll(pageable);
-        System.out.println(pedidosLista.getTotalPages());
         return PedidosDTO.converter(pedidosLista);
 
     }
