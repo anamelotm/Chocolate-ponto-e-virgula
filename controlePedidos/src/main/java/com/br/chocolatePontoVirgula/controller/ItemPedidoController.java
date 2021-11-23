@@ -7,6 +7,7 @@ import com.br.chocolatePontoVirgula.model.form.ItemPedidoForm;
 import com.br.chocolatePontoVirgula.model.services.ItemPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -40,13 +41,22 @@ public class ItemPedidoController {
         return itemPedidoService.findById(id);
     }
 
-    @GetMapping()
-    public ResponseEntity<Page<ItemPedido>> findAll(Pageable pageable) {
-        return itemPedidoService.findAll(pageable);
+    @GetMapping("pageable")
+    public List<ItemPedidoDTO> findAll(Pageable pageable) {
+        Page<ItemPedido> itensPedidos = itemPedidoService.findAll(pageable);
+        return ItemPedidoDTO.converter(itensPedidos);
+    }
+
+    //retorna o total de paginas
+    @GetMapping("totaldepaginas")
+    public int retornaTotalPaginas(){
+        Pageable pageable= PageRequest.of(0,10);
+        Page<ItemPedido> itensPedidos = itemPedidoService.findAll(pageable);
+        return itensPedidos.getTotalPages();
     }
 
     @GetMapping("tela-itens/{id}")
     public List<ItemPedidoDTO> itensDoPedido(@PathVariable Long id){
-        return ItemPedidoDTO.converter(itemPedidoService.itensDoPedido(id));
+        return ItemPedidoDTO.converterList(itemPedidoService.itensDoPedido(id));
     }
 }
