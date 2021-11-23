@@ -9,8 +9,6 @@ import { Cliente } from '../shared/models/cliente';
 })
 export class ClienteService {
 
-  //!!!atualizar o endereço!!!
-  //url='http://localhost:4000/api/cliente';
 
   private readonly url = 'http://localhost:8080/clientes/';
 
@@ -25,6 +23,10 @@ export class ClienteService {
 
   listarClientes() {
     return this.http.get<Cliente[]>(this.url + 'pageable');
+  }
+
+  listarClientesPag(page : string) {
+    return this.http.get<Cliente[]>(this.url + 'pageable?page=' + page + '&size=10');
   }
 
   deletarCliente(id: String): Observable<any>{

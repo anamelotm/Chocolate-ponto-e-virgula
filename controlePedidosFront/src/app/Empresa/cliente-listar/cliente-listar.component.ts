@@ -13,6 +13,7 @@ export class ClienteListarComponent implements OnInit, OnChanges {
   clientes: Cliente[] = [];
   totalPages: number = 0;
   paginasBotoes: number[] = [];
+  page : number =0;
 
   constructor(private servico: ClienteService,
     private toastr:ToastrService) { }
@@ -26,9 +27,12 @@ export class ClienteListarComponent implements OnInit, OnChanges {
       }
     })
   };
+  ngOnChanges(){
+    this.getClientes(this.page.toString());
+  }
 
-  getClientes() {
-    this.servico.listarClientes().subscribe(data => {
+  getClientes(page: string) {
+    this.servico.listarClientesPag(page).subscribe(data => {
       this.clientes = data;
     })
   }

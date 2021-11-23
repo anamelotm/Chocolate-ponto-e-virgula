@@ -77,8 +77,8 @@ export class FazerPedidoComponent implements OnInit{
       this.getPedido();
     }
 
-    getClientes(page:string) {
-      this.servicoCliente.listarClientes(page).subscribe(data => {
+    getClientes() {
+      this.servicoCliente.listarClientes().subscribe(data => {
         this.clientes = data;
       })
     }
