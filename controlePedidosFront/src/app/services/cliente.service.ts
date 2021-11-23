@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cliente } from '../shared/models/cliente';
-import { ResponsePageble } from '../shared/models/responsePageable.model';
+//import { ResponsePageble } from '../shared/models/responsePageable.model';
 
 @Injectable({
   providedIn: 'root'

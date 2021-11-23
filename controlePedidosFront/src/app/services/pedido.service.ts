@@ -11,10 +11,11 @@ export class PedidoService {
   private readonly url = 'http://localhost:8080/pedidos/';
 
   constructor(private http: HttpClient) { }
+ 
 
-
-  listarPedidos(){
-    return this.http.get<Pedido[]>(this.url + "pageable");
+  listarPedidos(page: string){
+    console.log(this.url + "pageable?page"+ page + "&size=10");
+    return this.http.get<Pedido[]>(this.url + "pageable?page="+ page + "&size=10");
   }
 
   deletarPedido(id: String): Observable<any>{
@@ -32,6 +33,9 @@ export class PedidoService {
   editarPedido(id: number, pedido: Pedido): Observable<any>{
     return this.http.put(this.url + id, pedido);
   }
+
+  fechaStatus(id:number):  Observable<any>{
+    return this.http.patch(this.url +"fecharpedido/"+ id, id);}
 
 
 }
