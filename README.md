@@ -49,25 +49,35 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 ## Rodando o Back End (servidor)
 
 ### Abra o Git Bash e clone este repositório
-	$ git clone <>
+	$ git clone <git@github.com:anamelotm/Chocolate-ponto-e-virgula.git>
 ### Acesse a pasta do projeto no terminal/cmd
-	$ cd <>
-### Vá para a pasta server
-	$ cd server
-### Instale as dependências
-	$ npm install
-### Execute a aplicação em modo de desenvolvimento
-	$ npm run dev:server
-### O servidor iniciará na porta 8080 – acesse <>
-
+	$ cd Chocolate-ponto-e-virgula
 
 ## Rodando o Front End (servidor)
 
 ### Instale o Angular
 	$ npm i -g @angular/material
+### Instale as dependências
+	$ npm install
+
+### Executa a aplicação e abre a página
+	$ ng serve -o
+
+### O servidor iniciará na porta 8080 – acesse <>
+
+
 
 ## Features
-- [ x ] Tela de Cadastro
+
+### Cliente
+- [ x ] Tela Home (Fazer pedido)
+- [ x ] Tela Cadastrar Cliente
+
+### Empresa
+- [ x ] Tela Listar Cliente
+- [ x ] Tela Listar Produtos
+- [ x ] Tela Listar Pedidos
+- [ x ] Tela Cadastrar Produto
 
 ## Demonstração da Aplicação
 - video mostrando o funcionamento

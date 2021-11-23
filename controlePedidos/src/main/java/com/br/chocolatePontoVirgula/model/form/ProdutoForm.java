@@ -3,7 +3,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.*;
-import java.sql.Date;
 import java.time.LocalDate;
 
 @Getter
