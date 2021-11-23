@@ -16,8 +16,9 @@ public class ItemPedidoForm {
     @Max(999999)
     private Long idPedido;
 
-
-    private Produto produto;
+    @Min(1)
+    @Max(999999)
+    private Long idProduto;
 
     @Min(1)
     @Max(999999)
