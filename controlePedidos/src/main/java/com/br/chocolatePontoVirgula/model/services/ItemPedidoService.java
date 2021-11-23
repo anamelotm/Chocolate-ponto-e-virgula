@@ -13,6 +13,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.net.URI;
@@ -48,8 +50,7 @@ public class ItemPedidoService {
 
         if(itemPedido.getQuantidade() <= qnt.getBody()){
             itemPedidoRepository.save(itemPedido);
-            produtoRepository.atualizarEstoque(itemPedido.getProduto().getId(), qnt.getBody());
-            //TODO: att estoque ainda não está funcionando
+            produtoRepository.atualizarEstoque(itemPedido.getProduto().getId(), itemPedido.getQuantidade());
 
         } else {
             //TODO: terminar aqui!! (add excecao)
@@ -90,5 +91,10 @@ public class ItemPedidoService {
     public  List<ItemPedido> itensDoPedido(Long idPedido){
         List<ItemPedido> itemPedido = itemPedidoRepository.itensDoPedido(idPedido);
         return itemPedido;
+    }
+
+
+    public List<Long> produtoHasPedido(@PathVariable Long id){
+        return itemPedidoRepository.produtoHasPedido(id);
     }
 }
