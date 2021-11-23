@@ -26,6 +26,7 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
   getProdutos(page: string){
     this.servico.listarProdutos(page).subscribe(data => {
       this.produtos = data});
+      console.log(this.produtos);
   }
 
   deletarProduto(codigo: any){
