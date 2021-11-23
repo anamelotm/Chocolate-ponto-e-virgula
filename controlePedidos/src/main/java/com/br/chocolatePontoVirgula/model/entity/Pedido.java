@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -42,8 +43,9 @@ public class Pedido {
         return this.aberto;
     }
 
-    public double retornarValorComDesconto() {
-        return valorTotal * (1-(this.percentualDesconto/100.0));
+    public String retornarValorComDesconto() {
+        DecimalFormat formato=new DecimalFormat("#0.00");
+        return formato.format(valorTotal * (1-(this.percentualDesconto/100.0)));
     }
 
     public Date getDataAtual() {
