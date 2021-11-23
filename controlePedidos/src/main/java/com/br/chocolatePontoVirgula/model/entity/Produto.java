@@ -56,4 +56,7 @@ public class Produto {
         this.status = status;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
 }

@@ -1,17 +1,18 @@
 package com.br.chocolatePontoVirgula.controller;
 
 
-import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
+
 import com.br.chocolatePontoVirgula.model.dto.ProdutoDTO;
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
-import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
+import com.br.chocolatePontoVirgula.model.form.ClienteForm;
+import com.br.chocolatePontoVirgula.model.form.ProdutoForm;
 import com.br.chocolatePontoVirgula.model.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class ProdutoController {
 
     //salva o produto
     @PostMapping
-    public void save(@RequestBody Produto produto){
+    public void save(@Validated @RequestBody ProdutoForm produto){
         produtoService.save(produto);
     }
 

@@ -1,38 +1,44 @@
 package com.br.chocolatePontoVirgula.model.form;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.*;
 import java.sql.Date;
 
+@Getter
+@Setter
 public class ProdutoForm {
 
-    private Long id;
-
-    @NotBlank(message = "Nome é obrigatório")
+    @NotNull(message = "Nome é obrigatório")
     @Size(min = 3)
     private String nome;
-    
+
     private String descricaoProduto;
 
-    @NotBlank(message = "Unidade de medida é obrigatória")
+    @NotNull(message = "Unidade de medida é obrigatória")
     private String unidadeMedida;
 
-    @NotBlank(message = "Valor unitário é obrigatório")
+    @NotNull(message = "Valor unitário é obrigatório")
     private double valorUnitario;
 
-    @NotBlank(message = "Status é obrigatório")
+    @NotNull(message = "Status é obrigatório")
     private boolean status;
 
     private String urlFoto;
 
-    @NotBlank(message = "Peso é obrigatório")
+    @NotNull(message = "Peso é obrigatório")
+    @DecimalMin("0.01")
+    @DecimalMax("999999.99")
     private double peso;
 
-    @NotBlank(message = "Data de fabricação é obrigatório")
+    @NotNull(message = "Data de fabricação é obrigatória")
     private Date dataFabricacao;
 
-    @NotBlank(message = "Data de validade é obrigatório")
+    @NotNull(message = "Data de validade é obrigatória")
     private Date dataValidade;
 
-    @NotBlank(message = "Quantidade do estoque é obrigatório")
+    @NotNull(message = "Quantidade do estoque é obrigatório")
+    @Min(value = 1)
+    @Max(999999)
     private Integer quantidadeEstoque;
 }

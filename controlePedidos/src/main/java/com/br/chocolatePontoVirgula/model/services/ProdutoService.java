@@ -1,16 +1,15 @@
 package com.br.chocolatePontoVirgula.model.services;
 
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
+import com.br.chocolatePontoVirgula.model.form.ProdutoForm;
 import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,8 +20,19 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public void save(Produto produto){
-        produtoRepository.save(produto);
+    public void save(@Validated ProdutoForm produto) {
+        Produto p = new Produto();
+        p.setNome(produto.getNome());
+        p.setDescricaoProduto(produto.getDescricaoProduto());
+        p.setUnidadeMedida(produto.getUnidadeMedida());
+        p.setValorUnitario(produto.getValorUnitario());
+        p.setStatus(produto.isStatus());
+        p.setUrlFoto(produto.getUrlFoto());
+        p.setPeso(produto.getPeso());
+        p.setDataFabricacao(produto.getDataFabricacao());
+        p.setDataValidade(produto.getDataValidade());
+        p.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+        produtoRepository.save(p);
     }
 
 
