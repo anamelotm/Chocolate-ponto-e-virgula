@@ -3,6 +3,7 @@ package com.br.chocolatePontoVirgula.model.services;
 
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 
+import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.form.ItemPedidoForm;
 import com.br.chocolatePontoVirgula.model.repository.ItemPedidoRepository;
 import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
@@ -24,8 +25,7 @@ public class ItemPedidoService {
     @Autowired
     private ItemPedidoRepository itemPedidoRepository;
 
-    ProdutoRepository produtoRepository;
-
+    ProdutoRepository produtoRepository = null;
 
     public void save(@Validated @RequestBody ItemPedidoForm itemPedidoForm) throws URISyntaxException {
         //pegando os dados do form e inserindo em um ItemPedido:
@@ -39,9 +39,12 @@ public class ItemPedidoService {
         //verificacao de estoque antes de salvar o item pedido:
         URI uri = new URI("http://localhost:8080/produto/estoque/" + itemPedido.getProduto().getId());
         ResponseEntity<Integer> qnt = ResponseEntity.created(uri).body(itemPedido.getProduto().getQuantidadeEstoque());
+
         if(itemPedido.getQuantidade() <= qnt.getBody()){
             itemPedidoRepository.save(itemPedido);
-            
+            itemPedido.getProduto().setQuantidadeEstoque(qnt.getBody() - itemPedido.getQuantidade());
+            URI uri2 = new URI("http://localhost:8080/produto/atualizarestoque" + itemPedido.getProduto().getId());
+            ResponseEntity<Produto> produto = ResponseEntity.created(uri2).body(itemPedido.getProduto());
         } else {
             //TODO: terminar aqui!! (add excecao)
             //TODO: voltar aqui!! está sando erro
