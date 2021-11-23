@@ -10,8 +10,7 @@ public class ProdutoForm {
     @NotBlank(message = "Nome é obrigatório")
     @Size(min = 3)
     private String nome;
-
-    @NotBlank(message = "Descrição do produto é obrigatório")
+    
     private String descricaoProduto;
 
     @NotBlank(message = "Unidade de medida é obrigatória")
