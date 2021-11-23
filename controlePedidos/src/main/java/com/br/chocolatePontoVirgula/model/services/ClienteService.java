@@ -73,13 +73,11 @@ public class ClienteService {
     }
 
 
-    public ResponseEntity<Page<Cliente>> findAll(Pageable pageable) {
+    public Page<Cliente> findAll(Pageable pageable) {
 
-        int size = 10;
-        PageRequest pageRequest = PageRequest.ofSize(size);
 
-        Page<Cliente> result = clienteRepository.findAll(pageRequest);
-        return ResponseEntity.ok(result);
+       return clienteRepository.findAll(pageable);
+
     }
 
     public boolean validarCPF(String cpf) {

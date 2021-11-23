@@ -1,6 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
+import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
@@ -42,8 +44,15 @@ public class ClienteController {
 		 return clienteService.findById(id);
 	}
 
-	@GetMapping()
-	public ResponseEntity<Page<Cliente>> findAll( Pageable pageable) {
-		return clienteService.findAll(pageable);
+	@GetMapping("pageable")
+	public List<ClienteDTO> findAll(Pageable pageable) {
+		Page<Cliente> clientesLista=clienteService.findAll(pageable);
+		return ClienteDTO.converter(clientesLista);
+	}
+	@GetMapping("totaldepaginas")
+	public int retornaTotalpaginas(){
+		Pageable pageable=PageRequest.of(0,10);
+		Page<Cliente> pedidosLista = clienteService.findAll(pageable);
+		return pedidosLista.getTotalPages();
 	}
 }

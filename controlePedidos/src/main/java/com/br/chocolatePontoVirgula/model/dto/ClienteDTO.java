@@ -2,6 +2,7 @@ package com.br.chocolatePontoVirgula.model.dto;
 
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import lombok.Getter;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +20,7 @@ public class ClienteDTO {
         this.nome = cliente.getNome();
     }
 
-    public static List<ClienteDTO> converter(List<Cliente> clientes){
+    public static List<ClienteDTO> converter(Page<Cliente> clientes){
         return clientes.stream().map(ClienteDTO::new).collect(Collectors.toList());
     }
 }
