@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.model.services;
 
+import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +40,11 @@ public class ProdutoService {
         produtoRepository.deleteById(id);
     }
 
-    public ResponseEntity<Page<Produto>> findAll(Pageable pageable) {
+    public Page<Produto> findAll(Pageable pageable) {
 
-        int size = 10;
-        PageRequest pageRequest = PageRequest.ofSize(size);
 
-        Page<Produto> result = produtoRepository.findAll(pageRequest);
-        return ResponseEntity.ok(result);
+        return produtoRepository.findAll(pageable);
+
     }
 
     public ResponseEntity<Produto> findById(Long id) {
