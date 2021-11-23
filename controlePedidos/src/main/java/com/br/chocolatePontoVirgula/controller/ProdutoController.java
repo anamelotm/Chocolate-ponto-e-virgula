@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -38,8 +39,8 @@ public class ProdutoController {
 
     //deleta o produto
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-        produtoService.delete(id);
+    public ResponseEntity<String> delete(@PathVariable Long id) throws URISyntaxException {
+        return produtoService.delete(id);
     }
 
     //encontra o produto por id

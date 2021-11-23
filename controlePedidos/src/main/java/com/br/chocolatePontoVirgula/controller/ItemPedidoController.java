@@ -61,7 +61,7 @@ public class ItemPedidoController {
         return ItemPedidoDTO.converterList(itemPedidoService.itensDoPedido(id));
     }
 
-    @GetMapping("produtosnoitem")
+    @GetMapping("produtosnoitem/{id}")
     public List<Long> produtoHasPedido(@PathVariable Long id){
         return itemPedidoService.produtoHasPedido(id);
     }
