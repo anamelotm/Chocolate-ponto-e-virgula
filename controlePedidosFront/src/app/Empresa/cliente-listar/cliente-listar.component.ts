@@ -22,7 +22,6 @@ export class ClienteListarComponent implements OnInit {
   getClientes() {
     this.servico.listarClientes().subscribe(data => {
       this.clientes = data;
-      console.log(data);
     })
   }
 

@@ -54,7 +54,8 @@ export class CarrinhoComponent implements OnInit {
     }
     console.log(pedido);
     this.service.save(pedido).subscribe(data => {
-      this.router.navigate(['/fazer-pedido']),
+      this.router.navigate(['/fazer-pedido'])
+      console.log(data);
       this.idPedido = data.id;
       console.log(this.idPedido);
     }, error => {console.log(error)});
