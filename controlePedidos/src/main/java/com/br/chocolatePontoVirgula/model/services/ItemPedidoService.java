@@ -25,14 +25,20 @@ public class ItemPedidoService {
     @Autowired
     private ItemPedidoRepository itemPedidoRepository;
 
-    ProdutoRepository produtoRepository = null;
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
     public void save(@Validated @RequestBody ItemPedidoForm itemPedidoForm) throws URISyntaxException {
+
+
+        //buscando o produto pelo id que veio no itemPedidoForm:
+        URI uriProduto = new URI("http://localhost:8080/produto/" + itemPedidoForm.getIdProduto());
+        ResponseEntity<Produto> produto = ResponseEntity.created(uriProduto).body(produtoRepository.getById(itemPedidoForm.getIdProduto()));
+
         //pegando os dados do form e inserindo em um ItemPedido:
         ItemPedido itemPedido = new ItemPedido();
-
         itemPedido.setIdPedido(itemPedidoForm.getIdPedido());
-        itemPedido.setProduto(itemPedidoForm.getProduto());
+        itemPedido.setProduto(produto.getBody());
         itemPedido.setQuantidade(itemPedidoForm.getQuantidade());
         itemPedido.setValorTotal(itemPedidoForm.getValorTotal());
 
@@ -42,12 +48,11 @@ public class ItemPedidoService {
 
         if(itemPedido.getQuantidade() <= qnt.getBody()){
             itemPedidoRepository.save(itemPedido);
-            itemPedido.getProduto().setQuantidadeEstoque(qnt.getBody() - itemPedido.getQuantidade());
-            URI uri2 = new URI("http://localhost:8080/produto/atualizarestoque" + itemPedido.getProduto().getId());
-            ResponseEntity<Produto> produto = ResponseEntity.created(uri2).body(itemPedido.getProduto());
+            produtoRepository.atualizarEstoque(itemPedido.getProduto().getId(), itemPedido.getQuantidade());
+
         } else {
             //TODO: terminar aqui!! (add excecao)
-            //TODO: voltar aqui!! está sando erro
+
         }
 
 

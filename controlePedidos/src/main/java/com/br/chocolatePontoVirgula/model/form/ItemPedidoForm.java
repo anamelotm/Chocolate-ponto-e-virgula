@@ -3,21 +3,29 @@ package com.br.chocolatePontoVirgula.model.form;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import lombok.Getter;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 
 @Getter
 public class ItemPedidoForm {
 
-    @NotBlank(message = "Deve estar associado a um pedido")
+    @Min(1)
+    @Max(999999)
     private Long idPedido;
 
-    @NotBlank(message = "Deve conter um produto")
-    private Produto produto;
+    @Min(1)
+    @Max(999999)
+    private Long idProduto;
 
-    @NotBlank(message = "Deve informar a quantidade")
+    @Min(1)
+    @Max(999999)
     private int quantidade;
 
-    @NotBlank(message = "Deve possuir um valor total")
+    @DecimalMin("0.01")
+    @DecimalMax("999999.99")
     private double valorTotal;
 
 }

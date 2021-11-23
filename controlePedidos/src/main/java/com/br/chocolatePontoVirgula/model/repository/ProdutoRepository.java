@@ -18,8 +18,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     //metodo que atualiza o estoque
     @Transactional
     @Modifying
-    @Query("UPDATE Produto p SET p.quantidadeEstoque = :quantidadeEstoque WHERE p.id = :id")
-    void atualizarEstoque(@Param("id") Long id, @Param("quantidadeEstoque") Integer quantidadeEstoque);
+    @Query("UPDATE Produto p SET p.quantidadeEstoque = p.quantidadeEstoque - :quantidadeComprada WHERE p.id = :id")
+    void atualizarEstoque(@Param("id") Long id, @Param("quantidadeComprada") Integer quantidadeComprada);
 
     //metodo que verifica o estoque do produto
     @Query("SELECT p FROM Produto p WHERE id = :id")
