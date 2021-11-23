@@ -9,12 +9,13 @@ import java.util.stream.Collectors;
 
 @Getter
 public class ClienteDTO {
-
+    private Long id;
     private String tipo;
     private String documento;
     private String nome;
 
     public ClienteDTO(Cliente cliente) {
+        this.id = cliente.getId();
         this.tipo = cliente.getTipo();
         this.documento = cliente.getDocumento();
         this.nome = cliente.getNome();
