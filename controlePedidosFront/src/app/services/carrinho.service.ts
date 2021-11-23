@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProdutoCadastrarComponent } from '../Empresa/produto-cadastrar/produto-cadastrar.component';
 import { Pedido } from '../shared/models/pedido';
@@ -12,6 +12,8 @@ export class CarrinhoService {
   public cartItemList: any = [];
   public produtos = new BehaviorSubject<any>([]);
   public pedido: Pedido = {  };
+
+  idPedidoCriado = new EventEmitter<number>();
 
 
   private readonly url = 'http://localhost:8080/pedidos/';
@@ -58,6 +60,10 @@ export class CarrinhoService {
 
   save(pedido: Pedido): Observable<any>{
     return this.http.post(this.url, pedido);
+  }
+
+  emitirIdCriado(idPedido: number) {
+    this.idPedidoCriado.emit(idPedido);
   }
 
 }

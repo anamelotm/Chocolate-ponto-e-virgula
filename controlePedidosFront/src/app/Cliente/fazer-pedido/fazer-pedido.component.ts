@@ -9,6 +9,9 @@ import { ToastrService } from 'ngx-toastr';
 import { PedidoService } from 'src/app/services/pedido.service';
 import { Pedido } from 'src/app/shared/models/pedido';
 import { ClienteService } from '../../services/cliente.service';
+import { CarrinhoService } from '../../services/carrinho.service';
+import { Subscription } from 'rxjs';
+import { ReceberIdPedidoComponent } from '../receber-id-pedido/receber-id-pedido.component';
 
 @Component({
   selector: 'app-fazer-pedido',
@@ -18,6 +21,8 @@ import { ClienteService } from '../../services/cliente.service';
 export class FazerPedidoComponent implements OnInit{
   titulo = "Finalizando seu Pedido";
   clientes: Cliente[] = [];
+  public rotaAtual?: Subscription;
+  idPedido: string | null = '';
 
   enderecoBuscado : Endereco = {
     cep: "",
@@ -33,8 +38,6 @@ export class FazerPedidoComponent implements OnInit{
 
   cepDigitado: string = "";
   pedidoForm: FormGroup;
-  id: string | null;
-  idPedido: number = 0;
 
 
   constructor(
@@ -54,9 +57,11 @@ export class FazerPedidoComponent implements OnInit{
         uf:['', Validators.required],
         complemento:['', Validators.required]
       })
-      this.id = aRouter.snapshot.paramMap.get('id');
-      this.aRouter.params.subscribe(params => this.idPedido = params['id']);
+
+      this.idPedido = this.aRouter.snapshot.paramMap.get('id');
+
     }
+
 
     ngOnInit(): void{
       this.getClientes();
@@ -65,7 +70,6 @@ export class FazerPedidoComponent implements OnInit{
     getClientes() {
       this.servicoCliente.listarClientes().subscribe(data => {
         this.clientes = data;
-        console.log(this.clientes);
       })
     }
 
@@ -79,7 +83,8 @@ export class FazerPedidoComponent implements OnInit{
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
       }
-      this.pedidoService.editarPedido(this.idPedido, pedido).subscribe(data => {
+
+      this.pedidoService.editarPedido(Number(this.idPedido), pedido).subscribe(data => {
         this.toastr.info('Pedido efetuado com sucesso!');
           this.router.navigate(['/']);
       }, error => {
