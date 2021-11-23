@@ -23,9 +23,9 @@
                 <th [routerLink]="['/pedido-detalhar', pedido.id ]" class="page-link" scope="row">{{pedido.id}}</th>
                 <td>11/11/2021</td>
 
-                <td >{{pedido.nome}}</td>          
-                <td >{{pedido.aberto}} <i (click) = "alteraStatus(pedido.id)" class="fas fa-exchange-alt text-primary"></i> </td>
-                <td>R$ {{pedido.valorFinaldoPedido}}</td>
+                <td >{{pedido.cliente}}</td>          
+                <td >{{pedido.situacao}} <i (click) = "alteraStatus(pedido.id)" class="fas fa-exchange-alt text-primary"></i> </td>
+                <td>R$ {{pedido.valorFinal}}</td>
                 
                 <td> <i [routerLink]="['/editar-pedido', pedido.id]" class="fas fa-edit text-primary"></i></td>
               </tr>

@@ -11,12 +11,20 @@ import { ToastrService } from 'ngx-toastr';
 
 export class ClienteListarComponent implements OnInit, OnChanges {
   clientes: Cliente[] = [];
+  totalPages: number = 0;
+  paginasBotoes: number[] = [];
 
   constructor(private servico: ClienteService,
     private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.getClientes('0');
+    this.servico.getTotalPaginas().subscribe(obj => {
+      this.totalPages = obj;
+      for(let i=0; i< obj; i++){
+        this.paginasBotoes.push(i);
+      }
+    })
   };
 
   ngOnChanges(){

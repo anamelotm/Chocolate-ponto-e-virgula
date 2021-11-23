@@ -28,7 +28,7 @@ export class PedidosListarComponent implements OnInit , OnChanges{
     this.servico.getTotalPaginas().subscribe(obj => {
       this.totalPages= obj;
       for(let i=0; i<obj; i++){
-        this.paginasBotoes.push(i)
+        this.paginasBotoes.push(i);
       }
     });
     
