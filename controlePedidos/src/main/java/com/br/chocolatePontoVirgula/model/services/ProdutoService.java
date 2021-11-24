@@ -58,7 +58,7 @@ public class ProdutoService {
         URI uri = new URI("http://localhost:8080/itens-pedidos/produtosnoitem/" + id);
         ResponseEntity<List<ItemPedido>> qnt = ResponseEntity.created(uri).body(itemPedidoRepository.produtoHasPedido(id));
 
-        if(qnt.getBody() != null){
+        if(!qnt.getBody().isEmpty()){
             return ResponseEntity.badRequest().body("Existem pedidos com esse produto");
         } else {
             produtoRepository.deleteById(id);
