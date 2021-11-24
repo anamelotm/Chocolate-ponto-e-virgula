@@ -3,15 +3,13 @@
   color: #6f1d1b;
 }
 
-.grid-produtos{
-  width: 100%;
+.produto_botao{
+  width: 250px;
+  margin: auto;
 }
-
 .produto_botao{
   display: flex;
 }
-
-
 
 .produto{
   padding: 10px;
