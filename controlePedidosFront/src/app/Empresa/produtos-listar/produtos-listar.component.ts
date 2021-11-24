@@ -40,14 +40,14 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
 
   deletarProduto(codigo: any){
     this.servico.deletarProduto(codigo).subscribe(data => {
-      this.toastr.error('Produto Excluído!', 'Item excluido com sucesso');
+      this.toastr.success('Produto Excluído!', 'Item excluido com sucesso');
       this.ngOnInit();
     }, error => {
       if(error.status == 200){
-        this.toastr.error('Produto Excluído!', 'Item excluido com sucesso');
-      this.ngOnInit();
+        this.toastr.success('Produto Excluído!', 'Item excluido com sucesso');
+        this.ngOnInit();
       } else{
-        this.toastr.error('Erro ao deletar o produto!');
+        this.toastr.error(error.error);
       }
     })
   }
