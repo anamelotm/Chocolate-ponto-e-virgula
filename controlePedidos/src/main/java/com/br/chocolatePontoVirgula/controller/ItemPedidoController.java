@@ -62,7 +62,7 @@ public class ItemPedidoController {
     }
 
     @GetMapping("produtosnoitem/{id}")
-    public List<Long> produtoHasPedido(@PathVariable Long id){
+    public List<ItemPedido> produtoHasPedido(@PathVariable Long id){
         return itemPedidoService.produtoHasPedido(id);
     }
 }

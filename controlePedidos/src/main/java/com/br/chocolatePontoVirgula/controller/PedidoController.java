@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +29,12 @@ public class PedidoController {
     private PedidosDTO pedidosDTO;
 
     @PostMapping
-    public Long salvar(@Validated @RequestBody PedidoForm pedidoForm, BindingResult result) {
+    public ResponseEntity<String> salvar(@Validated @RequestBody PedidoForm pedidoForm) {
         Pedido pedido = new Pedido();
         pedidoForm.setDataPedido(pedido.getDataAtual());
         pedidoForm.setAberto(true);
         pedidoForm.setPercentualDesconto(0);
-        Pedido pedidoSalvo = pedidoService.save(pedidoForm);
-        return pedidoSalvo.getId();
+        return pedidoService.salvar(pedidoForm);
     }
 
     @PatchMapping("{id}")

@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.model.services;
 
+import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.form.ProdutoForm;
 import com.br.chocolatePontoVirgula.model.repository.ItemPedidoRepository;
@@ -55,7 +56,7 @@ public class ProdutoService {
     //verificar antes de excluir um produto para ver se ele está na tabela itemPedido
     public ResponseEntity<String> delete(Long id) throws URISyntaxException {
         URI uri = new URI("http://localhost:8080/itens-pedidos/produtosnoitem/" + id);
-        ResponseEntity<List<Long>> qnt = ResponseEntity.created(uri).body(itemPedidoRepository.produtoHasPedido(id));
+        ResponseEntity<List<ItemPedido>> qnt = ResponseEntity.created(uri).body(itemPedidoRepository.produtoHasPedido(id));
 
         if(qnt.getBody() != null){
             return ResponseEntity.badRequest().body("Existem pedidos com esse produto");

@@ -19,6 +19,6 @@ public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long>{
     @Query("SELECT item FROM ItemPedido item WHERE idPedido = :idPedido")
     List<ItemPedido> itensDoPedido(@Param("idPedido") long idPedido);
 
-    @Query("SELECT idProduto FROM ItemPedido WHERE idProduto = :idProduto")
-    List<Long> produtoHasPedido(@Param("idProduto") long idProduto);
+    @Query("SELECT item FROM ItemPedido item WHERE produto.id = :idProduto")
+    List<ItemPedido> produtoHasPedido(@Param("idProduto") long idProduto);
 }

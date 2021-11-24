@@ -94,7 +94,7 @@ public class ItemPedidoService {
     }
 
 
-    public List<Long> produtoHasPedido(@PathVariable Long id){
+    public List<ItemPedido> produtoHasPedido(@PathVariable Long id){
         return itemPedidoRepository.produtoHasPedido(id);
     }
 }

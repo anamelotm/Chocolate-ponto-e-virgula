@@ -27,7 +27,7 @@ public class PedidoService {
     @Autowired
     PedidoRepository pedidoRepository;
 
-    public Pedido save(@Validated PedidoForm pedidoForm) {
+    public ResponseEntity<String> salvar(@Validated PedidoForm pedidoForm) {
         Pedido pedido=new Pedido();
         pedido.setDataPedido(pedido.getDataAtual());
         pedido.setCliente(null);
@@ -36,7 +36,7 @@ public class PedidoService {
         pedido.setEnderecoEntrega(null);
         pedido.setValorTotal(pedidoForm.getValorTotal());
         pedido.setQuantidadeTotal(pedidoForm.getQuantidadeTotal());
-        return pedidoRepository.save(pedido);
+        return ResponseEntity.ok().body(pedidoRepository.save(pedido).getId()+"");
     }
 
     public void update(Long id, Pedido pedido) throws URISyntaxException {
