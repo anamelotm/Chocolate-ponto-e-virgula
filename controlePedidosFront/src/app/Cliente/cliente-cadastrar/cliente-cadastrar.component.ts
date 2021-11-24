@@ -10,10 +10,13 @@ import { ClienteService } from '../../services/cliente.service';
   templateUrl: './cliente-cadastrar.component.html',
   styleUrls: ['./cliente-cadastrar.component.css']
 })
+
+
 export class ClienteCadastrarComponent implements OnInit {
   clienteForm: FormGroup;
   titulo = 'Cadastrar cliente';
   id: string | null;
+
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -27,6 +30,8 @@ export class ClienteCadastrarComponent implements OnInit {
     })
     this.id = aRouter.snapshot.paramMap.get('id');
   }
+
+
 
   ngOnInit(): void {
     this.isEditar();
@@ -63,13 +68,15 @@ export class ClienteCadastrarComponent implements OnInit {
           this.router.navigate(['/']);
           console.log(data);
         }, error => {
-          this.toastr.error('Insira um documento válido!', 'Erro no cadastro');
+          this.toastr.error(error.error);
           console.log(error);
           this.clienteForm.reset();
         })
       }
     }
   }
+
+
 
   isEditar() {
     if (this.id !== null) {

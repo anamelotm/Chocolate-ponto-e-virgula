@@ -42,7 +42,13 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
       this.toastr.error('Produto Excluído!', 'Item excluido com sucesso');
       this.ngOnInit();
     }, error => {
-      console.log(error);
+      if(error.status == 200){
+        this.toastr.error('Produto Excluído!', 'Item excluido com sucesso');
+      this.ngOnInit();
+      } else{
+        this.toastr.error('Erro ao deletar o produto!');
+      }
     })
   }
+
 }

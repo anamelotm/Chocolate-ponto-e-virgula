@@ -23,6 +23,7 @@
           </select>
           <input type="text" class="form-control" placeholder="Nº do Documento" formControlName="documento" >
         </div>
+
         <div class="text-danger"
             *ngIf="clienteForm.get('documento')?.hasError('required') && clienteForm.get('documento')?.touched">
           <span>Campo obrigatório!</span>
