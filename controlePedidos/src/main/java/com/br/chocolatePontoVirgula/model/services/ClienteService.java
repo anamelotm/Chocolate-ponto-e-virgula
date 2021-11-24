@@ -1,13 +1,12 @@
 package com.br.chocolatePontoVirgula.model.services;
 
-;
-import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
+import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotCreatedException;
+import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,7 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public ResponseEntity<String> save(@Validated ClienteForm clienteForm){
+    public Cliente save(@Validated ClienteForm clienteForm){
        //pegando os dados do clienteForm e atribuindo a um Cliente:
         Cliente cliente = new Cliente();
         cliente.setNome(clienteForm.getNome());
@@ -39,14 +38,13 @@ public class ClienteService {
         }
 
         if(docValido){
-            clienteRepository.save(cliente);
-            return ResponseEntity.ok().body("cliente criado");
-        } else {
-            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção (insira um documento válido)");
 
-
+               Cliente c = clienteRepository.save(cliente);
+               Cliente cl = clienteRepository.findById(c.getId()).orElseThrow(()->new EntityNotCreatedException("Não foi possível criar o cliente"));
+               return cl;
         }
 
+        return cliente;
     }
 
 
@@ -67,9 +65,9 @@ public class ClienteService {
     }
 
 
-    public ResponseEntity<Cliente> findById(Long id) {
-        Cliente cliente = clienteRepository.findById(id).get();
-        return ResponseEntity.ok().body(cliente);
+    public Cliente findById(Long id) {
+        return clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
+
     }
 
 

@@ -25,8 +25,9 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@PostMapping
-	public ResponseEntity<String> save(@Validated @RequestBody  ClienteForm cliente){
-		return clienteService.save(cliente);
+	public ResponseEntity<?> save(@Validated @RequestBody  ClienteForm cliente){
+		Cliente result = clienteService.save(cliente);
+		return ResponseEntity.ok().body("cliente salvo");
 	}
 
 	@PutMapping("/{id}")
@@ -40,7 +41,7 @@ public class ClienteController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
+	public Cliente findById(@PathVariable Long id) {
 		 return clienteService.findById(id);
 	}
 

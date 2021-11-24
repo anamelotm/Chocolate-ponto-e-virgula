@@ -1,5 +1,6 @@
 package com.br.chocolatePontoVirgula.controller.exceptions;
 
+import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotCreatedException;
 import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,16 @@ public class ControllerExceptionHandler {
         err.setTimestamp(Instant.now());
         err.setStatus(HttpStatus.NOT_FOUND.value());
         err.setError("Recurso não encontrado");
+        err.setMessage(e.getMessage());
+        err.setPath(request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+    }
+
+    public ResponseEntity<StandardError> entityNotCreated(EntityNotCreatedException e, HttpServletRequest request){
+        StandardError err=new StandardError();
+        err.setTimestamp(Instant.now());
+        err.setStatus(HttpStatus.NOT_FOUND.value());
+        err.setError("Recurso/Entidade não criada");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
