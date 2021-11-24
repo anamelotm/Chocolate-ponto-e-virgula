@@ -37,11 +37,14 @@ public class ClienteService {
             docValido = validarCNPJ(cliente.getDocumento());
         }
 
-        if(docValido){
+        //verificando se o cliente já está cadastrado no banco:
+        Cliente cliPesquisado = clienteRepository.alreadyExist(cliente.getDocumento());
+
+        if(docValido && cliPesquisado == null){
             clienteRepository.save(cliente);
             return ResponseEntity.ok().body("cliente criado");
         } else {
-            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção (insira um documento válido)");
+            return  ResponseEntity.badRequest().body("Não foi possível cadastrar o cliente.");
 
 
         }
