@@ -1,9 +1,10 @@
 import { Cliente } from './../../shared/models/cliente';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from '../../services/cliente.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-cadastrar',
@@ -16,6 +17,7 @@ export class ClienteCadastrarComponent implements OnInit {
   clienteForm: FormGroup;
   titulo = 'Cadastrar cliente';
   id: string | null;
+  editar: boolean = false;
 
 
   constructor(private fb: FormBuilder,
@@ -80,6 +82,7 @@ export class ClienteCadastrarComponent implements OnInit {
 
   isEditar() {
     if (this.id !== null) {
+      this.editar = true;
       this.titulo = 'Editar cliente';
       this.clienteService.getCliente(this.id).subscribe(data => {
         this.clienteForm.setValue({
