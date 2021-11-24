@@ -32,9 +32,10 @@
             </tbody>
           </table>
           <h5 style="text-align: start; margin-top: 10px;" *ngIf="produtos.length == 0">Não existem produtos cadastrados no momento. </h5>
+         
           <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li *ngFor="let pag of paginasBotoes" class="page-item"><a class="page-link"(click)="getProdutos(pag.toString())">{{pag+1}}</a></li>  
+            <ul class="pagination justify-content-center">             
+              <li *ngFor = "let pag of paginasBotoes"  class="page-item"><button  class="page-link"(click)="getProdutos(pag.toString())">{{pag +1}}</button></li>       
             </ul>
           </nav>
         </div>

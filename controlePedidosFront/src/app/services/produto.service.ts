@@ -27,7 +27,7 @@ export class ProdutoService {
   }
 
   salvarProduto(produto: Produto): Observable<any> {
-    return this.http.post(this.url, produto);
+    return this.http.post(this.url,  produto);
   }
 
   getProduto(id: String): Observable<any> {
