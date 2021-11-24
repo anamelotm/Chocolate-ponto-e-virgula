@@ -42,9 +42,9 @@ public class ClienteService {
 
         if(docValido && cliPesquisado == null){
             clienteRepository.save(cliente);
-            return ResponseEntity.ok().body("cliente criado");
+            return ResponseEntity.ok().body("Cliente criado com sucesso!");
         } else {
-            return  ResponseEntity.badRequest().body("Não foi possível cadastrar o cliente.");
+            return  ResponseEntity.badRequest().body("Insira um documento válido.");
 
 
         }
