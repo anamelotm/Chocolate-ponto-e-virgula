@@ -1,6 +1,6 @@
 <div class="card-body row">
   <div class="grid-produtos col" *ngFor="let produto of produtos">
-
+    <form [formGroup]="itemPedidoForm" (ngSubmit)="addToCart(produto)" >
     <div class="produto">
       <div class="produto__imagem">
         <img src="{{produto.urlFoto}}" width="200px" height="150px" alt="">
@@ -9,9 +9,10 @@
         <p class="preco"><strong> {{ produto.valorUnitario | currency: 'BRL' }}</strong></p>
       </div>
       <div class="produto_botao">
-        <button class="btn btn-outline-danger" (click)="addToCart(produto)" >Quero!</button>
+        <input type="number" formControlName="quantidade" class="form-control">
+        <button class="btn btn-outline-danger" type="submit" >Quero!</button>
       </div>
     </div>
-
+    </form>
   </div>
 </div>

@@ -20,7 +20,6 @@ import { Subscription } from 'rxjs';
 export class FazerPedidoComponent implements OnInit{
   titulo = "Finalizando seu Pedido";
   clientes: Cliente[] = [];
-  public rotaAtual?: Subscription;
   idPedido: string | null = '';
   pedidoCriado: Pedido = {
     cliente: {
