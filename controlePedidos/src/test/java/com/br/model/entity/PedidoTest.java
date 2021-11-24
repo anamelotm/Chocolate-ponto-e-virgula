@@ -1,14 +1,17 @@
 package com.br.model.entity;
 
+import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PedidoTest {
-
+    Pedido pedido=new Pedido();
     @Test
     void aplicarDesconto() {
-        System.out.println("Teste");
+        pedido.setValorTotal(100);
+        pedido.setPercentualDesconto(10);
+        assertEquals("90,00",pedido.retornarValorComDesconto());
 
     }
 }
