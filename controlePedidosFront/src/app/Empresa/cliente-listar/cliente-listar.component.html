@@ -26,6 +26,7 @@
               </tr>
             </tbody>
           </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="clientes.length == 0">Não existem clientes cadastrados no momento. </h5>
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                <li *ngFor = "let pag of paginasBotoes"  class="page-item"><button  class="page-link"(click)="getClientes(pag.toString())">{{pag +1}}</button></li>
