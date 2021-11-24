@@ -84,5 +84,4 @@ public class ProdutoController {
     public Integer verificarEstoque(@PathVariable Long id){
         return produtoService.verificarEstoque(findById(id).getBody());
     }
-
 }

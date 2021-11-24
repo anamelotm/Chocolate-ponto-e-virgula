@@ -40,7 +40,7 @@ public class ClienteController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
+	public Cliente findById(@PathVariable Long id) {
 		 return clienteService.findById(id);
 	}
 
