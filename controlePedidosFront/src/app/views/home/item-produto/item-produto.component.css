@@ -8,12 +8,10 @@
 }
 
 .produto_botao{
-  margin: auto;
+  display: flex;
 }
 
-.produto_botao .btn{
-  width: 100%;
-}
+
 
 .produto{
   padding: 10px;

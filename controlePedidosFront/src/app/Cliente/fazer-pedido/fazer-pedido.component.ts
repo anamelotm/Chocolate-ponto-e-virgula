@@ -20,7 +20,6 @@ import { Subscription } from 'rxjs';
 export class FazerPedidoComponent implements OnInit{
   titulo = "Finalizando seu Pedido";
   clientes: Cliente[] = [];
-  public rotaAtual?: Subscription;
   idPedido: string | null = '';
   pedidoCriado: Pedido = {
     cliente: {
@@ -105,8 +104,6 @@ export class FazerPedidoComponent implements OnInit{
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
       }
-
-      console.log(pedido)
 
       this.pedidoService.editarPedido(Number(this.idPedido), pedido).subscribe(data => {
         this.toastr.info('Pedido efetuado com sucesso!');
