@@ -4,6 +4,8 @@ package com.br.chocolatePontoVirgula.model.dto;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import lombok.Getter;
 import org.springframework.data.domain.Page;
+
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +23,8 @@ public class PedidosDTO {
         if(!clienteExiste){
             cliente=pedido.getCliente().getNome();
         }
+        SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy");
+        this.dataPedido=formato.format(pedido.getDataPedido());
         this.situacao = pedido.isAberto()?"Aberto":"Fechado";
         if(pedido.getPercentualDesconto()==0){
             this.valorFinal = ""+pedido.getValorTotal();
