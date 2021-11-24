@@ -21,6 +21,7 @@ export class ClienteListarComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getClientes('0');
     this.servico.getTotalPaginas().subscribe(obj => {
+     this.paginasBotoes= [];
       this.totalPages = obj;
       for(let i=0; i< obj; i++){
         this.paginasBotoes.push(i);

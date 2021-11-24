@@ -20,6 +20,7 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getProdutos('0');
     this.servico.getTotalPaginas().subscribe(obj =>{
+      this.paginasBotoes= [];
       this.totalPages = obj;
       for(let i = 0; i < obj; i++){
         this.paginasBotoes.push(i);
