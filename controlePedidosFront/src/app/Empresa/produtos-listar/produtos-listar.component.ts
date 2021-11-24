@@ -51,4 +51,5 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
       }
     })
   }
+
 }

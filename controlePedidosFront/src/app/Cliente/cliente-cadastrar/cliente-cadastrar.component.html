@@ -16,13 +16,14 @@
           <span>Campo obrigatório!</span>
         </div>
         <div class="input-group mt-3">
-          <select aria-label="Tipo documento" id="select-tipo" formControlName="tipo" style="width: 13%;" >
+          <select aria-label="Tipo documento" id="select-tipo" formControlName="tipo" style="width: 13%;"  >
             <option value="">Tipo</option>
-            <option value="Física">CPF</option>
-            <option value="Jurídica">CNPJ</option>
+            <option value="Física">CPF</option >
+            <option value="Jurídica">CNPJ</option >
           </select>
-          <input type="text" class="form-control" placeholder="Nº do Documento" formControlName="documento" >
+          <input type="text" class="form-control" placeholder="Nº do Documento" formControlName="documento" [readonly]="editar">
         </div>
+
         <div class="text-danger"
             *ngIf="clienteForm.get('documento')?.hasError('required') && clienteForm.get('documento')?.touched">
           <span>Campo obrigatório!</span>

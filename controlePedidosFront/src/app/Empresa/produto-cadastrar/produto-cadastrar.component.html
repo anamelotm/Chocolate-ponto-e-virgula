@@ -44,9 +44,9 @@
           *ngIf="produtoForm.get('valorUnitario')?.hasError('required') && produtoForm.get('valorUnitario')?.touched">
           <span>Campo obrigatório!</span>
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" >
           <span class="input-group-text">Imagem do Produto</span>
-          <input id="urlFoto" formControlName="urlFoto" type="text" class="form-control" required>
+          <input id="urlFoto" formControlName="urlFoto" type="text" class="form-control" maxlength="255" size="255" required>
         </div>
         <div class="text-danger"
         *ngIf="produtoForm.get('urlFoto')?.hasError('required') && produtoForm.get('urlFoto')?.touched">

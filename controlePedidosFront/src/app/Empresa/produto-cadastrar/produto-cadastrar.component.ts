@@ -86,6 +86,7 @@ export class ProdutoCadastrarComponent implements OnInit {
           this.toastr.success('Produto cadastrado com sucesso!', 'Cadastro concluído!');
           this.router.navigate(['/']);
         }, error => {
+          this.toastr.error('Erro ao cadastrar protudo!');
           console.log(error);
           this.produtoForm.reset();
         })

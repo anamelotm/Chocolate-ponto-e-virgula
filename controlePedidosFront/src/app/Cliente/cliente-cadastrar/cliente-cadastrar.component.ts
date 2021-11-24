@@ -1,19 +1,24 @@
 import { Cliente } from './../../shared/models/cliente';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from '../../services/cliente.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-cadastrar',
   templateUrl: './cliente-cadastrar.component.html',
   styleUrls: ['./cliente-cadastrar.component.css']
 })
+
+
 export class ClienteCadastrarComponent implements OnInit {
   clienteForm: FormGroup;
   titulo = 'Cadastrar cliente';
   id: string | null;
+  editar: boolean = false;
+
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -27,6 +32,8 @@ export class ClienteCadastrarComponent implements OnInit {
     })
     this.id = aRouter.snapshot.paramMap.get('id');
   }
+
+
 
   ngOnInit(): void {
     this.isEditar();
@@ -63,7 +70,7 @@ export class ClienteCadastrarComponent implements OnInit {
           this.router.navigate(['/']);
           console.log(data);
         }, error => {
-          this.toastr.error('Insira um documento válido!', 'Erro no cadastro');
+          this.toastr.error(error.error);
           console.log(error);
           this.clienteForm.reset();
         })
@@ -71,8 +78,11 @@ export class ClienteCadastrarComponent implements OnInit {
     }
   }
 
+
+
   isEditar() {
     if (this.id !== null) {
+      this.editar = true;
       this.titulo = 'Editar cliente';
       this.clienteService.getCliente(this.id).subscribe(data => {
         this.clienteForm.setValue({
