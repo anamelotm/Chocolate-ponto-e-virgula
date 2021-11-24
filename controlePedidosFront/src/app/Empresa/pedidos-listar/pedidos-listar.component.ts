@@ -38,8 +38,8 @@ export class PedidosListarComponent implements OnInit , OnChanges{
   alteraStatus(id: any){
     this.servico.fechaStatus(id).subscribe(obj =>{
       this.toastr.success('O pedido foi fechado com êxito', 'Pedido fechado');
+      this.ngOnInit();
     });
-    this.ngOnInit();
   }
   ngOnChanges(){
   this.getPedidos(this.page.toString());

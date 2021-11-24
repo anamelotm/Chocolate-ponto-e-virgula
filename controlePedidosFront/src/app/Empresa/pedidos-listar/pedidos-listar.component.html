@@ -25,7 +25,7 @@
 
                 <td>{{pedido.cliente}}</td>
                
-                <td>{{pedido.situacao}} <i  class="fas fa-exchange-alt text-primary"></i> </td>
+                <td>{{pedido.situacao}} <i (click)="alteraStatus(pedido.id)" class="fas fa-exchange-alt text-primary"></i> </td>
                
                 <td>R$ {{pedido.valorFinal}}</td>
                
