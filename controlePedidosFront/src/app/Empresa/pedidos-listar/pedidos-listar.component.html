@@ -15,7 +15,7 @@
 
 
                 <th scope="col">Valor Final</th>
-                <th scope="col">Editar</th>
+                
               </tr>
             </thead>
             <tbody  *ngFor="let pedido of pedidos">
@@ -29,7 +29,7 @@
                
                 <td>R$ {{pedido.valorFinal}}</td>
                
-                <td> <i [routerLink]="['/editar-pedido', pedido.id]" class="fas fa-edit text-primary"></i></td>
+               
               </tr>
             </tbody>
           </table>
