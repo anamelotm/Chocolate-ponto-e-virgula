@@ -6,6 +6,7 @@ import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.form.PedidoForm;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
+import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -51,13 +52,9 @@ public class PedidoService {
     }
 
 
-    public void excluir(Long id) {
-        pedidoRepository.deleteById(id);
-    }
-
 
     public Pedido findById(Long id) {
-        Pedido pedido = pedidoRepository.findById(id).get();
+        Pedido pedido = pedidoRepository.findById(id).orElseThrow(()->new EntityNotFoundException("Não foi encontrado um pedido com esse id"+id));
         return pedido;
     }
 

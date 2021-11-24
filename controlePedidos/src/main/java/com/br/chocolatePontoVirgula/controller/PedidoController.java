@@ -42,15 +42,10 @@ public class PedidoController {
         pedidoService.update(id, pedido);
     }
 
-    @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id) {
-        pedidoService.excluir(id);
-    }
-
     @GetMapping("/{id}")
-    public PedidoDTO findById(@PathVariable Long id) {
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         PedidoDTO pedidoDTO = new PedidoDTO(pedidoService.findById(id));
-        return pedidoDTO;
+        return ResponseEntity.ok().body(pedidoDTO);
     }
 
 
