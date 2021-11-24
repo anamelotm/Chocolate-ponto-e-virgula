@@ -1,14 +1,14 @@
 <div class="card" style="margin-top: 4%; ">
   <div class="card-header">
     <div class="card-header text-center">
-      <h2 id="titulo_card">Cadastro de Produtos</h2>
+      <h2 id="titulo_card">{{titulo}}</h2>
     </div>
     <div class="card-body">
 
       <form [formGroup]="produtoForm" (ngSubmit)="cadastrarProduto()">
         <div class="input-group mb-3">
           <span class="input-group-text">Nome</span>
-          <input formControlName="nome" id="nome" type="text" class="form-control" placeholder="Nome do Produto"
+          <input formControlName="nome" type="text" class="form-control" placeholder="Nome do Produto"
             required>
         </div>
         <div class="text-danger"
@@ -81,7 +81,7 @@
         <br>
         <button class="btn btn-outline-secondary float-start" routerLink="/">Voltar</button>
         <button id="btn-cadastro" type="submit" [disabled]='produtoForm.invalid'
-          class="btn btn-outline-success float-end">Cadastrar</button>
+          class="btn btn-outline-success float-end">{{botao}}</button>
       </form>
     </div>
   </div>

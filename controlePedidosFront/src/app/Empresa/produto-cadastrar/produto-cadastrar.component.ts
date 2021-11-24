@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProdutoService } from 'src/app/services/produto.service';
@@ -13,6 +14,7 @@ import { Produto } from 'src/app/shared/models/produto';
 export class ProdutoCadastrarComponent implements OnInit {
   produtoForm: FormGroup;
   titulo = 'Cadastrar Produto';
+  botao = "Cadastrar"
   id: string | null;
 
 
@@ -96,11 +98,19 @@ export class ProdutoCadastrarComponent implements OnInit {
   isEditar() {
     if (this.id !== null) {
       this.titulo = 'Editar produto';
+      this.botao = "Salvar";
       this.produtoService.getProduto(this.id).subscribe(data => {
         this.produtoForm.setValue({
+          nome: data.nome,
+          descricaoProduto: data.descricaoProduto,
+          unidadeMedida: data.unidadeMedida,
+          peso: data.peso,
           valorUnitario: data.valorUnitario,
-          status: data.status,
-          quantidadeEstoque: data.quantidadeEstoque
+          urlFoto: data.urlFoto,
+          dataFabricacao: data.dataFabricacao,
+          dataValidade: data.dataValidade,
+          quantidadeEstoque: data.quantidadeEstoque,
+          status: data.status
         })
       })
     }
