@@ -69,7 +69,7 @@ VALUES('Barra de chocolate ao leite', 'gr', 22.90, true, 'https://e7.pngegg.com/
 INSERT INTO produto (id, nome, descricao, unidade_medida , valor_unitario , status, url_fotos, peso, data_fabricacao, data_validade, quantidade_estoque)
 VALUES(null, 'Pepitas', 'Pepitas com Açucar Mascavo', 'gr', 47.90, true, 'https://e7.pngegg.com/pngimages/372/321/png-clipart-chocolate-truffle-gaufrette-chocolate-truffle-chocolate.png', 100, '2021-11-08', '2024-11-08', 22);
 
-select * from produto;
+select * from pedido;
 
 -- insercao de cliente
 
