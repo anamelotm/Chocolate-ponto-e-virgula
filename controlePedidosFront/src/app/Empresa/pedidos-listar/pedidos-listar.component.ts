@@ -14,12 +14,12 @@ export class PedidosListarComponent implements OnInit , OnChanges{
   totalPages: number  = 0;
   page: number = 0;
   paginasBotoes: number[]= [];
-  
+
 
   constructor(private servico: PedidoService, private toastr: ToastrService,
     private pedidoService :PedidoService,
     private router:Router) {
-     
+
      }
 
   ngOnInit(): void {
@@ -31,8 +31,8 @@ export class PedidosListarComponent implements OnInit , OnChanges{
         this.paginasBotoes.push(i);
       }
     });
-    
-    
+
+
   }
 
   alteraStatus(id: any){
@@ -43,9 +43,8 @@ export class PedidosListarComponent implements OnInit , OnChanges{
   }
   ngOnChanges(){
   this.getPedidos(this.page.toString());
-  console.log(this.page);
   }
-  
+
   getPedidos(pag: string){
    this.servico.listarPedidos(pag).subscribe(obj => this.pedidos = obj );
   }

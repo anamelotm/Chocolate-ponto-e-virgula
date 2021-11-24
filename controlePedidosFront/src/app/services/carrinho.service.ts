@@ -45,7 +45,7 @@ export class CarrinhoService {
   getTotalPrice(): number{
     let grandTotal = 0;
     this.cartItemList.map((i:any) => {
-      grandTotal += i.valorUnitario;
+      grandTotal += i.total;
     })
     return grandTotal;
   }

@@ -22,7 +22,7 @@
             <td> <img src="{{item.urlFoto}}" alt="foto protudo" style="width: 100px;"> </td>
             <td style="width: 12%;">{{item.valorUnitario | currency: 'BRL' }} </td>
             <td style="width: 12%;">{{item.quantity}}</td>
-            <td style="width: 12%;">{{item.valorUnitario | currency: 'BRL' }}</td>
+            <td style="width: 12%;">{{item.total | currency: 'BRL' }}</td>
             <td>
               <button (click)="removeItem(item)" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
             </td>
