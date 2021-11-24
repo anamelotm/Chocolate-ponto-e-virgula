@@ -20,8 +20,8 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
 
-    public Cliente save(@Validated ClienteForm clienteForm){
-       //pegando os dados do clienteForm e atribuindo a um Cliente:
+    public ResponseEntity<String> save(@Validated ClienteForm clienteForm){
+        //pegando os dados do clienteForm e atribuindo a um Cliente:
         Cliente cliente = new Cliente();
         cliente.setNome(clienteForm.getNome());
         cliente.setTipo(clienteForm.getTipo());
@@ -32,19 +32,20 @@ public class ClienteService {
 
         //validando o o documento antes de realizar o insert no banco
         if(cliente.getTipo().equals("Física")){
-           docValido = validarCPF(cliente.getDocumento());
+            docValido = validarCPF(cliente.getDocumento());
         } else if (cliente.getTipo().equals("Jurídica")){
             docValido = validarCNPJ(cliente.getDocumento());
         }
 
         if(docValido){
+            clienteRepository.save(cliente);
+            return ResponseEntity.ok().body("cliente criado");
+        } else {
+            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção (insira um documento válido)");
 
-               Cliente c = clienteRepository.save(cliente);
-               Cliente cl = clienteRepository.findById(c.getId()).orElseThrow(()->new EntityNotCreatedException("Não foi possível criar o cliente"));
-               return cl;
+
         }
 
-        return cliente;
     }
 
 
@@ -72,8 +73,6 @@ public class ClienteService {
 
 
     public Page<Cliente> findAll(Pageable pageable) {
-
-
        return clienteRepository.findAll(pageable);
 
     }

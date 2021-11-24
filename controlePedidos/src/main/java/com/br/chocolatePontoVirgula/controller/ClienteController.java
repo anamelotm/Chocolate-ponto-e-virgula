@@ -25,9 +25,8 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@PostMapping
-	public ResponseEntity<?> save(@Validated @RequestBody  ClienteForm cliente){
-		Cliente result = clienteService.save(cliente);
-		return ResponseEntity.ok().body("cliente salvo");
+	public ResponseEntity<String> save(@Validated @RequestBody  ClienteForm cliente){
+		return clienteService.save(cliente);
 	}
 
 	@PutMapping("/{id}")
