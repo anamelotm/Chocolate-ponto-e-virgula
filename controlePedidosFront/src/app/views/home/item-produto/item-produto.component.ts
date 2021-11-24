@@ -13,7 +13,6 @@ export class ItemProdutoComponent implements OnInit {
 
 
   produtos: Produto[] = [];
-  quantidade: number = 0;
   itemPedidoForm: FormGroup;
 
   constructor(
@@ -31,14 +30,14 @@ export class ItemProdutoComponent implements OnInit {
       this.produtos = obj;
 
       this.produtos.forEach((a:any) => {
-        Object.assign(a, {quantity:0, total:a.valorUnitario});
+        Object.assign(a, {quantity:1, total:a.valorUnitario});
       });
 
     })
   }
 
   addToCart(item: any){
-    item.quantity = this.itemPedidoForm.get('quantidade')?.value;
-    this.cartService.addtoCart(item);
+      item.quantity = this.itemPedidoForm.get('quantidade')?.value;
+      this.cartService.addtoCart(item);
   }
 }
