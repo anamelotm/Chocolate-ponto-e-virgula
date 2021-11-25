@@ -64,8 +64,8 @@ public class ProdutoController {
 
     //inativar o produto
     @PatchMapping("/{id}")
-    public void inativar(@PathVariable Long id){
-        produtoService.inativar(id);
+    public ResponseEntity<String> inativar(@PathVariable Long id){
+       return produtoService.inativar(id);
     }
 
     //atualiza o estoque
@@ -85,3 +85,5 @@ public class ProdutoController {
         return produtoService.verificarEstoque(findById(id));
     }
 }
+
+
