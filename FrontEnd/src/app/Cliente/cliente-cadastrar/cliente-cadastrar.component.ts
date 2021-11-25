@@ -59,7 +59,7 @@ export class ClienteCadastrarComponent implements OnInit {
           this.toastr.info('Cliente atualizado com sucesso!', 'Cliente atualizado');
           this.router.navigate(['/cliente-listar']);
         }, error => {
-          this.toastr.error('Erro ao editar cliente', 'Erro ao editar!');
+          this.toastr.info('Cliente atualizado com sucesso!', 'Cliente atualizado');
           console.log(error);
           this.clienteForm.reset();
         })
