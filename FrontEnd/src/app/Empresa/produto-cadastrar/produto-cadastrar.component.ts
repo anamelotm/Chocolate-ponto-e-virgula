@@ -75,7 +75,8 @@ export class ProdutoCadastrarComponent implements OnInit {
           this.toastr.info('Produto atualizado com sucesso!', 'Produto atualizado');
           this.router.navigate(['/produtos-listar']);
         }, error => {
-          console.log(error);
+          this.toastr.error(error.error);
+
           this.produtoForm.reset();
         })
 
@@ -98,7 +99,7 @@ export class ProdutoCadastrarComponent implements OnInit {
 
   isEditar() {
     if (this.id !== null) {
-    
+
       this.editar = true;
       this.titulo = 'Editar produto';
       this.botao = "Salvar";
