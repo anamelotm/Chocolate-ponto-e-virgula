@@ -56,8 +56,6 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ## Rodando o Front End (servidor)
 
-### Instale o Angular
-	$ npm i -g @angular/material
 ### Instale as dependências
 	$ npm install
 
