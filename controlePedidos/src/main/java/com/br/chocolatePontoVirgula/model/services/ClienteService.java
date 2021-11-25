@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.List;
+
 
 @Service
 public class ClienteService {
@@ -63,9 +65,17 @@ public class ClienteService {
 
 
 
-    public void delete(Long id){
+    public ResponseEntity<String> delete(Long id){
+        Cliente c = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
+        List<Long> clienteHasPedido = clienteRepository.clienteHasPedido(c.getId());
 
-        clienteRepository.deleteById(id);
+        if(clienteHasPedido == null){
+            clienteRepository.deleteById(c.getId());
+            return ResponseEntity.ok().body("Cliente excluído com sucesso!");
+        } else {
+            return ResponseEntity.badRequest().body("Não foi possível excluir o cliente pois ele está associado a um pedido.");
+        }
+
     }
 
 

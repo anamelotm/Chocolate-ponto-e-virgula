@@ -35,8 +35,8 @@ public class ClienteController {
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id){
-		clienteService.delete(id);
+	public ResponseEntity<String> delete(@PathVariable Long id){
+		return clienteService.delete(id);
 	}
 
 	@GetMapping("/{id}")
