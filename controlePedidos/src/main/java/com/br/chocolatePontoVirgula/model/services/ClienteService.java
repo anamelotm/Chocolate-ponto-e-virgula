@@ -45,7 +45,7 @@ public class ClienteService {
             clienteRepository.save(cliente);
             return ResponseEntity.ok().body("Cliente criado com sucesso!");
         } else {
-            return  ResponseEntity.badRequest().body("Não foi possível cadastrar o cliente. Insira um documento válido ou verifique se esse docuento está associado um cliente já cadastrado.");
+            return  ResponseEntity.badRequest().body("Não foi possível cadastrar o cliente. Insira um documento válido ou verifique se esse documento está associado um cliente já cadastrado.");
 
 
         }
@@ -68,7 +68,7 @@ public class ClienteService {
         Cliente c = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
         List<Long> clienteHasPedido = clienteRepository.clienteHasPedido(c.getId());
 
-        if(clienteHasPedido == null){
+        if(clienteHasPedido.isEmpty()){
             clienteRepository.deleteById(c.getId());
             return ResponseEntity.ok().body("Cliente excluído com sucesso!");
         } else {
