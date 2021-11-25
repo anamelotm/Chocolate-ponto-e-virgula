@@ -16,6 +16,7 @@ export class ProdutoCadastrarComponent implements OnInit {
   titulo = 'Cadastrar Produto';
   botao = "Cadastrar"
   id: string | null;
+  editar: boolean = false;
 
 
   constructor(private fb: FormBuilder,
@@ -69,7 +70,6 @@ export class ProdutoCadastrarComponent implements OnInit {
       }
 
       if (this.id !== null) {
-
         //editando o produto
         this.produtoService.editarProduto(this.id, produto).subscribe(data => {
           this.toastr.info('Produto atualizado com sucesso!', 'Produto atualizado');
@@ -98,6 +98,7 @@ export class ProdutoCadastrarComponent implements OnInit {
 
   isEditar() {
     if (this.id !== null) {
+      this.editar = true;
       this.titulo = 'Editar produto';
       this.botao = "Salvar";
       this.produtoService.getProduto(this.id).subscribe(data => {

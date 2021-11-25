@@ -18,6 +18,7 @@ export class ClienteCadastrarComponent implements OnInit {
   titulo = 'Cadastrar cliente';
   id: string | null;
   editar: boolean = false;
+  button: string = 'Cadastrar';
 
 
   constructor(private fb: FormBuilder,
@@ -83,6 +84,7 @@ export class ClienteCadastrarComponent implements OnInit {
   isEditar() {
     if (this.id !== null) {
       this.editar = true;
+      this.button = 'Salvar';
       this.titulo = 'Editar cliente';
       this.clienteService.getCliente(this.id).subscribe(data => {
         this.clienteForm.setValue({

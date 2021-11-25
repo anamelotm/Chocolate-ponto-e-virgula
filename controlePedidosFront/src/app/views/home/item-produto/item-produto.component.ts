@@ -15,15 +15,19 @@ export class ItemProdutoComponent implements OnInit {
   produtos: Produto[] = [];
   itemPedidoForm: FormGroup;
 
+
+
   constructor(
     private servico: ProdutoService,
     private cartService: CarrinhoService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
    ) {
      this.itemPedidoForm = this.fb.group({
        quantidade: ['', Validators.required],
      })
     }
+
+
 
   ngOnInit(): void {
     this.servico.listarProdutosAtivos().subscribe(obj => {

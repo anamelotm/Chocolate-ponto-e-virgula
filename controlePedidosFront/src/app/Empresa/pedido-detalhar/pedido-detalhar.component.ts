@@ -16,7 +16,7 @@ export class PedidoDetalharComponent implements OnInit {
   pedido: any ;
   itens: any;
   cod : String = "";
- 
+
 
   constructor(private servico: ItemPedidoService, private pedidoService : PedidoService,  private aRouter: ActivatedRoute, private toastr:ToastrService)
    {
@@ -24,8 +24,10 @@ export class PedidoDetalharComponent implements OnInit {
     }
   ngOnInit(): void {
     if(this.id!== null) {
-    this.servico.getItensPedido(this.id).subscribe(obj => this.itens = obj ); 
-      this.pedidoService.getPedido(this.id).subscribe(data =>this.pedido = data);
+    this.servico.getItensPedido(this.id).subscribe(obj => this.itens = obj );
+      this.pedidoService.getPedido(this.id).subscribe(data =>
+        this.pedido = data
+      );
   }}
 
   deletarItem(codigo: any){

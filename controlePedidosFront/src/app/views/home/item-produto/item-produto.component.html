@@ -6,7 +6,7 @@
         <img src="{{produto.urlFoto}}" width="200px" height="150px" alt="">
         <h3><b> {{produto.nome}}</b> </h3>
         <p class="descricaoProduto"> {{produto.descricaoProduto}}</p>
-        <p class="preco"><strong> {{ produto.valorUnitario | currency: 'BRL' }}</strong></p>
+        <p class="preco"><strong> {{ produto.valorUnitario | currency: 'BRL':true}}</strong></p>
       </div>
       <div class="produto_botao">
         <input type="number" formControlName="quantidade" class="form-control" placeholder="0" required>

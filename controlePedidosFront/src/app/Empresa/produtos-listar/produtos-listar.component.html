@@ -13,7 +13,7 @@
                 <th scope="col">Valor Unitário</th>
                 <th scope="col">Validade</th>
                 <th scope="col">Status</th>
-                <th scope="col">Qtd Estoque</th>                
+                <th scope="col">Qtd Estoque</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Excluir</th>
               </tr>
@@ -22,7 +22,7 @@
               <tr>
                 <th scope="row">{{produto.id}}</th>
                 <td>{{produto.nome}}</td>
-                <td>{{produto.valorUnitario}}</td>
+                <td>{{produto.valorUnitario | currency: 'BRL'}}</td>
                 <td>{{produto.dataValidade}}</td>
                 <td>{{produto.status}}</td>
                 <td>{{produto.quantidadeEstoque}}</td>
@@ -32,10 +32,10 @@
             </tbody>
           </table>
           <h5 style="text-align: start; margin-top: 10px;" *ngIf="produtos.length == 0">Não existem produtos cadastrados no momento. </h5>
-         
+
           <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">             
-              <li *ngFor = "let pag of paginasBotoes"  class="page-item"><button  class="page-link"(click)="getProdutos(pag.toString())">{{pag +1}}</button></li>       
+            <ul class="pagination justify-content-center">
+              <li *ngFor = "let pag of paginasBotoes"  class="page-item"><button  class="page-link"(click)="getProdutos(pag.toString())">{{pag +1}}</button></li>
             </ul>
           </nav>
         </div>

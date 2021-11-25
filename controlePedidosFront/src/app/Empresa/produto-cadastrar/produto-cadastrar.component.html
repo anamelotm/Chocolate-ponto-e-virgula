@@ -9,7 +9,7 @@
         <div class="input-group mb-3">
           <span class="input-group-text">Nome</span>
           <input formControlName="nome" type="text" class="form-control" placeholder="Nome do Produto"
-            required>
+          [readonly]="editar"  required>
         </div>
         <div class="text-danger"
           *ngIf="produtoForm.get('nome')?.hasError('required') && produtoForm.get('nome')?.touched">
@@ -19,7 +19,7 @@
         <div style="width: 300px;">
           <label class="input-group-text">Descrição</label>
           <textarea formControlName="descricaoProduto" name="descricaoProduto" id="descricaoProduto" cols="40"
-            rows="5">Informações do produto... </textarea>
+            rows="5" [readonly]="editar" >Informações do produto... </textarea>
         </div>
         <br>
         <div class="input-group mb-3" style="width: 300px;">
@@ -28,7 +28,7 @@
             <option value="kg">Kilo</option>
             <option value="g">Gramas</option>
           </select>
-          <input formControlName="peso" id="peso" type="number" class="form-control" placeholder="Peso" required>
+          <input formControlName="peso" id="peso" type="number" class="form-control" placeholder="Peso" [readonly]="editar" required>
         </div>
         <div class="text-danger"
           *ngIf="produtoForm.get('peso')?.hasError('required') && produtoForm.get('peso')?.touched">
@@ -37,7 +37,7 @@
         <div class="input-group mb-3" style="width: 300px;">
           <span class="input-group-text">Valor Unitário R$</span>
           <input formControlName="valorUnitario" id="valorUnitario" type="number" class="form-control"
-            aria-label="Valor Unitário" required>
+            aria-label="Valor Unitário" [readonly]="editar" required>
           <span class="input-group-text">.00</span>
         </div>
         <div class="text-danger"
@@ -46,7 +46,7 @@
         </div>
         <div class="input-group mb-3" >
           <span class="input-group-text">Imagem do Produto</span>
-          <input id="urlFoto" formControlName="urlFoto" type="text" class="form-control" maxlength="255" size="255" required>
+          <input id="urlFoto" formControlName="urlFoto" type="text" class="form-control" maxlength="255" size="255" [readonly]="editar" required>
         </div>
         <div class="text-danger"
         *ngIf="produtoForm.get('urlFoto')?.hasError('required') && produtoForm.get('urlFoto')?.touched">

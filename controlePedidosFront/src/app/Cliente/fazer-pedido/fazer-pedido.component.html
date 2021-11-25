@@ -7,8 +7,8 @@
   <div class="card-body" style="margin-top: 3%; color: #432818 ; ">
     <form [formGroup] = "pedidoForm" (ngSubmit)= "salvarPedido()" >
       <div class="input-group mb-3">
-        <h2>Total: R$</h2>
-        <h2 style="margin-left: 2%;">{{ valorTotal }}</h2>
+        <h2>Total: </h2>
+        <h2 style="margin-left: 2%;">{{ valorTotal | currency:'BRL'}}</h2>
         <h3 style="margin-left: 20%;">Quantidade de itens: </h3>
         <h3 style="margin-left: 2%;">{{ quantidadeItens }}</h3>
       </div>

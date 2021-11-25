@@ -9,4 +9,5 @@ export interface Pedido {
     valorTotal?: number;
     quantidadeTotal?:number;
     percentualDesconto?: number;
+    valorComDesconto?: number;
 }

@@ -21,6 +21,11 @@ import { CarrinhoComponent } from './Cliente/carrinho/carrinho.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+registerLocaleData(localePt)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +53,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NgxPaginationModule
     ],
 
-  providers: [],
+    providers: [{
+      provide: LOCALE_ID,
+      useValue: "pt-BR"
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

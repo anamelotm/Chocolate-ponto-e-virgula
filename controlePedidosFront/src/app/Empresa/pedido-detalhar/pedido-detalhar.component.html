@@ -23,7 +23,7 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Sub-Total</span>
-        <span class="form-control" > R$ {{pedido.valorTotal}}</span>
+        <span class="form-control" > {{pedido.valorTotal | currency: 'BRL'}}</span>
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Desconto</span>
@@ -31,9 +31,9 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">Valor Total</span>
-        <span class="form-control" > R$ {{pedido.valorComDesconto}}</span>
+        <span class="form-control" > {{ pedido.valorComDesconto | currency: 'BRL'}}</span>
       </div>
-          
+
 <br>
       <div class="input-group mb-3">
         <span class="titulo ">Itens do Pedido</span>
@@ -52,9 +52,9 @@
               <tr>
 
                 <td>{{item.nomeProduto}}</td>
-                <td> R$ {{item.valorUnitario}}</td>
+                <td> {{item.valorUnitario | currency: 'BRL'}}</td>
                 <td>{{item.quantidade}}</td>
-                <td>R$ {{item.valorTotal}}</td>
+                <td> {{item.valorTotal | currency: 'BRL'}}</td>
 
 
               </tr>

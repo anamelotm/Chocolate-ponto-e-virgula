@@ -27,7 +27,7 @@
 
                 <td>{{pedido.situacao}} <i (click)="alteraStatus(pedido.id)" class="fas fa-exchange-alt text-primary"></i> </td>
 
-                <td>R$ {{pedido.valorFinal}}</td>
+                <td>{{pedido.valorFinal | currency: 'BRL' }}</td>
 
 
               </tr>
