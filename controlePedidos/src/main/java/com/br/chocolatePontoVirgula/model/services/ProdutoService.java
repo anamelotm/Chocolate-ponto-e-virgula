@@ -48,8 +48,13 @@ public class ProdutoService {
     public ResponseEntity<String> update(Long id, Produto produto){
         Produto produtoPesquisado = produtoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Produto não encontrado."));
 
-        produtoPesquisado.setNome(produto.getNome());
+        produtoPesquisado.setQuantidadeEstoque(produto.getQuantidadeEstoque());
+        produtoPesquisado.setDataValidade(produto.getDataValidade());
+        produtoPesquisado.setValorUnitario(produto.getValorUnitario());
+        produtoPesquisado.setDataFabricacao(produto.getDataFabricacao());
+        produtoPesquisado.setStatus(true);
         produtoRepository.save(produtoPesquisado);
+
         return ResponseEntity.ok().body("Produto alterado com sucesso!");
 
     }
