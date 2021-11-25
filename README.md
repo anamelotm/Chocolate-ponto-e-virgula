@@ -13,8 +13,6 @@
 	-  [Dependencias](#dependencias)
 *  [Pre requisitos](#pre-requisitos)
 *  [Executar a aplicacao](#executar-a-aplicacao)
-	-  [Back End](#back-end)
-	-  [Front End](#front-end)
 *  [Features](#features) 
 	-  [Cliente](#cliente)
 	-  [Empresa](#empresa)
