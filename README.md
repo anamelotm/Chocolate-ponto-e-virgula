@@ -59,7 +59,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 * Run ChocolatePontoVirgulaApplication
 
-## Rodando o Front End (servidor)
+## Rodando o Front End (cliente)
 
 ### Instale as dependências
 	$ npm install
