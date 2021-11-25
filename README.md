@@ -57,7 +57,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ### Abra o projeto na IDE (Intellij)
 
-### Run ChocolatePontoVirgulaApplication
+* Run ChocolatePontoVirgulaApplication
 
 ## Rodando o Front End (servidor)
 
