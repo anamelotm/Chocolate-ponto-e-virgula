@@ -13,8 +13,8 @@
 	- [Dependências](#dependências)
 * [Pré requisitos](#pré-requisitos)
 * [Executar a aplicação](#executar-a-aplicação)
-	- [Back-End](#back-end)
-	- [Front-End](#front-end)
+	- [Back End (servidor)](#back-end-servidor)
+	- [Front End (cliente)](#front-end-cliente)
 * [Features](#features) 
 	- [Cliente](#cliente)
 	- [Empresa](#empresa)
@@ -90,7 +90,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 - [ x ] Tela Listar Pedidos
 - [ x ] Tela Cadastrar Produto
 
-## 💻 Funcionalidades previstas
+## Funcionalidades previstas
 
 * Cadastro de produtos
 * Cadastro de clientes
