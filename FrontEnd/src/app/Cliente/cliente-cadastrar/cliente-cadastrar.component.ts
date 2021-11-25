@@ -71,12 +71,8 @@ export class ClienteCadastrarComponent implements OnInit {
           this.router.navigate(['/']);
           console.log(data);
         }, error => {
-<<<<<<< HEAD:controlePedidosFront/src/app/Cliente/cliente-cadastrar/cliente-cadastrar.component.ts
-          this.toastr.error('Insira um documento válido!', 'Erro no cadastro');
-=======
           this.toastr.error(error.error);
           console.log(error);
->>>>>>> f457e626ebd91e53aaf65952ea6b96137e14203f:FrontEnd/src/app/Cliente/cliente-cadastrar/cliente-cadastrar.component.ts
           this.clienteForm.reset();
         })
       }
