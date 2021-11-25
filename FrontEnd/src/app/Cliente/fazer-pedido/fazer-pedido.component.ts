@@ -104,7 +104,7 @@ export class FazerPedidoComponent implements OnInit{
           documento: ""
         },
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
-                          this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
+                          this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "/"+ this.enderecoBuscado.uf +",  "+ this.enderecoBuscado.cep,
       }
       
       this.pedidoService.editarPedido(Number(this.idPedido), pedido).subscribe(data => {
