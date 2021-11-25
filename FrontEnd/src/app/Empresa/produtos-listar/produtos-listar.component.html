@@ -24,7 +24,8 @@
                 <td>{{produto.nome}}</td>
                 <td>{{produto.valorUnitario | currency: 'BRL'}}</td>
                 <td>{{produto.dataValidade}}</td>
-                <td>{{produto.status}}</td>
+                
+                <td>{{produto.status}} <i (click)="alteraStatus(produto.id)" class="fas fa-exchange-alt text-primary"></i></td>
                 <td>{{produto.quantidadeEstoque}}</td>
                 <td><i  [routerLink]="['/editar-produto', produto.id]" class="fas fa-edit text-primary"></i></td>
                 <td><i (click)="deletarProduto(produto.id)" class="far fa-trash-alt text-danger"></i></td>

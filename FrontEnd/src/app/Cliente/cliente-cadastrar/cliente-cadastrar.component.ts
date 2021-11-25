@@ -34,8 +34,6 @@ export class ClienteCadastrarComponent implements OnInit {
     this.id = aRouter.snapshot.paramMap.get('id');
   }
 
-
-
   ngOnInit(): void {
     this.isEditar();
   }

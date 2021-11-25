@@ -98,6 +98,7 @@ export class ProdutoCadastrarComponent implements OnInit {
 
   isEditar() {
     if (this.id !== null) {
+    
       this.editar = true;
       this.titulo = 'Editar produto';
       this.botao = "Salvar";

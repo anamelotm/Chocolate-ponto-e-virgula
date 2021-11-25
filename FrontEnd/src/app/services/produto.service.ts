@@ -41,4 +41,8 @@ export class ProdutoService {
   getTotalPaginas(): Observable<any>{
     return this.http.get(this.url + "totaldepaginas");
   }
+
+  inativarProduto(id:number): Observable<any>{
+    return this.http.patch(this.url + id , id);
+  }
 }

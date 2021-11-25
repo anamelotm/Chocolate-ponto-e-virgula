@@ -32,8 +32,6 @@ export class PedidosListarComponent implements OnInit , OnChanges{
         this.paginasBotoes.push(i);
       }
     });
-
-
   }
 
   alteraStatus(id: any){
@@ -42,6 +40,7 @@ export class PedidosListarComponent implements OnInit , OnChanges{
       this.ngOnInit();
     });
   }
+  
   ngOnChanges(){
   this.getPedidos(this.page.toString());
   }
