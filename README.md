@@ -55,7 +55,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 ### Acesse a pasta do projeto no terminal/cmd
 	$ cd Chocolate-ponto-e-virgula
 
-### Abra o projeto na IDE (Intellij)
+### Abra o projeto no Intellij
 
 * Run ChocolatePontoVirgulaApplication
 
@@ -64,7 +64,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 ### Instale as dependências
 	$ npm install
 
-### Executa a aplicação e abre a página
+### Executa a aplicação no Visual Studio Code (terminal)
 	$ ng serve -o
 
 ### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
