@@ -51,7 +51,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ### Abra o Git Bash e clone este repositório
 	$ git clone git@github.com:anamelotm/Chocolate-ponto-e-virgula.git
-
+	
 ### Acesse a pasta do projeto no terminal/cmd
 	$ cd Chocolate-ponto-e-virgula
 
