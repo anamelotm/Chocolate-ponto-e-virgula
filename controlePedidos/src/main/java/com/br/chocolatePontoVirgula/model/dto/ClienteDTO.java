@@ -17,7 +17,12 @@ public class ClienteDTO {
     public ClienteDTO(Cliente cliente) {
         this.id = cliente.getId();
         this.tipo = cliente.getTipo();
-        this.documento = cliente.getDocumento();
+        if(tipo.equals("Física")&&(cliente.getDocumento().length()==11)){
+            this.documento=cliente.getDocumento().substring(0,3)+"."+cliente.getDocumento().substring(3,6)+"."+cliente.getDocumento().substring(6,9)+"-"+cliente.getDocumento().substring(9,11);
+        }
+        else {
+            this.documento = cliente.getDocumento();
+        }
         this.nome = cliente.getNome();
     }
 
