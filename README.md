@@ -5,18 +5,23 @@
 ## Status
 - Em constução
 
-## Tópicos
-<!--ts-->
-* 📌 [Como usar](#como-usar)
-	* 📌 [Ferramentas](#ferramentas)
-	* 📌 [Tecnologias](#tecnologias)
-	* 📌 [Pre requisitos](#pre-requisitos)
-* 📌 [Rodar a aplicação](#rodar-aplicacao)
-* 📌 [Testes](#testes)
-* 📌 [Features](#features)
-* 📌 [Demonstração da Aplicação](#demonstracao-aplicacao)
-* 📌 [Autores](#autores)
-<!--te-->
+## 📌 Tópicos
+
+* [Como usar](#como-usar)
+	- [Ferramentas](#ferramentas)
+	- [Tecnologias](#tecnologias)
+	- [Dependências](#dependências)
+* [Pré requisitos](#pré-requisitos)
+* [Executar a aplicação](#executar-a-aplicação)
+	- [Back End (servidor)](#back-end-servidor)
+	- [Front End (cliente)](#front-end-cliente)
+* [Features](#features) 
+	- [Cliente](#cliente)
+	- [Empresa](#empresa)
+* [Funcionalidades previstas](#funcionalidades-previstas)
+* [Demonstração da aplicação](#demonstração-da-aplicação)
+* [Melhorias Futuras](#melhorias-futuras) 
+* [Autores](#autores)
 
 # Como usar
 ### Ferramentas:
@@ -47,27 +52,29 @@
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: Git Bash, Node.js.
 Além disso é necessário um editor de código, como o Visual Studio Code e uma IDE, como o Intellij.
 
-## Rodando o Back End (servidor)
+## Executar a aplicação
 
-### Abra o Git Bash e clone este repositório
+### Back-End (servidor)
+
+#### Abra o Git Bash e clone este repositório
 	$ git clone git@github.com:anamelotm/Chocolate-ponto-e-virgula.git
 	
-### Acesse a pasta do projeto no terminal/cmd
+#### Acesse a pasta do projeto no terminal/cmd
 	$ cd Chocolate-ponto-e-virgula
 
-### Abra o projeto no Intellij
+#### Abra o projeto no Intellij
 
 * Run ChocolatePontoVirgulaApplication
 
-## Rodando o Front End (cliente)
+### Front-End (cliente)
 
-### Instale as dependências
+#### Instale as dependências
 	$ npm install
 
-### Executa a aplicação no Visual Studio Code (terminal)
+#### Executa a aplicação no Visual Studio Code (terminal)
 	$ ng serve -o
 
-### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
+#### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
 
 
 
@@ -83,7 +90,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 - [ x ] Tela Listar Pedidos
 - [ x ] Tela Cadastrar Produto
 
-## 💻 Funcionalidades previstas
+## Funcionalidades previstas
 
 * Cadastro de produtos
 * Cadastro de clientes
@@ -98,22 +105,28 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 ## Demonstração da Aplicação
 - video mostrando o funcionamento
 
+## Melhorias futuras
+
+* Implementação do login
+* Permissões de acesso
+
 ## Autores
-<sub><b>Alice Souza<b></sub></a>
+
+### Alice Moraes
 [![Linkedin Badge](https://img.shields.io/badge/-Alice-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/alicefms/)](https://www.linkedin.com/in/alicefms/)
 
-<sub><b>Ana Caroline<b></sub></a>
+### Ana Caroline Vilela
 [![Linkedin Badge](https://img.shields.io/badge/-Ana_Caroline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)](https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)
 
-<sub><b>Ana Luísa<b></sub></a>
+### Ana Luísa Melo
 [![Linkedin Badge](https://img.shields.io/badge/-Ana_Luísa-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/analuisatmelo/)](https://www.linkedin.com/in/analuisatmelo/) 
 
-<sub><b>Evelin<b></sub></a>
+### Evelin Kashimir
 [![Linkedin Badge](https://img.shields.io/badge/-Evellin-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/evelin-kashimir-ferraz-4a6553210/)](https://www.linkedin.com/in/evelin-kashimir-ferraz-4a6553210/) 
 
-<sub><b>Isabel<b></sub></a>
+### Isabel Vargas
 [![Linkedin Badge](https://img.shields.io/badge/-Isabel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/isabel-vargas-desenvolvedora/)](https://www.linkedin.com/in/isabel-vargas-desenvolvedora/) 
 
-<sub><b>Jacqueline<b></sub></a>
+### Jacqueline Lima
 [![Linkedin Badge](https://img.shields.io/badge/-Jacqueline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jacquelinepslima/)](https://www.linkedin.com/in/jacquelinepslima/) 
 
