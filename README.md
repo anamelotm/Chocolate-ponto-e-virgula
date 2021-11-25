@@ -11,12 +11,20 @@
 	* 📌 [Ferramentas](#ferramentas)
 	* 📌 [Tecnologias](#tecnologias)
 	* 📌 [Pre requisitos](#pre-requisitos)
+<<<<<<< HEAD
 * 📌 [Executar a aplicação](#executar-aplicacao)
+=======
+* 📌 [Executar aplicacao](#executar-aplicacao)
+>>>>>>> e94318ac08809fdad76e41812e6e65a5a4adf9c9
 	* 📌 [Back End](#back-end)
 	* 📌 [Front End](#front-end)
 * 📌 [Features](#features)
 * 📌 [Funcionalidades Previstas](#funcionalidades-previstas)
+<<<<<<< HEAD
 * 📌 [Demonstração da aplicação](#demonstracao-aplicacao)
+=======
+* 📌 [Demonstração aplicacao](#demonstracao-aplicacao)
+>>>>>>> e94318ac08809fdad76e41812e6e65a5a4adf9c9
 * 📌 [Melhorias Futuras](#melhorias-futuras)
 * 📌 [Autores](#autores)
 <!--te-->
