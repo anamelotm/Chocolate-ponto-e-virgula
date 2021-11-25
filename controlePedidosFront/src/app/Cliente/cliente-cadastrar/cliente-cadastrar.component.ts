@@ -64,7 +64,6 @@ export class ClienteCadastrarComponent implements OnInit {
           console.log(data);
         }, error => {
           this.toastr.error('Insira um documento válido!', 'Erro no cadastro');
-          console.log(error);
           this.clienteForm.reset();
         })
       }

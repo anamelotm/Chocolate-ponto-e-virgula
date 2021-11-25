@@ -56,7 +56,8 @@ export class FazerPedidoComponent implements OnInit{
     private pedidoService: PedidoService,
     private aRouter: ActivatedRoute,
     private servicoCliente: ClienteService
-    ) {
+    ) 
+    {
       this.pedidoForm = this.fb.group({
         cliente:['', Validators.required],
         rua:['', Validators.required],
@@ -70,7 +71,6 @@ export class FazerPedidoComponent implements OnInit{
 
     }
 
-
     ngOnInit(): void{
       this.getClientes();
       this.getPedido();
@@ -79,6 +79,7 @@ export class FazerPedidoComponent implements OnInit{
     getClientes() {
       this.servicoCliente.listarClientes().subscribe(data => {
         this.clientes = data;
+        console.log(data)
       })
     }
 
@@ -86,6 +87,7 @@ export class FazerPedidoComponent implements OnInit{
       this.pedidoService.getPedido(this.idPedido).subscribe(data => {
         this.valorTotal = data.valorTotal;
         this.quantidadeItens = data.quantidadeTotal;
+        console.log(data)
       })
     }
 
@@ -104,9 +106,11 @@ export class FazerPedidoComponent implements OnInit{
         enderecoEntrega: this.enderecoBuscado.logradouro + ", " +this.pedidoForm.get('complemento')?.value + ", "+
                           this.enderecoBuscado.bairro + ", " + this.enderecoBuscado.localidade + "-"+ this.enderecoBuscado.uf +"CEP: "+ this.enderecoBuscado.cep,
       }
-
+      
       this.pedidoService.editarPedido(Number(this.idPedido), pedido).subscribe(data => {
+        
         this.toastr.info('Pedido efetuado com sucesso!');
+
           this.router.navigate(['/']);
       }, error => {
         console.log(error);
