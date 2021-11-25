@@ -5,24 +5,23 @@
 ## Status
 - Em constução
 
-## Tópicos
-<!--ts-->
-* 📌 [Como usar](#como-usar)
-	* 📌 [Ferramentas](#ferramentas)
-	* 📌 [Tecnologias](#tecnologias)
-	* 📌 [Dependencias](#dependencias)
-* 📌 [Pré requisitos](#pre-requisitos)
-* 📌 [Executar aplicacao](#executar-aplicacao)
-	* 📌 [BackEnd](#backend) 
-	* 📌 [FrontEnd](#frontend)
-* 📌 [Features](#features)
-	* 📌 [Cliente](#cliente)
-	* 📌 [Empresa](#empresa)
-* 📌 [funcionalidades previstas](#funcionalidades-previstas)
-* 📌 [demonstracao aplicacao](#demonstracao-aplicacao)
-* 📌 [Melhorias Futuras](#melhorias-futuras)
-* 📌 [Autores](#autores)
-<!--te-->
+## 📌 Tópicos
+
+*  [Como usar](#como-usar)
+	-  [Ferramentas](#ferramentas)
+	-  [Tecnologias](#tecnologias)
+	-  [Dependencias](#dependencias)
+*  [Pre requisitos](#pre-requisitos)
+*  [Executar a aplicacao](#executar-a-aplicacao)
+	-  [Back End](#back-end)
+	-  [Front End](#front-end)
+*  [Features](#features) 
+	-  [Cliente](#cliente)
+	-  [Empresa](#empresa)
+*  [Funcionalidades previstas](#funcionalidades-previstas)
+*  [Demonstracao da aplicacao](#demonstracao-da-aplicacao)
+*  [Melhorias Futuras](#melhorias-futuras) 
+*  [Autores](#autores)
 
 # Como usar
 ### Ferramentas:
