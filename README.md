@@ -98,6 +98,11 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 ## Demonstração da Aplicação
 - video mostrando o funcionamento
 
+## Melhorias futuras
+
+* Implementação do login
+* Permissões de acesso
+
 ## Autores
 <sub><b>Alice Souza<b></sub></a>
 [![Linkedin Badge](https://img.shields.io/badge/-Alice-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/alicefms/)](https://www.linkedin.com/in/alicefms/)
