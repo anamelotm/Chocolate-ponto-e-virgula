@@ -25,9 +25,12 @@ export class PedidoDetalharComponent implements OnInit {
   ngOnInit(): void {
     if(this.id!== null) {
     this.servico.getItensPedido(this.id).subscribe(obj => this.itens = obj );
-      this.pedidoService.getPedido(this.id).subscribe(data =>
-        this.pedido = data
-      );
+      this.pedidoService.getPedido(this.id).subscribe(data => {
+        this.pedido = data;
+        if(this.pedido.valorComDesconto == 0){
+          this.pedido.valorComDesconto = this.pedido.valorTotal
+        }
+      });
   }}
 
   deletarItem(codigo: any){
