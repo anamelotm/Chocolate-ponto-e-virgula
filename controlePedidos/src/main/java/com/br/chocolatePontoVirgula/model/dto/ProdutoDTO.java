@@ -16,7 +16,7 @@ public class ProdutoDTO {
     private String descricaoProduto;
     private String unidadeMedida;
     private double valorUnitario;
-    private boolean status;
+    private String status;
     private String urlFoto;
     private double peso;
     private Date dataFabricacao;
@@ -32,7 +32,7 @@ public class ProdutoDTO {
         this.descricaoProduto = produto.getDescricaoProduto();
         this.unidadeMedida = produto.getUnidadeMedida();
         this.valorUnitario = produto.getValorUnitario();
-        this.status = produto.isStatus();
+        this.status = produto.Status();
         this.urlFoto = produto.getUrlFoto();
         this.peso = produto.getPeso();
         this.dataFabricacao = produto.getDataFabricacao();
