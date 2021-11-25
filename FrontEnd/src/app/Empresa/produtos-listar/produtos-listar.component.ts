@@ -39,6 +39,7 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
     }, error => {
       if(error.status == 200){
       this.toastr.warning(error.error.text);
+      this.ngOnInit();
       console.log(error)
       } else{
         this.toastr.error(error.error);

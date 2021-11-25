@@ -40,11 +40,11 @@ export class ClienteListarComponent implements OnInit, OnChanges {
 
   deletarCliente(codigo: any){
     this.servico.deletarCliente(codigo).subscribe(data => {
-      this.toastr.error('O cliente foi excluído com sucesso', 'Cliente deletado');
+      this.toastr.error('Cliente excluido com sucesso');
       this.ngOnInit();
     }, error => {
       if(error.status == 200){
-        this.toastr.success('Cliente!', 'Cliente excluido com sucesso');
+        this.toastr.success('Cliente excluido com sucesso');
         this.ngOnInit();
       } else if (error.status == 400){
         this.toastr.error(error.error);
