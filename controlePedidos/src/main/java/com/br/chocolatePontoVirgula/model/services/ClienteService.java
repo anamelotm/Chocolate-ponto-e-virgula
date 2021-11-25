@@ -1,17 +1,17 @@
 package com.br.chocolatePontoVirgula.model.services;
 
-;
-import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
+import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+
+import java.util.List;
 
 
 @Service
@@ -22,7 +22,7 @@ public class ClienteService {
 
 
     public ResponseEntity<String> save(@Validated ClienteForm clienteForm){
-       //pegando os dados do clienteForm e atribuindo a um Cliente:
+        //pegando os dados do clienteForm e atribuindo a um Cliente:
         Cliente cliente = new Cliente();
         cliente.setNome(clienteForm.getNome());
         cliente.setTipo(clienteForm.getTipo());
@@ -33,49 +33,55 @@ public class ClienteService {
 
         //validando o o documento antes de realizar o insert no banco
         if(cliente.getTipo().equals("Física")){
-           docValido = validarCPF(cliente.getDocumento());
+            docValido = validarCPF(cliente.getDocumento());
         } else if (cliente.getTipo().equals("Jurídica")){
             docValido = validarCNPJ(cliente.getDocumento());
         }
 
-        if(docValido){
+        //verificando se o cliente já está cadastrado no banco:
+        Cliente cliPesquisado = clienteRepository.alreadyExist(cliente.getDocumento());
+
+        if(docValido && cliPesquisado == null){
             clienteRepository.save(cliente);
-            return ResponseEntity.ok().body("cliente criado");
+            return ResponseEntity.ok().body("Cliente criado com sucesso!");
         } else {
-            return  ResponseEntity.badRequest().body("Aqui haverá uma exceção (insira um documento válido)");
+            return  ResponseEntity.badRequest().body("Não foi possível cadastrar o cliente. Insira um documento válido ou verifique se esse documento está associado um cliente já cadastrado.");
 
 
         }
 
     }
 
+    public ResponseEntity<String> update(Long id, Cliente cliente){
+        Cliente clientePesquisado = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
 
-    public void update(Long id, Cliente cliente){
-        Cliente clientePesquisado = clienteRepository.getById(id);
+        clientePesquisado.setNome(cliente.getNome());
+        clienteRepository.save(clientePesquisado);
+        return ResponseEntity.ok().body("Cliente alterado com sucesso!");
 
-        if(clientePesquisado != null){
-            clientePesquisado.setNome(cliente.getNome());
-            clienteRepository.save(clientePesquisado);
+    }
+
+    public ResponseEntity<String> delete(Long id){
+        Cliente c = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
+        List<Long> clienteHasPedido = clienteRepository.clienteHasPedido(c.getId());
+
+        if(clienteHasPedido.isEmpty()){
+            clienteRepository.deleteById(c.getId());
+            return ResponseEntity.ok().body("Cliente excluído com sucesso!");
+        } else {
+            return ResponseEntity.badRequest().body("Não foi possível excluir o cliente pois ele está associado a um pedido.");
         }
+
     }
 
 
+    public Cliente findById(Long id) {
+        return clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
 
-    public void delete(Long id){
-
-        clienteRepository.deleteById(id);
-    }
-
-
-    public ResponseEntity<Cliente> findById(Long id) {
-        Cliente cliente = clienteRepository.findById(id).get();
-        return ResponseEntity.ok().body(cliente);
     }
 
 
     public Page<Cliente> findAll(Pageable pageable) {
-
-
        return clienteRepository.findAll(pageable);
 
     }

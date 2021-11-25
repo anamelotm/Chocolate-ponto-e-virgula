@@ -1,7 +1,7 @@
 package com.br.chocolatePontoVirgula.controller;
 
 import com.br.chocolatePontoVirgula.model.dto.ClienteDTO;
-import com.br.chocolatePontoVirgula.model.entity.Pedido;
+import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.br.chocolatePontoVirgula.model.entity.Cliente;
-
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,17 +27,17 @@ public class ClienteController {
 	}
 
 	@PutMapping("/{id}")
-	public void update(@PathVariable Long id, @RequestBody Cliente cliente){
-		clienteService.update(id, cliente);
+	public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Cliente cliente){
+		return clienteService.update(id, cliente);
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id){
-		clienteService.delete(id);
+	public ResponseEntity<String> delete(@PathVariable Long id){
+		return clienteService.delete(id);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Cliente> findById(@PathVariable Long id) {
+	public Cliente findById(@PathVariable Long id) {
 		 return clienteService.findById(id);
 	}
 

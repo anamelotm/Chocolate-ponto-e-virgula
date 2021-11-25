@@ -45,7 +45,7 @@ public class ProdutoController {
 
     //encontra o produto por id
     @GetMapping("/{id}")
-    public ResponseEntity<Produto> findById(@PathVariable Long id) {
+    public Produto findById(@PathVariable Long id) {
         return produtoService.findById(id);
     }
 
@@ -64,8 +64,8 @@ public class ProdutoController {
 
     //inativar o produto
     @PatchMapping("/{id}")
-    public void inativar(@PathVariable Long id){
-        produtoService.inativar(id);
+    public ResponseEntity<String> inativar(@PathVariable Long id){
+       return produtoService.inativar(id);
     }
 
     //atualiza o estoque
@@ -82,6 +82,8 @@ public class ProdutoController {
     //consulta o estoque do produto
     @GetMapping("/estoque/{id}")
     public Integer verificarEstoque(@PathVariable Long id){
-        return produtoService.verificarEstoque(findById(id).getBody());
+        return produtoService.verificarEstoque(findById(id));
     }
 }
+
+

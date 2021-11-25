@@ -1,4 +1,4 @@
-package com.br.model.entity;
+package com.br.controlePedidos.model.entity;
 
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,9 @@ class PedidoTest {
     @Test
     void aplicarDesconto() {
         pedido.setValorTotal(100);
-        pedido.setPercentualDesconto(10);
-        assertEquals("90,00",pedido.retornarValorComDesconto());
+        pedido.setPercentualDesconto(0);
+        System.out.println(pedido.retornarValorComDesconto());
+        assertEquals(100.0,pedido.retornarValorComDesconto());
 
     }
 }
