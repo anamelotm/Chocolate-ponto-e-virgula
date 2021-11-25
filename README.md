@@ -7,21 +7,21 @@
 
 ## 📌 Tópicos
 
-*  [Como usar](#como-usar)
-	-  [Ferramentas](#ferramentas)
-	-  [Tecnologias](#tecnologias)
-	-  [Dependencias](#dependencias)
-*  [Pre requisitos](#pre-requisitos)
-*  [Executar a aplicacao](#executar-a-aplicacao)
-	-  [Back End](#back-end)
-	-  [Front End](#front-end)
-*  [Features](#features) 
-	-  [Cliente](#cliente)
-	-  [Empresa](#empresa)
-*  [Funcionalidades previstas](#funcionalidades-previstas)
-*  [Demonstracao da aplicacao](#demonstracao-da-aplicacao)
-*  [Melhorias Futuras](#melhorias-futuras) 
-*  [Autores](#autores)
+* [Como usar](#como-usar)
+	- [Ferramentas](#ferramentas)
+	- [Tecnologias](#tecnologias)
+	- [Dependências](#dependências)
+* [Pré requisitos](#pré-requisitos)
+* [Executar a aplicação](#executar-a-aplicação)
+	- [Back End](#back-end)
+	- [Front End](#front-end)
+* [Features](#features) 
+	- [Cliente](#cliente)
+	- [Empresa](#empresa)
+* [Funcionalidades previstas](#funcionalidades-previstas)
+* [Demonstração da aplicação](#demonstração-da-aplicação)
+* [Melhorias Futuras](#melhorias-futuras) 
+* [Autores](#autores)
 
 # Como usar
 ### Ferramentas:
