@@ -33,9 +33,16 @@ export class ProdutosListarComponent implements OnInit, OnChanges {
   }
 
   alteraStatus(id: any){
-    this.servico.inativarProduto(id).subscribe(obj =>{
+    this.servico.inativarProduto(id).subscribe(obj => {
       this.toastr.warning('O produto está Indisponível', 'Produto Inativo');
       this.ngOnInit();
+    }, error => {
+      if(error.status == 200){
+      this.toastr.warning(error.error.text);
+      console.log(error)
+      } else{
+        this.toastr.error(error.error);
+      }
     });
   }
   getProdutos(page: string){
