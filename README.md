@@ -104,21 +104,22 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 * Permissões de acesso
 
 ## Autores
-<sub><b>Alice Souza<b></sub></a>
+
+### Alice Moraes
 [![Linkedin Badge](https://img.shields.io/badge/-Alice-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/alicefms/)](https://www.linkedin.com/in/alicefms/)
 
-<sub><b>Ana Caroline<b></sub></a>
+### Ana Caroline Vilela
 [![Linkedin Badge](https://img.shields.io/badge/-Ana_Caroline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https:https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)](https://www.linkedin.com/in/ana-caroline-vilela-53a824209/)
 
-<sub><b>Ana Luísa<b></sub></a>
+### Ana Luísa Melo
 [![Linkedin Badge](https://img.shields.io/badge/-Ana_Luísa-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/analuisatmelo/)](https://www.linkedin.com/in/analuisatmelo/) 
 
-<sub><b>Evelin<b></sub></a>
+### Evelin Kashimir
 [![Linkedin Badge](https://img.shields.io/badge/-Evellin-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/evelin-kashimir-ferraz-4a6553210/)](https://www.linkedin.com/in/evelin-kashimir-ferraz-4a6553210/) 
 
-<sub><b>Isabel<b></sub></a>
+### Isabel Vargas
 [![Linkedin Badge](https://img.shields.io/badge/-Isabel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/isabel-vargas-desenvolvedora/)](https://www.linkedin.com/in/isabel-vargas-desenvolvedora/) 
 
-<sub><b>Jacqueline<b></sub></a>
+### Jacqueline Lima
 [![Linkedin Badge](https://img.shields.io/badge/-Jacqueline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jacquelinepslima/)](https://www.linkedin.com/in/jacquelinepslima/) 
 
