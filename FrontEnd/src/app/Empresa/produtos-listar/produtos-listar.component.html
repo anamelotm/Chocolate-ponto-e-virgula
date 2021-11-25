@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-15 offset-lg-0">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Lista de Produtos</span>
+          <button type="button" class="btn btn-outline-warning float-end" routerLink="/produto-cadastrar">Novo Produto</button>
+          <table class="table table-borderless table-hover mt-lg-5">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor Unitário</th>
+                <th scope="col">Validade</th>
+                <th scope="col">Status</th>
+                <th scope="col">Qtd Estoque</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let produto of produtos">
+              <tr>
+                <th scope="row">{{produto.id}}</th>
+                <td>{{produto.nome}}</td>
+                <td>{{produto.valorUnitario | currency: 'BRL'}}</td>
+                <td>{{produto.dataValidade}}</td>
+                
+                <td>{{produto.status}} <i (click)="alteraStatus(produto.id)" class="fas fa-exchange-alt text-primary"></i></td>
+                <td>{{produto.quantidadeEstoque}}</td>
+                <td><i  [routerLink]="['/editar-produto', produto.id]" class="fas fa-edit text-primary"></i></td>
+                <td><i (click)="deletarProduto(produto.id)" class="far fa-trash-alt text-danger"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="produtos.length == 0">Não existem produtos cadastrados no momento. </h5>
+
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li *ngFor = "let pag of paginasBotoes"  class="page-item"><button  class="page-link"(click)="getProdutos(pag.toString())">{{pag +1}}</button></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+
+<div class="card" style="margin-top: 4%;">
+
+  <div class="card-header">
+    <div class="card-header text-center">
+      <h2 id="titulo_card"> {{ titulo }} </h2>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="clienteForm" (ngSubmit)="cadastrarCliente()">
+        <div class="input-group">
+          <span class="input-group-text" style="width: 20%;">Nome completo</span>
+          <input type="text" class="form-control" formControlName="nome" >
+        </div>
+        <div class="text-danger"
+          *ngIf="clienteForm.get('nome')?.hasError('required') && clienteForm.get('nome')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+        <div class="input-group mt-3">
+          <select aria-label="Tipo documento" id="select-tipo" formControlName="tipo" style="width: 13%;"  >
+            <option value="">Tipo</option>
+            <option value="Física">CPF</option >
+            <option value="Jurídica">CNPJ</option >
+          </select>
+          <input type="text" class="form-control" placeholder="Nº do Documento" formControlName="documento" [readonly]="editar">
+        </div>
+
+        <div class="text-danger"
+            *ngIf="clienteForm.get('documento')?.hasError('required') && clienteForm.get('documento')?.touched">
+          <span>Campo obrigatório!</span>
+        </div>
+
+        <br>
+        <button class="btn btn-outline-secondary float-start" routerLink="/">Voltar</button>
+        <button id="btn-cadastro" type="submit" [disabled]='clienteForm.invalid' class="btn btn-outline-success float-end">{{button}}</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>

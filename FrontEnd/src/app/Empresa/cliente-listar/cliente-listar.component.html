@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-15 offset-lg-0">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Lista de Clientes</span>
+          <table class="table table-borderless table-hover mt-lg-5">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let cliente of clientes">
+              <tr>
+                <th scope="row">{{cliente.id}}</th>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.tipo}}</td>
+                <td>{{cliente.documento}}</td>
+                <td><i [routerLink]="['/editar-cliente', cliente.id]" class="fas fa-edit text-primary"></i></td>
+                <td><i (click)="deletarCliente(cliente.id)" class="far fa-trash-alt text-danger"></i></td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="clientes.length == 0">Não existem clientes cadastrados no momento. </h5>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+               <li *ngFor = "let pag of paginasBotoes"  class="page-item"><button  class="page-link"(click)="getClientes(pag.toString())">{{pag +1}}</button></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
