@@ -3,7 +3,6 @@ package com.br.chocolatePontoVirgula.model.services;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
-import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotCreatedException;
 import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+
+import java.util.List;
 
 
 @Service
@@ -44,28 +45,33 @@ public class ClienteService {
             clienteRepository.save(cliente);
             return ResponseEntity.ok().body("Cliente criado com sucesso!");
         } else {
-            return  ResponseEntity.badRequest().body("Insira um documento válido.");
+            return  ResponseEntity.badRequest().body("Não foi possível cadastrar o cliente. Insira um documento válido ou verifique se esse docuento está associado um cliente já cadastrado.");
 
 
         }
 
     }
 
+    public ResponseEntity<String> update(Long id, Cliente cliente){
+        Cliente clientePesquisado = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
 
-    public void update(Long id, Cliente cliente){
-        Cliente clientePesquisado = clienteRepository.getById(id);
+        clientePesquisado.setNome(cliente.getNome());
+        clienteRepository.save(clientePesquisado);
+        return ResponseEntity.ok().body("Cliente alterado com sucesso!");
 
-        if(clientePesquisado != null){
-            clientePesquisado.setNome(cliente.getNome());
-            clienteRepository.save(clientePesquisado);
-        }
     }
 
+    public ResponseEntity<String> delete(Long id){
+        Cliente c = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
+        List<Long> clienteHasPedido = clienteRepository.clienteHasPedido(c.getId());
 
+        if(clienteHasPedido == null){
+            clienteRepository.deleteById(c.getId());
+            return ResponseEntity.ok().body("Cliente excluído com sucesso!");
+        } else {
+            return ResponseEntity.badRequest().body("Não foi possível excluir o cliente pois ele está associado a um pedido.");
+        }
 
-    public void delete(Long id){
-
-        clienteRepository.deleteById(id);
     }
 
 
