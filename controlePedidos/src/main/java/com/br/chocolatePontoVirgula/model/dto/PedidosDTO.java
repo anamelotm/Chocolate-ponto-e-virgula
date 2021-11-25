@@ -15,7 +15,7 @@ public class PedidosDTO {
     private String dataPedido;
     private String cliente;
     private String situacao;
-    private String valorFinal;
+    private double valorFinal;
 
     public PedidosDTO(Pedido pedido) {
         this.id = pedido.getId();
@@ -27,7 +27,7 @@ public class PedidosDTO {
         this.dataPedido=formato.format(pedido.getDataPedido());
         this.situacao = pedido.isAberto()?"Aberto":"Fechado";
         if(pedido.getPercentualDesconto()==0){
-            this.valorFinal = ""+pedido.getValorTotal();
+            this.valorFinal = pedido.getValorTotal();
         }
         else {
             this.valorFinal = pedido.retornarValorComDesconto();

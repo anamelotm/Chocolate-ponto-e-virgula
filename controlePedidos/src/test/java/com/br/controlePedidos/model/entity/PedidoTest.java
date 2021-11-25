@@ -1,4 +1,4 @@
-package com.br.model.entity;
+package com.br.controlePedidos.model.entity;
 
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import org.junit.jupiter.api.Test;

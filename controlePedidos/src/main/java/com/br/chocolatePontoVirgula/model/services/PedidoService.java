@@ -41,14 +41,14 @@ public class PedidoService {
     }
 
     public void update(Long id, Pedido pedido) throws URISyntaxException {
-        Optional<Pedido> pedidoPesquisado = Optional.of(pedidoRepository.getById(id));
-        pedidoPesquisado.get().setCliente(pedido.getCliente());
-        pedidoPesquisado.get().setEnderecoEntrega(pedido.getEnderecoEntrega());
+        Pedido pedidoPesquisado = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
+        pedidoPesquisado.setCliente(pedido.getCliente());
+        pedidoPesquisado.setEnderecoEntrega(pedido.getEnderecoEntrega());
         List<Pedido> pedidos = pedidoRepository.consultaPedidosCliente(pedido.getCliente().getId());
-        if ((pedidos.isEmpty()) && (pedidoPesquisado.get().isAberto())) {
-            pedidoPesquisado.get().setPercentualDesconto(10);
+        if ((pedidos.isEmpty()) && (pedidoPesquisado.isAberto())) {
+            pedidoPesquisado.setPercentualDesconto(10);
         }
-        pedidoRepository.save(pedidoPesquisado.get());
+        pedidoRepository.save(pedidoPesquisado);
     }
 
 
