@@ -54,13 +54,13 @@ public class ClienteService {
     }
 
 
-    public void update(Long id, Cliente cliente){
-        Cliente clientePesquisado = clienteRepository.getById(id);
+    public ResponseEntity<String> update(Long id, Cliente cliente){
+        Cliente clientePesquisado = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
 
-        if(clientePesquisado != null){
-            clientePesquisado.setNome(cliente.getNome());
-            clienteRepository.save(clientePesquisado);
-        }
+        clientePesquisado.setNome(cliente.getNome());
+        clienteRepository.save(clientePesquisado);
+        return ResponseEntity.ok().body("Cliente alterado com sucesso");
+
     }
 
 
