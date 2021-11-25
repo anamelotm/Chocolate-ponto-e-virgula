@@ -11,10 +11,13 @@
 	* 📌 [Ferramentas](#ferramentas)
 	* 📌 [Tecnologias](#tecnologias)
 	* 📌 [Pre requisitos](#pre-requisitos)
-* 📌 [Rodar a aplicação](#rodar-aplicacao)
-* 📌 [Testes](#testes)
+* 📌 [Executar a aplicação](#executar-a-aplicacao)
+	* 📌 [Back-End](#back-end)
+	* 📌 [Front-End](#front-end)
 * 📌 [Features](#features)
-* 📌 [Demonstração da Aplicação](#demonstracao-aplicacao)
+* 📌 [Funcionalidades Previstas](#funcionalidades-previstas)
+* 📌 [Demonstração da aplicação](#demonstracao-da-aplicacao)
+* 📌 [Melhorias Futuras](#melhorias-futuras)
 * 📌 [Autores](#autores)
 <!--te-->
 
@@ -47,7 +50,9 @@
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: Git Bash, Node.js.
 Além disso é necessário um editor de código, como o Visual Studio Code e uma IDE, como o Intellij.
 
-## Rodando o Back End (servidor)
+## Executar a aplicação
+
+## Back-End (servidor)
 
 ### Abra o Git Bash e clone este repositório
 	$ git clone git@github.com:anamelotm/Chocolate-ponto-e-virgula.git
@@ -59,7 +64,7 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 * Run ChocolatePontoVirgulaApplication
 
-## Rodando o Front End (cliente)
+## Front-End (cliente)
 
 ### Instale as dependências
 	$ npm install
