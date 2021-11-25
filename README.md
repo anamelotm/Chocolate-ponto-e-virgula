@@ -10,16 +10,16 @@
 * 📌 [Como usar](#como-usar)
 	* 📌 [Ferramentas](#ferramentas)
 	* 📌 [Tecnologias](#tecnologias)
-	* 📌 [Dependencias](#dependecias)
-* 📌 [Pre requisitos](#pre-requisitos)
+	* 📌 [Dependencias](#dependencias)
+* 📌 [Pré requisitos](#pre-requisitos)
 * 📌 [Executar aplicacao](#executar-aplicacao)
-* 📌 [Back End](#back-end)
-* 📌 [Front End](#front-end)
+	* 📌 [BackEnd](#backend) 
+	* 📌 [FrontEnd](#frontend)
 * 📌 [Features](#features)
 	* 📌 [Cliente](#cliente)
 	* 📌 [Empresa](#empresa)
-* 📌 [Funcionalidades Previstas](#funcionalidades-previstas)
-* 📌 [Demonstracao aplicacao](#demonstracao-aplicacao)
+* 📌 [funcionalidades previstas](#funcionalidades-previstas)
+* 📌 [demonstracao aplicacao](#demonstracao-aplicacao)
 * 📌 [Melhorias Futuras](#melhorias-futuras)
 * 📌 [Autores](#autores)
 <!--te-->
@@ -55,27 +55,27 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ## Executar a aplicação
 
-## Back-End (servidor)
+### Back-End (servidor)
 
-### Abra o Git Bash e clone este repositório
+#### Abra o Git Bash e clone este repositório
 	$ git clone git@github.com:anamelotm/Chocolate-ponto-e-virgula.git
 	
-### Acesse a pasta do projeto no terminal/cmd
+#### Acesse a pasta do projeto no terminal/cmd
 	$ cd Chocolate-ponto-e-virgula
 
-### Abra o projeto no Intellij
+#### Abra o projeto no Intellij
 
 * Run ChocolatePontoVirgulaApplication
 
-## Front-End (cliente)
+### Front-End (cliente)
 
-### Instale as dependências
+#### Instale as dependências
 	$ npm install
 
-### Executa a aplicação no Visual Studio Code (terminal)
+#### Executa a aplicação no Visual Studio Code (terminal)
 	$ ng serve -o
 
-### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
+#### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
 
 
 
