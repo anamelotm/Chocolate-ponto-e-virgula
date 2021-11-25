@@ -2,14 +2,14 @@ drop schema controlepedidos;
 create schema controlepedidos;
 use controlepedidos;
 
-
+/*!50503 SET character_set_client = utf8mb4 */;
 create table cliente (
 	id 				int 		not null auto_increment primary key,
 	tipo				varchar(8) not null,
 	documento			varchar(18) not null,
 	nome				varchar(100) not null
 );
-
+/*!50503 SET character_set_client = utf8mb4 */;
 create table produto (
 	id 				int 		not null auto_increment primary key,
 	nome 				varchar(100) not null,
@@ -23,7 +23,7 @@ create table produto (
 	data_validade		date not null,
 	quantidade_estoque	int not null
 );
-
+/*!50503 SET character_set_client = utf8mb4 */;
 create table pedido(
 	id 				int not null auto_increment primary key,
 	id_cliente 		int, -- FK da coluna codigo tabela cliente
@@ -35,7 +35,7 @@ create table pedido(
 	percentual_desconto	int
 	
 );
-
+/*!50503 SET character_set_client = utf8mb4 */;
 create table item_Pedido(
 	id 				int not null auto_increment primary key,
 	id_pedido		int not null,  -- FK da coluna codigo tabela pedido
