@@ -3,7 +3,6 @@ package com.br.chocolatePontoVirgula.model.services;
 import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.form.ClienteForm;
 import com.br.chocolatePontoVirgula.model.repository.ClienteRepository;
-import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotCreatedException;
 import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

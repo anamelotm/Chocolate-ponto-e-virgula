@@ -2,7 +2,6 @@ package com.br.chocolatePontoVirgula.model.services;
 
 
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
-
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.form.ItemPedidoForm;
 import com.br.chocolatePontoVirgula.model.repository.ItemPedidoRepository;
@@ -13,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
