@@ -29,7 +29,7 @@ public class PedidoService {
     PedidoRepository pedidoRepository;
 
     public ResponseEntity<String> salvar(@Validated PedidoForm pedidoForm) {
-        Pedido pedido=new Pedido();
+        Pedido pedido = new Pedido();
         pedido.setDataPedido(pedido.getDataAtual());
         pedido.setCliente(null);
         pedido.setAberto(true);
@@ -37,28 +37,26 @@ public class PedidoService {
         pedido.setEnderecoEntrega(null);
         pedido.setValorTotal(pedidoForm.getValorTotal());
         pedido.setQuantidadeTotal(pedidoForm.getQuantidadeTotal());
-        return ResponseEntity.ok().body(pedidoRepository.save(pedido).getId()+"");
+        return ResponseEntity.ok().body(pedidoRepository.save(pedido).getId() + "");
     }
 
-    public void update(Long id, Pedido pedido) throws URISyntaxException {
-        Optional<Pedido> pedidoPesquisado = Optional.of(pedidoRepository.getById(id));
-        pedidoPesquisado.get().setCliente(pedido.getCliente());
-        pedidoPesquisado.get().setEnderecoEntrega(pedido.getEnderecoEntrega());
-        List<Pedido> pedidos=pedidoRepository.consultaPedidosCliente(pedido.getCliente().getId());
-        if((pedidos.isEmpty()) && (pedidoPesquisado.get().isAberto())){
-            pedidoPesquisado.get().setPercentualDesconto(10);
+    public Pedido update(Long id, Pedido pedido) throws URISyntaxException {
+        Pedido pedidoPesquisado = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
+        pedidoPesquisado.setCliente(pedido.getCliente());
+        pedidoPesquisado.setEnderecoEntrega(pedido.getEnderecoEntrega());
+        List<Pedido> pedidos = pedidoRepository.consultaPedidosCliente(pedido.getCliente().getId());
+        if ((pedidos.isEmpty()) && (pedidoPesquisado.isAberto())) {
+            pedidoPesquisado.setPercentualDesconto(10);
         }
-        pedidoRepository.save(pedidoPesquisado.get());
+        pedidoRepository.save(pedidoPesquisado);
+        return  pedidoPesquisado;
     }
-
 
 
     public Pedido findById(Long id) {
-        Pedido pedido = pedidoRepository.findById(id).orElseThrow(()->new EntityNotFoundException("Não foi encontrado um pedido com esse id"+id));
+        Pedido pedido = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
         return pedido;
     }
-
-    @Query(value = "SELECT * FROM pedido p WHERE p.id_cliente = ?")
 
     public List<Pedido> consultaPedidosCliente(Long idCliente) {
         return pedidoRepository.consultaPedidosCliente(idCliente);
@@ -69,13 +67,10 @@ public class PedidoService {
         return pedidoRepository.findAll(pageable);
     }
 
-    public List<PedidosDTO> consultaGeralPedidos() {
-        return null;
-    }
-
-    public void fecharPedido(Long id) {
-        Optional<Pedido> pedido = pedidoRepository.findById(id);
-        pedido.get().setAberto(false);
-        pedidoRepository.save(pedido.get());
+    public Pedido fecharPedido(Long id) {
+        Pedido pedido = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
+        pedido.setAberto(false);
+        pedidoRepository.save(pedido);
+        return pedido;
     }
 }

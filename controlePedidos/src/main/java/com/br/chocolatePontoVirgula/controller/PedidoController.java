@@ -70,7 +70,9 @@ public class PedidoController {
     }
 
     @PatchMapping("fecharpedido/{id}")
-    public void fecharPedido(@PathVariable Long id) {
-        pedidoService.fecharPedido(id);
+    public ResponseEntity<?> fecharPedido(@PathVariable Long id) {
+
+        PedidoDTO pedidoDTO = new PedidoDTO(pedidoService.fecharPedido(id));
+        return ResponseEntity.ok().body(pedidoDTO);
     }
 }
