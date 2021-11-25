@@ -3,6 +3,7 @@ package com.br.chocolatePontoVirgula.controller;
 import com.br.chocolatePontoVirgula.model.dto.PedidoDTO;
 import com.br.chocolatePontoVirgula.model.dto.PedidosDTO;
 import com.br.chocolatePontoVirgula.model.form.PedidoForm;
+import com.br.chocolatePontoVirgula.model.form.PedidoUpdateForm;
 import com.br.chocolatePontoVirgula.model.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,8 +39,8 @@ public class PedidoController {
     }
 
     @PatchMapping("{id}")
-    public void update(@PathVariable Long id, @RequestBody Pedido pedido) throws URISyntaxException {
-        pedidoService.update(id, pedido);
+    public void update(@PathVariable Long id, @Validated @RequestBody PedidoUpdateForm pedidoUpdate) throws URISyntaxException {
+        pedidoService.update(id, pedidoUpdate);
     }
 
     @GetMapping("/{id}")
