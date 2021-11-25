@@ -50,18 +50,21 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 ## Rodando o Back End (servidor)
 
 ### Abra o Git Bash e clone este repositório
-	$ git clone <git@github.com:anamelotm/Chocolate-ponto-e-virgula.git>
+	$ git clone git@github.com:anamelotm/Chocolate-ponto-e-virgula.git
+	
 ### Acesse a pasta do projeto no terminal/cmd
 	$ cd Chocolate-ponto-e-virgula
 
-## Rodando o Front End (servidor)
+### Abra o projeto no Intellij
 
-### Instale o Angular
-	$ npm i -g @angular/material
+* Run ChocolatePontoVirgulaApplication
+
+## Rodando o Front End (cliente)
+
 ### Instale as dependências
 	$ npm install
 
-### Executa a aplicação e abre a página
+### Executa a aplicação no Visual Studio Code (terminal)
 	$ ng serve -o
 
 ### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
