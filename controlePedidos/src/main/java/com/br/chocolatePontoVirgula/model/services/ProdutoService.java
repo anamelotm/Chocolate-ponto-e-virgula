@@ -1,10 +1,12 @@
 package com.br.chocolatePontoVirgula.model.services;
 
+import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.ItemPedido;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.form.ProdutoForm;
 import com.br.chocolatePontoVirgula.model.repository.ItemPedidoRepository;
 import com.br.chocolatePontoVirgula.model.repository.ProdutoRepository;
+import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +30,7 @@ public class ProdutoService {
     private ItemPedidoRepository itemPedidoRepository;
 
     public void save(@Validated ProdutoForm produto) {
+        //pega os dados do produtoForm e atribuindo a um produto
         Produto p = new Produto();
         p.setNome(produto.getNome());
         p.setDescricaoProduto(produto.getDescricaoProduto());
@@ -42,19 +45,20 @@ public class ProdutoService {
         produtoRepository.save(p);
     }
 
+    public ResponseEntity<String> update(Long id, Produto produto){
+        Produto produtoPesquisado = produtoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Produto não encontrado."));
 
-    public void update(@PathVariable Long id, Produto produto){
+        produtoPesquisado.setNome(produto.getNome());
+        produtoRepository.save(produtoPesquisado);
+        return ResponseEntity.ok().body("Produto alterado com sucesso!");
 
-        Produto produtoPesquisado = produtoRepository.getById(id);
-
-        if(produtoPesquisado != null){
-            produtoPesquisado.setNome(produto.getNome());
-            produtoRepository.save(produtoPesquisado);
-        }
     }
 
     //verificar antes de excluir um produto para ver se ele está na tabela itemPedido
     public ResponseEntity<String> delete(Long id) throws URISyntaxException {
+        Produto p = produtoRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Produto não encontrado."));
+
         URI uri = new URI("http://localhost:8080/itens-pedidos/produtosnoitem/" + id);
         ResponseEntity<List<ItemPedido>> qnt = ResponseEntity.created(uri).body(itemPedidoRepository.produtoHasPedido(id));
 
@@ -67,15 +71,12 @@ public class ProdutoService {
     }
 
     public Page<Produto> findAll(Pageable pageable) {
-
-
         return produtoRepository.findAll(pageable);
-
     }
 
-    public ResponseEntity<Produto> findById(Long id) {
-        Produto produto = produtoRepository.findById(id).get();
-        return ResponseEntity.ok().body(produto);
+    public Produto findById(Long id) {
+        return produtoRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Produto não encontrado."));
     }
 
     public void inativar(Long id){

@@ -52,7 +52,6 @@ public class ClienteService {
 
     }
 
-
     public ResponseEntity<String> update(Long id, Cliente cliente){
         Cliente clientePesquisado = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
 
@@ -61,8 +60,6 @@ public class ClienteService {
         return ResponseEntity.ok().body("Cliente alterado com sucesso!");
 
     }
-
-
 
     public ResponseEntity<String> delete(Long id){
         Cliente c = clienteRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado."));
