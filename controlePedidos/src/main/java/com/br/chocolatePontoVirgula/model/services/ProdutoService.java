@@ -79,10 +79,11 @@ public class ProdutoService {
                 () -> new EntityNotFoundException("Produto não encontrado."));
     }
 
-    public void inativar(Long id){
+    public ResponseEntity<String> inativar(Long id){
         Produto produtoExcluir = produtoRepository.getById(id);
         produtoExcluir.setStatus(false);
         produtoRepository.save(produtoExcluir);
+        return ResponseEntity.ok().body("Produto inativado com sucesso!");
     }
 
     public List<Produto> consultaProdutosAtivos() {

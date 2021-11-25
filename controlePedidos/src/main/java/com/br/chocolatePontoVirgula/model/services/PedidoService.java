@@ -5,6 +5,7 @@ import com.br.chocolatePontoVirgula.model.entity.Cliente;
 import com.br.chocolatePontoVirgula.model.entity.Pedido;
 import com.br.chocolatePontoVirgula.model.entity.Produto;
 import com.br.chocolatePontoVirgula.model.form.PedidoForm;
+import com.br.chocolatePontoVirgula.model.form.PedidoUpdateForm;
 import com.br.chocolatePontoVirgula.model.repository.PedidoRepository;
 import com.br.chocolatePontoVirgula.model.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,11 @@ public class PedidoService {
         return ResponseEntity.ok().body(pedidoRepository.save(pedido).getId() + "");
     }
 
-    public Pedido update(Long id, Pedido pedido) throws URISyntaxException {
+    public Pedido update(Long id, @Validated PedidoUpdateForm pedidoUpdate) throws URISyntaxException {
         Pedido pedidoPesquisado = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
-        pedidoPesquisado.setCliente(pedido.getCliente());
-        pedidoPesquisado.setEnderecoEntrega(pedido.getEnderecoEntrega());
-        List<Pedido> pedidos = pedidoRepository.consultaPedidosCliente(pedido.getCliente().getId());
+        pedidoPesquisado.setCliente(pedidoUpdate.getCliente());
+        pedidoPesquisado.setEnderecoEntrega(pedidoUpdate.getEnderecoEntrega());
+        List<Pedido> pedidos = pedidoRepository.consultaPedidosCliente(pedidoUpdate.getCliente().getId());
         if ((pedidos.isEmpty()) && (pedidoPesquisado.isAberto())) {
             pedidoPesquisado.setPercentualDesconto(10);
         }
