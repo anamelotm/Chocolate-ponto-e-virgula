@@ -40,7 +40,7 @@ public class PedidoService {
         return ResponseEntity.ok().body(pedidoRepository.save(pedido).getId() + "");
     }
 
-    public void update(Long id, Pedido pedido) throws URISyntaxException {
+    public Pedido update(Long id, Pedido pedido) throws URISyntaxException {
         Pedido pedidoPesquisado = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
         pedidoPesquisado.setCliente(pedido.getCliente());
         pedidoPesquisado.setEnderecoEntrega(pedido.getEnderecoEntrega());
@@ -49,6 +49,7 @@ public class PedidoService {
             pedidoPesquisado.setPercentualDesconto(10);
         }
         pedidoRepository.save(pedidoPesquisado);
+        return  pedidoPesquisado;
     }
 
 
@@ -66,9 +67,10 @@ public class PedidoService {
         return pedidoRepository.findAll(pageable);
     }
 
-    public void fecharPedido(Long id) {
-        Optional<Pedido> pedido = pedidoRepository.findById(id);
-        pedido.get().setAberto(false);
-        pedidoRepository.save(pedido.get());
+    public Pedido fecharPedido(Long id) {
+        Pedido pedido = pedidoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Não foi encontrado um pedido com esse id" + id));
+        pedido.setAberto(false);
+        pedidoRepository.save(pedido);
+        return pedido;
     }
 }
