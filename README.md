@@ -3,7 +3,7 @@
 🍫 O projeto é uma loja virtual e fictícia, onde o cliente pode comprar diversos tipos de chocolate, indivualmente ou kit’s. O projeto é dividido em duas camadas, tais como, Cliente e Empresa, na camada **Cliente** existe a tela de cadastro de cliente; Produto, carrinho e pedido fazem parte da camada **Empresa**. Os dados são armazenados através dos recursos do Spring Framework e utilização do banco de dados relacional MySQL. 
 
 ## Status
-- Em constução
+- Concluído
 
 ## 📌 Tópicos
 
@@ -13,6 +13,7 @@
 	- [Dependências](#dependências)
 * [Pré requisitos](#pré-requisitos)
 * [Executar a aplicação](#executar-a-aplicação)
+	- [Banco de dados](#banco-de-dados)
 	- [Back End (servidor)](#back-end-servidor)
 	- [Front End (cliente)](#front-end-cliente)
 * [Features](#features) 
@@ -54,6 +55,11 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ## Executar a aplicação
 
+### Banco de dados
+
+#### Abra o Comand Prompt
+	source <caminho da pasta onde esta o script>\controle_Pedidos.sql
+
 ### Back-End (servidor)
 
 #### Abra o Git Bash e clone este repositório
@@ -64,10 +70,16 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 #### Abra o projeto no Intellij
 
-* Run ChocolatePontoVirgulaApplication
+* Coloque a aplicação para rodar com o atalho Ctrl + Shift + F10
+	* Run ChocolatePontoVirgulaApplication
 
 ### Front-End (cliente)
 
+#### Instale o Node (caso não tenha)
+#### Instale o Angular no Comand Prompt (caso não tenha)
+	$ npm i -g @angular/cli
+
+#### Abra a pasta FrontEnd no VS Code
 #### Instale as dependências
 	$ npm install
 
@@ -75,7 +87,6 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 	$ ng serve -o
 
 #### O servidor iniciará na porta 4200 – acesse <https://localhost:4200>
-
 
 
 ## Features
@@ -101,9 +112,8 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 * Relatórios de listagem de produtos disponíveis
 * Relatórios de listagem de clientes cadastrados
 
-
 ## Demonstração da Aplicação
-- video mostrando o funcionamento
+* acesse: <https://youtu.be/gjBiUWb63fo>
 
 ## Melhorias futuras
 
