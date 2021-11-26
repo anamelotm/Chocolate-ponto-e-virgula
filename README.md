@@ -57,8 +57,8 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 ### Banco de dados
 
-#### Abra o Comand Prompt
-	source <caminho da pasta onde esta o script>\controle_Pedidos.sql
+#### Abra o Comand Prompt do MySQL
+	source <caminho da pasta onde esta o script>\controle_Pedido.sql
 
 ### Back-End (servidor)
 
