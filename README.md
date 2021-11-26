@@ -70,6 +70,8 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 
 #### Abra o projeto no Intellij
 
+* Mudar a senha do Banco de dados no arquivo application.properties
+
 * Coloque a aplicação para rodar com o atalho Ctrl + Shift + F10
 	* Run ChocolatePontoVirgulaApplication
 
