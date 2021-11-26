@@ -59,21 +59,6 @@ public class ItemPedidoService {
     }
 
 
-  public void update( Long id, ItemPedido itemPedido){
-       ItemPedido itemPedidoPesquisado = itemPedidoRepository.getById(id);
-
-       if(itemPedidoPesquisado != null){
-            itemPedidoPesquisado.setQuantidade(itemPedido.getQuantidade());
-            itemPedidoRepository.save(itemPedidoPesquisado);
-       }
-   }
-
-
-    public void delete(Long id){
-        itemPedidoRepository.deleteById(id);
-    }
-
-
     public ResponseEntity<ItemPedido> findById(Long id) {
         ItemPedido itemPedido = itemPedidoRepository.findById(id).get();
         return ResponseEntity.ok().body(itemPedido);

@@ -27,16 +27,6 @@ public class ItemPedidoController {
     public void save(@Validated @RequestBody ItemPedidoForm itemPedido) throws URISyntaxException {itemPedidoService.save(itemPedido);
     }
 
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody ItemPedido itemPedido){
-        itemPedidoService.update(id, itemPedido);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-        itemPedidoService.delete(id);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<ItemPedido> findById(@PathVariable Long id) {
         return itemPedidoService.findById(id);
