@@ -140,4 +140,5 @@ Além disso é necessário um editor de código, como o Visual Studio Code e uma
 [![Linkedin Badge](https://img.shields.io/badge/-Isabel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/isabel-vargas-desenvolvedora/)](https://www.linkedin.com/in/isabel-vargas-desenvolvedora/) 
 
 ### Jacqueline Lima
-[![Linkedin Badge](https://img.shields.io/badge/-Jacqueline-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jacquelinepslima/)](https://www.linkedin.com/in/jacquelinepslima/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Isabel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jacquelinepslima/)]
+(https://www.linkedin.com/in/jacquelinepslima/)
